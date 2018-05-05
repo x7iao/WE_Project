@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4DF61423-0C31-4170-A692-E69B9B448BB8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>文档</RootNamespace>
+    <AssemblyName>文档</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="img\" />
+    <Folder Include="开发文档\" />
+    <Folder Include="测试文档\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="dll\IBatisNet.Common.dll" />
+    <Content Include="dll\IBatisNet.DataMapper.dll" />
+    <Content Include="dll\MySql.Data.dll" />
+    <Content Include="dll\Newtonsoft.Json.dll" />
+    <Content Include="静态页面\202_金源社区互助_20160823\css\bootstrap-ie6.css" />
+    <Content Include="静态页面\202_金源社区互助_20160823\css\bootstrap.min.css" />
+    <Content Include="静态页面\202_金源社区互助_20160823\css\common.css" />
+    <Content Include="静态页面\202_金源社区互助_20160823\css\ie.css" />
+    <Content Include="静态页面\202_金源社区互助_20160823\css\style.css" />
+    <Content Include="静态页面\202_金源社区互助_20160823\find_password\css\bootstrap.css" />
+    <Content Include="静态页面\202_金源社区互助_20160823\find_password\css\style.css" />
+    <Content Include="静态页面\202_金源社区互助_20160823\find_password\find_password.htm" />
+    <Content Include="静态页面\202_金源社区互助_20160823\find_password\images\logo.png" />
+    <Content Include="静态页面\202_金源社区互助_20160823\find_password\js\bootstrap.js" />
+    <Content Include="静态页面\202_金源社区互助_20160823\find_password\js\jquery.js" />
+    <Content Include="静态页面\202_金源社区互助_20160823\find_password\js\layer.js" />
+    <Content Include="静态页面\202_金源社区互助_20160823\find_password\js\web.js" />
+    <Content Include="静态页面\202_金源社区互助_20160823\images\3358414_1302234359.jpg" />
+    <Content Include="静态页面\202_金源社区互助_20160823\images\background.jpg" />
+    <Content Include="静态页面\202_金源社区互助_20160823\images\bg.png" />
+    <Content Include="静态页面\202_金源社区互助_20160823\images\bg2.png" />
+    <Content Include="静态页面\202_金源社区互助_20160823\images\bg3.png" />
+    <Content Include="静态页面\202_金源社区互助_20160823\images\bg4.png" />
+    <Content Include="静态页面\202_金源社区互助_20160823\images\bg5.png" />
+    <Content Include="静态页面\202_金源社区互助_20160823\images\bg6.png" />
+    <Content Include="静态页面\202_金源社区互助_20160823\images\bg7.png" />
+    <Content Include="静态页面\202_金源社区互助_20160823\images\bodybg.png" />
+    <Content Include="静态页面\202_金源社区互助_20160823\images\bz.jpg" />
+    <Content Include="静态页面\202_金源社区互助_20160823\images\char-more.png" />
+    <Content Include="静态页面\202_金源社区互助_20160823\images\check.png" />
+    <Content Include="静态页面\202_金源社区互助_20160823\images\content_bg.png" />
+    <Content Include="静态页面\202_金源社区互助_20160823\images\desktop.png" />
+    <Content Include="静态页面\202_金源社区互助_20160823\images\EN.jpg" />
+    <Content Include="静态页面\202_金源社区互助_20160823\images\exit.png" />
+    <Content Include="静态页面\202_金源社区互助_20160823\images\fac.ico" />
+    <Content Include="静态页面\202_金源社区互助_20160823\images\group.png" />
+    <Content Include="静态页面\202_金源社区互助_20160823\images\headerNenu.png" />
+    <Content Include="静态页面\202_金源社区互助_20160823\images\info.png" />
+    <Content Include="静态页面\202_金源社区互助_20160823\images\kj.png" />
+    <Content Include="静态页面\202_金源社区互助_20160823\images\logo.ico" />
+    <Content Include="静态页面\202_金源社区互助_20160823\images\logo.png" />
+    <Content Include="静态页面\202_金源社区互助_20160823\images\market.png" />
+    <Content Include="静态页面\202_金源社区互助_20160823\images\mavro.png" />
+    <Content Include="静态页面\202_金源社区互助_20160823\images\message.png" />
+    <Content Include="静态页面\202_金源社区互助_20160823\images\mmm_extra.png" />
+    <Content Include="静态页面\202_金源社区互助_20160823\images\money.png" />
+    <Content Include="静态页面\202_金源社区互助_20160823\images\news.png" />
+    <Content Include="静态页面\202_金源社区互助_20160823\images\over.png" />
+    <Content Include="静态页面\202_金源社区互助_20160823\images\page.png" />
+    <Content Include="静态页面\202_金源社区互助_20160823\images\qd.png" />
+    <Content Include="静态页面\202_金源社区互助_20160823\images\question.png" />
+    <Content Include="静态页面\202_金源社区互助_20160823\images\reduce-add.gif" />
+    <Content Include="静态页面\202_金源社区互助_20160823\images\sh.jpg" />
+    <Content Include="静态页面\202_金源社区互助_20160823\images\star.png" />
+    <Content Include="静态页面\202_金源社区互助_20160823\images\strelka32.png" />
+    <Content Include="静态页面\202_金源社区互助_20160823\images\strelka322.png" />
+    <Content Include="静态页面\202_金源社区互助_20160823\images\td.png" />
+    <Content Include="静态页面\202_金源社区互助_20160823\images\ticket.png" />
+    <Content Include="静态页面\202_金源社区互助_20160823\images\user.png" />
+    <Content Include="静态页面\202_金源社区互助_20160823\images\vote.png" />
+    <Content Include="静态页面\202_金源社区互助_20160823\images\wx.jpg" />
+    <Content Include="静态页面\202_金源社区互助_20160823\images\xnb.png" />
+    <Content Include="静态页面\202_金源社区互助_20160823\images\zc.png" />
+    <Content Include="静态页面\202_金源社区互助_20160823\images\ZH.jpg" />
+    <Content Include="静态页面\202_金源社区互助_20160823\images\zt0.jpg" />
+    <Content Include="静态页面\202_金源社区互助_20160823\index.html" />
+    <Content Include="静态页面\202_金源社区互助_20160823\js\bootstrap.min.js" />
+    <Content Include="静态页面\202_金源社区互助_20160823\js\common.js" />
+    <Content Include="静态页面\202_金源社区互助_20160823\js\common2.js" />
+    <Content Include="静态页面\202_金源社区互助_20160823\js\jquery-1.9.1.min.js" />
+    <Content Include="静态页面\202_金源社区互助_20160823\js\payfor.js" />
+    <Content Include="静态页面\202_金源社区互助_20160823\layer\extend\layer.ext.js" />
+    <Content Include="静态页面\202_金源社区互助_20160823\layer\layer.js" />
+    <Content Include="静态页面\202_金源社区互助_20160823\layer\skin\default\icon-ext.png" />
+    <Content Include="静态页面\202_金源社区互助_20160823\layer\skin\default\icon.png" />
+    <Content Include="静态页面\202_金源社区互助_20160823\layer\skin\layer.css" />
+    <Content Include="静态页面\202_金源社区互助_20160823\layer\skin\layer.ext.css" />
+    <Content Include="静态页面\202_金源社区互助_20160823\login\css\bootstrap.min.css" />
+    <Content Include="静态页面\202_金源社区互助_20160823\login\css\newIndex.css" />
+    <Content Include="静态页面\202_金源社区互助_20160823\login\css\tankuang.css" />
+    <Content Include="静态页面\202_金源社区互助_20160823\login\images\background2.jpg" />
+    <Content Include="静态页面\202_金源社区互助_20160823\login\images\denglu.png" />
+    <Content Include="静态页面\202_金源社区互助_20160823\login\images\EN.jpg" />
+    <Content Include="静态页面\202_金源社区互助_20160823\login\images\LoginElements.png" />
+    <Content Include="静态页面\202_金源社区互助_20160823\login\images\logo.ico" />
+    <Content Include="静态页面\202_金源社区互助_20160823\login\images\logo.png" />
+    <Content Include="静态页面\202_金源社区互助_20160823\login\images\yanzhengma.jpg" />
+    <Content Include="静态页面\202_金源社区互助_20160823\login\images\ZH.jpg" />
+    <Content Include="静态页面\202_金源社区互助_20160823\login\js\bootstrap.min.js" />
+    <Content Include="静态页面\202_金源社区互助_20160823\login\js\jquery-1.9.1.min.js" />
+    <Content Include="静态页面\202_金源社区互助_20160823\login\login.htm" />
+    <Content Include="静态页面\202_金源社区互助_20160823\regedit\css\bootstrap.css" />
+    <Content Include="静态页面\202_金源社区互助_20160823\regedit\css\cover.css" />
+    <Content Include="静态页面\202_金源社区互助_20160823\regedit\css\font-awesome.css" />
+    <Content Include="静态页面\202_金源社区互助_20160823\regedit\css\layer.css" />
+    <Content Include="静态页面\202_金源社区互助_20160823\regedit\css\style.css" />
+    <Content Include="静态页面\202_金源社区互助_20160823\regedit\images\logo.png" />
+    <Content Include="静态页面\202_金源社区互助_20160823\regedit\images\top-bg.jpg" />
+    <Content Include="静态页面\202_金源社区互助_20160823\regedit\js\bootstrap.js" />
+    <Content Include="静态页面\202_金源社区互助_20160823\regedit\js\jquery.js" />
+    <Content Include="静态页面\202_金源社区互助_20160823\regedit\js\layer.js" />
+    <Content Include="静态页面\202_金源社区互助_20160823\regedit\js\web.js" />
+    <Content Include="静态页面\202_金源社区互助_20160823\regedit\regedit.htm" />
+    <Content Include="静态页面\202_金源社区互助_20160823\test\iframe.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="需求文档\zx202金源社区互助.docx" />
+    <None Include="需求文档\zx215项目开发准备.docx" />
+    <None Include="需求文档\新单制度.docx" />
+    <None Include="需求文档\测试文档.docx" />
+    <None Include="静态页面\202_金源社区互助_20160823\~%24优联界面.docx" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

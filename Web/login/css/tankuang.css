@@ -1,0 +1,92 @@
+@charset "utf-8";
+* {
+	padding: 0px;
+	margin: 0px;
+}
+ul, ol, dl, dt, dd, table, tr, td, th, li, from, input, img, p {
+	padding: 0px;
+	margin: 0px;
+}
+img {
+	border: none;
+}
+li {
+	list-style: none;
+}
+a {
+	text-decoration: none;
+	color: black;
+}
+a:hover {
+	color: red;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-size: 12px;
+	font-weight: 100;
+}
+em {
+	font-style: inherit;
+}
+.clearfix:after {
+	content: ".";
+	display: block;
+	height: 0px;
+	clear: both;
+	visibility: hidden;
+}
+.clearfix {
+	zoom: 1;
+}
+.clear {
+	clear: both;
+}
+.fl {
+	float: left;
+}
+.fr {
+	float: right;
+}
+.w980 {
+	width: 980px;
+}
+.margin_auto {
+	margin: 0 auto;
+}
+.text_type {
+	font-family: "Microsoft Yahei";
+}
+.hid {
+	display: none;
+}
+.tankuang {
+	width: 307px;
+	background: #FFF;
+	border-radius: 10px;
+	line-height: 25px;
+	font-size: 14px;
+	box-shadow: 0px 2px 7px 5px rgba(0,0,0,.6);
+	position: absolute;
+	left: 0px;
+	top: 0px;
+}
+.tankuang h2 span {
+	padding: 7px 10px 0 0;
+	cursor: pointer;
+}
+.tankuang ul {
+	padding: 20px;
+}
+.tankuang ul li p {
+	text-indent: 2em;
+}
+.remember {
+    color: #02A2B8;
+    height: 40px;
+    line-height: 40px;
+    margin-left: 10px;
+    font-weight: bold;
+}
+.remember:hover {
+	cursor: pointer;
+}
+

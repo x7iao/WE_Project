@@ -1,0 +1,29 @@
+body, html {
+    background: url(../images/3358414_1302234359.jpg) no-repeat fixed;
+    background-size: cover;
+}
+ul {
+	margin: 0px;
+	padding: 0px;
+}
+ul li {
+	list-style: none;
+}
+.icon-user {
+	padding-right: 2px;
+}
+.sj {
+	background: url(../images/over.png);
+	width: 20px;
+	display: inline-block;
+    background-position: 0px 4px;
+	background-repeat: no-repeat;
+}
+@media(max-width:480px)
+{
+  .input3
+  {
+      display:none;
+      }
+    }
+    
