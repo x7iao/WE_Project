@@ -47,3 +47,10 @@ D:\yang\资料\项目\yny\WE_Project\WE_Project\Model\bin\Debug\CommonModel.pdb
 D:\yang\资料\项目\yny\WE_Project\WE_Project\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
 D:\yang\资料\项目\yny\WE_Project\WE_Project\Model\obj\Debug\WE_Project.Model.dll
 D:\yang\资料\项目\yny\WE_Project\WE_Project\Model\obj\Debug\WE_Project.Model.pdb
+D:\工作目录\WE_Project\Model\bin\Debug\WE_Project.Model.dll
+D:\工作目录\WE_Project\Model\bin\Debug\WE_Project.Model.pdb
+D:\工作目录\WE_Project\Model\bin\Debug\CommonModel.dll
+D:\工作目录\WE_Project\Model\bin\Debug\CommonModel.pdb
+D:\工作目录\WE_Project\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
+D:\工作目录\WE_Project\Model\obj\Debug\WE_Project.Model.dll
+D:\工作目录\WE_Project\Model\obj\Debug\WE_Project.Model.pdb

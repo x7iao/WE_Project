@@ -29,3 +29,8 @@ D:\yang\资料\项目\yny\WE_Project\WE_Project\文档\bin\Debug\文档.pdb
 D:\yang\资料\项目\yny\WE_Project\WE_Project\文档\obj\Debug\文档.csprojResolveAssemblyReference.cache
 D:\yang\资料\项目\yny\WE_Project\WE_Project\文档\obj\Debug\文档.dll
 D:\yang\资料\项目\yny\WE_Project\WE_Project\文档\obj\Debug\文档.pdb
+D:\工作目录\WE_Project\文档\bin\Debug\文档.dll
+D:\工作目录\WE_Project\文档\bin\Debug\文档.pdb
+D:\工作目录\WE_Project\文档\obj\Debug\文档.csprojResolveAssemblyReference.cache
+D:\工作目录\WE_Project\文档\obj\Debug\文档.dll
+D:\工作目录\WE_Project\文档\obj\Debug\文档.pdb

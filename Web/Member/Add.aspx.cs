@@ -48,9 +48,9 @@ namespace WE_Project.Web.Member
                 model.AgencyCode = "001";
                 model.MAgencyType = BLL.Configuration.Model.SHMoneyList[model.AgencyCode];
                 model.SHMoney = model.MAgencyType.Money;
-                model.NumID = Request.Form["txtNumID"].Trim();
-                model.WeChat = Request.Form["txtWeChat"].Trim();
-                model.AliPay = Request.Form["txtAliPay"].Trim();
+                //model.NumID = Request.Form["txtNumID"].Trim();
+                //model.WeChat = Request.Form["txtWeChat"].Trim();
+                //model.AliPay = Request.Form["txtAliPay"].Trim();
                 //model.Province = Request.Form["hidProvince"].Trim();
                 //model.QQ = Request.Form["txtQQ"].Trim();
                 model.IsClock = false;
@@ -107,12 +107,12 @@ namespace WE_Project.Web.Member
 
             if (BLL.Configuration.Model.DFHXFCount==1)
             {
-                string code = BLL.SMS.GetSKeyBuyTel(Request.Form["txtTel"].Trim(), Model.SMSType.ZCYZ);
-                if ((string.IsNullOrEmpty(code) || code != Request.Form["txtTelCode"].Trim()))
-                {
-                    error += "手机验证码错误！";
-                    return error;
-                }
+                //string code = BLL.SMS.GetSKeyBuyTel(Request.Form["txtTel"].Trim(), Model.SMSType.ZCYZ);
+                //if ((string.IsNullOrEmpty(code) || code != Request.Form["txtTelCode"].Trim()))
+                //{
+                //    error += "手机验证码错误！";
+                //    return error;
+                //}
             }
 
 
@@ -149,15 +149,15 @@ namespace WE_Project.Web.Member
                 return error;
             }
 
-            if (Request.Form["txtNumID"].Trim() != null)
-            {
-                List<Model.Member> list1 = BllModel.GetMemberEntityList("NumID='" + Request.Form["txtNumID"].Trim() + "'");
-                if (list1.Count >= BLL.Configuration.Model.MaxBuyGCount)
-                {
-                    error += "该身份证号码已绑定,请更换其它号码";
-                    return error;
-                }
-            }
+            //if (Request.Form["txtNumID"].Trim() != null)
+            //{
+            //    List<Model.Member> list1 = BllModel.GetMemberEntityList("NumID='" + Request.Form["txtNumID"].Trim() + "'");
+            //    if (list1.Count >= BLL.Configuration.Model.MaxBuyGCount)
+            //    {
+            //        error += "该身份证号码已绑定,请更换其它号码";
+            //        return error;
+            //    }
+            //}
 
             //查看会员是否激活，没激活的不能推荐会员
             if (TModel.RoleCode == "Notactive")
@@ -171,12 +171,12 @@ namespace WE_Project.Web.Member
 
                 if (model != null)
                 {
-                    Model.Sys_SQ_Answer objAnswer = new Model.Sys_SQ_Answer();
-                    objAnswer.MID = model.ID;
-                    objAnswer.QId = long.Parse(Request.Form["ddlQuestion"]);
-                    objAnswer.Answer = Request.Form["txtAnswer"];
-                    objAnswer.CreatedBy = model.MID;
-                    if (new BLL.Sys_SQ_Answer().Insert(objAnswer))
+                    //Model.Sys_SQ_Answer objAnswer = new Model.Sys_SQ_Answer();
+                    //objAnswer.MID = model.ID;
+                    //objAnswer.QId = long.Parse(Request.Form["ddlQuestion"]);
+                    //objAnswer.Answer = Request.Form["txtAnswer"];
+                    //objAnswer.CreatedBy = model.MID;
+                    //if (new BLL.Sys_SQ_Answer().Insert(objAnswer))
                     {
                         return "注册成功";
                     }

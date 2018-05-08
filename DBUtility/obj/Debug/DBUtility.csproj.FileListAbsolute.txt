@@ -52,3 +52,11 @@ D:\yang\资料\项目\yny\WE_Project\WE_Project\DBUtility\bin\Debug\MySql.Data.d
 D:\yang\资料\项目\yny\WE_Project\WE_Project\DBUtility\obj\Debug\DBUtility.csprojResolveAssemblyReference.cache
 D:\yang\资料\项目\yny\WE_Project\WE_Project\DBUtility\obj\Debug\DBUtility.dll
 D:\yang\资料\项目\yny\WE_Project\WE_Project\DBUtility\obj\Debug\DBUtility.pdb
+D:\工作目录\WE_Project\DBUtility\bin\Debug\DBUtility.dll
+D:\工作目录\WE_Project\DBUtility\bin\Debug\DBUtility.pdb
+D:\工作目录\WE_Project\DBUtility\bin\Debug\IBatisNet.Common.dll
+D:\工作目录\WE_Project\DBUtility\bin\Debug\IBatisNet.DataMapper.dll
+D:\工作目录\WE_Project\DBUtility\bin\Debug\MySql.Data.dll
+D:\工作目录\WE_Project\DBUtility\obj\Debug\DBUtility.csprojResolveAssemblyReference.cache
+D:\工作目录\WE_Project\DBUtility\obj\Debug\DBUtility.dll
+D:\工作目录\WE_Project\DBUtility\obj\Debug\DBUtility.pdb

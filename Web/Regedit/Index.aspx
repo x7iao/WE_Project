@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="zx215.Web.Regedit.Index" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="WE_Project.Web.Regedit.Index" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -114,7 +114,7 @@
                             maxlength="20" type="text" placeholder="确认交易密码" />
                     </div>
                 </div>
-                <div class="form-group">
+                <div class="form-group" style="display:none;">
                     <label for="invitecode" class="col-sm-3 control-label">
                         身份证号：</label>
                     <div class="col-sm-9">
@@ -122,7 +122,7 @@
                             maxlength="20" type="text" placeholder="身份证号" />
                     </div>
                 </div>
-                <div class="form-group">
+                <div class="form-group" style="display:none;">
                     <label for="invitecode" class="col-sm-3 control-label">
                         微信帐号：</label>
                     <div class="col-sm-9">
@@ -130,7 +130,7 @@
                             maxlength="20" type="text" placeholder="微信帐号" />
                     </div>
                 </div>
-                <div class="form-group">
+                <div class="form-group" style="display:none;">
                     <label for="invitecode" class="col-sm-3 control-label">
                         支付宝帐号：</label>
                     <div class="col-sm-9">
@@ -181,7 +181,7 @@
                             maxlength="20" type="text" placeholder="银行卡号" />
                     </div>
                 </div>
-                <div class="form-group">
+                <div class="form-group" style="display:none;">
                     <label class="col-sm-3 control-label">
                         密保问题</label>
                     <div class="col-sm-9">
@@ -189,7 +189,7 @@
                         </select>
                     </div>
                 </div>
-                <div class="form-group">
+                <div class="form-group" style="display:none;">
                     <label class="col-sm-3 control-label">
                         密保答案</label>
                     <div class="col-sm-9">
@@ -269,15 +269,15 @@
             } else if ($('#txtPassword').val() == $('#txtSecPsd').val()) {
                 v5.error('二级密码与登录密码不能相同', '1', 'true');
                 return false;
-            } else if (!$('#txtNumID').val().TryIDCard()) {
-                v5.error('身份证号码格式不正确', '1', 'true');
-                return false;
-            } else if ($('#txtWeChat').val() == "") {
-                v5.error('微信帐号不能为空', '1', 'true');
-                return false;
-            } else if ($('#txtAlipay').val() == "") {
-                v5.error('支付宝帐号不能为空', '1', 'true');
-                return false;
+            //} else if (!$('#txtNumID').val().TryIDCard()) {
+            //    v5.error('身份证号码格式不正确', '1', 'true');
+            //    return false;
+            //} else if ($('#txtWeChat').val() == "") {
+            //    v5.error('微信帐号不能为空', '1', 'true');
+            //    return false;
+            //} else if ($('#txtAlipay').val() == "") {
+            //    v5.error('支付宝帐号不能为空', '1', 'true');
+            //    return false;
             } else if ($('#txtBank').val() == "") {
                 v5.error('请选择开户银行', '1', 'true');
                 return false;
@@ -296,9 +296,9 @@
             } else if ($('#txtTelCode').val() == "") {
                 v5.error('验证码不能为空', '1', 'true');
                 return false;
-            } else if ($('#txtAnswer').val() == '') {
-                v5.error('密保答案不能为空', '1', 'true');
-                return false;
+            //} else if ($('#txtAnswer').val() == '') {
+            //    v5.error('密保答案不能为空', '1', 'true');
+            //    return false;
             }
             return true;
         }

@@ -96,3 +96,17 @@ D:\yang\资料\项目\yny\WE_Project\WE_Project\CommonBLL\bin\Debug\DBUtility.pd
 D:\yang\资料\项目\yny\WE_Project\WE_Project\CommonBLL\obj\Debug\CommonBLL.csprojResolveAssemblyReference.cache
 D:\yang\资料\项目\yny\WE_Project\WE_Project\CommonBLL\obj\Debug\CommonBLL.dll
 D:\yang\资料\项目\yny\WE_Project\WE_Project\CommonBLL\obj\Debug\CommonBLL.pdb
+D:\工作目录\WE_Project\CommonBLL\bin\Debug\CommonBLL.dll
+D:\工作目录\WE_Project\CommonBLL\bin\Debug\CommonBLL.pdb
+D:\工作目录\WE_Project\CommonBLL\bin\Debug\CommonDAL.dll
+D:\工作目录\WE_Project\CommonBLL\bin\Debug\CommonModel.dll
+D:\工作目录\WE_Project\CommonBLL\bin\Debug\DBUtility.dll
+D:\工作目录\WE_Project\CommonBLL\bin\Debug\IBatisNet.DataMapper.dll
+D:\工作目录\WE_Project\CommonBLL\bin\Debug\IBatisNet.Common.dll
+D:\工作目录\WE_Project\CommonBLL\bin\Debug\MySql.Data.dll
+D:\工作目录\WE_Project\CommonBLL\bin\Debug\CommonDAL.pdb
+D:\工作目录\WE_Project\CommonBLL\bin\Debug\CommonModel.pdb
+D:\工作目录\WE_Project\CommonBLL\bin\Debug\DBUtility.pdb
+D:\工作目录\WE_Project\CommonBLL\obj\Debug\CommonBLL.csprojResolveAssemblyReference.cache
+D:\工作目录\WE_Project\CommonBLL\obj\Debug\CommonBLL.dll
+D:\工作目录\WE_Project\CommonBLL\obj\Debug\CommonBLL.pdb

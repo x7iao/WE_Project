@@ -6,7 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using CommonBLL;
 
-namespace zx215.Web.Regedit
+namespace WE_Project.Web.Regedit
 {
     public partial class Index : System.Web.UI.Page
     {
@@ -127,16 +127,16 @@ namespace zx215.Web.Regedit
                         }
                         else
                         {
-                            if (Request.Form["txtAliPay"].Trim() != null)
-                            {
-                                List<Model.Member> list2 = BLL.Member.GetMemberList("Alipay='" + Request.Form["txtAliPay"].Trim() + "'");
-                                if (list2.Count >= BLL.Configuration.Model.MaxBuyGCount)
-                                {
-                                    error = "该支付宝已绑定,请更换其它帐号";
-                                    Response.Write("<script>alert('" + error + "');</script>");
-                                }
-                            }
-                            else
+                            //if (Request.Form["txtAliPay"].Trim() != null)
+                            //{
+                            //    List<Model.Member> list2 = BLL.Member.GetMemberList("Alipay='" + Request.Form["txtAliPay"].Trim() + "'");
+                            //    if (list2.Count >= BLL.Configuration.Model.MaxBuyGCount)
+                            //    {
+                            //        error = "该支付宝已绑定,请更换其它帐号";
+                            //        Response.Write("<script>alert('" + error + "');</script>");
+                            //    }
+                            //}
+                            //else
                             {
                                 //查看会员是否激活，没激活的不能推荐会员
                                 if (mtjmodel.RoleCode == "Notactive" || !mtjmodel.MState)
@@ -146,15 +146,15 @@ namespace zx215.Web.Regedit
                                 }
                                 else
                                 {
-                                    Model.Member model = zx215.BLL.Member.ManageMember.InsertAndReturnEntity(MemberMode, false, ref error);
+                                    Model.Member model = WE_Project.BLL.Member.ManageMember.InsertAndReturnEntity(MemberMode, false, ref error);
                                     if (model != null)
                                     {
-                                        Model.Sys_SQ_Answer objAnswer = new Model.Sys_SQ_Answer();
-                                        objAnswer.MID = model.ID;
-                                        objAnswer.QId = long.Parse(Request.Form["ddlQuestion"]);
-                                        objAnswer.Answer = Request.Form["txtAnswer"];
-                                        objAnswer.CreatedBy = model.MID;
-                                        if (new BLL.Sys_SQ_Answer().Insert(objAnswer))
+                                        //Model.Sys_SQ_Answer objAnswer = new Model.Sys_SQ_Answer();
+                                        //objAnswer.MID = model.ID;
+                                        //objAnswer.QId = long.Parse(Request.Form["ddlQuestion"]);
+                                        //objAnswer.Answer = Request.Form["txtAnswer"];
+                                        //objAnswer.CreatedBy = model.MID;
+                                        //if (new BLL.Sys_SQ_Answer().Insert(objAnswer))
                                         {
                                             Response.Redirect("redirect.htm", false);
                                         }

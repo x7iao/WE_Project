@@ -685,6 +685,7 @@
     <Content Include="Regedit\css\style.css" />
     <Content Include="Regedit\images\logo.png" />
     <Content Include="Regedit\images\top-bg.jpg" />
+    <Content Include="Regedit\Index.aspx" />
     <Content Include="SecurityCenter\css\bootstrap.css" />
     <Content Include="SecurityCenter\css\style.css" />
     <Content Include="SecurityCenter\images\logo.png" />
@@ -1527,6 +1528,13 @@
     <Compile Include="Handler\TGList.ashx.cs">
       <DependentUpon>TGList.ashx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Regedit\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Regedit\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
     <Compile Include="SysManage\Language\DownLoad.aspx.cs">
       <DependentUpon>DownLoad.aspx</DependentUpon>

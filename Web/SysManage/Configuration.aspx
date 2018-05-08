@@ -334,7 +334,7 @@
                         <asp:TemplateField HeaderText="说明">
                             <ControlStyle Width="80%" />
                             <ItemTemplate>
-                                <asp:TextBox ID="txtRemark" runat="server" Text='<%#Eval("Remark") %>' ReadOnly="true"></asp:TextBox>
+                                <asp:TextBox ID="txtRemark" runat="server" Text='<%#Eval("Remark") %>' ></asp:TextBox>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="最小代数">

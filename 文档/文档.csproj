@@ -163,6 +163,7 @@
     <Content Include="静态页面\202_金源社区互助_20160823\test\iframe.html" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="需求文档\WE制度.docx" />
     <None Include="需求文档\zx202金源社区互助.docx" />
     <None Include="需求文档\zx215项目开发准备.docx" />
     <None Include="需求文档\新单制度.docx" />

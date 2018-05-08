@@ -886,6 +886,8 @@ namespace WE_Project.BLL
                 tjmodel.MConfig.TJCount += 1;
                 DAL.MemberConfig.UpdateConfigTran(tjmodel.MID, "TJCount", "1", shmodel, false, SqlDbType.Int, MyHs);
 
+                R_SJ(tjmodel.MID);
+
                 if (!DAL.Member.tempMemberAdd(tjmodel))
                 {
                     DAL.Member.tempMemberList[tjmodel.MID].MConfig.YJMoney = tjmodel.MConfig.YJMoney;
@@ -1975,6 +1977,9 @@ namespace WE_Project.BLL
             if (mTJ != null && !mTJ.Role.IsAdmin && mTJ.MID != mTJ.MTJ)
             {
                 //获得可升级的等级
+
+                //BLL.Configuration.GetConfigDictionary(0, "AutoSJ", mTJ.AgencyCode);
+                //DAL.NConfigDictionary.GetConfigDictionary(0,);
                 var shMoney = DAL.SHMoney.GetSJShmoney(mTJ.MConfig.YJCount, mTJ.MConfig.TJCount, mTJ.AgencyCode);
                 if (shMoney != null)
                 {

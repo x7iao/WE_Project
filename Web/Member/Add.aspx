@@ -81,7 +81,7 @@
                             maxlength="20" value="" />
                     </td>
                 </tr>
-                <tr>
+                <tr style="display:none;">
                     <td align="right">
                         身份证号:
                     </td>
@@ -90,7 +90,7 @@
                             value="" /><span>*</span>
                     </td>
                 </tr>
-                <tr>
+                <tr style="display:none;">
                     <td align="right">
                         微信帐号:
                     </td>
@@ -99,7 +99,7 @@
                             value="" /><span>*</span>
                     </td>
                 </tr>
-                <tr>
+                <tr style="display:none;">
                     <td align="right">
                         支付宝帐号:
                     </td>
@@ -154,7 +154,7 @@
                             maxlength="20" value="" /><span>*</span>
                     </td>
                 </tr>
-                <tr>
+                <tr style="display:none;">
                     <td align="right">
                         密保问题:
                     </td>
@@ -163,7 +163,7 @@
                         </select>
                     </td>
                 </tr>
-                <tr>
+                <tr style="display:none;">
                     <td align="right">
                         密保答案:
                     </td>
@@ -239,14 +239,14 @@
                 v5.error('交易密码与确认交易密码不一样', '1', 'true');
             } else if ($('#txtPassword').val() == $('#txtSecPsd').val()) {
                 v5.error('交易密码与登录密码不能相同', '1', 'true');
-            } else if (!$('#txtNumID').val().TryIDCard()) {
-                v5.error('身份证号码格式不正确', '1', 'true');
-            } else if ($('#txtWeChat').val() == "" && $('#txtAlipay').val() == "" && $('#txtBankNumber').val() == "") {
-                v5.error('微信帐号，支付宝帐号和银行卡至少填一个', '1', 'true');
+            //} else if (!$('#txtNumID').val().TryIDCard()) {
+            //    v5.error('身份证号码格式不正确', '1', 'true');
+            //} else if ($('#txtWeChat').val() == "" && $('#txtAlipay').val() == "" && $('#txtBankNumber').val() == "") {
+            //    v5.error('微信帐号，支付宝帐号和银行卡至少填一个', '1', 'true');
             } else if (!$('#txtTel').val().TryTel()) {
                 v5.error('手机号码格式不正确', '1', 'true');
-            } else if ($('#txtAnswer').val() == '') {
-                v5.error('密保答案不能为空', '1', 'true');
+            //} else if ($('#txtAnswer').val() == '') {
+            //    v5.error('密保答案不能为空', '1', 'true');
 //            } else if ($('#txtTelCode').val() == "") {
 //                v5.error('验证码不能为空', '1', 'true');
             } else {
