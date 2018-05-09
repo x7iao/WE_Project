@@ -195,6 +195,36 @@ namespace WE_Project.DAL
             return null;
         }
 
+        /// <summary>
+        /// 得到见点奖
+        /// </summary>
+        /// <param name="mid">推荐会员账号</param>
+        /// <returns></returns>
+        public static Model.NConfigDictionary GetConfigDictionary(int Level, string DType, string DKey)
+        {
+            if (!string.IsNullOrEmpty(DKey))
+            {
+                foreach (Model.NConfigDictionary item in DAL.Configuration.TModel.NConfigDictionaryList[DType].Where(emp => emp.DKey == DKey))
+                {
+                    if (item.StartLevel <= Level && (Level <= item.EndLevel || item.EndLevel == -1) )
+                    {
+                        return item;
+                    }
+                }
+            }
+            else
+            {
+                foreach (Model.NConfigDictionary item in DAL.Configuration.TModel.NConfigDictionaryList[DType])
+                {
+                    if (item.StartLevel <= Level && (Level <= item.EndLevel || item.EndLevel == -1))
+                    {
+                        return item;
+                    }
+                }
+            }
+            return null;
+        }
+
         #endregion  ExtensionMethod
     }
 }

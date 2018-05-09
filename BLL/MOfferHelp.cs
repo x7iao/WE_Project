@@ -50,6 +50,41 @@ namespace WE_Project.BLL
                 return "删除失败";
             }
         }
+        /// <summary>
+        /// 超时转换利息
+        /// </summary>
+        /// <returns></returns>
+        public static bool outTimeDHLiXi()
+        {
+            List<Model.MOfferHelp> olist= BLL.MOfferHelp.GetList(" PPState=3 and DATEADD(MI,"+BLL.MMMConfig.Model.OutTimes+",CompleteTime)<GETDATE()  ");
+            foreach (var offer in olist)
+            {
+                Hashtable MyHs = new Hashtable();
+               
+                //查看是否已转入马夫罗
+                if (offer.PPState == 4)
+                {
+                    continue;
+                }  
+                //if (offer.SQMID == TModel.MID)
+                {
+                    //更新该提供帮助的匹配记录
+                    decimal changeMoney = offer.SQMoney;
+                    //if (offer.InterestState == 1)
+                    {
+                        changeMoney += offer.TotalInterest;
+                        BLL.ChangeMoney.HBChangeTran(changeMoney, BLL.Member.ManageMember.TModel.MID, offer.SQMID, "TGBZ", BLL.Member.ManageMember.TModel, "MHB", "提供帮助(" + offer.SQCode + ")本金加利息超时自动进入"+BLL.Reward.List["MJB"].RewardName, MyHs);
+                    }
+                  
+                    offer.PPState = 4;
+                    offer.InterestState = 2;
+                    offer.SincerityState = 2;
+                    BLL.MOfferHelp.Update(offer, MyHs);
+                    BLL.CommonBase.RunHashtable(MyHs);
+                }
+            }
+            return true;
+        }
 
         public static DataTable GetTable(string strWhere)
         {
@@ -189,10 +224,10 @@ namespace WE_Project.BLL
             {
                 return "1*超出每天排单排单金额限制，还能排单" + (BLL.MMMConfig.Model.MOfferNeedMCW-dayoff);
             }
-            //if (BLL.MOfferHelp.GetSumCountByStr(string.Format(" SQDate >= '{0}' and SQMID = '" + member.MID + "' and PPState <> 5 and HelpType = 0 ", DateTime.Now.AddMinutes(-(int)BLL.MMMConfig.Model.OfferHelpRangeTimes))) > BLL.MMMConfig.Model.OfferHelpRangeCount)
-            //{
-            //    return "1*您已申请过," + BLL.MMMConfig.Model.OfferHelpRangeTimes + "分钟内只能申请" + BLL.MMMConfig.Model.OfferHelpRangeCount + "次";
-            //}
+            if (BLL.MOfferHelp.GetSumCountByStr(string.Format(" SQDate >= '{0}' and SQMID = '" + member.MID + "' and PPState <> 5 and HelpType = 0 ", DateTime.Now.AddMinutes(-(int)BLL.MMMConfig.Model.OfferHelpRangeTimes))) > BLL.MMMConfig.Model.OfferHelpRangeCount)
+            {
+                return "1*您已申请过," + BLL.MMMConfig.Model.OfferHelpRangeTimes + "分钟内只能申请" + BLL.MMMConfig.Model.OfferHelpRangeCount + "次";
+            }
             //decimal maxOfferMoney = BLL.MMMConfig.Model.OfferHelpMax;
             //decimal minOfferMoney = BLL.MMMConfig.Model.OfferHelpMin;
             //var dic = DAL.ConfigDictionary.GetConfigDictionary(member.MConfig.TJCount, "OfferTop", "");
@@ -202,12 +237,12 @@ namespace WE_Project.BLL
             //}
 
             //得到最高能排单金额
-            var dictj = DAL.ConfigDictionary.GetConfigDictionary(member.MConfig.TJCount, "OfferTopTJ", "");
-            var dicyj = DAL.ConfigDictionary.GetConfigDictionary(member.MConfig.TJCount, "OfferTopYJ", "");
-            decimal dicmoney = Convert.ToDecimal(dictj.DValue) >Convert.ToDecimal(dicyj.DValue) ? Convert.ToDecimal(dicyj.DValue) :Convert.ToDecimal(dictj.DValue);//取小
+            //var dictj = DAL.ConfigDictionary.GetConfigDictionary(member.MConfig.TJCount, "OfferTopTJ", "");
+            //var dicyj = DAL.ConfigDictionary.GetConfigDictionary(member.MConfig.TJCount, "OfferTopYJ", "");
+            //decimal dicmoney = Convert.ToDecimal(dictj.DValue) >Convert.ToDecimal(dicyj.DValue) ? Convert.ToDecimal(dicyj.DValue) :Convert.ToDecimal(dictj.DValue);//取小
 
-            if (sqMoney != 2000 && sqMoney != 5000 && sqMoney != 10000 && sqMoney != 20000)
-                return "1*援助金额应为2000,5000,10000或20000";
+            //if (sqMoney != 2000 && sqMoney != 5000 && sqMoney != 10000 && sqMoney != 20000)
+            //    return "1*援助金额应为2000,5000,10000或20000";
 
             decimal maxOfferMoney = WE_Project.BLL.MMMConfig.Model.OfferHelpMax;
             decimal minOfferMoney = WE_Project.BLL.MMMConfig.Model.OfferHelpMin;
@@ -223,22 +258,17 @@ namespace WE_Project.BLL
             else
             {
                 //最大金额，最小金额
-                if (sqMoney >= minOfferMoney && sqMoney <= maxOfferMoney && sqMoney<=dicmoney)
+                if (sqMoney >= minOfferMoney && sqMoney <= maxOfferMoney)
                 {
                     //获取上一单金额
-                    //Model.MOfferHelp lastoffer = BLL.MOfferHelp.GetLastMoffer(member.MID);
-                    ////有并且金额大于一定比例
-                    //if (lastoffer == null || sqMoney >= lastoffer.SQMoney * BLL.MMMConfig.Model.LastProportion)
+                    Model.MOfferHelp lastoffer = BLL.MOfferHelp.GetLastMoffer(member.MID);
+                    //有并且金额大于一定比例
+                    if (lastoffer == null || sqMoney >= lastoffer.SQMoney )
                     {
                         //获取所需排单币
-                        var mcwdic = DAL.ConfigDictionary.GetConfigDictionary(Convert.ToInt32(sqMoney), "MGPOffer", "");
-                        if(mcwdic==null)
-                            return "1*援助金额不合法";
-                        int mcwCount =Convert.ToInt32(mcwdic.DValue);
+                        decimal mcwdic =sqMoney * BLL.MMMConfig.Model.NoLineTimesMoneyFloat*BLL.MMMConfig.Model.OfferTJKF;
 
-                        if (helptype == 1)//抢单区不用排单币
-                            mcwCount = 0;
-                        if (BLL.ChangeMoney.EnoughChange(member.MID, mcwCount, "MGP"))
+                        if (BLL.ChangeMoney.EnoughChange(member.MID, mcwdic, "MGP"))
                         {
                             Model.MOfferHelp offer = new Model.MOfferHelp();
                             offer.DKState = 0;
@@ -246,7 +276,8 @@ namespace WE_Project.BLL
                             offer.SQDate = DateTime.Now;
                             offer.SQMID = member.MID;
                             offer.SQMoney = sqMoney;
-                            offer.DayInterest = 0;// BLL.MMMConfig.Model.InterestPer* sqMoney;//订单利息(插入数据库前获取)
+                            //offer.DayInterest = 0;
+                            offer.DayInterest= BLL.MMMConfig.Model.InterestPer;//订单利息(插入数据库前获取)
                             offer.TotalInterest = 0;
                             offer.TotalInterestDays = 0;
                             offer.TotalSincerity = 0;
@@ -255,14 +286,14 @@ namespace WE_Project.BLL
                             offer.TotalSincerity = 0;
                             offer.InterestState = 1;
                             offer.MatchMoney = 0;
-                            //offer.MFLMoney = offer.SQMoney * BLL.MMMConfig.Model.NoLineTimesMoneyFloat;
-                            offer.MFLMoney = 0;
+                            offer.MFLMoney = offer.SQMoney * BLL.MMMConfig.Model.NoLineTimesMoneyFloat;
+                            //offer.MFLMoney = 0;
                             offer.HelpType = helptype;
                             //Hashtable MyHs = new Hashtable();
                             BLL.MOfferHelp.Insert(offer, MyHs);
                             BLL.Member.UpdateConfigTran(member.MID, "SQCount", "1", member, false, System.Data.SqlDbType.Int, MyHs);
                             if (helptype==0)
-                                BLL.ChangeMoney.HBChangeTran(mcwCount, member.MID, BLL.Member.ManageMember.TModel.MID, "TGBH", member, "MGP", "提供帮助需" + mcwCount + "个排单币", MyHs);
+                                BLL.ChangeMoney.HBChangeTran(mcwdic, member.MID, BLL.Member.ManageMember.TModel.MID, "TGBH", member, "MGP", "提供帮助需" + mcwdic + BLL.Reward.List["MGP"].RewardName, MyHs);
                             
                             //BLL.ChangeMoney.R_GL(offer, TModel, TModel, 1, MyHs);
                             return "1*0";
@@ -272,14 +303,14 @@ namespace WE_Project.BLL
                             return "1*您的" + BLL.Reward.List["MGP"].RewardName + "不足";
                         }
                     }
-                    //else
-                    //{
-                    //    return "1*提交申请失败：申请金额应该不小于上一单(" + lastoffer.SQMoney + ")的" + BLL.MMMConfig.Model.LastProportion.ToPercent() + "(" + lastoffer.SQMoney * BLL.MMMConfig.Model.LastProportion + ")";
-                    //}
+                    else
+                    {
+                        return "1*提交申请失败：申请金额应该不小于上一单(" + lastoffer.SQMoney + ")的" + BLL.MMMConfig.Model.LastProportion.ToPercent() + "(" + lastoffer.SQMoney * BLL.MMMConfig.Model.LastProportion + ")";
+                    }
                 }
                 else
                 {
-                    return "1*提交申请失败：申请金额应该为：" + minOfferMoney + "-" + maxOfferMoney + "，排单额度为" + dicmoney;
+                    return "1*提交申请失败：申请金额应该为：" + minOfferMoney + "-" + maxOfferMoney;
                 }
             }
         }

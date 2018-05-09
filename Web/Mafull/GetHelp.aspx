@@ -34,14 +34,14 @@
                         <%=TModel.MConfig.MGP%>
                     </td>
                 </tr>--%>
-                <%--<tr>
+                <tr>
                     <td width="35%" align="right">
                         <span>我的<%=WE_Project.BLL.Reward.List["MCW"].RewardName %>：</span>
                     </td>
                     <td>
                         <%=TModel.MConfig.MCW%>
                     </td>
-                </tr>--%>
+                </tr>
                 <tr>
                     <td width="35%" align="right">
                         <span>申请援助说明：</span>
@@ -70,8 +70,9 @@
                         <span>使用钱包：</span>
                     </td>
                     <td>
-                        <input id="rdoMHB" value="MHB" type="radio" name="rdo" checked="checked" /><%=WE_Project.BLL.Reward.List["MHB"].RewardName %>
-                        <input id="Radio2" value="MJB" type="radio" name="rdo" /><%=WE_Project.BLL.Reward.List["MJB"].RewardName %>
+                        <input  value="MCW" type="radio" name="rdo" checked="checked" /><%=WE_Project.BLL.Reward.List["MCW"].RewardName %>
+                        <input  value="MHB" type="radio" name="rdo" /><%=WE_Project.BLL.Reward.List["MHB"].RewardName %>
+                        <input  value="MJB" type="radio" name="rdo" /><%=WE_Project.BLL.Reward.List["MJB"].RewardName %>
                     </td>
                 </tr>
                 <tr>

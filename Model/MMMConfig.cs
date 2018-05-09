@@ -31,13 +31,13 @@ namespace WE_Project.Model
         private decimal _mofferneedmcw;
         private decimal _offerhelpmin;
         private decimal _offerhelpmax;
-        private int _offerhelpbase;
+        private decimal _offerhelpbase;
         private int _offerhelprangetimes;
         private int _offerhelprangecount;
         private bool _offerhelpneedcomplete;
         private decimal _gethelpmin;
         private decimal _gethelpmax;
-        private int _gethelpbase;
+        private decimal _gethelpbase;
         private int _gethelprangetimes;
         private int _gethelprangecount;
         private bool _gethelpneedcomplete;
@@ -121,7 +121,7 @@ namespace WE_Project.Model
         /// <summary>
         /// 提供帮助倍数
         /// </summary>
-        public int OfferHelpBase
+        public decimal OfferHelpBase
         {
             set { _offerhelpbase = value; }
             get { return _offerhelpbase; }
@@ -169,7 +169,7 @@ namespace WE_Project.Model
         /// <summary>
         /// 获得帮助倍数
         /// </summary>
-        public int GetHelpBase
+        public decimal GetHelpBase
         {
             set { _gethelpbase = value; }
             get { return _gethelpbase; }
@@ -488,7 +488,7 @@ namespace WE_Project.Model
             get { return _freezetimesofregister; }
         }
         /// <summary>
-        /// 提款不排单冻结时间
+        /// 获得帮助排队期
         /// </summary>
         public int FreezeTimesOfOffer
         {

@@ -126,29 +126,50 @@ namespace WE_Project.BLL
 
 
             //校验援助次数
-            //if (!CanApplyHelp(member.MID, BLL.MMMConfig.Model.GetHelpRangeTimes, BLL.MMMConfig.Model.GetHelpRangeCount, false, moneyType))
+            if (!CanApplyHelp(member.MID, BLL.MMMConfig.Model.GetHelpRangeTimes, BLL.MMMConfig.Model.GetHelpRangeCount, false, moneyType))
+            {
+                return "1*申请失败，您" + BLL.MMMConfig.Model.GetHelpRangeTimes + "分钟内只能申请" + BLL.MMMConfig.Model.GetHelpRangeCount + "次";
+            }
+            //需要一个提供帮助的订单，并且已经打过预付款的
+            //object offid= BLL.CommonBase.GetSingle("select ID from MOfferHelp where SQMID='aaa111' and PPState in(0,1,2,3) and MatchMoney>= MFLMoney;");
+            //if (offid != null)
             //{
-            //    return "1*申请失败，您" + BLL.MMMConfig.Model.GetHelpRangeTimes + "分钟内只能申请" + BLL.MMMConfig.Model.GetHelpRangeCount + "次";
+            //    Model.MOfferHelp offer= BLL.MOfferHelp.GetModel(offid);
+            //    if (offer != null)
+            //    {
+            //        decimal yfkmoney= Convert.ToDecimal( BLL.CommonBase.GetSingle("SELECT  ISNULL( SUM(MatchMoney),0) FROM MHelpMatch WHERE MatchState=3 and offerid in("+offer.Id+")"));
+            //        if (yfkmoney < offer.MFLMoney)
+            //        {
+            //            return "1*请打过预付款再提现";
+            //        }
+            //    }
+            //    else {
+            //        return "1*提现失败，数据有误，请联系管理员";
+            //    }
+            //}
+            //else {
+            //    return "1*提现失败，请提供帮助并付预付款后再提现";
             //}
 
+
             //如果是动态奖金就限制额度
-            if (moneyType == "MJB") 
-            {
-                decimal mjbsum = BLL.MGetHelp.GetSumMoney("  SQMID='" + member.MID + "' and PPState<=3 and MoneyType='MJB';  ");
-                
-                decimal mjbedu=member.MConfig.SHMoney * BLL.MMMConfig.Model.GetHelpFloat;
-                if ((mjbsum + sqMoney) >mjbedu )
-                    return "1*动态奖金提现额度不够，您还能提现" + (mjbedu - mjbsum);
+            //if (moneyType == "MJB") 
+            //{
+            //    decimal mjbsum = BLL.MGetHelp.GetSumMoney("  SQMID='" + member.MID + "' and PPState<=3 and MoneyType='MJB';  ");
 
-                //动态奖金消耗排单币
-                Model.ConfigDictionary dicmcw= DAL.ConfigDictionary.GetConfigDictionary(Convert.ToInt32(sqMoney), "MGetMGP", "");
-                decimal getmgp = Convert.ToDecimal(dicmcw.DValue) * Convert.ToDecimal(sqMoney);
-                if(!BLL.ChangeMoney.EnoughChange(member.MID,getmgp,"MGP"))
-                    return "1*提现失败，排单币不足";
-                else
-                    BLL.ChangeMoney.HBChangeTran(getmgp, member.MID, BLL.Member.ManageMember.TModel.MID, "TXBH", member, "MGP", "获得帮助需" + getmgp + "个排单币", MyHs);
-            }
+            //    decimal mjbedu=member.MConfig.SHMoney * BLL.MMMConfig.Model.GetHelpFloat;
+            //    if ((mjbsum + sqMoney) >mjbedu )
+            //        return "1*动态奖金提现额度不够，您还能提现" + (mjbedu - mjbsum);
 
+            //    //动态奖金消耗排单币
+            //    Model.ConfigDictionary dicmcw= DAL.ConfigDictionary.GetConfigDictionary(Convert.ToInt32(sqMoney), "MGetMGP", "");
+            //    decimal getmgp = Convert.ToDecimal(dicmcw.DValue) * Convert.ToDecimal(sqMoney);
+            //    if(!BLL.ChangeMoney.EnoughChange(member.MID,getmgp,"MGP"))
+            //        return "1*提现失败，排单币不足";
+            //    else
+            //        BLL.ChangeMoney.HBChangeTran(getmgp, member.MID, BLL.Member.ManageMember.TModel.MID, "TXBH", member, "MGP", "获得帮助需" + getmgp + "个排单币", MyHs);
+            //}
+           
 
             //校验马夫罗是否足够
             if (!isMoneyChcek || BLL.ChangeMoney.EnoughChange(member.MID, sqMoney, moneyType))

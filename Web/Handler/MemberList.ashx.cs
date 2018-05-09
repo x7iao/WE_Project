@@ -104,9 +104,12 @@ namespace WE_Project.Web.Handler
                 {
                     sb.Append(ListMember[i].MConfig.MHB + "~");
                 }
-                //sb.Append(ListMember[i].MConfig.MCW + "~");
+                
                 sb.Append(ListMember[i].MConfig.MJB + "~");
-                sb.Append(ListMember[i].MConfig.MGP.ToString("F0") + "~");
+                sb.Append(ListMember[i].MConfig.MCW + "~");
+                sb.Append(ListMember[i].MConfig.MGP + "~");
+                sb.Append(ListMember[i].MConfig.MJBF + "~");
+                sb.Append(ListMember[i].MConfig.EPXingCount + "~");
                 sb.Append(ListMember[i].MTJ + "~");
                 sb.Append((ListMember[i].IsClose ? "已锁定" : "未锁定") + ListMember[i].Province + "~");
                 sb.Append((ListMember[i].MConfig.PPLeavel == 0 ? "不优先" : "优先") + "~");

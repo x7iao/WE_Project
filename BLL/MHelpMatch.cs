@@ -192,7 +192,7 @@ namespace WE_Project.BLL
 
                 //提供帮助的记录
                 List<Model.MOfferHelp> offerlist = new List<Model.MOfferHelp>();
-                offerlist = BLL.MOfferHelp.GetList("PPState in (0,1,2)  and HelpType = 0 and SQDate > '" + now.ToString("yyyy-MM-dd HH:mm:ss") + "' and MatchMoney < MFLMoney and SQMID in (select MID from Member where MState='1' and IsClose<>'1' ) order by SQDate");
+                offerlist = BLL.MOfferHelp.GetList("PPState in (0,1,2)  and HelpType = 0  and MatchMoney < MFLMoney and SQMID in (select MID from Member where MState='1' and IsClose<>'1' ) order by SQDate");
                 //管理员记录
                 List<Model.MGetHelp> getadminlist = new List<Model.MGetHelp>();
                 //getadminlist = BLL.MGetHelp.GetListJoinMember("t1.PPState in (0,1,2) and SQMID in (select MID from Member where MState='1' and IsClose<>'1' ) and t2.PPLeavel is not NULL and PPLeavel > 0  order by t1.SQDate asc");
@@ -337,8 +337,8 @@ namespace WE_Project.BLL
         /// <returns></returns>
         public static string MatchingHelp2()
         {
-            string result = MatchingScramble2();
-            result += MatchingHelpPrev2();
+            //string result = MatchingScramble2();
+            string result = MatchingHelpPrev2();
             result += Matching2();
             result += QDMatching2();
             if (result.Contains("操作成功") && !result.Contains("操作失败"))
@@ -389,8 +389,8 @@ namespace WE_Project.BLL
         /// <returns></returns>
         public static string MatchingHelp3(string offmid, string getmid)
         {
-            string result = MatchingScramble3(offmid, getmid);
-            result += MatchingHelpPrev3(offmid, getmid);
+            //string result = MatchingScramble3(offmid, getmid);
+            string result = MatchingHelpPrev3(offmid, getmid);
             result += Matching3(offmid, getmid);
             result += QDMatching3(offmid,getmid);
             if (result.Contains("操作成功") && !result.Contains("操作失败"))
@@ -1250,30 +1250,30 @@ namespace WE_Project.BLL
             }
             
             //发放管理奖//发放推荐奖
-            BLL.ChangeMoney.R_LD(match, offModel, MyHs);
-            BLL.ChangeMoney.R_TJ(match, offModel, MyHs);
+            //BLL.ChangeMoney.R_LD(match, offModel, MyHs);
+            //BLL.ChangeMoney.R_TJ(match, offModel, MyHs);
 
             #region 完成一单就直接加利息
 
-            if (offer.HelpType == 0)//如果是正常排单
-            {
-                int minute = (int)(DateTime.Now - match.MatchTime).TotalMinutes;
-                if (minute >= BLL.MMMConfig.Model.MHBBase) //在24小时内付款  20%利息
-                {
-                    offer.TotalInterest += (BLL.MMMConfig.Model.InterestPer * match.MatchMoney);
-                }
-                else//在12小时内付款小于2w的单30%利息，大于2W是25%
-                {
-                    Model.ConfigDictionary diclxfloat = DAL.ConfigDictionary.GetConfigDictionary(Convert.ToInt32(offer.SQMoney), "OfferLX", "");
-                    if (diclxfloat != null)
-                    {
-                        offer.TotalInterest += match.MatchMoney * Convert.ToDecimal(diclxfloat.DValue);
-                    }
-                }
-            }
-            else {//抢单区固定利息20%
-                offer.TotalInterest += (BLL.MMMConfig.Model.MCWPrice * match.MatchMoney);
-            }
+            //if (offer.HelpType == 0)//如果是正常排单
+            //{
+            //    int minute = (int)(DateTime.Now - match.MatchTime).TotalMinutes;
+            //    if (minute >= BLL.MMMConfig.Model.MHBBase) //在24小时内付款  20%利息
+            //    {
+            //        offer.TotalInterest += (BLL.MMMConfig.Model.InterestPer * match.MatchMoney);
+            //    }
+            //    else//在12小时内付款小于2w的单30%利息，大于2W是25%
+            //    {
+            //        Model.ConfigDictionary diclxfloat = DAL.ConfigDictionary.GetConfigDictionary(Convert.ToInt32(offer.SQMoney), "OfferLX", "");
+            //        if (diclxfloat != null)
+            //        {
+            //            offer.TotalInterest += match.MatchMoney * Convert.ToDecimal(diclxfloat.DValue);
+            //        }
+            //    }
+            //}
+            //else {//抢单区固定利息20%
+            //    offer.TotalInterest += (BLL.MMMConfig.Model.MCWPrice * match.MatchMoney);
+            //}
             
             #endregion
             

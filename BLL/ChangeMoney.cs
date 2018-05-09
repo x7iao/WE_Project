@@ -1978,15 +1978,19 @@ namespace WE_Project.BLL
             {
                 //获得可升级的等级
 
-                //BLL.Configuration.GetConfigDictionary(0, "AutoSJ", mTJ.AgencyCode);
-                //DAL.NConfigDictionary.GetConfigDictionary(0,);
-                var shMoney = DAL.SHMoney.GetSJShmoney(mTJ.MConfig.YJCount, mTJ.MConfig.TJCount, mTJ.AgencyCode);
-                if (shMoney != null)
+                Model.NConfigDictionary ncd= DAL.NConfigDictionary.GetConfigDictionary(0,"AutoSJ",mTJ.AgencyCode);
+                //var shMoney = DAL.SHMoney.GetSJShmoney(mTJ.MConfig.YJCount, mTJ.MConfig.TJCount, mTJ.AgencyCode);
+                if (ncd != null)
                 {
-                    //升级
-                    mTJ.AgencyCode = shMoney.MAgencyType;
-                    mTJ.MAgencyType = shMoney;
-                    CommonBase.RunHashtable(DAL.Member.UpdateRole(mTJ, new Hashtable()));
+                    int count= BLL.Member.GetTJCount(mTJ.MID,ncd.Remark);
+                    if (count >= ncd.StartRec && count <= ncd.EndRec)
+                    {
+                        var shMoney = BLL.Configuration.Model.SHMoneyList[ncd.DValue];
+                        //升级
+                        mTJ.AgencyCode = shMoney.MAgencyType;
+                        mTJ.MAgencyType = shMoney;
+                        CommonBase.RunHashtable(DAL.Member.UpdateRole(mTJ, new Hashtable()));
+                    }
                 }
                 R_SJ(mTJ.MTJ);
             }

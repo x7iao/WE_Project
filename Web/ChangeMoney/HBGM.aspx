@@ -35,6 +35,8 @@
                         <input id="Radio1" value="MHB" type="radio" name="rdo" checked="checked" /><%=WE_Project.BLL.Reward.List["MHB"].RewardName %>
                         <input id="Radio2" value="MJB" type="radio" name="rdo" /><%=WE_Project.BLL.Reward.List["MJB"].RewardName%>
                         <input id="Radio3" value="MGP" type="radio" name="rdo" /><%=WE_Project.BLL.Reward.List["MGP"].RewardName%>
+                        <input id="Radio4" value="MCW" type="radio" name="rdo" /><%=WE_Project.BLL.Reward.List["MCW"].RewardName%>
+                        <input id="Radio5" value="MJBF" type="radio" name="rdo" /><%=WE_Project.BLL.Reward.List["MJBF"].RewardName%>
                     </td>
                 </tr>
                 <tr>

@@ -16,6 +16,35 @@
             <table cellpadding="0" cellspacing="0">
                 <tr>
                     <td align="right">
+                        汇率:
+                    </td>
+                    <td>
+                        <input id="txtReleasePer" runat="server" class="normal_input" type="text" require-type="decimal"
+                            require-msg="汇率" /><font color="red">*</font>
+                    </td>
+                     <td align="right">
+                        预付款匹配比例:
+                    </td>
+                    <td>
+                        <input id="txtNoLineTimesMoneyFloat" runat="server" class="normal_input" type="text"
+                            require-type="decimal" require-msg="预付款匹配比例" /><font color="red">*</font>
+                    </td>
+                </tr>
+                  <tr>
+                    <td align="right">
+                        买入许愿果支付定金比例[手续费]:
+                    </td>
+                    <td>
+                        <input id="txtOfferTJKF" runat="server" class="normal_input" type="text" require-type="decimal"
+                            require-msg="买入许愿果支付定金比例[手续费]" /><font color="red">*</font>
+                    </td>
+                    <td align="right">
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">
                         提供帮助最小金额:
                     </td>
                     <td>
@@ -51,14 +80,14 @@
                         提供帮助倍数:
                     </td>
                     <td>
-                        <input id="txtOfferHelpBase" runat="server" class="normal_input" type="text" require-type="int"
+                        <input id="txtOfferHelpBase" runat="server" class="normal_input" type="text" require-type="decimal"
                             require-msg="提供帮助倍数" /><font color="red">*整数</font>
                     </td>
                     <td align="right">
                         获得帮助倍数:
                     </td>
                     <td>
-                        <input id="txtGetHelpBase" runat="server" class="normal_input" type="text" require-type="int"
+                        <input id="txtGetHelpBase" runat="server" class="normal_input" type="text" require-type="decimal"
                             require-msg="获得帮助倍数" /><font color="red">*整数</font>
                     </td>
                 </tr>
@@ -78,7 +107,7 @@
                             require-type="decimal" require-msg="获得帮助日限额" /><font color="red">*</font>
                     </td>
                 </tr>
-                <tr style=" display:none;">
+                <tr>
                     <td align="right">
                         提供帮助排单限制时间跨度:
                     </td>
@@ -94,7 +123,7 @@
                             require-type="int" require-msg="获得帮助排单限制时间跨度" /><font color="red">*整数(分钟)</font>
                     </td>
                 </tr>
-                <tr style=" display:none;">
+                <tr>
                     <td align="right">
                         提供帮助时间限制内最多排单数:
                     </td>
@@ -148,19 +177,20 @@
                 </tr>
                 <tr>
                     <td align="right">
+                        利息比例:
+                    </td>
+                    <td>
+                        <input id="txtInterestPer" runat="server" class="normal_input" type="text" require-type="decimal"
+                            require-msg="利息比例" /><font color="red">*</font>
+                    </td>
+                    <td align="right">
                       抢单区利息:
                     </td>
                     <td>
                         <input id="txtMCWPrice" runat="server" class="normal_input" type="text" require-type="decimal"
                             require-msg="抢单区利息" /><font color="red">*</font>
                     </td>
-                   <td align="right">
-                        超时完成利息比例:
-                    </td>
-                    <td>
-                        <input id="txtInterestPer" runat="server" class="normal_input" type="text" require-type="decimal"
-                            require-msg="利息比例" /><font color="red">*</font>
-                    </td>
+                   
                 </tr>
                 <tr style=" display:none;">
                     <td align="right" style="display: none">
@@ -187,20 +217,20 @@
                         <input id="txtFreezeTimes" runat="server" class="normal_input" type="text" require-type="int"
                             require-msg="冻结期" /><font color="red">*整数(分钟)</font>
                     </td>
-                      <td align="right">
+                      <td align="right"   style=" display:none;">
                         抢单区冻结期:
                     </td>
-                    <td>
+                    <td style=" display:none;">
                         <input id="txtFreezeTimesOfRegister" runat="server" class="normal_input" type="text"
                             require-type="int" require-msg="抢单区冻结期" /><font color="red">*分钟</font>
                     </td>
 
-                    <td align="right" style=" display:none;">
-                        出局时间:
+                    <td align="right" >
+                        收益期:
                     </td>
-                    <td  style=" display:none;">
+                    <td>
                         <input id="txtOutTimes" runat="server" class="normal_input" type="text" require-type="int"
-                            require-msg="出局时间" /><font color="red">*整数(分钟)</font>
+                            require-msg="收益期" /><font color="red">*整数(分钟)</font>
                     </td>
                 </tr>
                 <tr>
@@ -289,19 +319,7 @@
                     </td>
                 </tr>
 
-                <tr style=" display:none;">
-                    <td align="right">
-                        提供帮助不打款扣推荐人的比例:
-                    </td>
-                    <td>
-                        <input id="txtOfferTJKF" runat="server" class="normal_input" type="text" require-type="decimal"
-                            require-msg="提供帮助不打款扣推荐人的比例" /><font color="red">*</font>
-                    </td>
-                    <td align="right">
-                    </td>
-                    <td>
-                    </td>
-                </tr>
+              
                 <tr>
                      <td align="right">
                         收款后不排单冻结时间:
@@ -345,15 +363,7 @@
                             require-msg="奖金烧伤比例" /><font color="red">*</font>
                     </td>
                 </tr>
-                <tr style="display: none">
-                    <td align="right">
-                        预付款匹配比例:
-                    </td>
-                    <td>
-                        <input id="txtNoLineTimesMoneyFloat" runat="server" class="normal_input" type="text"
-                            require-type="decimal" require-msg="预付款匹配比例" /><font color="red">*</font>
-                    </td>
-                </tr>
+             
                 <tr style="display: none">
                     <td align="right">
                         获得帮助不收款扣推荐人的比例:
@@ -451,13 +461,7 @@
                         <input id="txtReleaseConditionCount" runat="server" class="normal_input" type="text"
                             require-type="int" require-msg="爱心钱包释放需排单完成数量" /><font color="red">*整数</font>
                     </td>
-                    <td align="right">
-                        爱心钱包释放比例:
-                    </td>
-                    <td>
-                        <input id="txtReleasePer" runat="server" class="normal_input" type="text" require-type="decimal"
-                            require-msg="爱心钱包释放比例" /><font color="red">*</font>
-                    </td>
+                  
                 </tr>
             </table>
             <table cellpadding="0" cellspacing="0">

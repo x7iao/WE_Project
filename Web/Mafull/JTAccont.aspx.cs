@@ -41,11 +41,11 @@ namespace WE_Project.Web.Mafull
 
         protected override string btnModify_Click()
         {
-            //if (BLL.ChangeMoney.FTFH())
-            //{
-            //    return "操作成功";
-            //}
-            //else
+            if (BLL.MOfferHelp.outTimeDHLiXi())
+            {
+                return "操作成功";
+            }
+            else
             {
                 return "操作失败";
             }

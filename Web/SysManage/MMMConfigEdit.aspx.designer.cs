@@ -2,8 +2,8 @@
 // <自动生成>
 //     此代码由工具生成。
 //
-//     对此文件的更改可能会导致不正确的行为，并且如果
-//     重新生成代码，这些更改将会丢失。 
+//     对此文件的更改可能导致不正确的行为，如果
+//     重新生成代码，则所做更改将丢失。
 // </自动生成>
 //------------------------------------------------------------------------------
 
@@ -11,6 +11,33 @@ namespace WE_Project.Web.SysManage {
     
     
     public partial class MMMConfigEdit {
+        
+        /// <summary>
+        /// txtReleasePer 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtReleasePer;
+        
+        /// <summary>
+        /// txtNoLineTimesMoneyFloat 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtNoLineTimesMoneyFloat;
+        
+        /// <summary>
+        /// txtOfferTJKF 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtOfferTJKF;
         
         /// <summary>
         /// txtOfferHelpMin 控件。
@@ -157,15 +184,6 @@ namespace WE_Project.Web.SysManage {
         protected global::System.Web.UI.HtmlControls.HtmlSelect txtGetHelpSwitch;
         
         /// <summary>
-        /// txtMCWPrice 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtMCWPrice;
-        
-        /// <summary>
         /// txtInterestPer 控件。
         /// </summary>
         /// <remarks>
@@ -173,6 +191,15 @@ namespace WE_Project.Web.SysManage {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtInterestPer;
+        
+        /// <summary>
+        /// txtMCWPrice 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtMCWPrice;
         
         /// <summary>
         /// txtLastProportion 控件。
@@ -310,15 +337,6 @@ namespace WE_Project.Web.SysManage {
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtMHBRangeTimes;
         
         /// <summary>
-        /// txtOfferTJKF 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtOfferTJKF;
-        
-        /// <summary>
         /// txtGLRewardFreezeTimes 控件。
         /// </summary>
         /// <remarks>
@@ -344,15 +362,6 @@ namespace WE_Project.Web.SysManage {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtLiXi2;
-        
-        /// <summary>
-        /// txtNoLineTimesMoneyFloat 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtNoLineTimesMoneyFloat;
         
         /// <summary>
         /// txtGetTJKF 控件。
@@ -407,14 +416,5 @@ namespace WE_Project.Web.SysManage {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtReleaseConditionCount;
-        
-        /// <summary>
-        /// txtReleasePer 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtReleasePer;
     }
 }

@@ -59,7 +59,7 @@ namespace WE_Project.DAL
 					new SqlParameter("@MOfferNeedMCW", SqlDbType.Decimal,9),
 					new SqlParameter("@OfferHelpMin", SqlDbType.Decimal,9),
 					new SqlParameter("@OfferHelpMax", SqlDbType.Decimal,9),
-					new SqlParameter("@OfferHelpBase", SqlDbType.Int,4),
+					new SqlParameter("@OfferHelpBase", SqlDbType.Decimal,9),
 					new SqlParameter("@OfferHelpRangeTimes", SqlDbType.Int,4),
 					new SqlParameter("@OfferHelpRangeCount", SqlDbType.Int,4),
 					new SqlParameter("@OfferHelpNeedComplete", SqlDbType.Bit,1),
@@ -68,7 +68,7 @@ namespace WE_Project.DAL
 					new SqlParameter("@OfferHelpSwitch", SqlDbType.Bit,1),
 					new SqlParameter("@GetHelpMin", SqlDbType.Decimal,9),
 					new SqlParameter("@GetHelpMax", SqlDbType.Decimal,9),
-					new SqlParameter("@GetHelpBase", SqlDbType.Int,4),
+					new SqlParameter("@GetHelpBase", SqlDbType.Decimal,9),
 					new SqlParameter("@GetHelpRangeTimes", SqlDbType.Int,4),
 					new SqlParameter("@GetHelpRangeCount", SqlDbType.Int,4),
 					new SqlParameter("@GetHelpNeedComplete", SqlDbType.Bit,1),
@@ -255,8 +255,8 @@ namespace WE_Project.DAL
 					new SqlParameter("@MOfferNeedMCW", SqlDbType.Decimal,9),
 					new SqlParameter("@OfferHelpMin", SqlDbType.Decimal,9),
 					new SqlParameter("@OfferHelpMax", SqlDbType.Decimal,9),
-					new SqlParameter("@OfferHelpBase", SqlDbType.Int,4),
-					new SqlParameter("@OfferHelpRangeTimes", SqlDbType.Int,4),
+					new SqlParameter("@OfferHelpBase", SqlDbType.Decimal,9),
+                    new SqlParameter("@OfferHelpRangeTimes", SqlDbType.Int,4),
 					new SqlParameter("@OfferHelpRangeCount", SqlDbType.Int,4),
 					new SqlParameter("@OfferHelpNeedComplete", SqlDbType.Bit,1),
 					new SqlParameter("@OfferHelpDayTotalMoney", SqlDbType.Decimal,9),
@@ -264,8 +264,8 @@ namespace WE_Project.DAL
 					new SqlParameter("@OfferHelpSwitch", SqlDbType.Bit,1),
 					new SqlParameter("@GetHelpMin", SqlDbType.Decimal,9),
 					new SqlParameter("@GetHelpMax", SqlDbType.Decimal,9),
-					new SqlParameter("@GetHelpBase", SqlDbType.Int,4),
-					new SqlParameter("@GetHelpRangeTimes", SqlDbType.Int,4),
+					new SqlParameter("@GetHelpBase", SqlDbType.Decimal,9),
+                    new SqlParameter("@GetHelpRangeTimes", SqlDbType.Int,4),
 					new SqlParameter("@GetHelpRangeCount", SqlDbType.Int,4),
 					new SqlParameter("@GetHelpNeedComplete", SqlDbType.Bit,1),
 					new SqlParameter("@GetHelpDayTotalMoney", SqlDbType.Decimal,9),
@@ -507,7 +507,7 @@ namespace WE_Project.DAL
                 }
                 if (row["OfferHelpBase"] != null && row["OfferHelpBase"].ToString() != "")
                 {
-                    model.OfferHelpBase = int.Parse(row["OfferHelpBase"].ToString());
+                    model.OfferHelpBase = decimal.Parse(row["OfferHelpBase"].ToString());
                 }
                 if (row["OfferHelpRangeTimes"] != null && row["OfferHelpRangeTimes"].ToString() != "")
                 {
@@ -557,7 +557,7 @@ namespace WE_Project.DAL
                 }
                 if (row["GetHelpBase"] != null && row["GetHelpBase"].ToString() != "")
                 {
-                    model.GetHelpBase = int.Parse(row["GetHelpBase"].ToString());
+                    model.GetHelpBase = decimal.Parse(row["GetHelpBase"].ToString());
                 }
                 if (row["GetHelpRangeTimes"] != null && row["GetHelpRangeTimes"].ToString() != "")
                 {

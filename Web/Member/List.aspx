@@ -85,14 +85,20 @@
                     <th>
                         <%=WE_Project.BLL.Reward.List["MHB"].RewardName %>
                     </th>
-                    <%--<th>
-                        <%=WE_Project.BLL.Reward.List["MCW"].RewardName %>
-                    </th>--%>
                     <th>
                         <%=WE_Project.BLL.Reward.List["MJB"].RewardName %>
                     </th>
+                     <th>
+                        <%=WE_Project.BLL.Reward.List["MCW"].RewardName %>
+                    </th>
                     <th>
                         <%=WE_Project.BLL.Reward.List["MGP"].RewardName %>
+                    </th>
+                    <th>
+                        <%=WE_Project.BLL.Reward.List["MJBF"].RewardName %>
+                    </th>
+                     <th>
+                        忠诚度
                     </th>
                     <th>
                         推荐人

@@ -22,7 +22,7 @@ namespace WE_Project.Web.SysManage
 
                 model.OfferHelpMin = decimal.Parse(Request.Form["txtOfferHelpMin"]);
                 model.OfferHelpMax = decimal.Parse(Request.Form["txtOfferHelpMax"]);
-                model.OfferHelpBase = int.Parse(Request.Form["txtOfferHelpBase"]);
+                model.OfferHelpBase = decimal.Parse(Request.Form["txtOfferHelpBase"]);
                 model.OfferHelpRangeTimes = int.Parse(Request.Form["txtOfferHelpRangeTimes"]);
                 model.OfferHelpRangeCount = int.Parse(Request.Form["txtOfferHelpRangeCount"]);
                 model.OfferHelpDayTotalMoney = decimal.Parse(Request.Form["txtOfferHelpDayTotalMoney"]);
@@ -32,7 +32,7 @@ namespace WE_Project.Web.SysManage
                 //model.OfferHelpFloat = decimal.Parse(Request.Form["txtOfferHelpFloat"]);
                 model.GetHelpMin = decimal.Parse(Request.Form["txtGetHelpMin"]);
                 model.GetHelpMax = decimal.Parse(Request.Form["txtGetHelpMax"]);
-                model.GetHelpBase = int.Parse(Request.Form["txtGetHelpBase"]);
+                model.GetHelpBase = decimal.Parse(Request.Form["txtGetHelpBase"]);
                 model.GetHelpDayTotalMoney = decimal.Parse(Request.Form["txtGetHelpDayTotalMoney"]);
                 model.GetHelpTimes = Request.Form["txtGetHelpTimes"];
                 model.GetHelpSwitch = Request.Form["txtGetHelpSwitch"] == "1";

@@ -408,7 +408,7 @@ namespace WE_Project.BLL
                     JTFHState = true,
                     TXStatus = true,
                     ZZStatus = true,
-                    EPXingCount = 5,
+                    EPXingCount = 100,
                     TotalHLMoney = 0,
                     HLMoneyState = false,
                     PPLeavel = 0,

@@ -26,7 +26,7 @@
                         <span>我的<%=WE_Project.BLL.Reward.List["MGP"].RewardName %>：</span>
                     </td>
                     <td>
-                        <%=TModel.MConfig.MGP.ToString("F0") %>
+                        <%=TModel.MConfig.MGP %>
                     </td>
                 </tr>
                 <tr>
@@ -36,7 +36,7 @@
                     <td>
                       <select id="offerrdo" runat="server">
                                                     <option value="0">正常排单</option>
-                                                    <option value="1">抢单区排单（不消耗排单币）</option>
+                                                    <%--<option value="1">抢单区排单（不消耗排单币）</option>--%>
                                                 </select>
                     </td>
                 </tr>

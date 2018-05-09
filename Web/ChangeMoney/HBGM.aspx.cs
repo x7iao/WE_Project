@@ -26,7 +26,11 @@ namespace WE_Project.Web.ChangeMoney
                         MType = "MJB";
                     if (Request.Form["rdo"] == "MGP")
                         MType = "MGP";
-                    
+                    if (Request.Form["rdo"] == "MCW")
+                        MType = "MCW";
+                    if (Request.Form["rdo"] == "MJBF")
+                        MType = "MJBF";
+
                     if (BLL.ChangeMoney.EnoughChange(TModel.MID, int.Parse(Request.Form["txtMHB"]), MType))
                     {
                         Hashtable MyHs = new Hashtable();

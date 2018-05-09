@@ -122,9 +122,9 @@
                                         </div>
                                         <div class="form-group">
                                             <label class="col-sm-3">
-                                                剩余排单币:</label>
+                                                剩余<%=WE_Project.BLL.Reward.List["MGP"].RewardName %>:</label>
                                             <div class="col-sm-9">
-                                                <%=TModel.MConfig.MGP.ToString("F0") %>
+                                                <%=TModel.MConfig.MGP%>
                                             </div>
                                         </div>
 
@@ -135,7 +135,7 @@
                                             <div class="col-sm-9">
                                                 <select id="offerrdo" runat="server">
                                                     <option value="0">正常排单</option>
-                                                    <option value="1">抢单区排单（不消耗排单币）</option>
+                                                    <%--<option value="1">抢单区排单（不消耗排单币）</option>--%>
                                                 </select>
                                                 ←选择排单区域
                                             </div>
@@ -166,10 +166,12 @@
                                                 <select id="rdo">
                                                     <option value="MHB">
                                                         <%=WE_Project.BLL.Reward.List["MHB"].RewardName %>(余额:<%=TModel.MConfig.MHB %>)</option>
-                                                    <%--<option value="MCW">
-                                                        <%=WE_Project.BLL.Reward.List["MCW"].RewardName%>(余额:<%=TModel.MConfig.MCW %>)</option>--%>
+                                                  
                                                     <option value="MJB">
                                                         <%=WE_Project.BLL.Reward.List["MJB"].RewardName%>(余额:<%=TModel.MConfig.MJB %>)</option>
+
+                                                      <option value="MCW">
+                                                        <%=WE_Project.BLL.Reward.List["MCW"].RewardName%>(余额:<%=TModel.MConfig.MCW %>)</option>
                                                 </select>
                                                 ←选择钱包
                                             </div>

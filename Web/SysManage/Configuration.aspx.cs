@@ -56,7 +56,7 @@ namespace WE_Project.Web.SysManage
 
                 model.SHMoneyList = GetSHMoneyList();
                 model.ConfigDictionaryList = GetConfigDictionaryList();
-                //model.NConfigDictionaryList = GetNConfigDictionaryList();
+                model.NConfigDictionaryList = GetNConfigDictionaryList();
                 model = BLL.Configuration.Model;
                 return model;
             }
@@ -97,8 +97,8 @@ namespace WE_Project.Web.SysManage
                     GridView1.DataBind();
                     GridView2.DataSource = value.ConfigDictionaryTable;
                     GridView2.DataBind();
-                    //GridView4.DataSource = value.NConfigDictionaryTable;
-                    //GridView4.DataBind();
+                    GridView4.DataSource = value.NConfigDictionaryTable;
+                    GridView4.DataBind();
                     //List<Model.Roles> list = BLL.Roles.RolsList.Values.ToList().Where(emp => emp.VState).ToList();
                     //for (int i = 0; i < list.Count; i++)
                     //{
@@ -232,9 +232,9 @@ namespace WE_Project.Web.SysManage
                 new Model.NConfigDictionary()
                 {
                     NDTpye = cols[0],
-                    Remark = cols[1],
-                    StartLevel = int.Parse(cols[2]),
-                    EndLevel = int.Parse(cols[3]),
+                    StartLevel = int.Parse(cols[1]),
+                    EndLevel = int.Parse(cols[2]),
+                    Remark = cols[3],
                     StartRec = int.Parse(cols[4]),
                     EndRec = int.Parse(cols[5]),
                     DValue = cols[6],

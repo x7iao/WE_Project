@@ -366,7 +366,7 @@
             </div>
             <br />
             <br />
-            <%--<div>
+            <div>
                 <asp:GridView ID="GridView4" OnRowDataBound="GridView1_RowDataBound" runat="server"
                     AutoGenerateColumns="False" AllowSorting="True">
                     <Columns>
@@ -376,12 +376,7 @@
                                 <asp:TextBox ID="txtNDType" runat="server" Text='<%#Eval("NDTpye") %>' ReadOnly="true"></asp:TextBox>
                             </ItemTemplate>
                         </asp:TemplateField>
-                        <asp:TemplateField HeaderText="说明">
-                            <ControlStyle Width="110px" />
-                            <ItemTemplate>
-                                <asp:TextBox ID="txtNRemark" runat="server" Text='<%#Eval("Remark") %>'></asp:TextBox>
-                            </ItemTemplate>
-                        </asp:TemplateField>
+                     
                         <asp:TemplateField HeaderText="最小代数">
                             <ControlStyle Width="80%" />
                             <ItemTemplate>
@@ -394,25 +389,31 @@
                                 <asp:TextBox ID="txtNEndLevel" runat="server" Text='<%#Eval("EndLevel") %>' />
                             </ItemTemplate>
                         </asp:TemplateField>
-                        <asp:TemplateField HeaderText="最小推荐人数">
+                           <asp:TemplateField HeaderText="所需会员等级">
+                            <ControlStyle Width="110px" />
+                            <ItemTemplate>
+                                <asp:TextBox ID="txtNRemark" runat="server" Text='<%#Eval("Remark") %>'></asp:TextBox>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="所需会员人数起">
                             <ControlStyle Width="80%" />
                             <ItemTemplate>
                                 <asp:TextBox ID="txtNDStartRec" runat="server" Text='<%#Bind("StartRec") %>' />
                             </ItemTemplate>
                         </asp:TemplateField>
-                        <asp:TemplateField HeaderText="最大推荐人数">
+                        <asp:TemplateField HeaderText="所需会员人数止">
                             <ControlStyle Width="80%" />
                             <ItemTemplate>
                                 <asp:TextBox ID="txtNDEndRec" runat="server" Text='<%#Bind("EndRec") %>' />
                             </ItemTemplate>
                         </asp:TemplateField>
-                        <asp:TemplateField HeaderText="奖励比例">
+                        <asp:TemplateField HeaderText="升级级别">
                             <ControlStyle Width="80%" />
                             <ItemTemplate>
                                 <asp:TextBox ID="txtNDValue" runat="server" Text='<%#Bind("DValue") %>' />
                             </ItemTemplate>
                         </asp:TemplateField>
-                        <asp:TemplateField HeaderText="会员等级">
+                        <asp:TemplateField HeaderText="当前级别">
                             <ControlStyle Width="80%" />
                             <ItemTemplate>
                                 <asp:TextBox ID="txtDKey" runat="server" Text='<%#Bind("DKey") %>' ReadOnly="true" />
@@ -420,7 +421,7 @@
                         </asp:TemplateField>
                     </Columns>
                 </asp:GridView>
-            </div>--%>
+            </div>
             <table cellpadding="0" cellspacing="0">
                 <tr style="height: 50px;">
                     <td>

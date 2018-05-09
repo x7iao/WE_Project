@@ -60,7 +60,7 @@ namespace WE_Project.Model
         /// </summary>
         public decimal TotalTXMoney { get; set; }
         /// <summary>
-        /// 互助币
+        /// 许愿树 静态奖金
         /// </summary>
         public decimal MHB { get; set; }
         /// <summary>
@@ -68,19 +68,19 @@ namespace WE_Project.Model
         /// </summary>
         public decimal MJJ { get; set; }
         /// <summary>
-        /// 爱心币
+        /// 许愿池  动态奖金
         /// </summary>
         public decimal MJB { get; set; }
         /// <summary>
-        /// 爱心币可用余额
+        /// 许愿台   用来理财
         /// </summary>
         public decimal MJBF { get; set; }
         /// <summary>
-        /// 回馈币
+        /// 许愿果  用来排单，2000元/颗
         /// </summary>
         public decimal MCW { get; set; }
         /// <summary>
-        /// 排单币
+        /// 许愿金 排单需要的手续费
         /// </summary>
         public decimal MGP { get; set; }
         /// <summary>
