@@ -38,9 +38,12 @@
                         <input id="txtOfferTJKF" runat="server" class="normal_input" type="text" require-type="decimal"
                             require-msg="买入许愿果支付定金比例[手续费]" /><font color="red">*</font>
                     </td>
-                    <td align="right">
+                      <td align="right">
+                        首单支付预付款赠送推荐人忠诚点数:
                     </td>
                     <td>
+                        <input id="txtHonestTimes" runat="server" class="normal_input" type="text" require-type="int"
+                            require-msg="首单支付预付款赠送推荐人忠诚点数" /><font color="red">*整数</font>
                     </td>
                 </tr>
                 <tr>
@@ -91,20 +94,20 @@
                             require-msg="获得帮助倍数" /><font color="red">*整数</font>
                     </td>
                 </tr>
-                <tr style=" display:none;">
+                <tr >
                     <td align="right">
-                        提供帮助日限额:
+                        许愿池提现额度比例【不超本身钱包倍数】:
                     </td>
                     <td>
                         <input id="txtOfferHelpDayTotalMoney" runat="server" class="normal_input" type="text"
-                            require-type="decimal" require-msg="提供帮助日限额" /><font color="red">*</font>
+                            require-type="decimal" require-msg="许愿池提现额度比例" /><font color="red">*</font>
                     </td>
                     <td align="right">
-                        获得帮助日限额:
+                        许愿池提现倍数:
                     </td>
                     <td>
                         <input id="txtGetHelpDayTotalMoney" runat="server" class="normal_input" type="text"
-                            require-type="decimal" require-msg="获得帮助日限额" /><font color="red">*</font>
+                            require-type="decimal" require-msg="许愿池提现倍数" /><font color="red">*</font>
                     </td>
                 </tr>
                 <tr>
@@ -184,11 +187,11 @@
                             require-msg="利息比例" /><font color="red">*</font>
                     </td>
                     <td align="right">
-                      抢单区利息:
+                      忠诚度为0时利息比例:
                     </td>
                     <td>
                         <input id="txtMCWPrice" runat="server" class="normal_input" type="text" require-type="decimal"
-                            require-msg="抢单区利息" /><font color="red">*</font>
+                            require-msg="忠诚度为0时利息比例" /><font color="red">*</font>
                     </td>
                    
                 </tr>
@@ -374,13 +377,7 @@
                     </td>
                 </tr>
                 <tr style="display: none">
-                    <td align="right">
-                        诚信奖时间:
-                    </td>
-                    <td>
-                        <input id="txtHonestTimes" runat="server" class="normal_input" type="text" require-type="int"
-                            require-msg="诚信奖时间" /><font color="red">*整数(分钟)</font>
-                    </td>
+                  
                     <td align="right">
                         诚信奖比例:
                     </td>

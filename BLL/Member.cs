@@ -47,6 +47,16 @@ namespace WE_Project.BLL
             //else
             //    return "<b style='cursor:help;' title='我不在线请留言' onclick='OpenTask(\"" + mid + "\");'><img src='SourceFiles/AcmeBlue/images/off.jpg'/></b>";
         }
+        /// <summary>
+        /// 衰减忠诚度
+        /// </summary>
+        /// <returns></returns>
+        public static bool Weaken()
+        {
+            Hashtable MyHs = new Hashtable();
+            MyHs.Add("update MemberConfig set EPXingCount=EPXingCount-1 where EPXingCount>0;", null);
+            return BLL.CommonBase.RunHashtable(MyHs);
+        }
 
         public static int OnLineCount
         {

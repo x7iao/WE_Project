@@ -67,11 +67,12 @@ namespace WE_Project.Web.Mafull
         {
             switch (type)
             {
-                case "1": return "真差劲";
-                case "2": return "马马虎虎";
-                case "3": return "一般";
-                case "4": return "很好";
-                case "5": return "非常棒";
+                case "0": return "未评价";
+                case "1": return "一星";
+                case "2": return "二星";
+                case "3": return "三星";
+                case "4": return "四星";
+                case "5": return "五星";
             }
             return "";
         }
@@ -81,19 +82,53 @@ namespace WE_Project.Web.Mafull
             lock (BLL.MHelpMatch.thisLock)
             {
                 Model.MHelpMatch match = BLL.MHelpMatch.GetModel(Request.Form["hidId"]);
-                if (match != null && string.IsNullOrEmpty(match.PicUrl2))
+                if (match != null && match.OfferPJ==0)
                 {
                     Hashtable hs = new Hashtable();
-                    match.PicUrl2 = Request.Form["ddlPicUrl2"];
-                    if (match.PicUrl2 == "5")
+                    int countxj =Convert.ToInt32( Request.Form["ddlPicUrl2"]);
+                    if (countxj <= 0)
+                        return "请选择星星评价";
+                    match.OfferPJ = countxj;
+
+                    Model.Member mget = BLL.Member.GetModelByMID(match.GetMID);
+                    int kfcount = 5 - countxj;
+                    countxj = mget.MConfig.EPXingCount < kfcount ? mget.MConfig.EPXingCount : kfcount;
+                    if (countxj > 0)
                     {
-                        //BLL.ChangeMoney.HBChangeTran(match.MatchMoney * BLL.MMMConfig.Model.HonestyLiXi, BLL.Member.ManageMember.TModel.MID, match.GetMID, "CX", null, "MJB", "诚信收款，付款方：" + match.OfferMID + "给予好评！", hs);
+                        hs.Add("update MemberConfig set EPXingCount=EPXingCount-" + countxj + " where MID='" + mget.MID + "';", null);
                     }
                     BLL.MHelpMatch.Update(match, hs);
                     BLL.CommonBase.RunHashtable(hs);
                 }
             }
-            return "评价成功";
+            return "1";
+        }
+
+        protected override string btnModify_Click()
+        {
+            lock (BLL.MHelpMatch.thisLock)
+            {
+                Model.MHelpMatch match = BLL.MHelpMatch.GetModel(Request.Form["hidId"]);
+                if (match != null &&match.GetPJ==0)
+                {
+                    Hashtable hs = new Hashtable();
+                    int countxj = Convert.ToInt32(Request.Form["ddlPicUrl3"]);
+                    if (countxj <= 0)
+                        return "请选择星星评价";
+                    match.GetPJ = countxj;
+
+                    Model.Member mget = BLL.Member.GetModelByMID(match.OfferMID);
+                    int kfcount = 5 - countxj;
+                    countxj = mget.MConfig.EPXingCount < kfcount ? mget.MConfig.EPXingCount : kfcount;
+                    if (countxj > 0)
+                    {
+                        hs.Add("update MemberConfig set EPXingCount=EPXingCount-" + countxj + " where MID='" + mget.MID + "';", null);
+                    }
+                    BLL.MHelpMatch.Update(match, hs);
+                    BLL.CommonBase.RunHashtable(hs);
+                }
+            }
+            return "1";
         }
     }
 }

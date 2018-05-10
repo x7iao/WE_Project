@@ -41,7 +41,7 @@ namespace WE_Project.Web.Mafull
 
         protected override string btnModify_Click()
         {
-            if (BLL.MOfferHelp.outTimeDHLiXi())
+            if (BLL.MOfferHelp.outTimeDHLiXi()&&BLL.Member.Weaken())
             {
                 return "操作成功";
             }

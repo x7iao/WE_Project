@@ -100,6 +100,17 @@ namespace WE_Project.BLL
         {
             return WE_Project.DAL.MOfferHelp.GetList(strWhere);
         }
+
+        /// <summary>
+        /// 连表查询时使用
+        /// </summary>
+        /// <param name="strWhere"></param>
+        /// <returns></returns>
+        public static List<Model.MOfferHelp> GetListJoin(string strWhere)
+        {
+            return WE_Project.DAL.MOfferHelp.GetListJoin(strWhere);
+        }
+
         public static List<Model.MOfferHelp> GetList(int top, string strWhere)
         {
             return WE_Project.DAL.MOfferHelp.GetList(top, strWhere);
@@ -277,7 +288,13 @@ namespace WE_Project.BLL
                             offer.SQMID = member.MID;
                             offer.SQMoney = sqMoney;
                             //offer.DayInterest = 0;
-                            offer.DayInterest= BLL.MMMConfig.Model.InterestPer;//订单利息(插入数据库前获取)
+                            if (member.MConfig.EPXingCount <= 0)
+                            {
+                                offer.DayInterest = BLL.MMMConfig.Model.MCWPrice;
+                            }
+                            else {
+                                offer.DayInterest = BLL.MMMConfig.Model.InterestPer;//订单利息(插入数据库前获取)
+                            }
                             offer.TotalInterest = 0;
                             offer.TotalInterestDays = 0;
                             offer.TotalSincerity = 0;

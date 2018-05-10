@@ -67,9 +67,9 @@ namespace WE_Project.DAL
             string guid = Guid.NewGuid().ToString();
             StringBuilder strSql = new StringBuilder();
             strSql.Append("insert into MHelpMatch(");
-            strSql.Append("Remark,OfferMID,GetMID,MatchCode,OfferId,GetId,MatchTime,PayTime,ConfirmTime,MatchState,PicUrl,MatchMoney,PicUrl1,PicUrl2,ChangeCount,ChangeMTJTime,ChangeVIPTime,PicUrl3,MatchType");
+            strSql.Append("Remark,OfferMID,GetMID,MatchCode,OfferId,GetId,MatchTime,PayTime,ConfirmTime,MatchState,PicUrl,MatchMoney,PicUrl1,PicUrl2,ChangeCount,ChangeMTJTime,ChangeVIPTime,PicUrl3,MatchType,OfferPJ,GetPJ");
             strSql.Append(") values (");
-            strSql.Append("@Remark,@OfferMID,@GetMID,@MatchCode,@OfferId,@GetId,@MatchTime,@PayTime,@ConfirmTime,@MatchState,@PicUrl,@MatchMoney,@PicUrl1,@PicUrl2,@ChangeCount,@ChangeMTJTime,@ChangeVIPTime,@PicUrl3,@MatchType");
+            strSql.Append("@Remark,@OfferMID,@GetMID,@MatchCode,@OfferId,@GetId,@MatchTime,@PayTime,@ConfirmTime,@MatchState,@PicUrl,@MatchMoney,@PicUrl1,@PicUrl2,@ChangeCount,@ChangeMTJTime,@ChangeVIPTime,@PicUrl3,@MatchType,@OfferPJ,@GetPJ");
             strSql.Append(") ");
             strSql.AppendFormat(";select '{0}'", guid);
             SqlParameter[] parameters = {
@@ -91,7 +91,9 @@ namespace WE_Project.DAL
                         new SqlParameter("@ChangeMTJTime", SqlDbType.DateTime) , 
                         new SqlParameter("@ChangeVIPTime", SqlDbType.DateTime) ,
                         new SqlParameter("@PicUrl3", SqlDbType.VarChar,500) ,
-                        new SqlParameter("@MatchType", SqlDbType.Int,4) 
+                        new SqlParameter("@MatchType", SqlDbType.Int,4),
+                        new SqlParameter("@OfferPJ", SqlDbType.Int,4),
+                        new SqlParameter("@GetPJ", SqlDbType.Int,4)
             };
 
             parameters[0].Value = model.Remark;
@@ -113,6 +115,9 @@ namespace WE_Project.DAL
             parameters[16].Value = model.ChangeVIPTime;
             parameters[17].Value = model.PicUrl3;
             parameters[18].Value = model.MatchType;
+
+            parameters[19].Value = model.OfferPJ;
+            parameters[20].Value = model.GetPJ;
             MyHs.Add(strSql.ToString(), parameters);
             return MyHs;
         }
@@ -153,7 +158,9 @@ namespace WE_Project.DAL
             strSql.Append(" ChangeCount = @ChangeCount,  ");
             strSql.Append(" ChangeMTJTime = @ChangeMTJTime,  ");
             strSql.Append(" MatchType = @MatchType,  ");
-            strSql.Append(" ChangeVIPTime = @ChangeVIPTime  ");
+            strSql.Append(" ChangeVIPTime = @ChangeVIPTime,  ");
+            strSql.Append(" OfferPJ = @OfferPJ,  ");
+            strSql.Append(" GetPJ = @GetPJ  ");
             strSql.Append(" where Id=@Id ");
             strSql.AppendFormat(" ;select '{0}'", guid);
 
@@ -177,7 +184,9 @@ namespace WE_Project.DAL
                         new SqlParameter("@ChangeMTJTime", SqlDbType.DateTime) , 
                         new SqlParameter("@ChangeVIPTime", SqlDbType.DateTime)  ,
                         new SqlParameter("@PicUrl3", SqlDbType.VarChar,500) ,
-                        new SqlParameter("@MatchType", SqlDbType.Int,4) 
+                        new SqlParameter("@MatchType", SqlDbType.Int,4) ,
+                         new SqlParameter("@OfferPJ", SqlDbType.Int,4),
+                        new SqlParameter("@GetPJ", SqlDbType.Int,4)
             };
 
             parameters[0].Value = model.Id;
@@ -200,6 +209,8 @@ namespace WE_Project.DAL
             parameters[17].Value = model.ChangeVIPTime;
             parameters[18].Value = model.PicUrl3;
             parameters[19].Value = model.MatchType;
+            parameters[20].Value = model.OfferPJ;
+            parameters[21].Value = model.GetPJ;
             MyHs.Add(strSql.ToString(), parameters);
             return MyHs;
         }
@@ -389,6 +400,15 @@ namespace WE_Project.DAL
                 if (!string.IsNullOrEmpty(dr["ChangeVIPTime"].ToString()))
                 {
                     model.ChangeVIPTime = DateTime.Parse(dr["ChangeVIPTime"].ToString());
+                }
+
+                if (!string.IsNullOrEmpty(dr["OfferPJ"].ToString()))
+                {
+                    model.OfferPJ = int.Parse(dr["OfferPJ"].ToString());
+                }
+                if (!string.IsNullOrEmpty(dr["GetPJ"].ToString()))
+                {
+                    model.GetPJ = int.Parse(dr["GetPJ"].ToString());
                 }
 
                 return model;

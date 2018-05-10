@@ -51,36 +51,52 @@
                             require-msg="出账汇率" /><font color="red"></font>
                     </td>
                 </tr>
-                <tr style="display: none">
+                <tr>
                     <td align="right">
-                        申请援助最小金额:
+                        每天排单总数:
                     </td>
                     <td>
                         <input id="txtTXMinMoney" runat="server" class="normal_input" type="text" require-type="int"
                             require-msg="申请援助最小金额" /><font color="red">*正整数</font>
                     </td>
                     <td align="right">
-                        申请援助最大金额:
+                        每天获得帮助总数:
                     </td>
                     <td>
                         <input id="txtTXBaseMoney" runat="server" class="normal_input" type="text" require-type="int"
-                            require-msg="申请援助最大金额" /><font color="red">*正整数</font>
+                            require-msg="每天获得帮助总数" /><font color="red">*正整数</font>
                     </td>
                 </tr>
-                <tr style="display: none">
+                <tr>
                     <td align="right">
-                        每日取款次数:
+                         每天排单金额:
                     </td>
                     <td>
                         <input id="txtGPrice" runat="server" class="normal_input" type="text" require-type="decimal"
-                            require-msg="每日取款次数" /><font color="red">*小数</font>
+                            require-msg="每天排单金额" /><font color="red">*小数</font>
                     </td>
                     <td align="right">
-                        每次取款最大金额:
+                        每天获得帮助金额:
                     </td>
                     <td>
                         <input id="txtDFHFloat" runat="server" class="normal_input" type="text" require-type="decimal"
-                            require-msg="每次取款金额" /><font color="red">*小数</font>
+                            require-msg="每天获得帮助金额" /><font color="red">*小数</font>
+                    </td>
+                </tr>
+                <tr>
+                       <td>
+                        平台总会员人数：
+                    </td>
+                    <td>
+                        <input id="txtMinBuyGCount" runat="server" class="normal_input" type="text" require-type="int"
+                            require-msg="平台总会员人数" /><font color="red">*整数</font>
+                    </td>
+                    <td>
+                        每天新会员人数：
+                    </td>
+                    <td>
+                        <input id="txtDFHOutCount" runat="server" class="normal_input" type="text" require-type="int"
+                            require-msg="每天新会员人数" /><font color="red">*整数</font>
                     </td>
                 </tr>
                 <tr style="display: none">
@@ -126,13 +142,8 @@
                     <td align="right">
                         最多持股数量:
                     </td>
-                    <td>
-                        管理奖冻结时间：
-                    </td>
-                    <td>
-                        <input id="txtDFHOutCount" runat="server" class="normal_input" type="text" require-type="int"
-                            require-msg="管理奖冻结时间" /><font color="red">*分钟</font>
-                    </td>
+
+                 
                 </tr>
                 <tr style="display: none">
                     <td align="right">
@@ -147,13 +158,7 @@
                    
                 </tr>
                 <tr style="display: none">
-                    <td>
-                        复投生产时间：
-                    </td>
-                    <td>
-                        <input id="txtMinBuyGCount" runat="server" class="normal_input" type="text" require-type="int"
-                            require-msg="转账倍数" /><font color="red">*整数(天)</font>
-                    </td>
+                    
                     <td>
                         复投单次发放比例：
                     </td>
@@ -306,12 +311,12 @@
                                     require-type="decimal" require-msg="提供帮助最大金额" />
                             </ItemTemplate>
                         </asp:TemplateField>--%>
-                       <%-- <asp:TemplateField HeaderText="管理奖月封顶">
+                        <asp:TemplateField HeaderText="管理奖日封顶">
                             <ItemTemplate>
                                 <asp:TextBox Width="80%" ID="txtDTopMoney" runat="server" Text='<%#Bind("DTopMoney") %>'
-                                    require-type="decimal" require-msg="管理奖月封顶" />
+                                    require-type="decimal" require-msg="管理奖日封顶" />
                             </ItemTemplate>
-                        </asp:TemplateField>--%>
+                        </asp:TemplateField>
                         <asp:TemplateField HeaderText="颜色代码">
                             <ItemTemplate>
                                 <asp:TextBox Width="80%" ID="txtMColor" runat="server" Text='<%#Bind("MColor") %>' />

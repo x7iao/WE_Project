@@ -170,7 +170,9 @@ namespace WE_Project.Model
 
 
         public string FDTrade { get; set; }
-
+        /// <summary>
+        /// 忠诚度
+        /// </summary>
         public int EPXingCount { get; set; }//5
 
         public int EPTimeOutCount { get; set; }//0

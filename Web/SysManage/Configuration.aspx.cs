@@ -122,7 +122,7 @@ namespace WE_Project.Web.SysManage
                 {
                     jishuqi++;
                     sb.Append(Request.Form[key]);
-                    if (jishuqi % 4 != 0)
+                    if (jishuqi %5 != 0)
                         sb.Append("|");
                     else
                         sb.Append("≌");
@@ -147,8 +147,8 @@ namespace WE_Project.Web.SysManage
                     //TakeOffFloat = decimal.Parse(cols[5]),
                     //XFMouthMinHelpMoney = decimal.Parse(cols[4]),
                     //XFMounthMoney = decimal.Parse(cols[5]),
-                    //DTopMoney = decimal.Parse(cols[6]),
-                    MColor = cols[3],
+                    DTopMoney = decimal.Parse(cols[3]),
+                    MColor = cols[4],
                     ViewLevel = 99999
                 });
             }

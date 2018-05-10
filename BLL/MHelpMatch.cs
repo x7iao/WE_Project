@@ -162,13 +162,13 @@ namespace WE_Project.BLL
                 DateTime getnow = DateTime.Now.AddMinutes(-BLL.MMMConfig.Model.FreezeTimesOfOffer);
                 //提供帮助的记录
                 List<Model.MOfferHelp> offerlist = new List<Model.MOfferHelp>();
-                offerlist = BLL.MOfferHelp.GetList("PPState in (0,1,2) and HelpType = 0 and SQDate <= '" + now.ToString("yyyy-MM-dd HH:mm:ss") + "' and SQMID in (select MID from Member where MState='1' and IsClose<>'1' ) order by SQDate");
+                offerlist = BLL.MOfferHelp.GetListJoin("PPState in (0,1,2) and HelpType = 0 and SQDate <= '" + now.ToString("yyyy-MM-dd HH:mm:ss") + "' and SQMID in (select MID from Member where MState='1' and IsClose<>'1' ) order by SQDate,mc.EPXingCount desc");
                 //管理员记录
                 List<Model.MGetHelp> getadminlist = new List<Model.MGetHelp>();
-                getadminlist = BLL.MGetHelp.GetListJoinMember("t1.PPState in (0,1,2)  and SQDate <= '" + getnow.ToString("yyyy-MM-dd HH:mm:ss") + "' and SQMID in (select MID from Member where MState='1' and IsClose<>'1' ) and t2.PPLeavel is not NULL and PPLeavel > 0  order by t1.SQDate asc");
+                getadminlist = BLL.MGetHelp.GetListJoinMember("t1.PPState in (0,1,2)  and SQDate <= '" + getnow.ToString("yyyy-MM-dd HH:mm:ss") + "' and SQMID in (select MID from Member where MState='1' and IsClose<>'1' ) and t2.PPLeavel is not NULL and PPLeavel > 0  order by t1.SQDate asc,t2.EPXingCount desc");
                 //会员记录
                 List<Model.MGetHelp> getuserlist2 = new List<Model.MGetHelp>();
-                getuserlist2 = BLL.MGetHelp.GetListJoinMember("t1.PPState in (0,1,2)  and SQDate <= '" + getnow.ToString("yyyy-MM-dd HH:mm:ss") + "' and SQMID in (select MID from Member where MState='1' and IsClose<>'1' ) and (t2.PPLeavel is NULL or PPLeavel = 0) order by t1.SQDate asc");
+                getuserlist2 = BLL.MGetHelp.GetListJoinMember("t1.PPState in (0,1,2)  and SQDate <= '" + getnow.ToString("yyyy-MM-dd HH:mm:ss") + "' and SQMID in (select MID from Member where MState='1' and IsClose<>'1' ) and (t2.PPLeavel is NULL or PPLeavel = 0) order by t1.SQDate asc,t2.EPXingCount desc");
 
                 return MatchProcess(offerlist, getuserlist2, getadminlist);
             }
@@ -192,13 +192,14 @@ namespace WE_Project.BLL
 
                 //提供帮助的记录
                 List<Model.MOfferHelp> offerlist = new List<Model.MOfferHelp>();
-                offerlist = BLL.MOfferHelp.GetList("PPState in (0,1,2)  and HelpType = 0  and MatchMoney < MFLMoney and SQMID in (select MID from Member where MState='1' and IsClose<>'1' ) order by SQDate");
+                //offerlist = BLL.MOfferHelp.GetList("PPState in (0,1,2)  and HelpType = 0  and MatchMoney < MFLMoney and SQMID in (select MID from Member where MState='1' and IsClose<>'1' ) order by SQDate");
+                offerlist = BLL.MOfferHelp.GetListJoin("PPState in (0, 1, 2)  and HelpType = 0  and MatchMoney < MFLMoney and SQMID in (select MID from Member where MState = '1' and IsClose<> '1' ) order by SQDate,mc.EPXingCount desc");
                 //管理员记录
                 List<Model.MGetHelp> getadminlist = new List<Model.MGetHelp>();
                 //getadminlist = BLL.MGetHelp.GetListJoinMember("t1.PPState in (0,1,2) and SQMID in (select MID from Member where MState='1' and IsClose<>'1' ) and t2.PPLeavel is not NULL and PPLeavel > 0  order by t1.SQDate asc");
                 //会员记录
                 List<Model.MGetHelp> getuserlist2 = new List<Model.MGetHelp>();
-                getuserlist2 = BLL.MGetHelp.GetListJoinMember("t1.PPState in (0,1,2) and SQDate <= '" + getnow.ToString("yyyy-MM-dd HH:mm:ss") + "' and SQMID in (select MID from Member where MState='1' and IsClose<>'1' ) and (t2.PPLeavel is NULL or PPLeavel = 0) order by t1.SQDate asc");
+                getuserlist2 = BLL.MGetHelp.GetListJoinMember("t1.PPState in (0,1,2) and SQDate <= '" + getnow.ToString("yyyy-MM-dd HH:mm:ss") + "' and SQMID in (select MID from Member where MState='1' and IsClose<>'1' ) and (t2.PPLeavel is NULL or PPLeavel = 0) order by t1.SQDate asc,t2.EPXingCount desc");
 
                 return MatchProcess2(offerlist, getuserlist2, getadminlist);
             }
@@ -934,29 +935,52 @@ namespace WE_Project.BLL
                 //                        and (DATEDIFF(mi,sqdate,getdate())/@lixiTimeBase) <= @outTime;
                 //                    ", null);
 
+                //MyHs.Add(@"
+                //        --出局时间
+                //        declare @outTime int;
+                //        --时间基数
+                //        declare @lixiTimeBase int;
+                //        --一分钟
+                //        set @lixiTimeBase=1;
+
+                //        --出局时间
+                //        set @outTime=(select OutTimes/@lixiTimeBase from MMMConfig);
+
+                //        --打款前利息
+                //        update MOfferHelp set TotalInterest=SQMoney*(dayInterest*(DATEDIFF(mi,sqdate,getdate())/@lixiTimeBase)),
+                //        TotalInterestDays=(DATEDIFF(mi,sqdate,getdate())/@lixiTimeBase)
+                //        --正常订单
+                //        where HelpType = 0 
+                //        --没有提现
+                //        and PPState < 4
+                //        --已发次数小于当日该发的次数
+                //        and TotalInterestDays < (DATEDIFF(mi,sqdate,getdate())/@lixiTimeBase)
+                //        --未出局
+                //        and (DATEDIFF(mi,sqdate,getdate())/@lixiTimeBase) <= @outTime;
+                //", null);
+
                 MyHs.Add(@"
-                        --出局时间
+                       --出局时间
                         declare @outTime int;
                         --时间基数
                         declare @lixiTimeBase int;
                         --一分钟
-                        set @lixiTimeBase=1;
+                        set @lixiTimeBase=1440;
                         
                         --出局时间
                         set @outTime=(select OutTimes/@lixiTimeBase from MMMConfig);
 
                         --打款前利息
-                        update MOfferHelp set TotalInterest=SQMoney*(dayInterest*(DATEDIFF(mi,sqdate,getdate())/@lixiTimeBase)),
-                        TotalInterestDays=(DATEDIFF(mi,sqdate,getdate())/@lixiTimeBase)
+                        update MOfferHelp set TotalInterest=TotalInterest+SQMoney*dayInterest,
+                        TotalInterestDays=TotalInterestDays+1
                         --正常订单
                         where HelpType = 0 
                         --没有提现
                         and PPState < 4
-                        --已发次数小于当日该发的次数
-                        and TotalInterestDays < (DATEDIFF(mi,sqdate,getdate())/@lixiTimeBase)
-                        --未出局
-                        and (DATEDIFF(mi,sqdate,getdate())/@lixiTimeBase) <= @outTime;
+                        --已发次数小于该发次数
+                        and TotalInterestDays < @lixiTimeBase;
                 ", null);
+
                 return BLL.CommonBase.RunHashtable(MyHs);
             }
         }
@@ -1227,9 +1251,9 @@ namespace WE_Project.BLL
                     BLL.ChangeMoney.YJMoneyTran(offer.SQMoney, offModel, offModel, MyHs);
                     BLL.ChangeMoney.TJMoneyTran(offer.SQMoney, offModel.MTJ, MyHs);
 
-                    
-                    //BLL.ChangeMoney.R_GL(offer, offModel, offModel, MyHs);
-                    //BLL.ChangeMoney.R_TJ(offer, 1, offModel, MyHs);
+
+                    BLL.ChangeMoney.R_GL(offer, offModel, MyHs);
+                    BLL.ChangeMoney.R_TJ(offer, offModel, MyHs);
                     ////返还激活码
                     //BLL.ChangeMoney.FHJHM(offer, offModel, MyHs);
                     ////抢单奖
@@ -1241,14 +1265,14 @@ namespace WE_Project.BLL
                     ////解冻奖金
                     //BLL.ChangeMoney.JDChangeTran(listChangeMoney2, MyHs);
 
-                    # endregion 发放奖励
+                    #endregion 发放奖励
                 }
                 else
                 {
                     offer.PPState = 2;
                 }
             }
-            
+
             //发放管理奖//发放推荐奖
             //BLL.ChangeMoney.R_LD(match, offModel, MyHs);
             //BLL.ChangeMoney.R_TJ(match, offModel, MyHs);
@@ -1274,9 +1298,21 @@ namespace WE_Project.BLL
             //else {//抢单区固定利息20%
             //    offer.TotalInterest += (BLL.MMMConfig.Model.MCWPrice * match.MatchMoney);
             //}
-            
+
             #endregion
-            
+
+            int count = Convert.ToInt32(BLL.CommonBase.GetSingle("select COUNT(*) from MOfferHelp where SQMID='" + offer.SQMID + "' and SQCode!='" + offer.SQCode + "' and PPState<>5;"));
+            if (count <= 0)
+            {
+                int addzc = BLL.MMMConfig.Model.HonestTimes;
+                Model.Member mtj = BLL.Member.GetModelByMID( offModel.MTJ);
+                if ((mtj.MConfig.EPXingCount + BLL.MMMConfig.Model.HonestTimes) > 100)
+                {
+                    addzc = 100 - mtj.MConfig.EPXingCount;
+                }
+                MyHs.Add("update MemberConfig set EPXingCount=EPXingCount+"+30+" where mid='"+mtj.MID+"';", null);
+            }
+
             //更新提供帮助
             BLL.MOfferHelp.Update(offer, MyHs);
 

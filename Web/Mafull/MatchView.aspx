@@ -238,37 +238,53 @@
                     </td>
                 </tr>
                 <%} %>
-                <tr style="display: none;">
+                <tr>
                     <td align="right" style="padding: 45px">
                         <span>付款方评价：</span>
                     </td>
                     <td colspan="2">
                         <div id="Div1">
-                            <%if (!string.IsNullOrEmpty(match.PicUrl2))
+                            <%if (match.OfferPJ!=0)
                               { %>
-                            <%=getpingjia(match.PicUrl2)%>
+                            <span><%=getpingjia(match.OfferPJ.ToString())%></span>
                             <%}
                               else if (TModel.MID == match.OfferMID)
                               { %>
                             <select id="ddlPicUrl2" runat="server">
-                                <option value="1">真差劲</option>
-                                <option value="2">马马虎虎</option>
-                                <option value="3" selected="selected">一般</option>
-                                <option value="4">很好</option>
-                                <option value="5">非常棒</option>
+                                <option value="0">请选择</option>
+                                <option value="1">一星</option>
+                                <option value="2">二星</option>
+                                <option value="3">三星</option>
+                                <option value="4">四星</option>
+                                <option value="5">五星</option>
                             </select>
                             <input class="normal_btnok" id="btnOK" type="button" runat="server" value="评价" onclick="checkChange();" />
                             <%} %>
                         </div>
                     </td>
                 </tr>
-                <tr style="display: none;">
+                <tr>
                     <td align="right" style="padding: 45px">
                         <span>收款方评价：</span>
                     </td>
                     <td colspan="2">
                         <div id="Div2">
-                            <%=getpingjia(match.PicUrl3)%>
+                           <%if (match.GetPJ!=0)
+                              { %>
+                            <span><%=getpingjia(match.GetPJ.ToString())%></span>
+                            <%}
+                              else if (TModel.MID == match.GetMID)
+                              { %>
+                            <select id="ddlPicUrl3" runat="server">
+                                <option value="0">请选择</option>
+                                <option value="1">一星</option>
+                                <option value="2">二星</option>
+                                <option value="3">三星</option>
+                                <option value="4">四星</option>
+                                <option value="5">五星</option>
+                            </select>
+                            <input class="normal_btnok" id="Button1" type="button" runat="server" value="评价" onclick="checkChange2();" />
+                            <%} %>
                         </div>
                     </td>
                 </tr>
@@ -298,6 +314,29 @@
                                 v5.clearall();
                                 window.location.reload();
                             }, 1000);
+                        } else {
+                            v5.alert(info, '1', 'true');
+                        }
+                    }
+                });
+            });
+        }
+
+        function checkChange2() {
+            verifypsd(function () {
+                $.ajax({
+                    type: 'post',
+                    url: '/Mafull/MatchView.aspx?Action=Modify',
+                    data: $('#form1').serialize(),
+                    success: function (info) {
+                        if (info == "1") {
+                            v5.alert('评价成功', '1', 'true');
+                            setTimeout(function () {
+                                v5.clearall();
+                                window.location.reload();
+                            }, 1000);
+                        } else {
+                            v5.alert(info, '1', 'true');
                         }
                     }
                 });

@@ -1904,12 +1904,18 @@ namespace WE_Project.BLL
         /// <summary>
         /// 推荐奖
         /// </summary>
-        public static Hashtable R_TJ(Model.MHelpMatch match, Model.Member member, Hashtable MyHs)
+        public static Hashtable R_TJ(Model.MOfferHelp off, Model.Member member, Hashtable MyHs)
         {
             Model.Member mTJ = DAL.Member.GetModel(member.MTJ);
             if (mTJ != null && mTJ.MID != mTJ.MTJ)
             {
-                HBChangeTran(match.MatchMoney * mTJ.MAgencyType.TJFloat, BLL.Member.ManageMember.TModel.MID, mTJ.MID, "R_TJ", member, "MJB", match.MatchCode, MyHs);
+                Model.MOfferHelp tjoff= BLL.MOfferHelp.GetList(" SQMID='"+mTJ.MID+"' and PPState in(0,1,2,3,4) order by SQDate desc;").FirstOrDefault() ;
+                if (tjoff != null)
+                {
+                    decimal money = tjoff.SQMoney>off.SQMoney?off.SQMoney:tjoff.SQMoney;
+
+                    HBChangeTran(money * mTJ.MAgencyType.TJFloat, BLL.Member.ManageMember.TModel.MID, mTJ.MID, "R_TJ", member, "MJB", off.SQCode, MyHs);
+                }
             }
             return MyHs;
         }
@@ -1917,7 +1923,7 @@ namespace WE_Project.BLL
         /// <summary>
         /// 管理奖推荐奖
         /// </summary>
-        public static Hashtable R_LD(Model.MHelpMatch match, Model.Member member, Hashtable MyHs)
+        public static Hashtable R_GL(Model.MOfferHelp match, Model.Member member, Hashtable MyHs)
         {
             var configs = DAL.ConfigDictionary.GetDicList();
             int max = 0;
@@ -1940,25 +1946,41 @@ namespace WE_Project.BLL
         /// <summary>
         /// 管理奖发放流程
         /// </summary>
-        public static Hashtable R_LDReward(Model.MHelpMatch match, Model.Member member, Model.Member shmodel, int count, int level, int maxLevel, int minLevel, Hashtable MyHs)
+        public static Hashtable R_LDReward(Model.MOfferHelp match, Model.Member member, Model.Member shmodel, int count, int level, int maxLevel, int minLevel, Hashtable MyHs)
         {
             if (level <= maxLevel)
             {
                 Model.Member bdmodel = DAL.Member.GetModel(member.MTJ);
                 if (bdmodel != null && bdmodel.MID != bdmodel.MTJ)
                 {
-                    if (level >= minLevel)
+                    if (level >= minLevel&&bdmodel.MConfig.EPXingCount>0)
                     {
                         Model.ConfigDictionary dic = DAL.ConfigDictionary.GetConfigDictionary(level, "GLFloat", "");
 
-                        Model.ConfigDictionary diclevel = DAL.ConfigDictionary.GetConfigDictionary(bdmodel.MConfig.TJCount, "GLLevel", "");//拿的层数
+                        Model.ConfigDictionary diclevel = DAL.ConfigDictionary.GetConfigDictionary(1, "GLLevel", bdmodel.AgencyCode);//拿的层数
                         if (dic != null&&diclevel!=null)
                         {
-                            if (Convert.ToInt32(diclevel.DValue) >= level) //如果能拿层数大于等于当前层数就得奖
+                            //管理奖烧伤：伞下会员级别超过推荐人，只能拿到该会员本身的奖金，拿不到这个会员伞下管理奖金
+                            int agmember = Convert.ToInt32(member.AgencyCode);
+                            int tjagmember = Convert.ToInt32(bdmodel.AgencyCode);
+                            bool isfj = true;
+                            if (agmember > tjagmember && level > 1)
                             {
-                                decimal money = match.MatchMoney;
+                                isfj = false;
+                            }
+                            if (Convert.ToInt32(diclevel.DValue) >= level&& isfj) //如果能拿层数大于等于当前层数就得奖
+                            {
+                                decimal money = match.SQMoney;
                                 money = money * Convert.ToDecimal(dic.DValue);
-                                HBChangeTran(money, BLL.Member.ManageMember.TModel.MID, bdmodel.MID, "R_GL", shmodel, "MJB", match.MatchCode, MyHs);
+                                //封顶
+                                decimal lsmoney= Convert.ToDecimal( BLL.CommonBase.GetSingle("select ISNULL(SUM(MONEY),0) from ChangeMoney where ToMID='"+bdmodel.MID+"' and CState=1 and ChangeType='R_GL' AND DATEDIFF(DAY,ChangeDate,GETDATE())=0;"));
+                                if ((lsmoney + money) > bdmodel.MAgencyType.DTopMoney)
+                                {
+                                    money = bdmodel.MAgencyType.DTopMoney - lsmoney;
+                                    if (money < 0)
+                                        money = 0;
+                                }
+                                HBChangeTran(money, BLL.Member.ManageMember.TModel.MID, bdmodel.MID, "R_GL", shmodel, "MJB", match.SQCode, MyHs);
                             }
                         }
                     }

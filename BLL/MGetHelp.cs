@@ -109,19 +109,38 @@ namespace WE_Project.BLL
                 return "1*当前时间不能申请";
             }
 
-            int getcount= Convert.ToInt32( BLL.CommonBase.GetSingle("SELECT COUNT(*) FROM MGetHelp WHERE SQMID='"+member.MID+"' AND PPState<3;"));
+            int getcount = Convert.ToInt32(BLL.CommonBase.GetSingle("SELECT COUNT(*) FROM MGetHelp WHERE SQMID='" + member.MID + "' AND PPState<3;"));
             if (getcount > 0)
             {
                 return "1*您有未完成的订单";
             }
 
-            if (sqMoney % BLL.MMMConfig.Model.GetHelpBase != 0)
+            decimal HelpBase = 0;
+            decimal HelpMax = 0;
+            if (moneyType == "MJB")//许愿池派单
             {
-                return "1*提现金额应为" + BLL.MMMConfig.Model.GetHelpBase + "的倍数";
+                HelpBase = BLL.MMMConfig.Model.GetHelpDayTotalMoney;
+                HelpMax = BLL.MMMConfig.Model.OfferHelpDayTotalMoney * member.MConfig.MJB;
+
+                var lastmodel=  BLL.MGetHelp.GetList("  SQMID='"+member.MID+"' order by SQDate desc ").FirstOrDefault();
+                if (lastmodel != null)
+                {
+                    if (lastmodel.SQMoney > sqMoney)
+                    {
+                        return "1*您的申请额度不能比上一单小";
+                    }
+                    
+                }
+                
             }
-            if (sqMoney >BLL.MMMConfig.Model.GetHelpMax || sqMoney < BLL.MMMConfig.Model.GetHelpMin)
+
+            if (sqMoney % HelpBase != 0)
             {
-                return "1*提现失败，提现范围应在" + BLL.MMMConfig.Model.GetHelpMin + "-" + BLL.MMMConfig.Model.GetHelpMax;
+                return "1*提现金额应为" + HelpBase + "的倍数";
+            }
+            if (sqMoney > HelpMax || sqMoney < BLL.MMMConfig.Model.GetHelpMin)
+            {
+                return "1*提现失败，提现范围应在" + BLL.MMMConfig.Model.GetHelpMin + "-" + HelpMax;
             }
 
 

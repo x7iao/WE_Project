@@ -40,6 +40,15 @@ namespace WE_Project.Web.SysManage {
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtOfferTJKF;
         
         /// <summary>
+        /// txtHonestTimes 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtHonestTimes;
+        
+        /// <summary>
         /// txtOfferHelpMin 控件。
         /// </summary>
         /// <remarks>
@@ -371,15 +380,6 @@ namespace WE_Project.Web.SysManage {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtGetTJKF;
-        
-        /// <summary>
-        /// txtHonestTimes 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtHonestTimes;
         
         /// <summary>
         /// txtHonestFloat 控件。

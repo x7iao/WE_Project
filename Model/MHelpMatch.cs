@@ -8,7 +8,14 @@ namespace WE_Project.Model
     //MHelpMatch
     public class MHelpMatch
     {
-
+        /// <summary>
+        /// 付款方评价
+        /// </summary>
+        public int OfferPJ { get; set; }
+        /// <summary>
+        /// 收款方评价
+        /// </summary>
+        public int GetPJ { get; set; }
         /// <summary>
         /// Id
         /// </summary>		
