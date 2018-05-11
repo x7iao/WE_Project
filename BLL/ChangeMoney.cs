@@ -1420,17 +1420,7 @@ namespace WE_Project.BLL
 
         # region zx_179
 
-        ///// <summary>
-        ///// 激活后两天不排单的
-        ///// </summary>
-        ///// <returns></returns>
-        //public static bool DJWDK()
-        //{
-        //    StringBuilder strSql = new StringBuilder();
-        //    strSql.Append(" update Member set IsClock = 1 , IsClose = 1 where IsClock = 0 and IsClose = 0 and RoleCode <> 'Manage' and MID in ( select * from Member where MID not in (select MID from Member where MID not in ( select SQMID from MOfferHelp where SQDate < '" + DateTime.Now.AddMinutes(-BLL.MMMConfig.Model.OfferHelpRangeTimes) + "' and PPState <> 5 ) ) ) ");
-        //    CommonBase.GetSingle(strSql.ToString());
-        //    return true;
-        //}
+      
 
         ///// <summary>
         ///// 冻结提款后3天不排单的
@@ -2073,6 +2063,9 @@ namespace WE_Project.BLL
             return CommonBase.RunHashtable(MyHs);
         }
 
-        # endregion zx_202
+        #endregion zx_202
+
+
+       
     }
 }

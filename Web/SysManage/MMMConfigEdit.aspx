@@ -220,13 +220,7 @@
                         <input id="txtFreezeTimes" runat="server" class="normal_input" type="text" require-type="int"
                             require-msg="冻结期" /><font color="red">*整数(分钟)</font>
                     </td>
-                      <td align="right"   style=" display:none;">
-                        抢单区冻结期:
-                    </td>
-                    <td style=" display:none;">
-                        <input id="txtFreezeTimesOfRegister" runat="server" class="normal_input" type="text"
-                            require-type="int" require-msg="抢单区冻结期" /><font color="red">*分钟</font>
-                    </td>
+                     
 
                     <td align="right" >
                         收益期:
@@ -305,6 +299,18 @@
                             require-msg="匹配时间范围" /><font color="red">*(00:00-23:59)</font>
                     </td>
                 </tr>
+
+                <tr>
+                     <td align="right">
+                        激活不排单冻结[分钟]:
+                    </td>
+                    <td>
+                        <input id="txtFreezeTimesOfRegister" runat="server" class="normal_input" type="text"
+                            require-type="int" require-msg="激活不排单冻结[分钟]" /><font color="red">*分钟</font>
+                    </td>
+                    <td></td>
+                    <td></td>
+                </tr>
                 <tr>
                     <td align="right">
                         利息分配打款时间(内外):
@@ -350,13 +356,13 @@
                             require-msg="收款时间" /><font color="red">*</font>
                     </td>
                 </tr>--%>
-                <tr style="display: none">
+                <tr>
                     <td align="right">
-                        签到奖比例:
+                        不打款扣除推荐人许愿果:
                     </td>
                     <td>
                         <input id="txtLiXi1" runat="server" class="normal_input" type="text" require-type="decimal"
-                            require-msg="签到奖比例" /><font color="red">*</font>
+                            require-msg="不打款扣除推荐人许愿果" /><font color="red">*</font>
                     </td>
                     <td align="right">
                         奖金烧伤比例:
