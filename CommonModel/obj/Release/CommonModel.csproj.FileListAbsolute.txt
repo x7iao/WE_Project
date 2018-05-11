@@ -1,0 +1,4 @@
+D:\工作目录\WE_Project\CommonModel\bin\Release\CommonModel.dll
+D:\工作目录\WE_Project\CommonModel\bin\Release\CommonModel.pdb
+D:\工作目录\WE_Project\CommonModel\obj\Release\CommonModel.dll
+D:\工作目录\WE_Project\CommonModel\obj\Release\CommonModel.pdb

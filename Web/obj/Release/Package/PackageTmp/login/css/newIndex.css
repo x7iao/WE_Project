@@ -1,0 +1,699 @@
+﻿ @charset "utf-8";
+ * {
+ 	padding: 0px;
+ 	margin: 0px;
+ }
+ 
+ ul,
+ ol,
+ dl,
+ dt,
+ dd,
+ table,
+ tr,
+ td,
+ th,
+ li,
+ from,
+ input,
+ img,
+ p {
+ 	padding: 0px;
+ 	margin: 0px;
+ }
+ 
+ html,
+ body {
+ 	font-family: Microsoft Yahei, Arial, Helvetica, sans-serif;
+ 	font-size: 13px;
+ 	background: url(/Admin/images/background.jpg) no-repeat center center #000;
+ 	background-size: cover;
+ }
+ 
+ img {
+ 	border: none;
+ }
+ 
+ li {
+ 	list-style: none;
+ }
+ 
+ a {
+ 	text-decoration: none;
+ 	color: black;
+ }
+ 
+ h1,
+ h2,
+ h3,
+ h4,
+ h5,
+ h6 {
+ 	font-size: 12px;
+ 	font-weight: 100;
+ }
+ 
+ em {
+ 	font-style: inherit;
+ }
+ 
+ .clearfix:after {
+ 	content: ".";
+ 	display: block;
+ 	height: 0px;
+ 	clear: both;
+ 	visibility: hidden;
+ }
+ 
+ .clearfix {
+ 	zoom: 1;
+ }
+ 
+ .clear {
+ 	clear: both;
+ }
+ 
+ .transparent {
+ 	filter: alpha(opacity=50);
+ 	-moz-opacity: 0.5;
+ 	opacity: 0.5;
+ }
+ 
+ .floatLeft {
+ 	float: left;
+ }
+ 
+ .floatRight {
+ 	float: right;
+ }
+ 
+ .marginAuto {
+ 	margin: 0 auto;
+ }
+ 
+ .hidden {
+ 	display: none;
+ }
+ 
+ .newIndex91_border {
+ 	width: 1306px;
+ 	height: 816px;
+ 	padding: 3px;
+ 	background: url("http://f.futurecity4u.com/images/newIndex9_border.png") no-repeat;
+ }
+ 
+ .newIndex91 {
+ 	width: 1300px;
+ 	height: 810px;
+ 	position: relative;
+ 	background: url("http://f.futurecity4u.com/images/newIndex91_1.jpg") no-repeat;
+ }
+ 
+ .newIndex91 a {
+ 	position: absolute;
+ }
+ 
+ .newIndex91_newIndexLogo {
+ 	top: 42px;
+ 	left: 1058px;
+ }
+ 
+ .newIndex91_newIndexImg1 {
+ 	top: 94px;
+ 	left: 70px;
+ }
+ 
+ .newIndex91_newIndexImg2 {
+ 	top: 470px;
+ 	left: 157px;
+ }
+ 
+ .newIndex91_newIndexImg3 {
+ 	top: 376px;
+ 	left: 188px;
+ }
+ 
+ .newIndex91_newIndexImg4 {
+ 	top: 252px;
+ 	left: 559px;
+ }
+ 
+ .newIndex91_newIndexImg5 {
+ 	top: 311px;
+ 	left: 737px;
+ }
+ 
+ .newIndex91_newIndexImg6 {
+ 	top: 522px;
+ 	left: 708px;
+ }
+ 
+ .newIndex91_newIndexImg7 {
+ 	top: 328px;
+ 	left: 924px;
+ }
+ 
+ .newIndex91_block {
+ 	display: block;
+ 	height: 55px;
+ 	width: 160px;
+ 	color: #FFF;
+ 	font-size: 20px;
+ }
+ 
+ .newIndex91_newIndexNav1 {
+ 	background: url("http://f.futurecity4u.com/images/newIndexNav.png") no-repeat;
+ 	left: 270px;
+ 	top: 253px;
+ 	padding: 6px 0 0 38px;
+ }
+ 
+ .newIndex91_newIndexNav2 {
+ 	background: url("http://f.futurecity4u.com/images/newIndexNav.png") no-repeat 3px -63px;
+ 	left: 22px;
+ 	top: 401px;
+ 	padding: 8px 0 0 38px;
+ }
+ 
+ .newIndex91_newIndexNav3 {
+ 	background: url("http://f.futurecity4u.com/images/newIndexNav.png") no-repeat -2px -136px;
+ 	left: 461px;
+ 	top: 656px;
+ 	padding: 8px 0 0 49px;
+ }
+ 
+ .newIndex91_newIndexNav4 {
+ 	background: url("http://f.futurecity4u.com/images/newIndexNav.png") no-repeat 3px -204px;
+ 	left: 520px;
+ 	top: 182px;
+ 	padding: 8px 0 0 38px;
+ }
+ 
+ .newIndex91_newIndexNav5 {
+ 	background: url("http://f.futurecity4u.com/images/newIndexNav.png") no-repeat 3px -204px;
+ 	left: 779px;
+ 	top: 236px;
+ 	padding: 8px 0 0 38px;
+ }
+ 
+ .newIndex91_newIndexNav6 {
+ 	background: url("http://f.futurecity4u.com/images/newIndexNav.png") no-repeat 3px -435px;
+ 	left: 1043px;
+ 	top: 651px;
+ 	padding: 10px 0 0 54px;
+ }
+ 
+ .newIndex91_newIndexNav7 {
+ 	background: url("http://f.futurecity4u.com/images/newIndexNav.png") no-repeat 3px -371px;
+ 	left: 1051px;
+ 	top: 290px;
+ 	padding: 9px 0 0 63px;
+ }
+ 
+ .newLogin91_border {
+ 	height: 816px;
+ 	padding: 3px;
+ }
+ 
+ .newLogin91 {
+ 	width: 100%;
+ 	height: 810px;
+ 	position: relative;
+ }
+ 
+ .clearfix li span {
+ 	font-size: 20px;
+ 	font-family: "微软雅黑";
+ 	font-weight: bold;
+ 	text-shadow: 0px 1px 0px #585858;
+ }
+ 
+ .newLogin91_newLoginBackground1 {
+ 	width: 406px;
+ 	height: 460px;
+ 	position: absolute;
+ 	/*	background: url(../images/newLoginBackground1.png) no-repeat;*/
+ 	top: 190px;
+ 	right: 20%;
+	background-color: rgba(0, 0, 0, 0.65);
+ }
+ 
+ .newLogin91_newLoginBackground1>ul {
+ 	padding-top: 10px;
+ 	padding-left: 2px;
+ }
+ 
+ .newLogin91_newLoginBackground1 #aa {
+ 	padding-top: 46px;
+ }
+ 
+ .newLogin91_newLoginBackground1 ul li {
+ 	/*	width: 160px;*/
+ 	text-align: center;
+ 	/*	line-height: 24px;
+	height: 24px;*/
+ 	padding: 10px 0px;
+ }
+ 
+ .newLogin91_newLoginBackground1 ul li a {
+ 	font-size: 14px;
+ 	font-family: Arial, Helvetica, sans-serif;
+ color: #242424;
+ 	display: block;
+ 	line-height: 10px;
+ }
+ 
+ .newLogin91_newLoginBackground1 ul li.newLoginHover {
+ 	background: url(denglu.png) no-repeat -5px -6px;
+ }
+ 
+ .newLogin91_newLoginBackground1 ul li.newlanguagech {
+ 	color: #FFF;
+ 	width: 116px;
+ 	margin-right: 28px;
+ 	border: 1px solid #052441;
+ 	height: 30px;
+ 	border-radius: 10px;
+ 	overflow: hidden;
+ }
+ 
+ .newLogin91_newLoginBackground1 ul li.newlanguagech span {
+ 	float: left;
+ 	width: 58px;
+ 	height: 30px;
+ 	line-height: 30px;
+ 	cursor: pointer;
+ 	background: #052441;
+ }
+ 
+ .newLogin91_newLoginBackground1 ul li.newlanguagech span.back185a96 {
+ 	background: #185a96;
+ }
+ 
+ .newLogin91_newLoginBackground1 ul li.select {
+ 	width: 170px;
+ 	text-align: center;
+ 	line-height: 24px;
+ 	height: 24px;
+ 	padding: 5px 0px;
+ }
+ 
+ .newLoginForm {
+ 	padding: 0 20px;
+ 	position: relative;
+ }
+ 
+ .newLoginForm p span.letter {
+ 	letter-spacing: 6px;
+ }
+ 
+ .newLoginForm ol.newLoginForm_user {
+ 	padding-top: 11px;
+ }
+ 
+ .newLoginForm ol.newLoginForm_user .newLoginUser, .newLoginForm ol.newLoginForm_user .newLoginPwd,.newLoginForm ol.newLoginForm_user .newLoginForm_codeNum {
+ 	height: 46px;
+ 	background: #00B6CF;
+ 	margin-top: 19px;
+ 	border-bottom: 1px #0293A8 solid;
+ }
+ 
+ .newLoginForm ol.newLoginForm_user li.newLoginUser span {
+ 	width: 8%;
+ 	height: 29px;
+ 	float: left;
+ 	background: url(../images/LoginElements.png) no-repeat 4px 10px;
+ }
+ 
+ .newLoginForm ol.newLoginForm_user li.newLoginEmail span {
+ 	width: 29px;
+ 	height: 29px;
+ 	float: left;
+ 	background: url(../images/LoginElements.png) no-repeat 4px 2px;
+ }
+ 
+ .newLoginForm ol.newLoginForm_user li.newLoginPwd span {
+ 	width: 8%;
+ 	height: 29px;
+ 	float: left;
+ 	background: url(../images/LoginElements.png) no-repeat 4px -26px;
+ }
+ 
+ .newLoginForm ol.newLoginForm_user li.newLoginUser input {
+ 	border: none;
+ 	/* background: #0f2240 url(LoginST.png) no-repeat; */
+ 	color: #3E3E3E;
+ 	width: 92%;
+ 	float: left;
+ 	height: 46px;
+ 	line-height: 46px;
+ 	background-color: #FFFFFF;
+ 	text-indent: 10px;
+ }
+ 
+ .newLoginForm ol.newLoginForm_user li.newLoginEmail input {
+ 	border: none;
+ 	background: #300203 url("http://f.futurecity4u.com/images/LoginST.png") no-repeat;
+ 	color: #94979a;
+ 	padding-left: 14px;
+ 	margin-left: 5px;
+ 	margin-top: 7px;
+ 	width: 235px;
+ }
+ 
+ .newLoginForm ol.newLoginForm_user li.newLoginPwd input {
+ 	border: none;
+ 	/* background: #0f2240 url(LoginST.png) no-repeat; */
+ 	color: #3E3E3E;
+ 	/* padding-left: 14px; */
+ 	/* margin-left: 5px; */
+ 	width: 92%;
+ 	float: left;
+ 	height: 46px;
+ 	line-height: 46px;
+ 	background-color: #FFFFFF;
+ 	text-indent: 10px;
+ }
+ 
+ .newLoginForm ol.newLoginForm_code {
+ 	padding-top: 19px;
+ }
+ 
+ .newLoginForm ol.newLoginForm_code .newLoginForm_codeNum {
+       width: 76%;
+    border-radius: 5px;
+    background: #02B5CF;
+    border-bottom: 1px #4DAED4 solid;
+    height: 46px;
+    float: left;
+ }
+ 
+ .newLoginForm ol.newLoginForm_code .newLoginForm_codeNum span {
+ 	width: 10%;
+ 	height: 29px;
+ 	float: left;
+ 	background: url(../images/LoginElements.png) no-repeat 4px -60px;
+ }
+ 
+ .newLoginForm ol.newLoginForm_code li.newLoginForm_codeNum input {
+    border: none;
+    /* background: #0f2240 url(LoginST.png) no-repeat; */
+    color: #3E3E3E;
+    /* padding-left: 14px; */
+    /* margin-left: 5px; */
+    width: 90%;
+    float: left;
+    height: 46px;
+    line-height: 46px;
+    background-color: #FFFFFF;
+    text-indent: 10px;
+ }
+ 
+ .newLoginForm ol.newLoginForm_code li.newLoginForm_codeImg {
+ 	padding: 0px 0 0 10px;
+ }
+ 
+ .newLoginForm ol.newLoginForm_sub {
+ 	padding-top: 30px;
+ }
+ 
+ .newLoginForm ol.newLoginForm_sub .newLoginForm_sub1 {
+ 	width: 160px;
+ 	height: 44px;
+ 	border-radius: 5px;
+ 	background: #FF890F;
+ 	text-align: center;
+ 	line-height: 44px;
+ }
+ 
+ .newLoginForm ol.newLoginForm_sub .newLoginForm_sub1:hover {
+ 	background: #00B6CF;
+ }
+ 
+ .newLoginForm ol.newLoginForm_sub .newLoginForm_sub1 a {
+ 	color: #FFFFFF;
+ 	font-size: 21px;
+ }
+ 
+ .newLoginForm ol.newLoginForm_sub .newLoginForm_sub1 input {
+ 	color: #042b58;
+ 	font-size: 21px;
+ 	border: none;
+ 	background: #FFF;
+ 	margin-top: 8px;
+ }
+ 
+ .newLoginForm ol.newLoginForm_sub .newLoginForm_sub2 {
+ 	padding: 15px 20px 0 26px;
+ }
+ 
+ .newLoginForm ol.newLoginForm_sub .newLoginForm_sub3 {
+ 	color: #FFF;
+ 	line-height: 45px;
+ }
+ 
+ .newLoginForm p {
+ 	padding-top: 45px;
+ 	text-align: right;
+ 	position: absolute;
+ 	width: 380px;
+ 	top: 246px;
+ }
+ 
+ .newLoginForm p a {
+ 	color: #bf1319;
+ }
+ 
+ .newLoginForm span {
+ 	padding-top: 5px;
+ }
+ 
+ .red {
+ 	color: #172656;
+ 	padding-left: 5px;
+ }
+ 
+ #uu {
+ 	background: #172656;
+ 	position: relative;
+ 	top: 0px;
+ 	width: 105px;
+ 	left: 2px;
+ 	z-index: -1;
+ 	border-left: 1px solid #172656;
+ 	border-right: 1px solid #172656;
+ }
+ 
+ #uu li {
+ 	background: #b83432;
+ 	width: 105px;
+ 	border-bottom: 1px solid #cb3a38;
+ }
+ 
+ .newLoginForm ol.newLoginForm_user li.register_li {
+ 	height: 20px;
+ }
+ 
+ .kefu {
+ 	position: fixed;
+ 	width: 54px;
+ 	right: 0px;
+ 	top: 70%;
+ }
+ 
+ .kefu li {
+ 	padding-top: 20px;
+ 	width: 54px;
+ 	overflow: hidden;
+ 	height: 71px;
+ }
+ 
+ .tanchubox {
+ 	width: 396px;
+ 	position: absolute;
+ 	left: -472px;
+ 	top: -66px;
+ 	z-index: 100000;
+ }
+ 
+ .tanchubox1 {
+ 	background: url("http://f.futurecity4u.com/images/tanchutiao.png") no-repeat;
+ 	height: 32px;
+ 	line-height: 32px;
+ 	font-size: 16px;
+ 	color: #FFF;
+ 	font-weight: bold;
+ 	padding-left: 10px;
+ }
+ 
+ .tanchubox1 a {
+ 	float: right;
+ 	font-weight: bold;
+ 	line-height: 32px;
+ 	font-size: 16px;
+ 	color: #FFF;
+ 	padding-right: 15px;
+ }
+ 
+ .tanchubox2 {
+ 	background: url("http://f.futurecity4u.com/images/zhong.png") repeat-y;
+ 	min-height: 50px;
+ 	line-height: 25px;
+ 	padding: 10px;
+ 	color: #FFF;
+ }
+ 
+ .tanchubox2 span {
+ 	font-size: 14px;
+ }
+ 
+ .tanchubox3 {
+ 	background: url("http://f.futurecity4u.com/images/di.png") no-repeat;
+ 	height: 27px;
+ }
+ 
+ .box_float {
+ 	position: fixed;
+ 	right: 0;
+ 	top: 400px;
+ 	width: 140px;
+ 	z-index: 999;
+ }
+ 
+ .box_float a {
+ 	font-size: 12px;
+ 	color: #5c5c5c;
+ }
+ 
+ .box_float li {
+ 	height: 46px;
+ 	line-height: 46px;
+ 	padding-left: 52px;
+ }
+ 
+ .box_float li.box_qaf {
+ 	background: url("http://f.futurecity4u.com/images/FAQ.png") no-repeat left top;
+ }
+ 
+ .box_float li.box_tel {
+ 	background: url("http://f.futurecity4u.com/images/TEL.png") no-repeat left top;
+ }
+ 
+ .new_demo01 {
+ 	width: 858px;
+ 	background: url("http://f.futurecity4u.com/images/demo_background01.png");
+ 	padding: 35px;
+ 	position: absolute;
+ 	top: 63px;
+ 	border-radius: 15px;
+ 	height: 555px;
+ 	z-index: 9999;
+ 	right: 600px;
+ }
+ 
+ .new_demo02 {
+ 	position: relative;
+ 	background: #FFF;
+ 	height: 545px;
+ }
+ 
+ .new_demo02_content {
+ 	height: 492px;
+ 	overflow: auto;
+ 	padding: 25px;
+ 	line-height: 25px;
+ 	font-size: 13px;
+ }
+ 
+ .new_demo02_submit {
+ 	text-align: center;
+ 	line-height: 75px;
+ }
+ 
+ .new_demo02_submit a {
+ 	background: #0074b8;
+ 	padding: 3px 15px;
+ 	color: #FFF;
+ 	border-radius: 10px;
+ 	font-size: 16px;
+ }
+ 
+ .new_demo02_content p {
+ 	font-size: 13px;
+ 	font-weight: 100;
+ }
+ 
+ .mengban {
+ 	width: 100%;
+ 	position: absolute;
+ 	z-index: 9998;
+ 	background: black;
+ 	filter: alpha(opacity=60);
+ 	-moz-opacity: 0.6;
+ 	opacity: 0.6;
+ }
+ /*头部国旗切换开始*/
+ 
+ .head {
+ 	position: relative;
+ }
+ 
+ .fix {
+ 	overflow: hidden;
+ 	zoom: 1;
+ }
+ 
+ .login {
+ 	position: absolute;
+ 	right: -40px;
+ 	top: -3px;
+ 	z-index: 1;
+ }
+ 
+ .login ul li {
+ 	cursor: pointer;
+ }
+ 
+ .option {
+ 	display: none;
+ 	width: 103px;
+ 	margin: -17px 0 0 0px;
+ 	padding-top: 5px;
+ 	position: relative;
+ }
+ 
+ .option li {
+ 	padding: 5px 0;
+ 	text-align: center;
+ 	width: 67px !important;
+ 	line-height: 0;
+ }
+ 
+ .aa {
+ 	display: block;
+ 	width: 103px;
+ 	z-index: 2;
+ 	position: relative;
+ }
+ 
+ .aa img {
+ 	width: 38px;
+ 	height: 24px;
+ 	padding: 0px 0 0 11px;
+ }
+ 
+ .aa span {
+ 	color: #fff;
+ 	margin: 0 0 10px 8px;
+ }
+ /*头部国旗切换结束*/
+@media (max-width:768px) {
+	.newLogin91_newLoginBackground1 {
+    width: 406px;
+    height: 460px;
+    position: absolute;
+    top: 190px;
+    right: 0%;
+    background-color: rgba(0, 0, 0, 0.65);
+}
+}

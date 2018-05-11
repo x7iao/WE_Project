@@ -32,8 +32,8 @@ namespace WE_Project.Web.Admin
         {
             listPowers = TModel.Role.PowersList.Where(emp => emp.Content.VState).ToList();
 
-            txtTuiGuang.Value = HttpContext.Current.Request.Url.AbsoluteUri.Replace(HttpContext.Current.Request.Url.PathAndQuery, "/Regedit/Index.aspx");
-            txtTuiGuang.Value += "?mid=" + TModel.MID;
+            //txtTuiGuang.Value = HttpContext.Current.Request.Url.AbsoluteUri.Replace(HttpContext.Current.Request.Url.PathAndQuery, "/Regedit/Index.aspx");
+            //txtTuiGuang.Value += "?mid=" + TModel.MID;
 
             SetDefaultVal();
 

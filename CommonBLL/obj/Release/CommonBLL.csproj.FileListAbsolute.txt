@@ -1,0 +1,13 @@
+D:\工作目录\WE_Project\CommonBLL\bin\Release\CommonBLL.dll
+D:\工作目录\WE_Project\CommonBLL\bin\Release\CommonBLL.pdb
+D:\工作目录\WE_Project\CommonBLL\bin\Release\CommonDAL.dll
+D:\工作目录\WE_Project\CommonBLL\bin\Release\CommonModel.dll
+D:\工作目录\WE_Project\CommonBLL\bin\Release\DBUtility.dll
+D:\工作目录\WE_Project\CommonBLL\bin\Release\IBatisNet.DataMapper.dll
+D:\工作目录\WE_Project\CommonBLL\bin\Release\IBatisNet.Common.dll
+D:\工作目录\WE_Project\CommonBLL\bin\Release\MySql.Data.dll
+D:\工作目录\WE_Project\CommonBLL\bin\Release\CommonDAL.pdb
+D:\工作目录\WE_Project\CommonBLL\bin\Release\CommonModel.pdb
+D:\工作目录\WE_Project\CommonBLL\obj\Release\CommonBLL.csprojResolveAssemblyReference.cache
+D:\工作目录\WE_Project\CommonBLL\obj\Release\CommonBLL.dll
+D:\工作目录\WE_Project\CommonBLL\obj\Release\CommonBLL.pdb

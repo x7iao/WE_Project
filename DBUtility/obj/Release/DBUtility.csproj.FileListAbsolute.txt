@@ -1,0 +1,6 @@
+D:\工作目录\WE_Project\DBUtility\bin\Release\DBUtility.dll
+D:\工作目录\WE_Project\DBUtility\bin\Release\IBatisNet.Common.dll
+D:\工作目录\WE_Project\DBUtility\bin\Release\IBatisNet.DataMapper.dll
+D:\工作目录\WE_Project\DBUtility\bin\Release\MySql.Data.dll
+D:\工作目录\WE_Project\DBUtility\obj\Release\DBUtility.csprojResolveAssemblyReference.cache
+D:\工作目录\WE_Project\DBUtility\obj\Release\DBUtility.dll

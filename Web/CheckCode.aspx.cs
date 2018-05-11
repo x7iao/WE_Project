@@ -50,7 +50,8 @@ namespace WE_Project.Web
                 }
                 else
                 {
-                    checkCode += (char)('A' + (char)(number % 26));     //生成字母
+                    checkCode += (char)('0' + (char)(number % 10));     //生成数字
+                    //checkCode += (char)('A' + (char)(number % 26));     //生成字母
                 }
             }
 
@@ -77,7 +78,7 @@ namespace WE_Project.Web
             {
                 Random random = new Random();
 
-                graphic.Clear(Color.White);
+                graphic.Clear(Color.Black);
 
                 int x1 = 0, y1 = 0, x2 = 0, y2 = 0;
 
@@ -92,7 +93,7 @@ namespace WE_Project.Web
                 }
 
                 Font font = new Font("Arial", 18, (FontStyle.Bold | FontStyle.Italic));
-                LinearGradientBrush brush = new LinearGradientBrush(new Rectangle(0, 0, image.Width, image.Height), Color.Black, Color.Black, 1.2f, true);
+                LinearGradientBrush brush = new LinearGradientBrush(new Rectangle(0, 0, image.Width, image.Height), Color.White, Color.White, 1.2f, true);
                 graphic.DrawString(checkCode, font, brush, 5, 5);
 
                 int x = 0;

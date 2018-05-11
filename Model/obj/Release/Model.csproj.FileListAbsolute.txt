@@ -1,0 +1,7 @@
+D:\工作目录\WE_Project\Model\bin\Release\WE_Project.Model.dll
+D:\工作目录\WE_Project\Model\bin\Release\WE_Project.Model.pdb
+D:\工作目录\WE_Project\Model\bin\Release\CommonModel.dll
+D:\工作目录\WE_Project\Model\bin\Release\CommonModel.pdb
+D:\工作目录\WE_Project\Model\obj\Release\Model.csprojResolveAssemblyReference.cache
+D:\工作目录\WE_Project\Model\obj\Release\WE_Project.Model.dll
+D:\工作目录\WE_Project\Model\obj\Release\WE_Project.Model.pdb

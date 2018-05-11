@@ -1,0 +1,15 @@
+D:\工作目录\WE_Project\DAL\bin\Release\WE_Project.DAL.dll
+D:\工作目录\WE_Project\DAL\bin\Release\WE_Project.DAL.pdb
+D:\工作目录\WE_Project\DAL\bin\Release\CommonDAL.dll
+D:\工作目录\WE_Project\DAL\bin\Release\CommonModel.dll
+D:\工作目录\WE_Project\DAL\bin\Release\DBUtility.dll
+D:\工作目录\WE_Project\DAL\bin\Release\WE_Project.Model.dll
+D:\工作目录\WE_Project\DAL\bin\Release\IBatisNet.DataMapper.dll
+D:\工作目录\WE_Project\DAL\bin\Release\IBatisNet.Common.dll
+D:\工作目录\WE_Project\DAL\bin\Release\MySql.Data.dll
+D:\工作目录\WE_Project\DAL\bin\Release\CommonDAL.pdb
+D:\工作目录\WE_Project\DAL\bin\Release\CommonModel.pdb
+D:\工作目录\WE_Project\DAL\bin\Release\WE_Project.Model.pdb
+D:\工作目录\WE_Project\DAL\obj\Release\DAL.csprojResolveAssemblyReference.cache
+D:\工作目录\WE_Project\DAL\obj\Release\WE_Project.DAL.dll
+D:\工作目录\WE_Project\DAL\obj\Release\WE_Project.DAL.pdb
