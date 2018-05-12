@@ -19,6 +19,10 @@
     <link href="/Admin/css/style.css" rel="stylesheet">
     <link href="/Admin/css/icons.css" rel="stylesheet">
     <link href="/Admin/css/generics.css" rel="stylesheet">
+    <link href="/plugin/layui/css/layui.css" rel="stylesheet" />
+
+    <link type="text/css" rel="stylesheet" href="/admin/pop/css/next_page_search.css" />
+    <link rel="stylesheet" type="text/css" href="/admin/pop/css/V5-UI.css" />
 </head>
 <body id="skin-blur-violate">
 
@@ -53,7 +57,7 @@
                         <span id="sec"></span>
                 </div>
 
-             <%--   <div class="media-body">
+                <%--   <div class="media-body">
                     <input type="text" class="main-search">
                 </div>--%>
             </div>
@@ -90,7 +94,7 @@
                 </div>
 
                 <!-- Feeds -->
-               <%-- <div class="s-widget m-b-25">
+                <%-- <div class="s-widget m-b-25">
                     <h2 class="tile-title">News Feeds
                     </h2>
 
@@ -137,7 +141,7 @@
                                 </a>
                             </div>
                         </div>
-                       <%-- <div class="side-border">
+                        <%-- <div class="side-border">
                             <small>Chrome Extension</small>
                             <div class="progress progress-small">
                                 <a href="#" data-toggle="tooltip" title="" class="tooltips progress-bar progress-bar-success" style="width: 95%;" data-original-title="95%">
@@ -156,124 +160,123 @@
                         <span class="menu-item">首页</span>
                     </a>
                 </li>
-              
+
 
                 <%foreach (WE_Project.Model.RolePowers item in GetPowers("0"))
-                      { %>
-                    <li class="dropdown"><a href="javascript:void(0)" class="sa-side-form"><span class="menu-item"><%=item.Content.CTitle %></span> </a>
-                        <ul class="list-unstyled menu-item">
-                            <%foreach (WE_Project.Model.RolePowers item2 in GetPowers(item.CID))
-                              { %>
-                            <li><a href="javascript:void(0)" onclick="callhtml('<%=item2.Content.CAddress %>','<%=item2.Content.CTitle %>');onclickmenu()">
-                                <%=item2.Content.CTitle%></a></li>
-                            <%} %>
-                        </ul>
-                    </li>
-                    <%} %>
-
+                    { %>
+                <li class="dropdown"><a href="javascript:void(0)" class="<%=item.Content.CImage %>"><span class="menu-item"><%=item.Content.CTitle %></span> </a>
+                    <ul class="list-unstyled menu-item">
+                        <%foreach (WE_Project.Model.RolePowers item2 in GetPowers(item.CID))
+                            { %>
+                        <li><a href="javascript:void(0)" onclick="callhtml('<%=item2.Content.CAddress %>','<%=item2.Content.CTitle %>');">
+                            <%=item2.Content.CTitle%></a></li>
+                        <%} %>
+                    </ul>
+                </li>
+                <%} %>
             </ul>
 
         </aside>
 
         <!-- Content -->
         <section id="content" class="container">
-             <!-- Messages Drawer -->
-                <div id="messages" class="tile drawer animated">
-                    <div class="listview narrow">
+            <!-- Messages Drawer -->
+            <div id="messages" class="tile drawer animated">
+                <div class="listview narrow">
+                    <div class="media">
+                        <a href="">Send a New Message</a>
+                        <span class="drawer-close">&times;</span>
+
+                    </div>
+                    <div class="overflow" style="height: 254px">
                         <div class="media">
-                            <a href="">Send a New Message</a>
-                            <span class="drawer-close">&times;</span>
-                            
-                        </div>
-                        <div class="overflow" style="height: 254px">
-                            <div class="media">
-                                <div class="pull-left">
-                                    <img width="40" src="img/profile-pics/1.jpg" alt="">
-                                </div>
-                                <div class="media-body">
-                                    <small class="text-muted">Nadin Jackson - 2 Hours ago</small><br>
-                                    <a class="t-overflow" href="">Mauris consectetur urna nec tempor adipiscing. Proin sit amet nisi ligula. Sed eu adipiscing lectus</a>
-                                </div>
+                            <div class="pull-left">
+                                <img width="40" src="img/profile-pics/1.jpg" alt="">
                             </div>
-                            <div class="media">
-                                <div class="pull-left">
-                                    <img width="40" src="img/profile-pics/2.jpg" alt="">
-                                </div>
-                                <div class="media-body">
-                                    <small class="text-muted">David Villa - 5 Hours ago</small><br>
-                                    <a class="t-overflow" href="">Suspendisse in purus ut nibh placerat Cras pulvinar euismod nunc quis gravida. Suspendisse pharetra</a>
-                                </div>
-                            </div>
-                            <div class="media">
-                                <div class="pull-left">
-                                    <img width="40" src="img/profile-pics/3.jpg" alt="">
-                                </div>
-                                <div class="media-body">
-                                    <small class="text-muted">Harris worgon - On 15/12/2013</small><br>
-                                    <a class="t-overflow" href="">Maecenas venenatis enim condimentum ultrices fringilla. Nulla eget libero rhoncus, bibendum diam eleifend, vulputate mi. Fusce non nibh pulvinar, ornare turpis id</a>
-                                </div>
-                            </div>
-                            <div class="media">
-                                <div class="pull-left">
-                                    <img width="40" src="img/profile-pics/4.jpg" alt="">
-                                </div>
-                                <div class="media-body">
-                                    <small class="text-muted">Mitch Bradberry - On 14/12/2013</small><br>
-                                    <a class="t-overflow" href="">Phasellus interdum felis enim, eu bibendum ipsum tristique vitae. Phasellus feugiat massa orci, sed viverra felis aliquet quis. Curabitur vel blandit odio. Vestibulum sagittis quis sem sit amet tristique.</a>
-                                </div>
-                            </div>
-                            <div class="media">
-                                <div class="pull-left">
-                                    <img width="40" src="img/profile-pics/1.jpg" alt="">
-                                </div>
-                                <div class="media-body">
-                                    <small class="text-muted">Nadin Jackson - On 15/12/2013</small><br>
-                                    <a class="t-overflow" href="">Ipsum wintoo consectetur urna nec tempor adipiscing. Proin sit amet nisi ligula. Sed eu adipiscing lectus</a>
-                                </div>
-                            </div>
-                            <div class="media">
-                                <div class="pull-left">
-                                    <img width="40" src="img/profile-pics/2.jpg" alt="">
-                                </div>
-                                <div class="media-body">
-                                    <small class="text-muted">David Villa - On 16/12/2013</small><br>
-                                    <a class="t-overflow" href="">Suspendisse in purus ut nibh placerat Cras pulvinar euismod nunc quis gravida. Suspendisse pharetra</a>
-                                </div>
-                            </div>
-                            <div class="media">
-                                <div class="pull-left">
-                                    <img width="40" src="img/profile-pics/3.jpg" alt="">
-                                </div>
-                                <div class="media-body">
-                                    <small class="text-muted">Harris worgon - On 17/12/2013</small><br>
-                                    <a class="t-overflow" href="">Maecenas venenatis enim condimentum ultrices fringilla. Nulla eget libero rhoncus, bibendum diam eleifend, vulputate mi. Fusce non nibh pulvinar, ornare turpis id</a>
-                                </div>
-                            </div>
-                            <div class="media">
-                                <div class="pull-left">
-                                    <img width="40" src="img/profile-pics/4.jpg" alt="">
-                                </div>
-                                <div class="media-body">
-                                    <small class="text-muted">Mitch Bradberry - On 18/12/2013</small><br>
-                                    <a class="t-overflow" href="">Phasellus interdum felis enim, eu bibendum ipsum tristique vitae. Phasellus feugiat massa orci, sed viverra felis aliquet quis. Curabitur vel blandit odio. Vestibulum sagittis quis sem sit amet tristique.</a>
-                                </div>
-                            </div>
-                            <div class="media">
-                                <div class="pull-left">
-                                    <img width="40" src="img/profile-pics/5.jpg" alt="">
-                                </div>
-                                <div class="media-body">
-                                    <small class="text-muted">Wendy Mitchell - On 19/12/2013</small><br>
-                                    <a class="t-overflow" href="">Integer a eros dapibus, vehicula quam accumsan, tincidunt purus</a>
-                                </div>
+                            <div class="media-body">
+                                <small class="text-muted">Nadin Jackson - 2 Hours ago</small><br>
+                                <a class="t-overflow" href="">Mauris consectetur urna nec tempor adipiscing. Proin sit amet nisi ligula. Sed eu adipiscing lectus</a>
                             </div>
                         </div>
-                        <div class="media text-center whiter l-100">
-                            <a href=""><small>VIEW ALL</small></a>
+                        <div class="media">
+                            <div class="pull-left">
+                                <img width="40" src="img/profile-pics/2.jpg" alt="">
+                            </div>
+                            <div class="media-body">
+                                <small class="text-muted">David Villa - 5 Hours ago</small><br>
+                                <a class="t-overflow" href="">Suspendisse in purus ut nibh placerat Cras pulvinar euismod nunc quis gravida. Suspendisse pharetra</a>
+                            </div>
+                        </div>
+                        <div class="media">
+                            <div class="pull-left">
+                                <img width="40" src="img/profile-pics/3.jpg" alt="">
+                            </div>
+                            <div class="media-body">
+                                <small class="text-muted">Harris worgon - On 15/12/2013</small><br>
+                                <a class="t-overflow" href="">Maecenas venenatis enim condimentum ultrices fringilla. Nulla eget libero rhoncus, bibendum diam eleifend, vulputate mi. Fusce non nibh pulvinar, ornare turpis id</a>
+                            </div>
+                        </div>
+                        <div class="media">
+                            <div class="pull-left">
+                                <img width="40" src="img/profile-pics/4.jpg" alt="">
+                            </div>
+                            <div class="media-body">
+                                <small class="text-muted">Mitch Bradberry - On 14/12/2013</small><br>
+                                <a class="t-overflow" href="">Phasellus interdum felis enim, eu bibendum ipsum tristique vitae. Phasellus feugiat massa orci, sed viverra felis aliquet quis. Curabitur vel blandit odio. Vestibulum sagittis quis sem sit amet tristique.</a>
+                            </div>
+                        </div>
+                        <div class="media">
+                            <div class="pull-left">
+                                <img width="40" src="img/profile-pics/1.jpg" alt="">
+                            </div>
+                            <div class="media-body">
+                                <small class="text-muted">Nadin Jackson - On 15/12/2013</small><br>
+                                <a class="t-overflow" href="">Ipsum wintoo consectetur urna nec tempor adipiscing. Proin sit amet nisi ligula. Sed eu adipiscing lectus</a>
+                            </div>
+                        </div>
+                        <div class="media">
+                            <div class="pull-left">
+                                <img width="40" src="img/profile-pics/2.jpg" alt="">
+                            </div>
+                            <div class="media-body">
+                                <small class="text-muted">David Villa - On 16/12/2013</small><br>
+                                <a class="t-overflow" href="">Suspendisse in purus ut nibh placerat Cras pulvinar euismod nunc quis gravida. Suspendisse pharetra</a>
+                            </div>
+                        </div>
+                        <div class="media">
+                            <div class="pull-left">
+                                <img width="40" src="img/profile-pics/3.jpg" alt="">
+                            </div>
+                            <div class="media-body">
+                                <small class="text-muted">Harris worgon - On 17/12/2013</small><br>
+                                <a class="t-overflow" href="">Maecenas venenatis enim condimentum ultrices fringilla. Nulla eget libero rhoncus, bibendum diam eleifend, vulputate mi. Fusce non nibh pulvinar, ornare turpis id</a>
+                            </div>
+                        </div>
+                        <div class="media">
+                            <div class="pull-left">
+                                <img width="40" src="img/profile-pics/4.jpg" alt="">
+                            </div>
+                            <div class="media-body">
+                                <small class="text-muted">Mitch Bradberry - On 18/12/2013</small><br>
+                                <a class="t-overflow" href="">Phasellus interdum felis enim, eu bibendum ipsum tristique vitae. Phasellus feugiat massa orci, sed viverra felis aliquet quis. Curabitur vel blandit odio. Vestibulum sagittis quis sem sit amet tristique.</a>
+                            </div>
+                        </div>
+                        <div class="media">
+                            <div class="pull-left">
+                                <img width="40" src="img/profile-pics/5.jpg" alt="">
+                            </div>
+                            <div class="media-body">
+                                <small class="text-muted">Wendy Mitchell - On 19/12/2013</small><br>
+                                <a class="t-overflow" href="">Integer a eros dapibus, vehicula quam accumsan, tincidunt purus</a>
+                            </div>
                         </div>
                     </div>
+                    <div class="media text-center whiter l-100">
+                        <a href=""><small>VIEW ALL</small></a>
+                    </div>
                 </div>
-           
+            </div>
+
             <!-- Breadcrumb -->
             <ol class="breadcrumb hidden-xs">
                 <%--<li><a href="#">Home</a></li>
@@ -289,10 +292,10 @@
                     <img src="/Admin/img/shortcuts/money.png" alt="">
                     <small class="t-overflow">Purchases</small>
                 </a>
-                <a class="shortcut tile" href="">
+                <%-- <a class="shortcut tile" href="">
                     <img src="/Admin/img/shortcuts/twitter.png" alt="">
                     <small class="t-overflow">Tweets</small>
-                </a>
+                </a>--%>
                 <a class="shortcut tile" href="">
                     <img src="/Admin/img/shortcuts/calendar.png" alt="">
                     <small class="t-overflow">Calendar</small>
@@ -313,410 +316,387 @@
 
             <hr class="whiter" />
 
-            <!-- Quick Stats -->
-            <div class="block-area">
-                <div class="row">
-                    <div class="col-md-3 col-xs-6">
-                        <div class="tile quick-stats">
-                            <div id="stats-line-2" class="pull-left"></div>
-                            <div class="data">
-                                <h2 data-value="<%=TModel.MConfig.MCW %>"><%=TModel.MConfig.MCW %></h2>
-                                <small>许愿果[用来排单]</small>
+            <div id="maincontent">
+
+                <!-- Quick Stats -->
+                <div class="block-area">
+                    <div class="row">
+                        <div class="col-md-3 col-xs-6">
+                            <div class="tile quick-stats">
+                                <div id="stats-line-2" class="pull-left"></div>
+                                <div class="data">
+                                    <h2 data-value="<%=TModel.MConfig.MCW %>"><%=TModel.MConfig.MCW %></h2>
+                                    <small>许愿果[用来排单]</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 col-xs-6">
+                            <div class="tile quick-stats media">
+                                <div id="stats-line-3" class="pull-left"></div>
+                                <div class="media-body">
+                                    <h2 data-value="<%=TModel.MConfig.MJBF %>"><%=TModel.MConfig.MJBF %></h2>
+                                    <small>许愿台[用来理财]</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 col-xs-6">
+                            <div class="tile quick-stats media">
+
+                                <div id="stats-line-4" class="pull-left"></div>
+
+                                <div class="media-body">
+                                    <h2 data-value="<%=TModel.MConfig.MJB %>"><%=TModel.MConfig.MJB %></h2>
+                                    <small>许愿池[动态奖金]</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 col-xs-6">
+                            <div class="tile quick-stats media">
+                                <div id="stats-line" class="pull-left"></div>
+                                <div class="media-body">
+                                    <h2 data-value="<%=TModel.MConfig.MHB %>"><%=TModel.MConfig.MHB %></h2>
+                                    <small>许愿树[静态奖金]</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-xs-6">
+                            <div class="tile quick-stats media">
+                                <div id="stats-line-5" class="pull-left"></div>
+                                <div class="media-body">
+                                    <h2 data-value="<%=TModel.MConfig.MHB %>"><%=TModel.MConfig.MHB %></h2>
+                                    <small>许愿金[手续费]</small>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-md-3 col-xs-6">
-                        <div class="tile quick-stats media">
-                            <div id="stats-line-3" class="pull-left"></div>
-                            <div class="media-body">
-                                <h2 data-value="<%=TModel.MConfig.MJBF %>"><%=TModel.MConfig.MJBF %></h2>
-                                <small>许愿台[用来理财]</small>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3 col-xs-6">
-                        <div class="tile quick-stats media">
-
-                            <div id="stats-line-4" class="pull-left"></div>
-
-                            <div class="media-body">
-                                <h2 data-value="<%=TModel.MConfig.MJB %>"><%=TModel.MConfig.MJB %></h2>
-                                <small>许愿池[动态奖金]</small>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3 col-xs-6">
-                        <div class="tile quick-stats media">
-                            <div id="stats-line" class="pull-left"></div>
-                            <div class="media-body">
-                                <h2 data-value="<%=TModel.MConfig.MHB %>"><%=TModel.MConfig.MHB %></h2>
-                                <small>许愿树[静态奖金]</small>
-                            </div>
-                        </div>
-                    </div>
-                      <div class="col-md-3 col-xs-6">
-                        <div class="tile quick-stats media">
-                            <div id="stats-line-5" class="pull-left"></div>
-                            <div class="media-body">
-                                <h2 data-value="<%=TModel.MConfig.MHB %>"><%=TModel.MConfig.MHB %></h2>
-                                <small>许愿金[手续费]</small>
-                            </div>
-                        </div>
-                    </div>
                 </div>
 
-            </div>
+                <hr class="whiter" />
 
-            <hr class="whiter" />
+                <!-- Main Widgets -->
 
-            <!-- Main Widgets -->
+                <div class="block-area">
+                    <div class="row">
+                        <div class="col-md-8">
 
-            <div class="block-area">
-                <div class="row">
-                    <div class="col-md-8">
-                      
-                        <!-- Pies -->
-                        <div class="tile text-center">
-                            <div class="tile-dark p-10">
-                                <div class="pie-chart-tiny" data-percent="86">
-                                    <span class="percent"></span>
-                                    <span class="pie-title">New Visitors <i class="m-l-5 fa fa-retweet"></i></span>
-                                </div>
-                                <div class="pie-chart-tiny" data-percent="23">
-                                    <span class="percent"></span>
-                                    <span class="pie-title">Bounce Rate <i class="m-l-5 fa fa-retweet"></i></span>
-                                </div>
-                                <div class="pie-chart-tiny" data-percent="57">
-                                    <span class="percent"></span>
-                                    <span class="pie-title">Emails Sent <i class="m-l-5 fa fa-retweet"></i></span>
-                                </div>
-                                <div class="pie-chart-tiny" data-percent="34">
-                                    <span class="percent"></span>
-                                    <span class="pie-title">Sales Rate <i class="m-l-5 fa fa-retweet"></i></span>
-                                </div>
-                                <div class="pie-chart-tiny" data-percent="81">
-                                    <span class="percent"></span>
-                                    <span class="pie-title">New Signups <i class="m-l-5 fa fa-retweet"></i></span>
+                            <!-- Pies -->
+                            <div class="tile text-center">
+                                <div class="tile-dark p-10">
+                                    <div class="pie-chart-tiny" data-percent="86">
+                                        <span class="percent"></span>
+                                        <span class="pie-title">New Visitors <i class="m-l-5 fa fa-retweet"></i></span>
+                                    </div>
+                                    <div class="pie-chart-tiny" data-percent="23">
+                                        <span class="percent"></span>
+                                        <span class="pie-title">Bounce Rate <i class="m-l-5 fa fa-retweet"></i></span>
+                                    </div>
+                                    <div class="pie-chart-tiny" data-percent="57">
+                                        <span class="percent"></span>
+                                        <span class="pie-title">Emails Sent <i class="m-l-5 fa fa-retweet"></i></span>
+                                    </div>
+                                    <div class="pie-chart-tiny" data-percent="34">
+                                        <span class="percent"></span>
+                                        <span class="pie-title">Sales Rate <i class="m-l-5 fa fa-retweet"></i></span>
+                                    </div>
+                                    <div class="pie-chart-tiny" data-percent="81">
+                                        <span class="percent"></span>
+                                        <span class="pie-title">New Signups <i class="m-l-5 fa fa-retweet"></i></span>
+                                    </div>
                                 </div>
                             </div>
+
+                            <!--  Recent Postings -->
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="tile">
+                                        <h2 class="tile-title">公告</h2>
+                                        <div class="tile-config dropdown">
+                                            <a data-toggle="dropdown" href="" class="tile-menu"></a>
+                                            <ul class="dropdown-menu animated pull-right text-right">
+                                                <li><a href="">Refresh</a></li>
+                                                <%--<li><a href="">Settings</a></li>--%>
+                                            </ul>
+                                        </div>
+                                        <div class="listview narrow">
+
+                                            <%
+                                                if (noticelist != null)
+                                                {
+                                                    foreach (var item in noticelist)
+                                                    {
+                                            %>
+                                            <div class="media p-l-5">
+                                                <div class="pull-left">
+                                                    <img width="40" src="img/profile-pics/2.jpg" alt="">
+                                                </div>
+                                                <div class="media-body">
+                                                    <small class="text-muted">On <%=item.NCreateTime.ToString("dd/MM/yyyy") %></small><br />
+                                                    <a class="t-overflow" href=""><%=item.NTitle %></a>
+
+                                                </div>
+                                            </div>
+                                            <%
+                                                    }
+                                                }
+                                            %>
+
+
+                                            <div class="media p-5 text-center l-100">
+                                                <a href="javascript:callhtml('../Message/NoticeViewList.aspx','公告查看');onclickmenu()"><small>VIEW ALL</small></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Tasks to do -->
+                                <div class="col-md-6">
+                                    <div class="tile">
+                                        <h2 class="tile-title">Tasks to do</h2>
+                                        <div class="tile-config dropdown">
+                                            <a data-toggle="dropdown" href="" class="tile-menu"></a>
+                                            <ul class="dropdown-menu pull-right text-right">
+                                                <li id="todo-add"><a href="">Add New</a></li>
+                                                <li id="todo-refresh"><a href="">Refresh</a></li>
+                                                <li id="todo-clear"><a href="">Clear All</a></li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="listview todo-list sortable">
+                                            <div class="media">
+                                                <div class="checkbox m-0">
+                                                    <label class="t-overflow">
+                                                        <input type="checkbox">
+                                                        Curabitur quis nisi ut nunc gravida suscipis
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="media">
+                                                <div class="checkbox m-0">
+                                                    <label class="t-overflow">
+                                                        <input type="checkbox">
+                                                        Suscipit at feugiat dewoo
+                                                    </label>
+                                                </div>
+
+                                            </div>
+                                            <div class="media">
+                                                <div class="checkbox m-0">
+                                                    <label class="t-overflow">
+                                                        <input type="checkbox">
+                                                        Gravida wendy lorem ipsum seen
+                                                    </label>
+                                                </div>
+
+                                            </div>
+                                            <div class="media">
+                                                <div class="checkbox m-0">
+                                                    <label class="t-overflow">
+                                                        <input type="checkbox">
+                                                        Fedrix quis nisi ut nunc gravida suscipit at feugiat purus
+                                                    </label>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
                         </div>
 
-                        <!--  Recent Postings -->
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="tile">
-                                    <h2 class="tile-title">Recent Postings</h2>
-                                    <div class="tile-config dropdown">
-                                        <a data-toggle="dropdown" href="" class="tile-menu"></a>
-                                        <ul class="dropdown-menu animated pull-right text-right">
-                                            <li><a href="">Refresh</a></li>
-                                            <li><a href="">Settings</a></li>
-                                        </ul>
-                                    </div>
-
-                                    <div class="listview narrow">
-                                        <div class="media p-l-5">
-                                            <div class="pull-left">
-                                                <img width="40" src="img/profile-pics/1.jpg" alt="">
-                                            </div>
-                                            <div class="media-body">
-                                                <small class="text-muted">2 Hours ago by Adrien San</small><br />
-                                                <a class="t-overflow" href="">Cras molestie fermentum nibh, ac semper</a>
-
-                                            </div>
-                                        </div>
-                                        <div class="media p-l-5">
-                                            <div class="pull-left">
-                                                <img width="40" src="img/profile-pics/2.jpg" alt="">
-                                            </div>
-                                            <div class="media-body">
-                                                <small class="text-muted">5 Hours ago by David Villa</small><br />
-                                                <a class="t-overflow" href="">Suspendisse in purus ut nibh placerat</a>
-
-                                            </div>
-                                        </div>
-                                        <div class="media p-l-5">
-                                            <div class="pull-left">
-                                                <img width="40" src="img/profile-pics/3.jpg" alt="">
-                                            </div>
-                                            <div class="media-body">
-                                                <small class="text-muted">On 15/12/2013 by Mitch bradberry</small><br />
-                                                <a class="t-overflow" href="">Cras pulvinar euismod nunc quis gravida. Suspendisse pharetra</a>
-
-                                            </div>
-                                        </div>
-                                        <div class="media p-l-5">
-                                            <div class="pull-left">
-                                                <img width="40" src="img/profile-pics/4.jpg" alt="">
-                                            </div>
-                                            <div class="media-body">
-                                                <small class="text-muted">On 14/12/2013 by Mitch bradberry</small><br />
-                                                <a class="t-overflow" href="">Cras pulvinar euismod nunc quis gravida. </a>
-
-                                            </div>
-                                        </div>
-                                        <div class="media p-l-5">
-                                            <div class="pull-left">
-                                                <img width="40" src="img/profile-pics/5.jpg" alt="">
-                                            </div>
-                                            <div class="media-body">
-                                                <small class="text-muted">On 13/12/2013 by Mitch bradberry</small><br />
-                                                <a class="t-overflow" href="">Integer a eros dapibus, vehicula quam accumsan, tincidunt purus</a>
-
-                                            </div>
-                                        </div>
-                                        <div class="media p-5 text-center l-100">
-                                            <a href=""><small>VIEW ALL</small></a>
-                                        </div>
-                                    </div>
+                        <div class="col-md-4">
+                            <!-- USA Map -->
+                            <div class="tile">
+                                <h2 class="tile-title">Live Visits</h2>
+                                <div class="tile-config dropdown">
+                                    <a data-toggle="dropdown" href="" class="tile-menu"></a>
+                                    <ul class="dropdown-menu pull-right text-right">
+                                        <li><a href="">Refresh</a></li>
+                                        <li><a href="">Settings</a></li>
+                                    </ul>
                                 </div>
+
+                                <div id="usa-map"></div>
                             </div>
 
-                            <!-- Tasks to do -->
-                            <div class="col-md-6">
-                                <div class="tile">
-                                    <h2 class="tile-title">Tasks to do</h2>
-                                    <div class="tile-config dropdown">
-                                        <a data-toggle="dropdown" href="" class="tile-menu"></a>
-                                        <ul class="dropdown-menu pull-right text-right">
-                                            <li id="todo-add"><a href="">Add New</a></li>
-                                            <li id="todo-refresh"><a href="">Refresh</a></li>
-                                            <li id="todo-clear"><a href="">Clear All</a></li>
-                                        </ul>
-                                    </div>
 
-                                    <div class="listview todo-list sortable">
-                                        <div class="media">
-                                            <div class="checkbox m-0">
-                                                <label class="t-overflow">
-                                                    <input type="checkbox">
-                                                    Curabitur quis nisi ut nunc gravida suscipis
-                                                </label>
-                                            </div>
+
+                            <!-- Activity -->
+                            <div class="tile">
+                                <h2 class="tile-title">Social Media activities</h2>
+                                <div class="tile-config dropdown">
+                                    <a data-toggle="dropdown" href="" class="tile-menu"></a>
+                                    <ul class="dropdown-menu pull-right text-right">
+                                        <li><a href="">Refresh</a></li>
+                                        <li><a href="">Settings</a></li>
+                                    </ul>
+                                </div>
+
+                                <div class="listview narrow">
+
+                                    <div class="media">
+                                        <div class="pull-right">
+                                            <div class="counts">367892</div>
                                         </div>
-                                        <div class="media">
-                                            <div class="checkbox m-0">
-                                                <label class="t-overflow">
-                                                    <input type="checkbox">
-                                                    Suscipit at feugiat dewoo
-                                                </label>
-                                            </div>
-
-                                        </div>
-                                        <div class="media">
-                                            <div class="checkbox m-0">
-                                                <label class="t-overflow">
-                                                    <input type="checkbox">
-                                                    Gravida wendy lorem ipsum seen
-                                                </label>
-                                            </div>
-
-                                        </div>
-                                        <div class="media">
-                                            <div class="checkbox m-0">
-                                                <label class="t-overflow">
-                                                    <input type="checkbox">
-                                                    Fedrix quis nisi ut nunc gravida suscipit at feugiat purus
-                                                </label>
-                                            </div>
-
+                                        <div class="media-body">
+                                            <h6>FACEBOOK LIKES</h6>
                                         </div>
                                     </div>
 
-                                   
+                                    <div class="media">
+                                        <div class="pull-right">
+                                            <div class="counts">2012</div>
+                                        </div>
+                                        <div class="media-body">
+                                            <h6>GOOGLE +1s</h6>
+                                        </div>
+                                    </div>
+
+                                    <div class="media">
+                                        <div class="pull-right">
+                                            <div class="counts">56312</div>
+                                        </div>
+                                        <div class="media-body">
+                                            <h6>YOUTUBE VIEWS</h6>
+                                        </div>
+                                    </div>
+
+                                    <div class="media">
+                                        <div class="pull-right">
+                                            <div class="counts">785879</div>
+                                        </div>
+                                        <div class="media-body">
+                                            <h6>TWITTER FOLLOWERS</h6>
+                                        </div>
+                                    </div>
+                                    <div class="media">
+                                        <div class="pull-right">
+                                            <div class="counts">68</div>
+                                        </div>
+                                        <div class="media-body">
+                                            <h6>WEBSITE COMMENTS</h6>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <div class="clearfix"></div>
                     </div>
-
-                    <div class="col-md-4">
-                        <!-- USA Map -->
-                        <div class="tile">
-                            <h2 class="tile-title">Live Visits</h2>
-                            <div class="tile-config dropdown">
-                                <a data-toggle="dropdown" href="" class="tile-menu"></a>
-                                <ul class="dropdown-menu pull-right text-right">
-                                    <li><a href="">Refresh</a></li>
-                                    <li><a href="">Settings</a></li>
-                                </ul>
-                            </div>
-
-                            <div id="usa-map"></div>
-                        </div>
-
-                       
-
-                        <!-- Activity -->
-                        <div class="tile">
-                            <h2 class="tile-title">Social Media activities</h2>
-                            <div class="tile-config dropdown">
-                                <a data-toggle="dropdown" href="" class="tile-menu"></a>
-                                <ul class="dropdown-menu pull-right text-right">
-                                    <li><a href="">Refresh</a></li>
-                                    <li><a href="">Settings</a></li>
-                                </ul>
-                            </div>
-
-                            <div class="listview narrow">
-
-                                <div class="media">
-                                    <div class="pull-right">
-                                        <div class="counts">367892</div>
-                                    </div>
-                                    <div class="media-body">
-                                        <h6>FACEBOOK LIKES</h6>
-                                    </div>
-                                </div>
-
-                                <div class="media">
-                                    <div class="pull-right">
-                                        <div class="counts">2012</div>
-                                    </div>
-                                    <div class="media-body">
-                                        <h6>GOOGLE +1s</h6>
-                                    </div>
-                                </div>
-
-                                <div class="media">
-                                    <div class="pull-right">
-                                        <div class="counts">56312</div>
-                                    </div>
-                                    <div class="media-body">
-                                        <h6>YOUTUBE VIEWS</h6>
-                                    </div>
-                                </div>
-
-                                <div class="media">
-                                    <div class="pull-right">
-                                        <div class="counts">785879</div>
-                                    </div>
-                                    <div class="media-body">
-                                        <h6>TWITTER FOLLOWERS</h6>
-                                    </div>
-                                </div>
-                                <div class="media">
-                                    <div class="pull-right">
-                                        <div class="counts">68</div>
-                                    </div>
-                                    <div class="media-body">
-                                        <h6>WEBSITE COMMENTS</h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
-            </div>
-
-            <!-- Chat -->
-            <div class="chat">
-
-                <!-- Chat List -->
-                <div class="pull-left chat-list">
-                    <div class="listview narrow">
-                        <div class="media">
-                            <img class="pull-left" src="/Admin/img/profile-pics/1.jpg" width="30" alt="">
-                            <div class="media-body p-t-5">
-                                Alex Bendit
-                            </div>
-                        </div>
-                        <div class="media">
-                            <img class="pull-left" src="/Admin/img/profile-pics/2.jpg" width="30" alt="">
-                            <div class="media-body">
-                                <span class="t-overflow p-t-5">David Volla Watkinson</span>
-                            </div>
-                        </div>
-                        <div class="media">
-                            <img class="pull-left" src="/Admin/img/profile-pics/3.jpg" width="30" alt="">
-                            <div class="media-body">
-                                <span class="t-overflow p-t-5">Mitchell Christein</span>
-                            </div>
-                        </div>
-                        <div class="media">
-                            <img class="pull-left" src="/Admin/img/profile-pics/4.jpg" width="30" alt="">
-                            <div class="media-body">
-                                <span class="t-overflow p-t-5">Wayne Parnell</span>
-                            </div>
-                        </div>
-                        <div class="media">
-                            <img class="pull-left" src="/Admin/img/profile-pics/5.jpg" width="30" alt="">
-                            <div class="media-body">
-                                <span class="t-overflow p-t-5">Melina April</span>
-                            </div>
-                        </div>
-                        <div class="media">
-                            <img class="pull-left" src="/Admin/img/profile-pics/6.jpg" width="30" alt="">
-                            <div class="media-body">
-                                <span class="t-overflow p-t-5">Ford Harnson</span>
-                            </div>
-                        </div>
-
-                    </div>
                 </div>
 
-                <!-- Chat Area -->
-                <div class="media-body">
-                    <div class="chat-header">
-                        <a class="btn btn-sm" href="">
-                            <i class="fa fa-circle-o status m-r-5"></i>Chat with Friends
-                        </a>
+                <!-- Chat -->
+                <div class="chat">
+
+                    <!-- Chat List -->
+                    <div class="pull-left chat-list">
+                        <div class="listview narrow">
+                            <div class="media">
+                                <img class="pull-left" src="/Admin/img/profile-pics/1.jpg" width="30" alt="">
+                                <div class="media-body p-t-5">
+                                    Alex Bendit
+                                </div>
+                            </div>
+                            <div class="media">
+                                <img class="pull-left" src="/Admin/img/profile-pics/2.jpg" width="30" alt="">
+                                <div class="media-body">
+                                    <span class="t-overflow p-t-5">David Volla Watkinson</span>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <img class="pull-left" src="/Admin/img/profile-pics/3.jpg" width="30" alt="">
+                                <div class="media-body">
+                                    <span class="t-overflow p-t-5">Mitchell Christein</span>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <img class="pull-left" src="/Admin/img/profile-pics/4.jpg" width="30" alt="">
+                                <div class="media-body">
+                                    <span class="t-overflow p-t-5">Wayne Parnell</span>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <img class="pull-left" src="/Admin/img/profile-pics/5.jpg" width="30" alt="">
+                                <div class="media-body">
+                                    <span class="t-overflow p-t-5">Melina April</span>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <img class="pull-left" src="/Admin/img/profile-pics/6.jpg" width="30" alt="">
+                                <div class="media-body">
+                                    <span class="t-overflow p-t-5">Ford Harnson</span>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
 
-                    <div class="chat-body">
-                        <div class="media">
-                            <img class="pull-right" src="/Admin/img/profile-pics/1.jpg" width="30" alt="" />
-                            <div class="media-body pull-right">
-                                Hiiii<br />
-                                How you doing bro?
+                    <!-- Chat Area -->
+                    <div class="media-body">
+                        <div class="chat-header">
+                            <a class="btn btn-sm" href="">
+                                <i class="fa fa-circle-o status m-r-5"></i>Chat with Friends
+                            </a>
+                        </div>
+
+                        <div class="chat-body">
+                            <div class="media">
+                                <img class="pull-right" src="/Admin/img/profile-pics/1.jpg" width="30" alt="" />
+                                <div class="media-body pull-right">
+                                    Hiiii<br />
+                                    How you doing bro?
                                     <small>Me - 10 Mins ago</small>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="media pull-left">
-                            <img class="pull-left" src="/Admin/img/profile-pics/2.jpg" width="30" alt="" />
-                            <div class="media-body">
-                                I'm doing well buddy.
+                            <div class="media pull-left">
+                                <img class="pull-left" src="/Admin/img/profile-pics/2.jpg" width="30" alt="" />
+                                <div class="media-body">
+                                    I'm doing well buddy.
                                 <br />
-                                How do you do?
+                                    How do you do?
                                     <small>David - 9 Mins ago</small>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="media pull-right">
-                            <img class="pull-right" src="/Admin/img/profile-pics/2.jpg" width="30" alt="" />
-                            <div class="media-body">
-                                I'm Fine bro
+                            <div class="media pull-right">
+                                <img class="pull-right" src="/Admin/img/profile-pics/2.jpg" width="30" alt="" />
+                                <div class="media-body">
+                                    I'm Fine bro
                                 <br />
-                                Thank you for asking
+                                    Thank you for asking
                                     <small>Me - 8 Mins ago</small>
+                                </div>
                             </div>
+
+                            <div class="media pull-right">
+                                <img class="pull-right" src="/Admin/img/profile-pics/2.jpg" width="30" alt="" />
+                                <div class="media-body">
+                                    Any idea for a hangout?
+                                    <small>Me - 8 Mins ago</small>
+                                </div>
+                            </div>
+
                         </div>
 
-                        <div class="media pull-right">
-                            <img class="pull-right" src="/Admin/img/profile-pics/2.jpg" width="30" alt="" />
+                        <div class="chat-footer media">
+                            <i class="chat-list-toggle pull-left fa fa-bars"></i>
+                            <i class="pull-right fa fa-picture-o"></i>
                             <div class="media-body">
-                                Any idea for a hangout?
-                                    <small>Me - 8 Mins ago</small>
+                                <textarea class="form-control" placeholder="Type something..."></textarea>
                             </div>
                         </div>
 
                     </div>
-
-                    <div class="chat-footer media">
-                        <i class="chat-list-toggle pull-left fa fa-bars"></i>
-                        <i class="pull-right fa fa-picture-o"></i>
-                        <div class="media-body">
-                            <textarea class="form-control" placeholder="Type something..."></textarea>
-                        </div>
-                    </div>
-
                 </div>
             </div>
+
+
         </section>
 
         <!-- Older IE Message -->
@@ -806,6 +786,9 @@
 
     <!-- Other -->
     <script src="/Admin/js/calendar.min.js"></script>
+
+  
+
     <!-- Calendar -->
     <script src="/Admin/js/feeds.min.js"></script>
     <!-- News Feeds -->
@@ -813,5 +796,67 @@
 
     <!-- All JS functions -->
     <script src="/Admin/js/functions.js"></script>
+
+
+
+    <script src="/plugin/layui/layui.js"></script>
+    <%--<script type="text/javascript" src="/Admin/pop/js/layer/layer.min.js"></script>--%>
+    <script type="text/javascript" src="/Admin/pop/js/stack.js"></script>
+    <script type="text/javascript" src="/Admin/pop/js/MyValide.js"></script>
+    <script type="text/javascript" src="/plugin/ztree/js/jquery.ztree.core-3.5.js"></script>
+    <script type="text/javascript" src="/plugin/ztree/ztreeScript.js"></script>
+    <script type="text/javascript" src="/Admin/pop/js/javascript_main.js"></script>
+    <script type="text/javascript" src="/Admin/pop/js/ajax.js"></script>
+    <script type="text/javascript" src="/Admin/pop/js/javascript_pop.js"></script>
+    <script type="text/javascript" src="/Admin/pop/js/V5-UI.js"></script>
+    <script type="text/javascript" src="/Admin/pop/js/jquery.pagination.js" charset="gbk"></script>
+    <script type="text/javascript" src="/plugin/UEditor/editor_config.js"></script>
+    <script type="text/javascript" src="/plugin/UEditor/editor_all.js"></script>
+    <script type="text/javascript" src="/plugin/jOrgChart/prettify.js"></script>
+    <script type="text/javascript" src="/plugin/jOrgChart/jquery.jOrgChart.js"></script>
+    <script type="text/javascript" src="/plugin/date/WdatePicker.js"></script>
+    <script type="text/javascript" src="/plugin/ZeroClipboard/ZeroClipboard.js"></script>
+    <%--<script type="text/javascript" src="/plugin/kindeditor/kindeditor-min.js"></script>--%>
+    <script type="text/javascript" src="/Admin/js/LoadHelp.js"></script>
+    <script type="text/javascript" src="/Mafull/chat/js/chat.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $.ajaxSetup({ cache: false });
+            var clip = new ZeroClipboard(document.getElementById("fenxian"), {
+                moviePath: "/plugin/ZeroClipboard/ZeroClipboard.swf"
+            });
+            // 复制内容到剪贴板成功后的操作 
+            clip.on('complete', function (client, args) {
+                layer.alert('复制成功！', {
+                    skin: 'layer-ext-moon',
+                    btn: '确定'
+                });
+            });
+            //GetHelpList("1", ".jycontent #getMatch > tbody");
+            //GetHelpList("2", ".jycontent #offMatch > tbody");
+            //GetHelpList("3", ".jycontent .mianright");
+        });
+
+        //function onclickmenu() {
+        //    var className = document.getElementById("sidebar-collapse").className;
+        //    if (className == "row headermenu sidebar collapse in") {
+        //        $(".navbar-toggle").click();
+        //    }
+        //}
+
+        function rectClick() {
+            layer.open({
+                title: false,
+                type: 2,
+                content: ['test/iframe.html', '0'],
+                area: ['380px', '160px'],
+                btn: ['ok']
+            });
+        }
+
+        //KindEditor.ready(function (K) {
+        //    window.KKKK = K;
+        //});
+    </script>
 </body>
 </html>

@@ -153,7 +153,7 @@ var pagination = (function ($) {
 
             // Generate "Sum"-Link 
             if (this.opts.isSum) {
-                fragment.append("<li><a class='paginationTotal'>共&nbsp;" + this.maxentries + "&nbsp;条记录</a></li>");
+                //fragment.append("<li><a class='paginationTotal'>共&nbsp;" + this.maxentries + "&nbsp;条记录</a></li>");
             }
 
             $('a[href]', fragment).click(eventHandler); //点击事件

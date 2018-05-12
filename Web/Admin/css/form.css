@@ -72,6 +72,7 @@ select:not([multiple]){
    -moz-appearance: none;
    text-indent: 1px;
    text-overflow: '';
+   width:100px;
    line-height: normal !important;
    background-image: url(../img/select-bg.png);
    background-repeat: no-repeat;
@@ -97,11 +98,11 @@ select::-ms-expand {
 
 /* Checkbox + Radio */
 input[type="checkbox"], input[type="radio"]{
-    opacity: 0;
+    opacity: 100;
 }
 
 .radio, .checkbox, .radio-inline, .checkbox-inline {
-   padding-left: 0;
+   margin-top: 5px;
 }
 
 .icheckbox_minimal, .iradio_minimal {

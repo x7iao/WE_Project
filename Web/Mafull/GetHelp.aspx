@@ -62,14 +62,16 @@
                         <span>申请金额：</span>
                     </td>
                     <td>
-                        <input type="text" runat="server" id="txtSQMoneyGet" style="width: 100px" />
+                        <input type="text" runat="server" id="txtSQMoneyGet"  class="input-sm form-control mask-date" autocomplete="off" />
                     </td>
                 </tr>
+                
                 <tr>
                     <td align="right">
                         <span>使用钱包：</span>
                     </td>
                     <td>
+                         
                         <input  value="MCW" type="radio" name="rdo" checked="checked" /><%=WE_Project.BLL.Reward.List["MCW"].RewardName %>
                         <input  value="MHB" type="radio" name="rdo" /><%=WE_Project.BLL.Reward.List["MHB"].RewardName %>
                         <input  value="MJB" type="radio" name="rdo" /><%=WE_Project.BLL.Reward.List["MJB"].RewardName %>
@@ -88,6 +90,9 @@
         </div>
     </div>
     <script type="text/javascript">
+
+        //$('script[src*="/Admin/js/icheck.js"]').attr('src', $('script[src*="/Admin/js/icheck.js"]').attr('src') + '&' + new Date().getTime());
+
         function checkChange() {
             if ($('#txtSQMoneyGet').val().Trim() == "") {
                 v5.error('获得帮助金额不能为空', '1', 'true');
@@ -122,5 +127,9 @@
             });
         }
     </script>
+    <%-- <script src="/Admin/js/validation/validate.min.js"></script> <!-- jQuery Form Validation Library -->
+        <script src="/Admin/js/validation/validationEngine.min.js"></script> <!-- jQuery Form Validation Library - requirred with above js -->
+    <script src="/Admin/js/icheck.js"></script> <!-- Custom Checkbox + Radio -->--%>
+
 </body>
 </html>

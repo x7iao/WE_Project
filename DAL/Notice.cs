@@ -232,7 +232,7 @@ namespace WE_Project.DAL
             List<Model.Notice> NoticeList = new List<Model.Notice>();
             StringBuilder strSql = new StringBuilder();
             strSql.Append("select top " + top + " * ");
-            strSql.Append(" FROM Notice where NState='1' and IsFixed = 1 order by NCreateTime desc ");
+            strSql.Append(" FROM Notice where NState='1'  order by NCreateTime desc ");
             DataTable table = DbHelperSQL.Query(strSql.ToString()).Tables[0];
             for (int i = 0; i < table.Rows.Count; i++)
             {

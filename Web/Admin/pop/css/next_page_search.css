@@ -2,13 +2,13 @@
 {
     position: relative;
     float: left;
-    padding: 6px 12px;
+    padding: 4px 10px;
     margin-left: -1px;
     line-height: 1.428571429;
     text-decoration: none;
-    background-color: #fff;
+    /*background-color: #fff;*/
     border: 1px solid #ddd;
-    color: black;
+    color: #ffffff;
 }
 .pagination > li
 {
@@ -142,7 +142,7 @@
 }
 select, textarea, input[type="text"], input[type="password"]
 {
-    height: 34px;
+    /*height: 34px;
     padding: 6px 12px;
     font-size: 14px;
     line-height: 1.42857143;
@@ -153,7 +153,20 @@ select, textarea, input[type="text"], input[type="password"]
     -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
     box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
     -webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
-    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;*/
+
+	    background: rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    text-shadow: none;
+    color: #fff;
+    box-shadow: none;
+    font-family: open-sans-regular;
+    -webkit-appearance: none;
+	height: 30px;
+    padding: 5px 10px;
+    font-size: 12px;
+    line-height: 1.5;
+    border-radius: 3px;
 }
 #mempay .control .select
 {

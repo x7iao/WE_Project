@@ -1,11 +1,11 @@
 ﻿// Ajax通用请求与返回值方法集 2011-02(zh)
-Function.prototype.bind = function (obj) {
-    var method = this;
-    temp = function () {
-        return method.apply(obj, arguments);
-    }
-    return temp;
-}
+//Function.prototype.bind = function (obj) {
+//    var method = this;
+//    temp = function () {
+//        return method.apply(obj, arguments);
+//    }
+//    return temp;
+//}
 
 
 //function GetAjaxString(type, pramname) {

@@ -129,17 +129,17 @@ var PageLoad = function () {
     function page(count) {
         $("#Pagination").pagination(count, {
             callback: PageCallback,
-            prev_text: '上一页', //上一页按钮里text
-            next_text: '下一页', //下一页按钮里text
+            prev_text: '<', //上一页按钮里text
+            next_text: '>', //下一页按钮里text
             items_per_page: pageSize, //显示条数
             num_display_entries: 6, //连续分页主体部分分页条目数
             current_page: cur_pageIndex, //当前页索引     pageIndex刷新为首页,cur_pageIndex刷新为当前页
             num_edge_entries: 2, //两侧首尾分页条目数
-            jump_text: '转到', //跳转按钮里text
-            isSum: true, //是否显示总数
-            isJump: true, //是否显示跳转
-            first_text: '首页', //跳转按钮里text
-            last_text: '末页', //跳转按钮里text
+            jump_text: '>>', //跳转按钮里text
+            isSum: false, //是否显示总数
+            isJump: false, //是否显示跳转
+            first_text: '<<', //跳转按钮里text
+            last_text: '>>', //跳转按钮里text
             isFirst: true //是否显示总数
         });
     }

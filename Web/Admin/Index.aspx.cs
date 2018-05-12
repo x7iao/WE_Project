@@ -13,7 +13,7 @@ namespace WE_Project.Web.Admin
         private List<Model.RolePowers> listPowers;
         protected string TotalFH = "0", DayFHMoney = "0", charData = "", charXaxis = "", isShowNotice = "0", showId = "0", leaveToOutCount = "0", todayFHMoney = "0", isMotifyInfo = "0", isHas23FHCounts = "0";
         protected string notcie = "";
-        protected Model.Notice notice = new Model.Notice();
+        public List<Model.Notice> noticelist = null;
         protected Model.Member tjmodel = new Model.Member();
         protected bool qdstate = true;
         protected string ts = "";
@@ -66,7 +66,7 @@ namespace WE_Project.Web.Admin
             //if (obj != null)
             //    notcie = obj.NContent;
             //消息
-            //repNoticeList.DataSource = BLL.Notice.GetNoticeLists(10);
+           noticelist = BLL.Notice.GetNoticeLists(10);
             //repNoticeList.DataBind();
         }
 

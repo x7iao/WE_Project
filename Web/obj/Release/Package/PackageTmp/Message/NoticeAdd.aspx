@@ -6,8 +6,8 @@
 <head runat="server">
     <title></title>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-    <script type="text/javascript" charset="utf-8" src="/plugin/UEditor/editor_config.js"></script>
-    <script type="text/javascript" charset="utf-8" src="/plugin/UEditor/editor_all.js"></script>
+    <%--<script type="text/javascript" charset="utf-8" src="/plugin/UEditor/editor_config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/plugin/UEditor/editor_all.js"></script>--%>
 </head>
 <body>
     <div id="mempay">
@@ -30,8 +30,9 @@
                         内容
                     </td>
                     <td style="padding: 15px;">
-                        <script id="editor" type="text/plain"></script>
-                        <input name="hdContent" id="hdContent" type="hidden" />
+                       <%-- <script id="editor" type="text/plain"></script>
+                        <input name="hdContent" id="hdContent" type="hidden" />--%>
+                        <textarea id="hdContent" style="display: none;"></textarea>
                     </td>
                 </tr>
                 <tr style="height: 40px;">
@@ -47,19 +48,23 @@
         </div>
     </div>
     <script type="text/javascript">
-        var ue = UE.getEditor('editor');
-
+        //var ue = UE.getEditor('editor');
+        layui.use('layedit', function () {
+            var layedit = layui.layedit;
+            layedit.build('hdContent'); //建立编辑器
+        });
         function checkChange() {
             if ($('#txtNTitle').val() == '') {
                 v5.error('标题不能为空', '1', 'true');
-            } else if (ue.getContent() == '') {
+            } else if ($("#hdContent") == '') {
                 v5.error('内容不能为空', '1', 'true');
             } else {
                 //                $('#hdchkFixed').val(document.getElementById('chkFixed').checked);
-                $('#hdContent').val(encodeURI(ue.getContent()));
+                //$('#hdContent').val(encodeURI(ue.getContent()));
                 ActionModel("/Message/NoticeAdd.aspx?Action=Add", $('#form1').serialize());
             }
         }
     </script>
+
 </body>
 </html>
