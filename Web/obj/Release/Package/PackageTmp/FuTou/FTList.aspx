@@ -8,7 +8,19 @@
         tUrl = "/FuTou/Handler/FTList.ashx";
         tState = "";
         SearchByCondition();
+
+        function GetTranMoney(id, obj) {
+            var relVal = RunAjaxGetKey('GetTranMoney', id);
+            if (relVal == "1") {
+                v5.alert('提款成功', '1', 'true');
+                SearchByCondition();
+            }
+            else {
+                v5.alert(relVal, '1', 'true');
+            }
+        }
     </script>
+   
 </head>
 <body>
     <div id="mempay">
@@ -43,13 +55,27 @@
                         购买时间
                     </th>
                     <th>
-                        已得分红
+                        购买金额
+                    </th>  <th>
+                        投资币种
                     </th>
                     <th>
-                        分红次数
+                        已分红次数
+                    </th>
+                    <th>
+                        分红总次数
+                    </th>
+                    <th>
+                        分红比例
+                    </th>
+                    <th>
+                        已得分红收益
                     </th>
                     <th>
                         是否有效
+                    </th>
+                    <th>
+                        操作
                     </th>
                 </tr>
             </table>

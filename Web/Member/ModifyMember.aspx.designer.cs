@@ -2,8 +2,8 @@
 // <自动生成>
 //     此代码由工具生成。
 //
-//     对此文件的更改可能会导致不正确的行为，并且如果
-//     重新生成代码，这些更改将会丢失。 
+//     对此文件的更改可能导致不正确的行为，如果
+//     重新生成代码，则所做更改将丢失。
 // </自动生成>
 //------------------------------------------------------------------------------
 
@@ -58,15 +58,6 @@ namespace WE_Project.Web.Member {
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtTel;
         
         /// <summary>
-        /// txtAliPay 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtAliPay;
-        
-        /// <summary>
         /// txtMTJ 控件。
         /// </summary>
         /// <remarks>
@@ -74,6 +65,15 @@ namespace WE_Project.Web.Member {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtMTJ;
+        
+        /// <summary>
+        /// txtAliPay 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtAliPay;
         
         /// <summary>
         /// txtPPLeavel 控件。
@@ -121,42 +121,6 @@ namespace WE_Project.Web.Member {
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtBranch;
         
         /// <summary>
-        /// txtSHMoney 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtSHMoney;
-        
-        /// <summary>
-        /// txtMHB 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtMHB;
-        
-        /// <summary>
-        /// txtMJB 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtMJB;
-        
-        /// <summary>
-        /// txtMGP 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtMGP;
-        
-        /// <summary>
         /// chkIsClock 控件。
         /// </summary>
         /// <remarks>
@@ -173,6 +137,15 @@ namespace WE_Project.Web.Member {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox chkClockAll;
+        
+        /// <summary>
+        /// txtSHMoney 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtSHMoney;
         
         /// <summary>
         /// chkIsClose 控件。

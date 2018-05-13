@@ -46,10 +46,20 @@ namespace WE_Project.BLL
         {
             return DAL.ChangeMoney.UpdataTran(model, MyHs);
         }
+        /// <summary>
+        /// 许愿台投资分红
+        /// </summary>
+        /// <returns></returns>
+        public static bool TranDayFH()
+        {
+            Hashtable myhs = new Hashtable();
+            myhs.Add("update BMember set YJMoney=YJMoney+YJCount*BCount,FHDays=FHDays+1 where BMState=0 and BOutMoney>FHDays;",null);
+            return BLL.CommonBase.RunHashtable(myhs);
+        }
 
         #endregion
 
-        # region 获取统计数据方法
+        #region 获取统计数据方法
 
         /// <summary>
         /// 获得当前获取的奖金总额

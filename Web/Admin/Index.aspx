@@ -23,6 +23,11 @@
 
     <link type="text/css" rel="stylesheet" href="/admin/pop/css/next_page_search.css" />
     <link rel="stylesheet" type="text/css" href="/admin/pop/css/V5-UI.css" />
+    <style>
+        #OfferHelp table tr{
+        line-height:2;
+        }
+    </style>
 </head>
 <body id="skin-blur-violate">
 
@@ -181,12 +186,11 @@
         <!-- Content -->
         <section id="content" class="container">
             <!-- Messages Drawer -->
-            <div id="messages" class="tile drawer animated">
+            <%-- <div id="messages" class="tile drawer animated">
                 <div class="listview narrow">
                     <div class="media">
-                        <a href="">Send a New Message</a>
+                        <a href="">最新公告</a>
                         <span class="drawer-close">&times;</span>
-
                     </div>
                     <div class="overflow" style="height: 254px">
                         <div class="media">
@@ -207,75 +211,13 @@
                                 <a class="t-overflow" href="">Suspendisse in purus ut nibh placerat Cras pulvinar euismod nunc quis gravida. Suspendisse pharetra</a>
                             </div>
                         </div>
-                        <div class="media">
-                            <div class="pull-left">
-                                <img width="40" src="img/profile-pics/3.jpg" alt="">
-                            </div>
-                            <div class="media-body">
-                                <small class="text-muted">Harris worgon - On 15/12/2013</small><br>
-                                <a class="t-overflow" href="">Maecenas venenatis enim condimentum ultrices fringilla. Nulla eget libero rhoncus, bibendum diam eleifend, vulputate mi. Fusce non nibh pulvinar, ornare turpis id</a>
-                            </div>
-                        </div>
-                        <div class="media">
-                            <div class="pull-left">
-                                <img width="40" src="img/profile-pics/4.jpg" alt="">
-                            </div>
-                            <div class="media-body">
-                                <small class="text-muted">Mitch Bradberry - On 14/12/2013</small><br>
-                                <a class="t-overflow" href="">Phasellus interdum felis enim, eu bibendum ipsum tristique vitae. Phasellus feugiat massa orci, sed viverra felis aliquet quis. Curabitur vel blandit odio. Vestibulum sagittis quis sem sit amet tristique.</a>
-                            </div>
-                        </div>
-                        <div class="media">
-                            <div class="pull-left">
-                                <img width="40" src="img/profile-pics/1.jpg" alt="">
-                            </div>
-                            <div class="media-body">
-                                <small class="text-muted">Nadin Jackson - On 15/12/2013</small><br>
-                                <a class="t-overflow" href="">Ipsum wintoo consectetur urna nec tempor adipiscing. Proin sit amet nisi ligula. Sed eu adipiscing lectus</a>
-                            </div>
-                        </div>
-                        <div class="media">
-                            <div class="pull-left">
-                                <img width="40" src="img/profile-pics/2.jpg" alt="">
-                            </div>
-                            <div class="media-body">
-                                <small class="text-muted">David Villa - On 16/12/2013</small><br>
-                                <a class="t-overflow" href="">Suspendisse in purus ut nibh placerat Cras pulvinar euismod nunc quis gravida. Suspendisse pharetra</a>
-                            </div>
-                        </div>
-                        <div class="media">
-                            <div class="pull-left">
-                                <img width="40" src="img/profile-pics/3.jpg" alt="">
-                            </div>
-                            <div class="media-body">
-                                <small class="text-muted">Harris worgon - On 17/12/2013</small><br>
-                                <a class="t-overflow" href="">Maecenas venenatis enim condimentum ultrices fringilla. Nulla eget libero rhoncus, bibendum diam eleifend, vulputate mi. Fusce non nibh pulvinar, ornare turpis id</a>
-                            </div>
-                        </div>
-                        <div class="media">
-                            <div class="pull-left">
-                                <img width="40" src="img/profile-pics/4.jpg" alt="">
-                            </div>
-                            <div class="media-body">
-                                <small class="text-muted">Mitch Bradberry - On 18/12/2013</small><br>
-                                <a class="t-overflow" href="">Phasellus interdum felis enim, eu bibendum ipsum tristique vitae. Phasellus feugiat massa orci, sed viverra felis aliquet quis. Curabitur vel blandit odio. Vestibulum sagittis quis sem sit amet tristique.</a>
-                            </div>
-                        </div>
-                        <div class="media">
-                            <div class="pull-left">
-                                <img width="40" src="img/profile-pics/5.jpg" alt="">
-                            </div>
-                            <div class="media-body">
-                                <small class="text-muted">Wendy Mitchell - On 19/12/2013</small><br>
-                                <a class="t-overflow" href="">Integer a eros dapibus, vehicula quam accumsan, tincidunt purus</a>
-                            </div>
-                        </div>
+                     
                     </div>
                     <div class="media text-center whiter l-100">
-                        <a href=""><small>VIEW ALL</small></a>
+                        <a href=""><small>更多</small></a>
                     </div>
                 </div>
-            </div>
+            </div>--%>
 
             <!-- Breadcrumb -->
             <ol class="breadcrumb hidden-xs">
@@ -288,31 +230,130 @@
 
             <!-- Shortcuts -->
             <div class="block-area shortcut-area">
-                <a class="shortcut tile" href="">
+                <a class="shortcut tile drawer-toggle" href="javascript:void(0)" data-drawer="OfferHelp">
                     <img src="/Admin/img/shortcuts/money.png" alt="">
-                    <small class="t-overflow">Purchases</small>
+                    <small class="t-overflow">买入</small>
                 </a>
                 <%-- <a class="shortcut tile" href="">
                     <img src="/Admin/img/shortcuts/twitter.png" alt="">
                     <small class="t-overflow">Tweets</small>
                 </a>--%>
-                <a class="shortcut tile" href="">
+                <a class="shortcut tile  drawer-toggle" href="javascript:void(0)" data-drawer="GetHelp">
                     <img src="/Admin/img/shortcuts/calendar.png" alt="">
-                    <small class="t-overflow">Calendar</small>
+                    <small class="t-overflow">卖出</small>
                 </a>
                 <a class="shortcut tile" href="">
                     <img src="/Admin/img/shortcuts/stats.png" alt="">
-                    <small class="t-overflow">Statistics</small>
+                    <small class="t-overflow">买入列表</small>
                 </a>
                 <a class="shortcut tile" href="">
                     <img src="/Admin/img/shortcuts/connections.png" alt="">
-                    <small class="t-overflow">Connection</small>
+                    <small class="t-overflow">卖出列表</small>
                 </a>
-                <a class="shortcut tile" href="">
+                <%-- <a class="shortcut tile" href="">
                     <img src="/Admin/img/shortcuts/reports.png" alt="">
                     <small class="t-overflow">Reports</small>
-                </a>
+                </a>--%>
             </div>
+
+            <!--提供帮助-->
+            <div id="OfferHelp" class="tile drawer animated" style="margin: 10px 10px 0;">
+                <div class="listview narrow">
+                    <div class="media">
+                        <a href="">提供帮助</a>
+                        <span class="drawer-close">&times;</span>
+                    </div>
+                    <div class="overflow" style="height: 254px">
+                        <form id="form1">
+                            <table cellpadding="0" cellspacing="0" style="margin-top:10px;">
+                                <tr>
+                                    <td width="45%" align="right">
+                                        <span>申请援助说明：</span>
+                                    </td>
+                                    <td>
+                                        <div>
+                                            <p>
+                                                额度：<%= WE_Project.BLL.MMMConfig.Model.OfferHelpMin%>-<%=WE_Project.BLL.MMMConfig.Model.OfferHelpMax%>（<%=WE_Project.BLL.MMMConfig.Model.OfferHelpBase %>的倍数）
+                                            </p>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right">
+                                        <span>我的<%=WE_Project.BLL.Reward.List["MGP"].RewardName %>：</span>
+                                    </td>
+                                    <td>
+                                        <%=TModel.MConfig.MGP %>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right">
+                                        <span>排单区域：</span>
+                                    </td>
+                                    <td>
+                                        <select id="offerrdo" runat="server">
+                                            <option value="0">正常排单</option>
+                                            <%--<option value="1">抢单区排单（不消耗排单币）</option>--%>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right">
+                                        <span>申请援助金额：</span>
+                                    </td>
+                                    <td>
+                                        <input type="text" runat="server" id="txtSQMoneyOff" style="width: 100px;margin-top:4px;"  />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>
+                                        <input class="btn btn-success" id="btnOK" type="button" runat="server" value="提交"
+                                            onclick="checkChange();" style="margin-top:6px;" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </form>
+
+                    </div>
+                   
+                </div>
+            </div>
+
+            <!--提供帮助-->
+            <div id="GetHelp" class="tile drawer animated" style="margin: 10px 10px 0;">
+                <div class="listview narrow">
+                    <div class="media">
+                        <a href="">获得帮助</a>
+                        <span class="drawer-close">&times;</span>
+                    </div>
+                    <div class="overflow" style="height: 254px">
+                        <div class="media">
+                            <div class="pull-left">
+                                <img width="40" src="img/profile-pics/1.jpg" alt="">
+                            </div>
+                            <div class="media-body">
+                                <small class="text-muted">Nadin Jackson - 2 Hours ago</small><br>
+                                <a class="t-overflow" href="">Mauris consectetur urna nec tempor adipiscing. Proin sit amet nisi ligula. Sed eu adipiscing lectus</a>
+                            </div>
+                        </div>
+                        <div class="media">
+                            <div class="pull-left">
+                                <img width="40" src="img/profile-pics/2.jpg" alt="">
+                            </div>
+                            <div class="media-body">
+                                <small class="text-muted">David Villa - 5 Hours ago</small><br>
+                                <a class="t-overflow" href="">Suspendisse in purus ut nibh placerat Cras pulvinar euismod nunc quis gravida. Suspendisse pharetra</a>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="media text-center whiter l-100">
+                        <a href=""><small>更多</small></a>
+                    </div>
+                </div>
+            </div>
+
 
             <hr class="whiter" />
 
@@ -325,7 +366,7 @@
                             <div class="tile quick-stats">
                                 <div id="stats-line-2" class="pull-left"></div>
                                 <div class="data">
-                                    <h2 data-value="<%=TModel.MConfig.MCW %>"><%=TModel.MConfig.MCW %></h2>
+                                    <h2 value="<%=TModel.MConfig.MCW %>"><%=TModel.MConfig.MCW %></h2>
                                     <small>许愿果[用来排单]</small>
                                 </div>
                             </div>
@@ -335,7 +376,7 @@
                             <div class="tile quick-stats media">
                                 <div id="stats-line-3" class="pull-left"></div>
                                 <div class="media-body">
-                                    <h2 data-value="<%=TModel.MConfig.MJBF %>"><%=TModel.MConfig.MJBF %></h2>
+                                    <h2 value="<%=TModel.MConfig.MJBF %>"><%=TModel.MConfig.MJBF %></h2>
                                     <small>许愿台[用来理财]</small>
                                 </div>
                             </div>
@@ -347,7 +388,7 @@
                                 <div id="stats-line-4" class="pull-left"></div>
 
                                 <div class="media-body">
-                                    <h2 data-value="<%=TModel.MConfig.MJB %>"><%=TModel.MConfig.MJB %></h2>
+                                    <h2 value="<%=TModel.MConfig.MJB %>"><%=TModel.MConfig.MJB %></h2>
                                     <small>许愿池[动态奖金]</small>
                                 </div>
                             </div>
@@ -357,7 +398,7 @@
                             <div class="tile quick-stats media">
                                 <div id="stats-line" class="pull-left"></div>
                                 <div class="media-body">
-                                    <h2 data-value="<%=TModel.MConfig.MHB %>"><%=TModel.MConfig.MHB %></h2>
+                                    <h2 value="<%=TModel.MConfig.MHB %>"><%=TModel.MConfig.MHB %></h2>
                                     <small>许愿树[静态奖金]</small>
                                 </div>
                             </div>
@@ -366,7 +407,7 @@
                             <div class="tile quick-stats media">
                                 <div id="stats-line-5" class="pull-left"></div>
                                 <div class="media-body">
-                                    <h2 data-value="<%=TModel.MConfig.MHB %>"><%=TModel.MConfig.MHB %></h2>
+                                    <h2 value="<%=TModel.MConfig.MGP %>"><%=TModel.MConfig.MGP %></h2>
                                     <small>许愿金[手续费]</small>
                                 </div>
                             </div>
@@ -787,7 +828,7 @@
     <!-- Other -->
     <script src="/Admin/js/calendar.min.js"></script>
 
-  
+
 
     <!-- Calendar -->
     <script src="/Admin/js/feeds.min.js"></script>

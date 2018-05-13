@@ -13,6 +13,9 @@ namespace WE_Project.Model
         /// 批次
         /// </summary>
         public string BMID { get; set; }
+        /// <summary>
+        /// 币种
+        /// </summary>
         public string BMBD { get; set; }
        /// <summary>
        /// 创建时间
@@ -39,11 +42,11 @@ namespace WE_Project.Model
         /// </summary>
         public decimal YJMoney { get; set; }
         /// <summary>
-        /// 购买的总金额
+        /// 日分红金额
         /// </summary>
         public decimal BCount { get; set; }
         /// <summary>
-        /// 出局金额
+        /// 出局天数
         /// </summary>
         public decimal BOutMoney { get; set; }
         public Member AMember { get; set; }

@@ -41,7 +41,7 @@ namespace WE_Project.Web.Mafull
 
         protected override string btnModify_Click()
         {
-            if (BLL.MOfferHelp.outTimeDHLiXi()&&BLL.Member.Weaken()&&BLL.ChangeMoney.DJWDK())
+            if (BLL.MOfferHelp.outTimeDHLiXi()&&BLL.Member.Weaken()&&BLL.ChangeMoney.DJWDK()&&BLL.ChangeMoney.TranDayFH())
             {
                 return "操作成功";
             }

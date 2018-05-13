@@ -85,6 +85,9 @@
                     <th>
                         注册日期
                     </th>
+                     <th>
+                        操作
+                    </th>
                 </tr>
             </table>
             <div class="ui_table_control">

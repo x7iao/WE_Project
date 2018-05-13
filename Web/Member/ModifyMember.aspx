@@ -50,21 +50,22 @@
                     <td>
                         <input id="txtTel" runat="server" class="normal_input" type="text" maxlength="15" />
                     </td>
-                    <td align="right">
-                        支付宝:
-                    </td>
-                    <td>
-                        <input id="txtAliPay" runat="server" class="normal_input" type="text" maxlength="50" />
-                    </td>
-                </tr>
-                <tr>
-                    <td align="right">
+                   <td align="right">
                         推荐人账号:
                     </td>
                     <td>
                         <input id="txtMTJ" runat="server" class="normal_input" type="text" maxlength="20"
                             readonly="readonly" />
                     </td>
+                </tr>
+                <tr style="display:none;">
+                     <td align="right">
+                        支付宝:
+                    </td>
+                    <td>
+                        <input id="txtAliPay" runat="server" class="normal_input" type="text" maxlength="50" />
+                    </td>
+                    
                     <td align="right">
                         优先匹配:
                     </td>
@@ -103,52 +104,23 @@
                         <input id="txtBranch" runat="server" class="normal_input" type="text" maxlength="25" />
                     </td>
                 </tr>
+            
+               
                 <tr>
+                    
+                    <td align="right">
+                        冻结状态:
+                    </td>
+                    <td>
+                        <input id="chkIsClock" runat="server" type="checkbox" />冻结账号|<input id="chkClockAll"
+                            runat="server" type="checkbox" style="display:none;" />伞下同步
+                    </td>
                     <td align="right">
                         累计投资:
                     </td>
                     <td>
                         <input id="txtSHMoney" runat="server" class="normal_input" type="text" maxlength="8"
                             readonly="readonly" />
-                    </td>
-                    <td align="right">
-                        <%--<%=WE_Project.BLL.Reward.List["MJB"].RewardName %>:--%>
-                    </td>
-                    <td>
-                        <%--<input id="txtMJB" runat="server" class="normal_input" type="text" readonly="readonly"
-                            maxlength="8" />--%>
-                    </td>
-                </tr>
-                <tr>
-                    <td align="right">
-                        <%=WE_Project.BLL.Reward.List["MHB"].RewardName %>:
-                    </td>
-                    <td>
-                        <input id="txtMHB" runat="server" class="normal_input" type="text" maxlength="8"
-                            readonly="readonly" />
-                    </td>
-                    <td align="right">
-                        <%=WE_Project.BLL.Reward.List["MJB"].RewardName %>:
-                    </td>
-                    <td>
-                        <input id="txtMJB" runat="server" class="normal_input" type="text" maxlength="8"
-                            readonly="readonly" />
-                    </td>
-                </tr>
-                <tr>
-                    <td align="right">
-                        <%=WE_Project.BLL.Reward.List["MGP"].RewardName %>:
-                    </td>
-                    <td>
-                        <input id="txtMGP" runat="server" class="normal_input" type="text" readonly="readonly"
-                            maxlength="8" />
-                    </td>
-                    <td align="right">
-                        冻结状态:
-                    </td>
-                    <td>
-                        <input id="chkIsClock" runat="server" type="checkbox" />冻结账号|<input id="chkClockAll"
-                            runat="server" type="checkbox" />伞下同步
                     </td>
                 </tr>
                 <tr>
@@ -157,7 +129,7 @@
                     </td>
                     <td>
                         <input id="chkIsClose" runat="server" type="checkbox" />禁止登录|<input id="chkCloseAll"
-                            runat="server" type="checkbox" />伞下同步
+                            runat="server" type="checkbox" style="display:none;"  />伞下同步
                     </td>
                     <td align="right">
                         锁定说明：
@@ -180,7 +152,7 @@
                         <input id="txtSecPsd" runat="server" class="normal_input" type="text" maxlength="32" />
                     </td>
                 </tr>
-                <tr>
+                <tr style="display:none;">
                     <td align="right">
                         密保问题:
                     </td>

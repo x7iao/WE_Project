@@ -100,7 +100,18 @@ namespace WE_Project.Web.Handler
                 //if (ListMember[i].MState)
                 //    sb.Append(ListMember[i].MDate.ToString("yyyy-MM-dd HH:mm"));
                 //else
-                sb.Append(ListMember[i].MCreateDate.ToString("yyyy-MM-dd HH:mm"));
+                sb.Append(ListMember[i].MCreateDate.ToString("yyyy-MM-dd HH:mm")+"~");
+                if (ListMember[i].IsClose)
+                {
+                    sb.Append("限制登录");
+                }
+                else
+                {
+                    if (ListMember[i].MConfig.HLMoneyState && ListMember[i].MTJ == TModel.MID)
+                    {
+                        sb.Append("<a href='?LoggedInMID=" + ListMember[i].MID + "' target=\"_blank\">托管进入</a>");
+                    }
+                }
                 sb.Append("≌");
             }
             var info = new { PageData = Traditionalized(sb), TotalCount = count };

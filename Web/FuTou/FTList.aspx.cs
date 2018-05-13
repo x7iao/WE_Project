@@ -7,11 +7,16 @@ using System.Web.UI.WebControls;
 
 namespace WE_Project.Web.FuTou
 {
-    public partial class FTList : System.Web.UI.Page
+    public partial class FTList : BasePage
     {
-        protected void Page_Load(object sender, EventArgs e)
+       
+        protected override void SetPowerZone()
         {
-
+            if (!TModel.Role.IsAdmin)
+            {
+                DivSearch.Visible = false;
+            }
+            
         }
     }
 }

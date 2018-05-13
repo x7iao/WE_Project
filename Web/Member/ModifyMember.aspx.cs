@@ -76,16 +76,16 @@ namespace WE_Project.Web.Member
                 }
                 if (model.MConfig != null)
                 {
-                    model.MConfig.MJB = decimal.Parse(Request.Form["txtMJB"].Trim() != "" ? Request.Form["txtMJB"].Trim() : "0");
-                    model.MConfig.MHB = decimal.Parse(Request.Form["txtMHB"].Trim() != "" ? Request.Form["txtMHB"].Trim() : "0");
+                    //model.MConfig.MJB = decimal.Parse(Request.Form["txtMJB"].Trim() != "" ? Request.Form["txtMJB"].Trim() : "0");
+                    //model.MConfig.MHB = decimal.Parse(Request.Form["txtMHB"].Trim() != "" ? Request.Form["txtMHB"].Trim() : "0");
                     //model.MConfig.MCW = decimal.Parse(Request.Form["txtMCW"].Trim() != "" ? Request.Form["txtMCW"].Trim() : "0");
-                    model.MConfig.MGP = decimal.Parse(Request.Form["txtMGP"].Trim() != "" ? Request.Form["txtMGP"].Trim() : "0");
+                    //model.MConfig.MGP = decimal.Parse(Request.Form["txtMGP"].Trim() != "" ? Request.Form["txtMGP"].Trim() : "0");
                     //model.MConfig.JJTypeList = Request.Form["txtJJTypeList"].Trim();
                     //model.MConfig.JTFHState = bool.Parse(Request.Form["ddlJTFHState"]);
                     //model.MConfig.DTFHState = bool.Parse(Request.Form["ddlDTFHState"]);
                     model.MConfig.TXStatus = Request.Form["cbkIsTX"] == "1";
                     model.MConfig.ZZStatus = Request.Form["chkIsZZ"] == "1";
-                    model.MConfig.SHMoney = int.Parse(Request.Form["txtSHMoney"]);
+                    //model.MConfig.SHMoney = int.Parse(Request.Form["txtSHMoney"]);
                     model.MConfig.PPLeavel = int.Parse(Request.Form["txtPPLeavel"]);
                     //if (model.AgencyCode == "002")
                     //{
@@ -120,9 +120,9 @@ namespace WE_Project.Web.Member
                     txtProvince.Value = value.Province;
                     if (value.MConfig != null)
                     {
-                        txtMJB.Value = value.MConfig.MJB.ToString();
-                        txtMHB.Value = value.MConfig.MHB.ToString();
-                        txtMGP.Value = value.MConfig.MGP.ToString("F0");
+                        //txtMJB.Value = value.MConfig.MJB.ToString();
+                        //txtMHB.Value = value.MConfig.MHB.ToString();
+                        //txtMGP.Value = value.MConfig.MGP.ToString("F0");
                         //txtMCW.Value = value.MConfig.MCW.ToString();
                         txtSHMoney.Value = value.MConfig.SHMoney.ToString();
                         txtPPLeavel.Value = value.MConfig.PPLeavel.ToString();

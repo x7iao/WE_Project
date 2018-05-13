@@ -203,6 +203,10 @@ namespace WE_Project.Model
         /// 激活码
         /// </summary>
         public string ActiveCode { get; set; }
+        /// <summary>
+        /// 防撞单开关
+        /// </summary>
+        public bool ZDStatus { get; set; }
     }
 
 }

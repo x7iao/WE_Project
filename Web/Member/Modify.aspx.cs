@@ -49,6 +49,8 @@ namespace WE_Project.Web.Member
                 model.BankNumber = Request.Form["txtBankNumber"];
                 model.BankCardName = Request.Form["txtBankCardName"];
                 model.AliPay = Request.Form["txtAliPay"];
+                model.MConfig.HLMoneyState =Request.Form["txtHLMoneyState"] == "1" ;
+                model.ZDStatus = Request.Form["txtZDStatus"] == "1";
                 model.WeChat = Request.Form["txtWeChat"];
                 return model;
             }
@@ -65,6 +67,8 @@ namespace WE_Project.Web.Member
                     txtAlipay.Value = value.AliPay;
                     txtTel.Value = value.Tel;
                     txtWeChat.Value = value.WeChat;
+                    txtHLMoneyState.Value = value.MConfig.HLMoneyState ? "1" : "0";
+                    txtZDStatus.Value = value.ZDStatus ? "1" : "0";
                 }
             }
         }
@@ -99,6 +103,7 @@ namespace WE_Project.Web.Member
                 }
                 Hashtable hs = new Hashtable();
                 BllModel.Update(MemberModel, hs);
+                BLL.Member.UpdateConfigTran(MemberModel.MID, "HLMoneyState", MemberModel.MConfig.HLMoneyState.ToString(), null, true, System.Data.SqlDbType.Bit, hs) ;
 
                 if (BLL.CommonBase.RunHashtable(hs))
                 {

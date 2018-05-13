@@ -21,7 +21,7 @@
                     <td align="right">
                     </td>
                     <td align="left">
-                        <input class="normal_btnok" id="Button1" type="button" runat="server" value="超时转换利息到许愿池/衰减忠诚/激活不匹配冻结" onclick="checkChange1();" />
+                        <input class="normal_btnok" id="Button1" type="button" runat="server" value="超时转换利息到许愿池/衰减忠诚/激活不匹配冻结/投资日分红" onclick="checkChange1();" />
                     </td>
                 </tr>
             </table>

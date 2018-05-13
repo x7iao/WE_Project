@@ -103,9 +103,9 @@ namespace WE_Project.DAL
             string guid = Guid.NewGuid().ToString();
             StringBuilder strSql = new StringBuilder();
             strSql.Append("insert into Member(");
-            strSql.Append("MID,FMID,MName,Country,Province,City,Zone,Tel,Email,Address,Bank,Branch,BankNumber,BankCardName,Password,SecPsd,MTJ,MSH,MBD,MBDIndex,MCreateDate,MDate,MState,IsClose,IsClock,RoleCode,AgencyCode,Salt,ThrPsd,SHMoney,NumID,QQ,GCount,ActiveCode,WeChat,Alipay)");
+            strSql.Append("MID,FMID,MName,Country,Province,City,Zone,Tel,Email,Address,Bank,Branch,BankNumber,BankCardName,Password,SecPsd,MTJ,MSH,MBD,MBDIndex,MCreateDate,MDate,MState,IsClose,IsClock,RoleCode,AgencyCode,Salt,ThrPsd,SHMoney,NumID,QQ,GCount,ActiveCode,WeChat,Alipay,ZDStatus)");
             strSql.Append(" values (");
-            strSql.Append("@MID,@FMID,@MName,@Country,@Province,@City,@Zone,@Tel,@Email,@Address,@Bank,@Branch,@BankNumber,@BankCardName,@Password,@SecPsd,@MTJ,@MSH,@MBD,@MBDIndex,@MCreateDate,@MDate,@MState,@IsClose,@IsClock,@RoleCode,@AgencyCode,@Salt,@ThrPsd,@SHMoney,@NumID,@QQ,@GCount,@ActiveCode,@WeChat,@Alipay)");
+            strSql.Append("@MID,@FMID,@MName,@Country,@Province,@City,@Zone,@Tel,@Email,@Address,@Bank,@Branch,@BankNumber,@BankCardName,@Password,@SecPsd,@MTJ,@MSH,@MBD,@MBDIndex,@MCreateDate,@MDate,@MState,@IsClose,@IsClock,@RoleCode,@AgencyCode,@Salt,@ThrPsd,@SHMoney,@NumID,@QQ,@GCount,@ActiveCode,@WeChat,@Alipay,@ZDStatus)");
             strSql.AppendFormat(";select '{0}'", guid).Append(UpdateThrPsd(model.MID));
             SqlParameter[] parameters = {
 					new SqlParameter("@MID", SqlDbType.VarChar,20),
@@ -143,7 +143,7 @@ namespace WE_Project.DAL
 					new SqlParameter("@GCount", SqlDbType.Int,4),
 					new SqlParameter("@ActiveCode", SqlDbType.VarChar,20),
 					new SqlParameter("@WeChat", SqlDbType.NVarChar,50),
-					new SqlParameter("@Alipay", SqlDbType.NVarChar,50)};
+					new SqlParameter("@Alipay", SqlDbType.NVarChar,50),new SqlParameter("@ZDStatus", SqlDbType.Bit,1)};
             parameters[0].Value = model.MID;
             parameters[1].Value = model.FMID;
             parameters[2].Value = model.MName;
@@ -180,6 +180,7 @@ namespace WE_Project.DAL
             parameters[33].Value = model.ActiveCode;
             parameters[34].Value = model.WeChat;
             parameters[35].Value = model.AliPay;
+            parameters[36].Value = model.ZDStatus;
 
             Hashtable MyHs = new Hashtable();
             MyHs.Add(strSql, parameters);
@@ -246,7 +247,8 @@ namespace WE_Project.DAL
             strSql.Append("GCount=@GCount,");
             strSql.Append("ActiveCode=@ActiveCode,");
             strSql.Append("WeChat=@WeChat,");
-            strSql.Append("Alipay=@Alipay");
+            strSql.Append("Alipay=@Alipay,");
+            strSql.Append("ZDStatus=@ZDStatus");
             strSql.Append(" where MID=@MID");
             strSql.AppendFormat(" ;select '{0}'", guid).Append(UpdateThrPsd(model.MID));
             SqlParameter[] parameters = {
@@ -285,7 +287,8 @@ namespace WE_Project.DAL
 					new SqlParameter("@ActiveCode", SqlDbType.VarChar,20),
 					new SqlParameter("@WeChat", SqlDbType.NVarChar,50),
 					new SqlParameter("@Alipay", SqlDbType.NVarChar,50),
-					new SqlParameter("@ID", SqlDbType.Int,4),
+                    new SqlParameter("@ZDStatus", SqlDbType.Bit,1),
+                    new SqlParameter("@ID", SqlDbType.Int,4),
 					new SqlParameter("@MID", SqlDbType.VarChar,20)};
             parameters[0].Value = model.FMID;
             parameters[1].Value = model.MName;
@@ -322,8 +325,9 @@ namespace WE_Project.DAL
             parameters[32].Value = model.ActiveCode;
             parameters[33].Value = model.WeChat;
             parameters[34].Value = model.AliPay;
-            parameters[35].Value = model.ID;
-            parameters[36].Value = model.MID;
+            parameters[35].Value = model.ZDStatus;
+            parameters[36].Value = model.ID;
+            parameters[37].Value = model.MID;
 
             MyHs.Add(strSql.ToString(), parameters);
             //if (DAL.MemberConfig.GetModel(model.MID, model) != null)
@@ -627,6 +631,10 @@ namespace WE_Project.DAL
             if (row["IsClock"].ToString() != "")
             {
                 model.IsClock = bool.Parse(row["IsClock"].ToString());
+            }
+            if (row["ZDStatus"].ToString() != "")
+            {
+                model.ZDStatus = bool.Parse(row["ZDStatus"].ToString());
             }
             if (row["RoleCode"].ToString() != "")
             {

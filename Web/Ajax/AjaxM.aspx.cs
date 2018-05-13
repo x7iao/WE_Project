@@ -304,6 +304,12 @@ namespace WE_Project.Web.Ajax
                     break;
 
                 #endregion 互助
+
+                #region 投资
+                case "GetTranMoney":
+                    GetTranMoney();
+                    break;
+                    #endregion
             }
         }
 
@@ -2651,6 +2657,45 @@ namespace WE_Project.Web.Ajax
             string midList = Request["pram"];
             string money = Request["money"];
             Response.Write(BLL.Member.CostMHB(midList, money));
+            return;
+        }
+
+        public void GetTranMoney()
+        {
+            if (!string.IsNullOrEmpty(Request["pram"]))
+            {
+                Hashtable MyHs = new Hashtable();
+                Model.BMember offer = BLL.BMember.GetModelByID(Request["pram"]);
+                //查看是否已转入马夫罗
+                if (offer.BMState)
+                {
+                    Response.Write("您已提款");
+                    return;
+                }
+              
+                //校验转入时间是否已到
+               
+                if (offer.BOutMoney!=offer.FHDays)
+                {
+                    Response.Write("分红未完成不能提款");
+                    return;
+                }
+            
+                if (offer.AMID == TModel.MID)
+                {
+                    BLL.ChangeMoney.HBChangeTran(offer.YJMoney,BLL.Member.ManageMember.TModel.MID,offer.AMID, "R_Tran",null,offer.BMBD,"",MyHs);
+                    offer.BMState = true;
+                    offer.BMDate = DateTime.Now;
+                    BLL.BMember.Update(offer, MyHs);
+                    if (BLL.CommonBase.RunHashtable(MyHs))
+                    {
+                        Response.Write("1");
+                        return;
+                    }
+                }
+            }
+
+            Response.Write("提款失败");
             return;
         }
     }

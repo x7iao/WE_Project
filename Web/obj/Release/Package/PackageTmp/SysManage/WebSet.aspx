@@ -80,7 +80,7 @@
                             maxlength="255" />
                     </td>
                 </tr>
-                <tr>
+                <tr style="display:none;">
                     <td align="right">
                         单页行数:
                     </td>

@@ -59,9 +59,18 @@ namespace WE_Project.Web.FuTou.Handler
                 sb.Append((i + 1) + (pageIndex - 1) * pageSize + "~");
                 sb.Append(ListMember[i].AMID + "~");
                 sb.Append(ListMember[i].BMCreateDate.ToString("yyyy-MM-dd HH:mm") + "~");
-                sb.Append(ListMember[i].YJMoney.ToFixedString() + "~");
-                sb.Append(ListMember[i].YJCount + "~");
-                sb.Append((ListMember[i].BMState ? "出局" : "未出局"));
+                sb.Append(ListMember[i].YJCount.ToFixedString() + "~");
+                sb.Append(BLL.Reward.List[ListMember[i].BMBD].RewardName + "~");
+                sb.Append(ListMember[i].FHDays + "~");
+                sb.Append(ListMember[i].BOutMoney.ToString("f0") + "~");
+                sb.Append(ListMember[i].BCount + "~");
+                sb.Append(ListMember[i].YJMoney + "~");
+                sb.Append((ListMember[i].BMState ? "出局" : "未出局")+"~");
+                if (ListMember[i].FHDays == ListMember[i].BOutMoney&& ListMember[i].AMID==TModel.MID&&!ListMember[i].BMState)
+                {
+                    sb.Append("<input type='button' value='我要提款' class='btn btn-danger btn-sm' onclick=\"GetTranMoney(" + ListMember[i].ID + ",this)\" />");
+                }
+                
                 sb.Append("≌");
             }
             var info = new { PageData = Traditionalized(sb), TotalCount = count };

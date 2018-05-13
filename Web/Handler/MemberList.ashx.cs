@@ -120,6 +120,7 @@ namespace WE_Project.Web.Handler
                 }
                 else
                 {
+                    sb.Append("正常");
                     sb.Append("<a href='?LoggedInMID=" + ListMember[i].MID + "' target=\"_blank\">进入会员系统</a>");
                 }
                 sb.Append("≌");

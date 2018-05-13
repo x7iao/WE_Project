@@ -39,7 +39,7 @@
                         <input id="txtTel" runat="server" class="normal_input" type="text" />
                     </td>
                 </tr>
-                <tr>
+                <tr style="display:none;">
                     <td align="right">
                         支付宝账号:
                     </td>
@@ -47,7 +47,7 @@
                         <input id="txtAlipay" runat="server" class="normal_input" type="text" /><font style="color: Red"></font>
                     </td>
                 </tr>
-                <tr>
+                <tr style="display:none;">
                     <td align="right">
                         微信账号:
                     </td>
@@ -87,6 +87,28 @@
                         <input id="txtBankNumber" runat="server" class="normal_input" type="text" />
                     </td>
                 </tr>
+                 <tr>
+                    <td align="right">
+                        托管[开启后推荐人可进入操作]:
+                    </td>
+                    <td>
+                       <select id="txtHLMoneyState" runat="server">
+                            <option value="0">关闭</option>
+                            <option value="1">开启</option>
+                        </select>
+                    </td>
+                </tr>
+                 <tr>
+                    <td align="right">
+                        防撞单:
+                    </td>
+                    <td>
+                       <select id="txtZDStatus" runat="server">
+                            <option value="0">关闭</option>
+                            <option value="1">开启</option>
+                        </select>
+                    </td>
+                </tr>
                 <tr style="height: 50px;">
                     <td align="right">
                         <input name="重置" type="reset" class="normal_btnok" value="重置" style="display: none;" />
@@ -105,10 +127,10 @@
                 v5.error('您的会员昵称不能为空', '1', 'true');
             } else if (!$('#txtTel').val().TryTel()) {
                 v5.error('手机号码格式不正确', '1', 'true');
-            } else if ( $('#txtWeChat').val() == "") {
-                v5.error('微信账号不能为空', '1', 'true');
-            } else if ($('#txtAlipay').val() == "") {
-                v5.error('支付宝账号不能为空', '1', 'true');
+            //} else if ( $('#txtWeChat').val() == "") {
+            //    v5.error('微信账号不能为空', '1', 'true');
+            //} else if ($('#txtAlipay').val() == "") {
+            //    v5.error('支付宝账号不能为空', '1', 'true');
             } else if ($('#txtBankNumber').val() == "") {
                 v5.error('银行卡号不能为空', '1', 'true');
             } else if ($('#txtBankCardName').val() == "") {
