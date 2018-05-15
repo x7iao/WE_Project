@@ -256,9 +256,24 @@ namespace WE_Project.BLL
             //    return "1*援助金额应为2000,5000,10000或20000";
 
             decimal maxOfferMoney = WE_Project.BLL.MMMConfig.Model.OfferHelpMax;
-            decimal minOfferMoney = WE_Project.BLL.MMMConfig.Model.OfferHelpMin;
 
             
+            decimal minOfferMoney = WE_Project.BLL.MMMConfig.Model.OfferHelpMin;
+            if (helptype == 1)
+            {
+                minOfferMoney = 1;
+                if (member.MCreateDate.AddMinutes(BLL.MMMConfig.Model.MHBBase) > DateTime.Now)
+                {
+                    return "1*新注册会员不能参与抢单";
+                }
+
+                int sqcount= Convert.ToInt32( BLL.CommonBase.GetSingle(" select count(*) from MOfferHelp where HelpType=1 and SQMID='"+member.MID+"' and DATEDIFF(MONTH,SQDate,GETDATE())=0; "));
+                if (sqcount > 0)
+                {
+                    return "1*每月只能抢一单";
+                }
+            }
+
 
 
 

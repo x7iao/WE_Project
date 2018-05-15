@@ -26,6 +26,10 @@ namespace WE_Project.Web.Message
 
         protected override string btnAdd_Click()
         {
+            string x1 = Request.Form["LAY_layedit_1"];
+            string title = Request.Form["txtNTitle"];
+
+
             if (BLL.Notice.Add(NoticeModel))
             {
                 return "操作成功";

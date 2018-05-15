@@ -11,7 +11,7 @@
     <meta name="description" content="Violate Responsive Admin Template">
     <meta name="keywords" content="Super Admin, Admin, Template, Bootstrap">
 
-    <title>Super Admin Responsive Template</title>
+    <title><%=WebModel.WebTitle %></title>
 
     <!-- CSS -->
     <link href="/Admin/css/bootstrap.min.css" rel="stylesheet">
@@ -25,7 +25,7 @@
     <script src="/Admin/pop/js/jquery-1.8.3.min.js"></script>
     <script src="/Admin/pop/js/V5-UI.js" type="text/javascript"></script>
     <script src="/Admin/pop/js/uaredirect.js" type="text/javascript"></script>
-    <script type="text/javascript">        uaredirect("/tel/Login.aspx");</script>
+    <%--<script type="text/javascript">        uaredirect("/tel/Login.aspx");</script>--%>
     <script type="text/javascript">
         function Login() {
             if ($("#txtname").val() == "") {
@@ -92,7 +92,7 @@
                 <input type="text" class="login-control m-b-10" name="txtname" id="txtname" placeholder="Username">
                 <input type="password" class="login-control"  name="txtpwd" id="txtpwd" placeholder="Password">
                 <input type="test" class="login-control"  name="checkCode" id="checkCode" placeholder="验证码" style="margin-top:12px; width:70%;">
-                 <img src="/CheckCode.aspx" onclick="this.src='../CheckCode.aspx?'+Math.random()" width="66px;" height="31px;">
+                 <img src="/CheckCode.aspx" onclick="this.src='../CheckCode.aspx?'+Math.random()" width="66px;" height="28px;">
                 <br />
                <%-- <div class="checkbox m-b-20">
                     <label>
@@ -100,11 +100,11 @@
                         Remember Me
                     </label>
                 </div>--%>
-                <button class="btn btn-sm m-r-5" type="button"  onclick="Login()">登陆</button>
+                <button class="btn btn-sm m-r-5" type="button"  onclick="Login()" style="margin-top:5px;">登陆</button>
                 
                 <small>
-                    <%--<a class="box-switcher" data-switch="box-register" href="">Don't have an Account?</a>--%> 或
-                    <a data-switch="box-reset" href="/SecurityCenter/Findpwd.aspx">忘记密码?</a>
+                    <%--<a class="box-switcher" data-switch="box-register" href="">Don't have an Account?</a>--%> 
+                    <%--或<a data-switch="box-reset" href="/SecurityCenter/Findpwd.aspx">忘记密码?</a>--%>
                 </small>
             </form>
             

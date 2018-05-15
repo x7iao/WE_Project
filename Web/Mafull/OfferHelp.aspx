@@ -36,7 +36,7 @@
                     <td>
                       <select id="offerrdo" runat="server">
                                                     <option value="0">正常排单</option>
-                                                    <%--<option value="1">抢单区排单（不消耗排单币）</option>--%>
+                                                    <option value="1">抢单区排单</option>
                                                 </select>
                     </td>
                 </tr>

@@ -217,7 +217,7 @@
                             require-msg="转账倍数" /><font color="red">*正整数</font>
                     </td>
                 </tr>
-                <tr>
+                <tr style="display:none;">
                     <td>
                         身份证注册帐号数量：
                     </td>

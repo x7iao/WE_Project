@@ -84,10 +84,10 @@
                         <img class="profile-pic animated" src="/Admin/img/profile-pic.jpg" alt="">
                     </a>
                     <ul class="dropdown-menu profile-menu">
-                        <li><a href="">个人信息</a> <i class="icon left">&#61903;</i><i class="icon right">&#61815;</i></li>
-                        <li><a href="">设置登陆密码</a> <i class="icon left">&#61903;</i><i class="icon right">&#61815;</i></li>
-                        <li><a href="">设置二级密码</a> <i class="icon left">&#61903;</i><i class="icon right">&#61815;</i></li>
-                        <li><a href="">退出登陆</a> <i class="icon left">&#61903;</i><i class="icon right">&#61815;</i></li>
+                        <li><a href="javascript:void(0)" onclick="callhtml('../Member/View.aspx','个人信息');">个人信息</a> <i class="icon left">&#61903;</i><i class="icon right">&#61815;</i></li>
+                        <li><a href="javascript:void(0)" onclick="callhtml('../SecurityCenter/ModifyPwd.aspx','登录密码修改');">设置登陆密码</a> <i class="icon left">&#61903;</i><i class="icon right">&#61815;</i></li>
+                        <li><a href="javascript:void(0)" onclick="callhtml('../SecurityCenter/ModifySecPwd.aspx','二级密码修改');">设置二级密码</a> <i class="icon left">&#61903;</i><i class="icon right">&#61815;</i></li>
+                        <li><a href="/SysManage/Out.aspx">退出登陆</a> <i class="icon left">&#61903;</i><i class="icon right">&#61815;</i></li>
                     </ul>
                     <h4 class="m-0"><%=TModel.MID %></h4>
                     <%=TModel.MName %>
@@ -242,11 +242,11 @@
                     <img src="/Admin/img/shortcuts/calendar.png" alt="">
                     <small class="t-overflow">卖出</small>
                 </a>
-                <a class="shortcut tile" href="">
+                <a class="shortcut tile" href="JavaScript:void(0)" onclick="callhtml('../Mafull/OfferHelpList.aspx','提供帮助列表 ');">
                     <img src="/Admin/img/shortcuts/stats.png" alt="">
                     <small class="t-overflow">买入列表</small>
                 </a>
-                <a class="shortcut tile" href="">
+                <a class="shortcut tile"  href="JavaScript:void(0)" onclick="callhtml('../Mafull/GetHelpList.aspx','获得帮助列表');">
                     <img src="/Admin/img/shortcuts/connections.png" alt="">
                     <small class="t-overflow">卖出列表</small>
                 </a>
@@ -364,7 +364,7 @@
                     <div class="row">
                         <div class="col-md-3 col-xs-6">
                             <div class="tile quick-stats">
-                                <div id="stats-line-2" class="pull-left"></div>
+                                <div id="stats-line12" class="pull-left"></div>
                                 <div class="data">
                                     <h2 value="<%=TModel.MConfig.MCW %>"><%=TModel.MConfig.MCW %></h2>
                                     <small>许愿果[用来排单]</small>
@@ -374,7 +374,7 @@
 
                         <div class="col-md-3 col-xs-6">
                             <div class="tile quick-stats media">
-                                <div id="stats-line-3" class="pull-left"></div>
+                                <div id="stats-line12" class="pull-left"></div>
                                 <div class="media-body">
                                     <h2 value="<%=TModel.MConfig.MJBF %>"><%=TModel.MConfig.MJBF %></h2>
                                     <small>许愿台[用来理财]</small>
@@ -385,7 +385,7 @@
                         <div class="col-md-3 col-xs-6">
                             <div class="tile quick-stats media">
 
-                                <div id="stats-line-4" class="pull-left"></div>
+                                <div id="stats-line12" class="pull-left"></div>
 
                                 <div class="media-body">
                                     <h2 value="<%=TModel.MConfig.MJB %>"><%=TModel.MConfig.MJB %></h2>
@@ -396,7 +396,7 @@
 
                         <div class="col-md-3 col-xs-6">
                             <div class="tile quick-stats media">
-                                <div id="stats-line" class="pull-left"></div>
+                                <div id="stats-line12" class="pull-left"></div>
                                 <div class="media-body">
                                     <h2 value="<%=TModel.MConfig.MHB %>"><%=TModel.MConfig.MHB %></h2>
                                     <small>许愿树[静态奖金]</small>
@@ -405,7 +405,7 @@
                         </div>
                         <div class="col-md-3 col-xs-6">
                             <div class="tile quick-stats media">
-                                <div id="stats-line-5" class="pull-left"></div>
+                                <div id="stats-line12" class="pull-left"></div>
                                 <div class="media-body">
                                     <h2 value="<%=TModel.MConfig.MGP %>"><%=TModel.MConfig.MGP %></h2>
                                     <small>许愿金[手续费]</small>
@@ -837,7 +837,6 @@
 
     <!-- All JS functions -->
     <script src="/Admin/js/functions.js"></script>
-
 
 
     <script src="/plugin/layui/layui.js"></script>

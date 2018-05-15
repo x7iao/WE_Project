@@ -432,7 +432,7 @@ namespace WE_Project.Model
             get { return _macthswitch; }
         }
         /// <summary>
-        /// 互助钱包提现倍数
+        /// 注册N天内不参加抢单
         /// </summary>
         public int MHBBase
         {
