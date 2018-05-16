@@ -58,9 +58,9 @@
                 <em style="vertical-align: middle;">
                     <input type="checkbox" id="chkAll" onclick="SelectChk(this);" /></em>
                 <div class="pn">
-                    <a href="javascript:void(0);" title="" onclick="RunAjaxByList('0','ShowNotice',',');">
+                   <%-- <a href="javascript:void(0);" title="" onclick="RunAjaxByList('0','ShowNotice',',');">
                         恢复</a> <a href="javascript:void(0);" title="" onclick="RunAjaxByList('1','HideNotice',',');">
-                            作废</a> <a href="javascript:void(0);" title="" onclick="RunAjaxByList('','DeleteNotice',',');">删除</a>
+                            作废</a> --%><a href="javascript:void(0);" title="" onclick="RunAjaxByList('','DelNotice',',');">删除</a>
                 </div>
                 <div class="pagebar">
                     <div id="Pagination">

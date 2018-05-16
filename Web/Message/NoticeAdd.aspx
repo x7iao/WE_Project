@@ -31,11 +31,8 @@
                             <%-- <script id="editor" type="text/plain"></script>
                         <input name="hdContent" id="hdContent" type="hidden" />--%>
                             <textarea id="hdContent" runat="server" style="display: none;"></textarea>
-
-                            <div id="editor">
-                               
-                            </div>
-
+                            <input type="hidden" name="title" />
+                            <input type="hidden" name="content" />
 
                         </td>
                     </tr>
@@ -89,7 +86,7 @@
         });
 
         //var layer = layui.layer,
-        //        layedit = layui.layedit;
+        //layedit = layui.layedit;
       
         function checkChange() {
             if ($('#txtNTitle').val() == '') {
@@ -97,11 +94,11 @@
             } else if ($("#hdContent") == '') {
                 v5.error('内容不能为空', '1', 'true');
             } else {
-                alert(layedit.getContent(2));
-                //                $('#hdchkFixed').val(document.getElementById('chkFixed').checked);
-                //$('#hdContent').val(encodeURI(ue.getContent()));
-
-                ActionModel("/Message/NoticeAdd.aspx?Action=Add", $('#form1').serialize());
+                //alert($("#txtNTitle").val() + "~" + layedit.getContent(2));
+                //$("#title").val($("#txtNTitle").val());
+                //$("#content").val(layedit.getContent(2));
+                
+                ActionModel("/Message/NoticeAdd.aspx?Action=Add", { title: $("#txtNTitle").val(), content: layedit.getContent(2) });
             }
         }
     </script>

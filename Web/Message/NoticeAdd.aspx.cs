@@ -14,8 +14,8 @@ namespace WE_Project.Web.Message
             get
             {
                 Model.Notice model = new Model.Notice();
-                model.NTitle = Request.Form["txtNTitle"];
-                model.NContent = HttpUtility.UrlDecode(Request.Form["hdContent"]);
+                model.NTitle = Request.Form["title"];
+                model.NContent = HttpUtility.UrlDecode(Request.Form["content"]);
                 //if (!string.IsNullOrEmpty(Request.Form["hdchkFixed"]))
                 //    model.IsFixed = bool.Parse(Request.Form["hdchkFixed"]);
                 //else
@@ -26,10 +26,7 @@ namespace WE_Project.Web.Message
 
         protected override string btnAdd_Click()
         {
-            string x1 = Request.Form["LAY_layedit_1"];
-            string title = Request.Form["txtNTitle"];
-
-
+         
             if (BLL.Notice.Add(NoticeModel))
             {
                 return "操作成功";

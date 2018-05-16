@@ -9,22 +9,58 @@
     <div id="mempay">
         <div id="finance">
             <form id="form1">
-            <table cellpadding="0" cellspacing="0">
-                <tr style="height: 50px;">
-                    <td align="right">
-                    </td>
-                    <td align="left">
-                        <input class="normal_btnok" id="btnOK" type="button" runat="server" value="发放利息" onclick="checkChange();" />
-                    </td>
-                </tr>
-                <tr style="height: 50px;">
-                    <td align="right">
-                    </td>
-                    <td align="left">
-                        <input class="normal_btnok" id="Button1" type="button" runat="server" value="超时转换利息到许愿池/衰减忠诚/激活不匹配冻结/投资日分红" onclick="checkChange1();" />
-                    </td>
-                </tr>
-            </table>
+                <table cellpadding="0" cellspacing="0">
+                    <tr style="height: 50px;">
+                        <td align="right"></td>
+                        <td align="left">
+                            <input class="normal_btnok" id="btnOK" type="button" runat="server" value="发放利息" onclick="checkChange();" />
+                        </td>
+                    </tr>
+                    <tr style="height: 50px;">
+                        <td align="right"></td>
+                        <td align="left">
+                            <input class="normal_btnok" id="Button1" type="button" runat="server" value="超时转换利息到许愿池/衰减忠诚/激活不匹配冻结/投资日分红" onclick="checkChange1();" />
+                        </td>
+                    </tr>
+                    <tr style="height: 50px;">
+                        <td align="right"></td>
+                        <td align="left"></td>
+                    </tr>
+                    <tr style="height: 50px;">
+                        <td align="right">手动分红：
+                        </td>
+                        <td align="left">
+                            <select id="FHType" name="FHType" runat="server">
+                                <option value="5">排单5</option>
+                                <option value="10">排单10</option>
+                                <option value="30">排单30</option>
+                            </select>
+                        </td>
+                    </tr>
+                     <tr style="height: 50px;">
+                        <td align="right">未分红单数：
+                        </td>
+                        <td align="left">
+                            排单5：<%=count5 %><br />
+                            排单10：<%=count10 %><br />
+                            排单30：<%=count30 %><br />
+                            实际分红单数按数据库实时查询为准
+                        </td>
+                    </tr>
+                     <tr style="height: 50px;">
+                        <td align="right">分红金额：
+                        </td>
+                        <td align="left">
+                           <input type="text" runat="server" id="fhmoney"  class="input-sm form-control mask-date" />
+                        </td>
+                    </tr>
+                    <tr style="height: 50px;">
+                        <td align="right"></td>
+                        <td align="left">
+                            <input class="normal_btnok" id="Button3" type="button" runat="server" value="分红" onclick="checkChange2();" />
+                        </td>
+                    </tr>
+                </table>
             </form>
         </div>
     </div>

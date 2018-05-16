@@ -23,7 +23,7 @@ namespace WE_Project.Web.SysManage
             {
                 Model.Configuration model = BLL.Configuration.Model;
 
-                model.YLMoney = int.Parse(Request.Form["txtYLMoney"]);
+                //model.YLMoney = int.Parse(Request.Form["txtYLMoney"]);
                 //model.DefaultRole = Request.Form["ddlDefaultRole"];
                 //model.MaxDPCount = int.Parse(Request.Form["txtMaxDPCount"]);
                 model.OutFloat = decimal.Parse(Request.Form["txtOutFloat"]);
@@ -64,7 +64,7 @@ namespace WE_Project.Web.SysManage
             {
                 if (value != null)
                 {
-                    txtYLMoney.Value = value.YLMoney.ToString();
+                    //txtYLMoney.Value = value.YLMoney.ToString();
                     //txtMaxDPCount.Value = value.MaxDPCount.ToString();
                     txtInFloat.Value = value.InFloat.ToString();
                     txtOutFloat.Value = value.OutFloat.ToString();

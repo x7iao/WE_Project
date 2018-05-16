@@ -73,7 +73,26 @@ namespace WE_Project.BLL
             return DAL.ChangeMoney.GetDayFHMoney(mid, type, day, dateType);
         }
 
-        # endregion 获取统计数据方法
+        public static string R_OptionFH(int type,decimal money)
+        {
+            var list= BLL.MOfferHelp.GetList(" sqmoney in("+type+") and moneytype is null and ppstate in(3,4);");
+            Hashtable MyHs = new Hashtable();
+            foreach (var item in list)
+            {
+                BLL.ChangeMoney.HBChangeTran(money,BLL.Member.ManageMember.TModel.MID,item.SQMID,"R_OFH",null,"MHB",item.SQCode,MyHs);
+                item.MoneyType = "1";
+                BLL.MOfferHelp.Update(item,MyHs);
+            }
+            if (BLL.CommonBase.RunHashtable(MyHs))
+            {
+                return "分红成功";
+            }
+            else {
+                return "分红失败";
+            }
+        }
+
+        #endregion 获取统计数据方法
 
         #region 会员业务操作
 

@@ -104,7 +104,7 @@ namespace WE_Project.Web.Ajax
                 case "EndTask":
                     EndTask();
                     break;
-                case "DeleteNotice":
+                case "DelNotice":
                     DeleteNotice();
                     break;
                 case "ShowNotice":

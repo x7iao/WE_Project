@@ -274,6 +274,8 @@
     <Content Include="Admin\img\media-player\controls.svg" />
     <Content Include="Admin\img\media-player\loading.gif" />
     <Content Include="Admin\img\media-player\media-player-poster.jpg" />
+    <Content Include="Admin\img\meitu_1.png" />
+    <Content Include="Admin\img\meitu_2.png" />
     <Content Include="Admin\img\profile-pic.jpg" />
     <Content Include="Admin\img\profile-pics\1.jpg" />
     <Content Include="Admin\img\profile-pics\2.jpg" />
