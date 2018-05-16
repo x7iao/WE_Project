@@ -656,7 +656,7 @@
                 </div>
 
                 <!-- Chat -->
-                <div class="chat">
+               <%-- <div class="chat">
 
                     <!-- Chat List -->
                     <div class="pull-left chat-list">
@@ -758,7 +758,7 @@
                         </div>
 
                     </div>
-                </div>
+                </div>--%>
             </div>
 
 
