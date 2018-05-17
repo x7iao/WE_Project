@@ -48,6 +48,7 @@ namespace WE_Project.Web.Mafull
 
         protected override string btnAdd_Click()
         {
+            string xx = Request.Form["hidId"];
             Model.MHelpMatch match = BLL.MHelpMatch.GetModel(Request.Form["hidId"]);
             if (match != null)
             {

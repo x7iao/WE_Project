@@ -3,192 +3,179 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
-    <link rel="stylesheet" href="/plugin/kindeditor/themes/default/default.css" />
-    <title></title>
-    <script type="text/javascript">
-
-        var K = window.KKKK;
-        var uploadbutton = K.uploadbutton({
-            button: K('#GatheringPic')[0],
-            fieldName: 'imgFile',
-            url: '/plugin/kindeditor/asp.net/upload_json.ashx?dir=image',
-            afterUpload: function (data) {
-                if (data.error === 0) {
-                    var url = K.formatUrl(data.url, 'absolute');
-                    K('#hduploadPic1').val(url);
-                    K('#uploadLog').html("上传成功");
-                    K("#imgPic").attr("src", url);
-                } else {
-                    $('#uploadLog').html(data.message);
+    <script>
+        layui.use("upload", function () {
+            layui.upload({
+                url: '/Admin/UpLoadPic/UploadImage.ashx',
+                success: function (res) {
+                    console.log(res); //上传成功返回值，必须为json格式
+                    if (res.isSuccess) {
+                        $("#upimage").attr("src", res.msg);
+                        $("#hduploadPic1").val(res.msg);
+                    } else {
+                        v5.alert(res.msg, '1', 'true')
+                    }
                 }
-            },
-            afterError: function (str) {
-                alert('自定义错误信息: ' + str);
-            }
+            });
         });
-        uploadbutton.fileBox.change(function (e) {
-            uploadbutton.submit();
-        });
+
     </script>
 </head>
 <body>
     <div id="mempay">
         <div id="finance">
             <form id="form1" name='form1' method="post">
-            <input id="hidId" type="hidden" runat="server" />
-            <table cellpadding="0" cellspacing="0">
-                <tr>
-                    <td width="15%" align="right">
-                        <span>付款编号：</span>
-                    </td>
-                    <td width="35%">
-                        <%=match.MatchCode%>
-                    </td>
-                </tr>
-                <tr>
-                    <td width="15%" align="right">
-                        <span>付款金额：</span>
-                    </td>
-                    <td width="35%">
-                        <%=match.MatchMoney%>
-                    </td>
-                </tr>
-                <tr>
-                    <td width="15%" align="right">
-                        <span>匹配时间：</span>
-                    </td>
-                    <td width="35%">
-                        <%=match.MatchTime%>
-                    </td>
-                </tr>
-                <tr>
-                    <td width="15%" align="right">
-                        <span>剩余支付时间：</span>
-                    </td>
-                    <td width="35%">
-                        <span id="spLeaveTime" runat="server"></span>
-                    </td>
-                </tr>
-                <tr>
-                    <td width="15%" align="right">
-                        <span>收款方信息：</span>
-                    </td>
-                    <td width="35%">
-                        <table>
-                            <tr>
-                                <td>
-                                    会员账号：<%=getMemberModel.MID%>
-                                </td>
-                                <%--<td>
+                <input id="hidId" type="hidden" runat="server" />
+                <table cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td width="15%" align="right">
+                            <span>付款编号：</span>
+                        </td>
+                        <td width="35%">
+                            <%=match.MatchCode%>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="15%" align="right">
+                            <span>付款金额：</span>
+                        </td>
+                        <td width="35%">
+                            <%=match.MatchMoney%>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="15%" align="right">
+                            <span>匹配时间：</span>
+                        </td>
+                        <td width="35%">
+                            <%=match.MatchTime%>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="15%" align="right">
+                            <span>剩余支付时间：</span>
+                        </td>
+                        <td width="35%">
+                            <span id="spLeaveTime" runat="server"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="15%" align="right">
+                            <span>收款方信息：</span>
+                        </td>
+                        <td width="35%">
+                            <table>
+                                <tr>
+                                    <td>会员账号：<%=getMemberModel.MID%>
+                                    </td>
+                                    <%--<td>
                                     推荐人会员账号：<%=getTJMemberModel.MID%>
                                 </td>--%>
-                            </tr>
-                            <tr>
-                                <td>
-                                    开户名：<%=getMemberModel.BankCardName%>
-                                </td>
-                                <%--<td>
+                                </tr>
+                                <tr>
+                                    <td>开户名：<%=getMemberModel.BankCardName%>
+                                    </td>
+                                    <%--<td>
                                     推荐人会员昵称：<%=getTJMemberModel.MName%>
                                 </td>--%>
-                            </tr>
-                            <tr>
-                                <td>
-                                    手机号码：<%=getMemberModel.Tel%>
-                                </td>
-                                <%--<td>
+                                </tr>
+                                <tr>
+                                    <td>手机号码：<%=getMemberModel.Tel%>
+                                    </td>
+                                    <%--<td>
                                     推荐人手机号码：<%=getTJMemberModel.Tel%>
                                 </td>--%>
-                            </tr>
-                            <tr>
-                                <td>
-                                    开户银行：<%=getMemberModel.Bank%>
-                                </td>
-                                <%--<td>
+                                </tr>
+                                <tr>
+                                    <td>开户银行：<%=getMemberModel.Bank%>
+                                    </td>
+                                    <%--<td>
                                     推荐人开户银行：<%=getTJMemberModel.Bank%>
                                 </td>--%>
-                            </tr>
-                            <tr>
-                                <td>
-                                    银行支行：<%=getMemberModel.Branch%>
-                                </td>
-                                <%--<td>
+                                </tr>
+                                <tr>
+                                    <td>银行支行：<%=getMemberModel.Branch%>
+                                    </td>
+                                    <%--<td>
                                     推荐人银行支行：<%=getTJMemberModel.Branch%>
                                 </td>--%>
-                            </tr>
-                            <tr>
-                                <td>
-                                    银行卡号：<%=getMemberModel.BankNumber%>
-                                </td>
-                                <%--<td>
+                                </tr>
+                                <tr>
+                                    <td>银行卡号：<%=getMemberModel.BankNumber%>
+                                    </td>
+                                    <%--<td>
                                     推荐人银行卡号：<%=getTJMemberModel.BankNumber%>
                                 </td>--%>
-                            </tr>
-                            <tr>
-                                <td>
-                                    支付宝账号：<%=getMemberModel.AliPay%>
-                                </td>
-                                <%--<td>
+                                </tr>
+                                <tr>
+                                    <td>支付宝账号：<%=getMemberModel.AliPay%>
+                                    </td>
+                                    <%--<td>
                                     推荐人支付宝账号：<%=getTJMemberModel.Email%>
                                 </td>--%>
-                            </tr>
-                            <tr>
-                                <td>
-                                    微信帐号：<%=getMemberModel.WeChat%>
-                                </td>
-                                <%--<td>
+                                </tr>
+                                <tr>
+                                    <td>微信帐号：<%=getMemberModel.WeChat%>
+                                    </td>
+                                    <%--<td>
                                     推荐人支付宝账号：<%=getTJMemberModel.Email%>
                                 </td>--%>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-                <tr>
-                    <td width="15%" align="right">
-                        <span>备注留言：</span>
-                    </td>
-                    <td width="35%">
-                        <textarea id="txtRemark" runat="server" style="width: 500px"></textarea>
-                        <input type="hidden" id="hidIndex" value="" />
-                    </td>
-                </tr>
-                <tr>
-                    <td align="right" style="padding: 45px">
-                        <span>凭证一：</span>
-                    </td>
-                    <td style="display: none;">
-                        <input id="txtBigPng" type="button" value="上传图片" class="btn btn-success" onclick="showUpload(1)" />
-                        <div id="tablePic1">
-                        </div>
-                    </td>
-                    <td>
-                        <input type="button" id="GatheringPic" value="上传图片" />
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="15%" align="right">
+                            <span>备注留言：</span>
+                        </td>
+                        <td width="35%">
+                            <textarea id="txtRemark" runat="server" style="width: 500px"></textarea>
+                            <input type="hidden" id="hidIndex" value="" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right" style="padding: 45px">
+                            <span>凭证一：</span>
+                        </td>
+                        <td style="display: none;">
+                            <input id="txtBigPng" type="button" value="上传图片" class="btn btn-success" onclick="showUpload(1)" />
+                            <div id="tablePic1">
+                            </div>
+                        </td>
+                        <td>
+
+                            <input type="file" name="upload" class="layui-upload-file" style="display:block;">
+                            <input type="hidden" id="hduploadPic1" name="hduploadPic1" runat="server" />
+                            <img id="upimage" width="100px;" height="100px" />
+
+                            <%--  <input type="button" id="GatheringPic" value="上传图片" />
                         <div id='uploadLog'>
                         </div>
                         <input type="hidden" id="hduploadPic1" name="hduploadPic1" />
-                        <img id="imgPic" class='appImg' style='max-width: 700px;' />
-                    </td>
-                </tr>
-                <tr style="display: none;">
-                    <td align="right" style="padding: 45px">
-                        <span>凭证二：</span>
-                    </td>
-                    <td>
-                        <input id="Button2" type="button" value="上传图片" class="btn btn-success" onclick="showUpload(2)" />
-                        <div id="tablePic2">
-                        </div>
-                    </td>
-                </tr>
-                <tr style="display: none;">
-                    <td align="right" style="padding: 45px">
-                        <span>凭证三：</span>
-                    </td>
-                    <td>
-                        <input id="Button3" type="button" value="上传图片" class="btn btn-success" onclick="showUpload(3)" />
-                        <div id="tablePi3">
-                        </div>
-                    </td>
-                </tr>
-                <%--<tr>
+                        <img id="imgPic" class='appImg' style='max-width: 700px;' />--%>
+                        </td>
+                    </tr>
+                    <tr style="display: none;">
+                        <td align="right" style="padding: 45px">
+                            <span>凭证二：</span>
+                        </td>
+                        <td>
+                            <input id="Button2" type="button" value="上传图片" class="btn btn-success" onclick="showUpload(2)" />
+                            <div id="tablePic2">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr style="display: none;">
+                        <td align="right" style="padding: 45px">
+                            <span>凭证三：</span>
+                        </td>
+                        <td>
+                            <input id="Button3" type="button" value="上传图片" class="btn btn-success" onclick="showUpload(3)" />
+                            <div id="tablePi3">
+                            </div>
+                        </td>
+                    </tr>
+                    <%--<tr>
                     <td>
                         拒绝付款：
                     </td>
@@ -201,20 +188,36 @@
                             onclick="checkChange2();" /><%} %>
                     </td>
                 </tr>--%>
-                <tr>
-                    <td>
-                    </td>
-                    <td>
-                        <input class="normal_btnok" id="btnOK" type="button" runat="server" value="确认付款"
-                            onclick="checkChange();" />&nbsp;
+                    <tr>
+                        <td></td>
+                        <td>
+                            <input class="normal_btnok" id="btnOK" type="button" runat="server" value="确认付款"
+                                onclick="checkChange();" />&nbsp;
                         <input class="btn btn-danger" id="Button1" type="button" runat="server" value="返回"
                             onclick="returnList();" />
-                    </td>
-                </tr>
-            </table>
+                        </td>
+                    </tr>
+                </table>
             </form>
         </div>
     </div>
+    <script>
+        layui.use("upload", function () {
+            layui.upload({
+                url: '/Admin/UpLoadPic/UploadImage.ashx',
+                success: function (res) {
+                    console.log(res); //上传成功返回值，必须为json格式
+                    if (res.isSuccess) {
+                        $("#upimage").attr("src", res.msg);
+                        $("#hduploadPic1").val(res.msg);
+                    } else {
+                        v5.alert(res.msg, '1', 'true')
+                    }
+                }
+            });
+        });
+
+    </script>
     <script type="text/javascript">
         function returnList() {
             window.location.reload();

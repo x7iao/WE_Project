@@ -19,10 +19,11 @@
     <link href="/Admin/css/style.css" rel="stylesheet">
     <link href="/Admin/css/icons.css" rel="stylesheet">
     <link href="/Admin/css/generics.css" rel="stylesheet">
-    <link href="/plugin/layui/css/layui.css" rel="stylesheet" />
 
     <link type="text/css" rel="stylesheet" href="/admin/pop/css/next_page_search.css" />
     <link rel="stylesheet" type="text/css" href="/admin/pop/css/V5-UI.css" />
+
+    <script src="/Admin/js/jquery-1.9.1.min.js"></script>
     <style>
         #OfferHelp table tr {
             line-height: 2;
@@ -317,7 +318,7 @@
                         <span class="drawer-close">&times;</span>
                     </div>
                     <div class="overflow" style="height: 254px">
-                        <form id="form1">
+                        <%--<form id="form1">--%>
                             <table cellpadding="0" cellspacing="0">
                                 <tr>
                                     <td width="35%" align="right">
@@ -387,7 +388,7 @@
                                     </td>
                                 </tr>
                             </table>
-                        </form>
+                    <%--    </form>--%>
 
                     </div>
                     <div class="media text-center whiter l-100">
@@ -862,8 +863,6 @@
     <!-- All JS functions -->
     <script src="/Admin/js/functions.js"></script>
 
-
-    <script src="/plugin/layui/layui.js"></script>
     <%--<script type="text/javascript" src="/Admin/pop/js/layer/layer.min.js"></script>--%>
     <script type="text/javascript" src="/Admin/pop/js/stack.js"></script>
     <script type="text/javascript" src="/Admin/pop/js/MyValide.js"></script>
@@ -874,6 +873,12 @@
     <script type="text/javascript" src="/Admin/pop/js/javascript_pop.js"></script>
     <script type="text/javascript" src="/Admin/pop/js/V5-UI.js"></script>
     <script type="text/javascript" src="/Admin/pop/js/jquery.pagination.js" charset="gbk"></script>
+
+    <link rel="stylesheet" type="text/css" href="/plugin/layer/skin/layer.css" />
+     <link href="/plugin/layui/css/layui.css" rel="stylesheet" />
+        <script src="/plugin/layui/layui.js"></script>
+    
+    <script type="text/javascript" src="plugin/layer/layer.js"></script>
     <script type="text/javascript" src="/plugin/UEditor/editor_config.js"></script>
     <script type="text/javascript" src="/plugin/UEditor/editor_all.js"></script>
     <script type="text/javascript" src="/plugin/jOrgChart/prettify.js"></script>
@@ -897,10 +902,17 @@
                     url: '/Mafull/offerhelp.aspx?Action=add',
                     data: { txtSQMoneyOff: offmoney, offerrdo: seltype },
                     success: function (info) {
-                        v5.alert(info, '1', 'true');
-                        setTimeout(function () {
-                            v5.clearall();
-                        }, 1000);
+                        info = info.split('*')[1];
+                        if (info == 0) {
+                            v5.alert('提供帮助成功，请等待匹配', '2', 'true');
+                            setTimeout(function () {
+                                v5.clearall();
+                                callhtml('../Mafull/OfferHelpList.aspx', '提供帮助列表 ');
+                            }, 2000);
+                        }
+                        else {
+                            v5.alert(info, '2', 'true');
+                        }
                     }
                 });
             }
@@ -919,10 +931,17 @@
                     url: '/Mafull/Gethelp.aspx?Action=add',
                     data: { txtSQMoneyGet: txtSQMoneyGet, rdo: rdo },
                     success: function (info) {
-                        v5.alert(info, '1', 'true');
-                        setTimeout(function () {
-                            v5.clearall();
-                        }, 1000);
+                        info = info.split('*')[1];
+                        if (info == 0) {
+                            v5.alert('提现成功', '2', 'true');
+                            //setTimeout(function () {
+                            //    v5.clearall();
+                            //    callhtml('../Mafull/GetHelpList.aspx', '获得帮助列表');
+                            //}, 2000);
+                        }
+                        else {
+                            v5.alert(info, '2', 'true');
+                        }
                     }
                 });
             }

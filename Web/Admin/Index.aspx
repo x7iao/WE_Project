@@ -318,7 +318,7 @@
                         <span class="drawer-close">&times;</span>
                     </div>
                     <div class="overflow" style="height: 254px">
-                        <form id="form1">
+                        <%--<form id="form1">--%>
                             <table cellpadding="0" cellspacing="0">
                                 <tr>
                                     <td width="35%" align="right">
@@ -388,7 +388,7 @@
                                     </td>
                                 </tr>
                             </table>
-                        </form>
+                    <%--    </form>--%>
 
                     </div>
                     <div class="media text-center whiter l-100">
