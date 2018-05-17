@@ -24,8 +24,8 @@
     <link type="text/css" rel="stylesheet" href="/admin/pop/css/next_page_search.css" />
     <link rel="stylesheet" type="text/css" href="/admin/pop/css/V5-UI.css" />
     <style>
-        #OfferHelp table tr{
-        line-height:2;
+        #OfferHelp table tr {
+            line-height: 2;
         }
     </style>
 </head>
@@ -33,7 +33,8 @@
 
     <header id="header" class="media">
         <a href="" id="menu-toggle"></a>
-        <a class="logo pull-left" href="index.html">WE 1.0</a>
+        <a class="logo pull-left" href="#">
+            <img src="/admin/img/meitu_2.png" width="50" style="margin-top: -10px;" /></a>
 
         <div class="media-body">
             <div class="media" id="top-menu">
@@ -84,10 +85,10 @@
                         <img class="profile-pic animated" src="/Admin/img/profile-pic.jpg" alt="">
                     </a>
                     <ul class="dropdown-menu profile-menu">
-                        <li><a href="">个人信息</a> <i class="icon left">&#61903;</i><i class="icon right">&#61815;</i></li>
-                        <li><a href="">设置登陆密码</a> <i class="icon left">&#61903;</i><i class="icon right">&#61815;</i></li>
-                        <li><a href="">设置二级密码</a> <i class="icon left">&#61903;</i><i class="icon right">&#61815;</i></li>
-                        <li><a href="">退出登陆</a> <i class="icon left">&#61903;</i><i class="icon right">&#61815;</i></li>
+                        <li><a href="javascript:void(0)" onclick="callhtml('../Member/View.aspx','个人信息');">个人信息</a> <i class="icon left">&#61903;</i><i class="icon right">&#61815;</i></li>
+                        <li><a href="javascript:void(0)" onclick="callhtml('../SecurityCenter/ModifyPwd.aspx','登录密码修改');">设置登陆密码</a> <i class="icon left">&#61903;</i><i class="icon right">&#61815;</i></li>
+                        <li><a href="javascript:void(0)" onclick="callhtml('../SecurityCenter/ModifySecPwd.aspx','二级密码修改');">设置二级密码</a> <i class="icon left">&#61903;</i><i class="icon right">&#61815;</i></li>
+                        <li><a href="/SysManage/Out.aspx">退出登陆</a> <i class="icon left">&#61903;</i><i class="icon right">&#61815;</i></li>
                     </ul>
                     <h4 class="m-0"><%=TModel.MID %></h4>
                     <%=TModel.MName %>
@@ -114,38 +115,27 @@
                     </h2>
 
                     <div class="s-widget-body">
+
+                        <%
+                            int index = 0;
+                            for (int i = 0; i < dtxxfloat.Rows.Count; i++)
+                            {
+                                index++;
+                        %>
                         <div class="side-border">
-                            <small>第一单转入</small>
+                            <small>第<%=index %>单未出局</small>
                             <div class="progress progress-small">
-                                <a href="#" data-toggle="tooltip" title="" class="progress-bar tooltips progress-bar-danger" style="width: 60%;" data-original-title="60%">
-                                    <span class="sr-only">60% 进度</span>
+                                <a href="#" data-toggle="tooltip" title="" class="progress-bar tooltips progress-bar-danger" style="width: <%=dtxxfloat.Rows[i]["xxfloat"]%>%;" data-original-title="<%=dtxxfloat.Rows[i]["xxfloat"]%>%">
+                                    <span class="sr-only"><%=dtxxfloat.Rows[i]["xxfloat"]%>% 进度</span>
                                 </a>
                             </div>
                         </div>
-                        <div class="side-border">
-                            <small>第一单转入</small>
-                            <div class="progress progress-small">
-                                <a href="#" data-toggle="tooltip" title="" class="tooltips progress-bar progress-bar-info" style="width: 43%;" data-original-title="43%">
-                                    <span class="sr-only">43% 进度</span>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="side-border">
-                            <small>第一单转入</small>
-                            <div class="progress progress-small">
-                                <a href="#" data-toggle="tooltip" title="" class="tooltips progress-bar progress-bar-warning" style="width: 81%;" data-original-title="81%">
-                                    <span class="sr-only">81% 进度</span>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="side-border">
-                            <small>第一单转入</small>
-                            <div class="progress progress-small">
-                                <a href="#" data-toggle="tooltip" title="" class="tooltips progress-bar progress-bar-success" style="width: 10%;" data-original-title="10%">
-                                    <span class="sr-only">10% 进度</span>
-                                </a>
-                            </div>
-                        </div>
+                        <%
+                            }
+                        %>
+
+
+
                         <%-- <div class="side-border">
                             <small>Chrome Extension</small>
                             <div class="progress progress-small">
@@ -242,11 +232,11 @@
                     <img src="/Admin/img/shortcuts/calendar.png" alt="">
                     <small class="t-overflow">卖出</small>
                 </a>
-                <a class="shortcut tile" href="">
+                <a class="shortcut tile" href="JavaScript:void(0)" onclick="callhtml('../Mafull/OfferHelpList.aspx','提供帮助列表 ');">
                     <img src="/Admin/img/shortcuts/stats.png" alt="">
                     <small class="t-overflow">买入列表</small>
                 </a>
-                <a class="shortcut tile" href="">
+                <a class="shortcut tile" href="JavaScript:void(0)" onclick="callhtml('../Mafull/GetHelpList.aspx','获得帮助列表');">
                     <img src="/Admin/img/shortcuts/connections.png" alt="">
                     <small class="t-overflow">卖出列表</small>
                 </a>
@@ -264,59 +254,58 @@
                         <span class="drawer-close">&times;</span>
                     </div>
                     <div class="overflow" style="height: 254px">
-                        <form id="form1">
-                            <table cellpadding="0" cellspacing="0" style="margin-top:10px;">
-                                <tr>
-                                    <td width="45%" align="right">
-                                        <span>申请援助说明：</span>
-                                    </td>
-                                    <td>
-                                        <div>
-                                            <p>
-                                                额度：<%= WE_Project.BLL.MMMConfig.Model.OfferHelpMin%>-<%=WE_Project.BLL.MMMConfig.Model.OfferHelpMax%>（<%=WE_Project.BLL.MMMConfig.Model.OfferHelpBase %>的倍数）
-                                            </p>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td align="right">
-                                        <span>我的<%=WE_Project.BLL.Reward.List["MGP"].RewardName %>：</span>
-                                    </td>
-                                    <td>
-                                        <%=TModel.MConfig.MGP %>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td align="right">
-                                        <span>排单区域：</span>
-                                    </td>
-                                    <td>
-                                        <select id="offerrdo" runat="server">
-                                            <option value="0">正常排单</option>
-                                            <%--<option value="1">抢单区排单（不消耗排单币）</option>--%>
-                                        </select>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td align="right">
-                                        <span>申请援助金额：</span>
-                                    </td>
-                                    <td>
-                                        <input type="text" runat="server" id="txtSQMoneyOff" style="width: 100px;margin-top:4px;"  />
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>
-                                        <input class="btn btn-success" id="btnOK" type="button" runat="server" value="提交"
-                                            onclick="checkChange();" style="margin-top:6px;" />
-                                    </td>
-                                </tr>
-                            </table>
-                        </form>
-
+                        <%-- <form id="form1">--%>
+                        <table cellpadding="0" cellspacing="0" style="margin-top: 10px;">
+                            <tr>
+                                <td width="45%" align="right">
+                                    <span>申请援助说明：</span>
+                                </td>
+                                <td>
+                                    <div>
+                                        <p>
+                                            额度：<%= WE_Project.BLL.MMMConfig.Model.OfferHelpMin%>-<%=WE_Project.BLL.MMMConfig.Model.OfferHelpMax%>（<%=WE_Project.BLL.MMMConfig.Model.OfferHelpBase %>的倍数）
+                                        </p>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    <span>我的<%=WE_Project.BLL.Reward.List["MGP"].RewardName %>：</span>
+                                </td>
+                                <td>
+                                    <%=TModel.MConfig.MGP %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    <span>排单区域：</span>
+                                </td>
+                                <td>
+                                    <select id="offerrdoindex" name="offerrdoindex">
+                                        <option value="0">正常排单</option>
+                                        <option value="1">抢单区排单（不消耗排单币）</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    <span>申请援助金额：</span>
+                                </td>
+                                <td>
+                                    <input type="text" id="txtSQMoneyOffindex" name="txtSQMoneyOffindex" style="width: 100px; margin-top: 4px;" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>
+                                    <input class="btn btn-success" id="btnOK" type="button" runat="server" value="提交"
+                                        onclick="checkofferindex();" style="margin-top: 6px;" />
+                                </td>
+                            </tr>
+                        </table>
+                        <%--</form>--%>
                     </div>
-                   
+
                 </div>
             </div>
 
@@ -328,28 +317,81 @@
                         <span class="drawer-close">&times;</span>
                     </div>
                     <div class="overflow" style="height: 254px">
-                        <div class="media">
-                            <div class="pull-left">
-                                <img width="40" src="img/profile-pics/1.jpg" alt="">
-                            </div>
-                            <div class="media-body">
-                                <small class="text-muted">Nadin Jackson - 2 Hours ago</small><br>
-                                <a class="t-overflow" href="">Mauris consectetur urna nec tempor adipiscing. Proin sit amet nisi ligula. Sed eu adipiscing lectus</a>
-                            </div>
-                        </div>
-                        <div class="media">
-                            <div class="pull-left">
-                                <img width="40" src="img/profile-pics/2.jpg" alt="">
-                            </div>
-                            <div class="media-body">
-                                <small class="text-muted">David Villa - 5 Hours ago</small><br>
-                                <a class="t-overflow" href="">Suspendisse in purus ut nibh placerat Cras pulvinar euismod nunc quis gravida. Suspendisse pharetra</a>
-                            </div>
-                        </div>
+                        <form id="form1">
+                            <table cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td width="35%" align="right">
+                                        <span>我的<%=WE_Project.BLL.Reward.List["MHB"].RewardName %>：</span>
+                                    </td>
+                                    <td>
+                                        <%=TModel.MConfig.MHB%>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="35%" align="right">
+                                        <span>我的<%=WE_Project.BLL.Reward.List["MJB"].RewardName %>：</span>
+                                    </td>
+                                    <td>
+                                        <%=TModel.MConfig.MJB%>
+                                    </td>
+                                </tr>
+                          
+                                <tr>
+                                    <td width="35%" align="right">
+                                        <span>我的<%=WE_Project.BLL.Reward.List["MCW"].RewardName %>：</span>
+                                    </td>
+                                    <td>
+                                        <%=TModel.MConfig.MCW%>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="35%" align="right">
+                                        <span>申请援助说明：</span>
+                                    </td>
+                                    <td>
+                                        <div>
+                                            <%--<p>
+                                互助币:(<%=WE_Project.BLL.MMMConfig.Model.GetHelpMin%>-<%=WE_Project.BLL.MMMConfig.Model.GetHelpMax%>(<%=WE_Project.BLL.MMMConfig.Model.MHBBase %>的倍数))</p>
+                            <p>
+                                回馈币:(<%=WE_Project.BLL.MMMConfig.Model.GetHelpMin%>-<%=Math.Min(WE_Project.BLL.MMMConfig.Model.GetHelpMax, TModel.MAgencyType.DTopMoney)%>(<%=WE_Project.BLL.MMMConfig.Model.MCWBase %>的倍数))</p>
+                            <p>
+                                爱心币:(<%=WE_Project.BLL.MMMConfig.Model.GetHelpMin%>-<%=WE_Project.BLL.MMMConfig.Model.GetHelpMax%>(<%=WE_Project.BLL.MMMConfig.Model.MJBBase %>的倍数))</p>--%>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right">
+                                        <span>申请金额：</span>
+                                    </td>
+                                    <td>
+                                        <input type="text" runat="server" id="txtSQMoneygetindex" class="input-sm form-control mask-date" autocomplete="off" />
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td align="right">
+                                        <span>使用钱包：</span>
+                                    </td>
+                                    <td>
+
+                                        <input value="MCW" type="radio" name="getrdoindex" checked="checked" /><%=WE_Project.BLL.Reward.List["MCW"].RewardName %>
+                                        <input value="MHB" type="radio" name="getrdoindex" /><%=WE_Project.BLL.Reward.List["MHB"].RewardName %>
+                                        <input value="MJB" type="radio" name="getrdoindex" /><%=WE_Project.BLL.Reward.List["MJB"].RewardName %>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>
+                                        <input class="btn btn-success" id="Button1" type="button" runat="server" value="提交"
+                                            onclick="checkgetindex();" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </form>
 
                     </div>
                     <div class="media text-center whiter l-100">
-                        <a href=""><small>更多</small></a>
+                        <%--<a href=""><small>更多</small></a>--%>
                     </div>
                 </div>
             </div>
@@ -364,7 +406,7 @@
                     <div class="row">
                         <div class="col-md-3 col-xs-6">
                             <div class="tile quick-stats">
-                                <div id="stats-line-2" class="pull-left"></div>
+                                <div id="stats-line12" class="pull-left"></div>
                                 <div class="data">
                                     <h2 value="<%=TModel.MConfig.MCW %>"><%=TModel.MConfig.MCW %></h2>
                                     <small>许愿果[用来排单]</small>
@@ -374,7 +416,7 @@
 
                         <div class="col-md-3 col-xs-6">
                             <div class="tile quick-stats media">
-                                <div id="stats-line-3" class="pull-left"></div>
+                                <div id="stats-line12" class="pull-left"></div>
                                 <div class="media-body">
                                     <h2 value="<%=TModel.MConfig.MJBF %>"><%=TModel.MConfig.MJBF %></h2>
                                     <small>许愿台[用来理财]</small>
@@ -385,7 +427,7 @@
                         <div class="col-md-3 col-xs-6">
                             <div class="tile quick-stats media">
 
-                                <div id="stats-line-4" class="pull-left"></div>
+                                <div id="stats-line12" class="pull-left"></div>
 
                                 <div class="media-body">
                                     <h2 value="<%=TModel.MConfig.MJB %>"><%=TModel.MConfig.MJB %></h2>
@@ -396,7 +438,7 @@
 
                         <div class="col-md-3 col-xs-6">
                             <div class="tile quick-stats media">
-                                <div id="stats-line" class="pull-left"></div>
+                                <div id="stats-line12" class="pull-left"></div>
                                 <div class="media-body">
                                     <h2 value="<%=TModel.MConfig.MHB %>"><%=TModel.MConfig.MHB %></h2>
                                     <small>许愿树[静态奖金]</small>
@@ -405,7 +447,7 @@
                         </div>
                         <div class="col-md-3 col-xs-6">
                             <div class="tile quick-stats media">
-                                <div id="stats-line-5" class="pull-left"></div>
+                                <div id="stats-line12" class="pull-left"></div>
                                 <div class="media-body">
                                     <h2 value="<%=TModel.MConfig.MGP %>"><%=TModel.MConfig.MGP %></h2>
                                     <small>许愿金[手续费]</small>
@@ -425,7 +467,7 @@
                         <div class="col-md-8">
 
                             <!-- Pies -->
-                            <div class="tile text-center">
+                            <%-- <div class="tile text-center">
                                 <div class="tile-dark p-10">
                                     <div class="pie-chart-tiny" data-percent="86">
                                         <span class="percent"></span>
@@ -448,7 +490,7 @@
                                         <span class="pie-title">New Signups <i class="m-l-5 fa fa-retweet"></i></span>
                                     </div>
                                 </div>
-                            </div>
+                            </div>--%>
 
                             <!--  Recent Postings -->
                             <div class="row">
@@ -476,7 +518,7 @@
                                                 </div>
                                                 <div class="media-body">
                                                     <small class="text-muted">On <%=item.NCreateTime.ToString("dd/MM/yyyy") %></small><br />
-                                                    <a class="t-overflow" href=""><%=item.NTitle %></a>
+                                                    <a class="t-overflow" href="javascript:void(0)" onclick="callhtml('Message/NoticeView.aspx?id=<%=item.ID %>','<%=item.NTitle %>')"><%=item.NTitle %></a>
 
                                                 </div>
                                             </div>
@@ -496,13 +538,13 @@
                                 <!-- Tasks to do -->
                                 <div class="col-md-6">
                                     <div class="tile">
-                                        <h2 class="tile-title">Tasks to do</h2>
+                                        <h2 class="tile-title">待定</h2>
                                         <div class="tile-config dropdown">
                                             <a data-toggle="dropdown" href="" class="tile-menu"></a>
                                             <ul class="dropdown-menu pull-right text-right">
-                                                <li id="todo-add"><a href="">Add New</a></li>
+                                                <%--<li id="todo-add"><a href="">Add New</a></li>--%>
                                                 <li id="todo-refresh"><a href="">Refresh</a></li>
-                                                <li id="todo-clear"><a href="">Clear All</a></li>
+                                                <%--<li id="todo-clear"><a href="">Clear All</a></li>--%>
                                             </ul>
                                         </div>
 
@@ -510,38 +552,12 @@
                                             <div class="media">
                                                 <div class="checkbox m-0">
                                                     <label class="t-overflow">
-                                                        <input type="checkbox">
-                                                        Curabitur quis nisi ut nunc gravida suscipis
+                                                        <%--<input type="checkbox">--%>
+                                                       待定信息
                                                     </label>
                                                 </div>
                                             </div>
-                                            <div class="media">
-                                                <div class="checkbox m-0">
-                                                    <label class="t-overflow">
-                                                        <input type="checkbox">
-                                                        Suscipit at feugiat dewoo
-                                                    </label>
-                                                </div>
 
-                                            </div>
-                                            <div class="media">
-                                                <div class="checkbox m-0">
-                                                    <label class="t-overflow">
-                                                        <input type="checkbox">
-                                                        Gravida wendy lorem ipsum seen
-                                                    </label>
-                                                </div>
-
-                                            </div>
-                                            <div class="media">
-                                                <div class="checkbox m-0">
-                                                    <label class="t-overflow">
-                                                        <input type="checkbox">
-                                                        Fedrix quis nisi ut nunc gravida suscipit at feugiat purus
-                                                    </label>
-                                                </div>
-
-                                            </div>
                                         </div>
 
 
@@ -553,7 +569,7 @@
 
                         <div class="col-md-4">
                             <!-- USA Map -->
-                            <div class="tile">
+                            <%--    <div class="tile">
                                 <h2 class="tile-title">Live Visits</h2>
                                 <div class="tile-config dropdown">
                                     <a data-toggle="dropdown" href="" class="tile-menu"></a>
@@ -564,18 +580,18 @@
                                 </div>
 
                                 <div id="usa-map"></div>
-                            </div>
+                            </div>--%>
 
 
 
                             <!-- Activity -->
                             <div class="tile">
-                                <h2 class="tile-title">Social Media activities</h2>
+                                <h2 class="tile-title">平台数据</h2>
                                 <div class="tile-config dropdown">
                                     <a data-toggle="dropdown" href="" class="tile-menu"></a>
                                     <ul class="dropdown-menu pull-right text-right">
                                         <li><a href="">Refresh</a></li>
-                                        <li><a href="">Settings</a></li>
+
                                     </ul>
                                 </div>
 
@@ -583,45 +599,53 @@
 
                                     <div class="media">
                                         <div class="pull-right">
-                                            <div class="counts">367892</div>
+                                            <div class="counts"><%=pdtotalcount %></div>
                                         </div>
                                         <div class="media-body">
-                                            <h6>FACEBOOK LIKES</h6>
+                                            <h6>排单总数</h6>
                                         </div>
                                     </div>
 
                                     <div class="media">
                                         <div class="pull-right">
-                                            <div class="counts">2012</div>
+                                            <div class="counts"><%=txtotalcount %></div>
                                         </div>
                                         <div class="media-body">
-                                            <h6>GOOGLE +1s</h6>
+                                            <h6>提现总数</h6>
                                         </div>
                                     </div>
 
                                     <div class="media">
                                         <div class="pull-right">
-                                            <div class="counts">56312</div>
+                                            <div class="counts"><%=pddaymoney %></div>
                                         </div>
                                         <div class="media-body">
-                                            <h6>YOUTUBE VIEWS</h6>
+                                            <h6>日排单金额</h6>
                                         </div>
                                     </div>
 
                                     <div class="media">
                                         <div class="pull-right">
-                                            <div class="counts">785879</div>
+                                            <div class="counts"><%=txdaymoney %></div>
                                         </div>
                                         <div class="media-body">
-                                            <h6>TWITTER FOLLOWERS</h6>
+                                            <h6>日提现金额</h6>
                                         </div>
                                     </div>
                                     <div class="media">
                                         <div class="pull-right">
-                                            <div class="counts">68</div>
+                                            <div class="counts"><%=totalmembercount %></div>
                                         </div>
                                         <div class="media-body">
-                                            <h6>WEBSITE COMMENTS</h6>
+                                            <h6>平台总人数</h6>
+                                        </div>
+                                    </div>
+                                    <div class="media">
+                                        <div class="pull-right">
+                                            <div class="counts"><%=daymembercount %></div>
+                                        </div>
+                                        <div class="media-body">
+                                            <h6>日新增人数</h6>
                                         </div>
                                     </div>
                                 </div>
@@ -632,7 +656,7 @@
                 </div>
 
                 <!-- Chat -->
-                <div class="chat">
+               <%-- <div class="chat">
 
                     <!-- Chat List -->
                     <div class="pull-left chat-list">
@@ -734,7 +758,7 @@
                         </div>
 
                     </div>
-                </div>
+                </div>--%>
             </div>
 
 
@@ -818,7 +842,7 @@
     <!-- USA Map for jVectorMap -->
 
     <!--  Form Related -->
-    <script src="/Admin/js/icheck.js"></script>
+    <%--<script src="/Admin/js/icheck.js"></script>--%>
     <!-- Custom Checkbox + Radio -->
 
     <!-- UX -->
@@ -839,7 +863,6 @@
     <script src="/Admin/js/functions.js"></script>
 
 
-
     <script src="/plugin/layui/layui.js"></script>
     <%--<script type="text/javascript" src="/Admin/pop/js/layer/layer.min.js"></script>--%>
     <script type="text/javascript" src="/Admin/pop/js/stack.js"></script>
@@ -858,9 +881,54 @@
     <script type="text/javascript" src="/plugin/date/WdatePicker.js"></script>
     <script type="text/javascript" src="/plugin/ZeroClipboard/ZeroClipboard.js"></script>
     <%--<script type="text/javascript" src="/plugin/kindeditor/kindeditor-min.js"></script>--%>
-    <script type="text/javascript" src="/Admin/js/LoadHelp.js"></script>
+    <%--<script type="text/javascript" src="/Admin/js/LoadHelp.js"></script>--%>
     <script type="text/javascript" src="/Mafull/chat/js/chat.js"></script>
     <script type="text/javascript">
+        function checkofferindex() {
+            var seltype = $("#offerrdoindex").val();
+            var offmoney = $("#txtSQMoneyOffindex").val();
+            if (seltype == '') {
+                v5.alert("请选择排单区域", '1', 'true');
+            } else if (offmoney == '') {
+                v5.alert("请输入排单金额", '1', 'true');
+            } else {
+                $.ajax({
+                    type: 'post',
+                    url: '/Mafull/offerhelp.aspx?Action=add',
+                    data: { txtSQMoneyOff: offmoney, offerrdo: seltype },
+                    success: function (info) {
+                        v5.alert(info, '1', 'true');
+                        setTimeout(function () {
+                            v5.clearall();
+                        }, 1000);
+                    }
+                });
+            }
+        }
+
+        function checkgetindex() {
+            var rdo = $("#getrdoindex").val();
+            var txtSQMoneyGet = $("#txtSQMoneygetindex").val();
+            if (rdo == '') {
+                v5.alert("请选择提现币种", '1', 'true');
+            } else if (txtSQMoneyGet == '') {
+                v5.alert("请输入提现金额", '1', 'true');
+            } else {
+                $.ajax({
+                    type: 'post',
+                    url: '/Mafull/Gethelp.aspx?Action=add',
+                    data: { txtSQMoneyGet: txtSQMoneyGet, rdo: rdo },
+                    success: function (info) {
+                        v5.alert(info, '1', 'true');
+                        setTimeout(function () {
+                            v5.clearall();
+                        }, 1000);
+                    }
+                });
+            }
+        }
+
+
         $(function () {
             $.ajaxSetup({ cache: false });
             var clip = new ZeroClipboard(document.getElementById("fenxian"), {
@@ -885,15 +953,15 @@
         //    }
         //}
 
-        function rectClick() {
-            layer.open({
-                title: false,
-                type: 2,
-                content: ['test/iframe.html', '0'],
-                area: ['380px', '160px'],
-                btn: ['ok']
-            });
-        }
+        //function rectClick() {
+        //    layer.open({
+        //        title: false,
+        //        type: 2,
+        //        content: ['test/iframe.html', '0'],
+        //        area: ['380px', '160px'],
+        //        btn: ['ok']
+        //    });
+        //}
 
         //KindEditor.ready(function (K) {
         //    window.KKKK = K;

@@ -13,19 +13,19 @@ namespace WE_Project.Web.Regedit
         protected Model.WebSetInfo WebModel = BLL.WebSetInfo.Model;
         protected void Page_Load(object sender, EventArgs e)
         {
-            IList<Model.Sys_SecurityQuestion> list = new BLL.Sys_SecurityQuestion().GetList("IsDeleted=0 and Status=1");
-            ddlQuestion.DataSource = list;
-            ddlQuestion.DataValueField = "Id";
-            ddlQuestion.DataTextField = "Question";
-            ddlQuestion.DataBind();
-            if (!IsPostBack)
-            {
-                if (!string.IsNullOrEmpty(Request.QueryString["mid"]))
-                {
-                    txtMTJ.Value = Request.QueryString["mid"];
-                    txtMTJ.Style.Add("readonly", "readonly");
-                }
-            }
+            //IList<Model.Sys_SecurityQuestion> list = new BLL.Sys_SecurityQuestion().GetList("IsDeleted=0 and Status=1");
+            //ddlQuestion.DataSource = list;
+            //ddlQuestion.DataValueField = "Id";
+            //ddlQuestion.DataTextField = "Question";
+            //ddlQuestion.DataBind();
+            //if (!IsPostBack)
+            //{
+            //    if (!string.IsNullOrEmpty(Request.QueryString["mid"]))
+            //    {
+            //        txtMTJ.Value = Request.QueryString["mid"];
+            //        txtMTJ.Style.Add("readonly", "readonly");
+            //    }
+            //}
         }
 
         public Model.Member MemberMode

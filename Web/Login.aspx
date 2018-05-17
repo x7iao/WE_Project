@@ -104,7 +104,7 @@
                 
                 <small>
                     <%--<a class="box-switcher" data-switch="box-register" href="">Don't have an Account?</a>--%> 
-                    <%--或<a data-switch="box-reset" href="/SecurityCenter/Findpwd.aspx">忘记密码?</a>--%>
+                    <a data-switch="box-reset" href="/SecurityCenter/Findpwd.aspx">忘记密码?</a>
                 </small>
             </form>
             

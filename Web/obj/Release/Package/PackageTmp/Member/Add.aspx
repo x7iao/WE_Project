@@ -268,7 +268,7 @@
                 if (checkForm()) {
                     $.ajax({
                         type: 'post',
-                        url: '/Member/Add.aspx?Action=add',
+                        url: '/Ajax/Regedit.ashx?Action=add',
                         data: $('#form1').serialize(),
                         success: function (info) {
                             v5.alert(info, '1', 'true');

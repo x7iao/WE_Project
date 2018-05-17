@@ -1369,6 +1369,7 @@
     <Content Include="plugin\layui\font\iconfont.eot" />
     <Content Include="plugin\layui\font\iconfont.ttf" />
     <Content Include="plugin\layui\font\iconfont.woff" />
+    <Content Include="Ajax\Regedit.ashx" />
     <None Include="plugin\ztree\demo\cn\asyncData\getNodes.php" />
     <None Include="plugin\ztree\demo\cn\asyncData\getNodesForBigData.php" />
     <None Include="plugin\ztree\demo\en\asyncData\getNodes.php" />
@@ -1389,6 +1390,9 @@
     </Compile>
     <Compile Include="Ajax\AjaxM.aspx.designer.cs">
       <DependentUpon>AjaxM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ajax\Regedit.ashx.cs">
+      <DependentUpon>Regedit.ashx</DependentUpon>
     </Compile>
     <Compile Include="autoaspx\day.aspx.cs">
       <DependentUpon>day.aspx</DependentUpon>

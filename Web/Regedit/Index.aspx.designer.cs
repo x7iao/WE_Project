@@ -13,6 +13,24 @@ namespace WE_Project.Web.Regedit {
     public partial class Index {
         
         /// <summary>
+        /// txtMID 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtMID;
+        
+        /// <summary>
+        /// txtMName 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtMName;
+        
+        /// <summary>
         /// txtMTJ 控件。
         /// </summary>
         /// <remarks>
@@ -22,21 +40,12 @@ namespace WE_Project.Web.Regedit {
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtMTJ;
         
         /// <summary>
-        /// ddlQuestion 控件。
+        /// txtTel 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect ddlQuestion;
-        
-        /// <summary>
-        /// btnOK 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnOK;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtTel;
     }
 }

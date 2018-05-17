@@ -26,8 +26,8 @@
                         激活费用:
                     </td>
                     <td>
-                        <input id="txtYLMoney" runat="server" class="normal_input" type="text" require-type="int"
-                            require-msg="激活费用" /><font color="red">*正整数</font>
+                      <%--  <input id="txtYLMoney" runat="server" class="normal_input" type="text" require-type="int"
+                            require-msg="激活费用" /><font color="red">*正整数</font>--%>
                     </td>
                     <td width="20%" align="right">
                         未激活删号时间:
@@ -56,14 +56,14 @@
                         每天排单总数:
                     </td>
                     <td>
-                        <input id="txtTXMinMoney" runat="server" class="normal_input" type="text" require-type="int"
-                            require-msg="申请援助最小金额" /><font color="red">*正整数</font>
+                        <input id="txtTXMinMoney" runat="server" class="normal_input" type="text" 
+                            require-msg="每天排单总数" /><font color="red">*正整数</font>
                     </td>
                     <td align="right">
                         每天获得帮助总数:
                     </td>
                     <td>
-                        <input id="txtTXBaseMoney" runat="server" class="normal_input" type="text" require-type="int"
+                        <input id="txtTXBaseMoney" runat="server" class="normal_input" type="text" 
                             require-msg="每天获得帮助总数" /><font color="red">*正整数</font>
                     </td>
                 </tr>
@@ -72,14 +72,14 @@
                          每天排单金额:
                     </td>
                     <td>
-                        <input id="txtGPrice" runat="server" class="normal_input" type="text" require-type="decimal"
+                        <input id="txtGPrice" runat="server" class="normal_input" type="text" 
                             require-msg="每天排单金额" /><font color="red">*小数</font>
                     </td>
                     <td align="right">
                         每天获得帮助金额:
                     </td>
                     <td>
-                        <input id="txtDFHFloat" runat="server" class="normal_input" type="text" require-type="decimal"
+                        <input id="txtDFHFloat" runat="server" class="normal_input" type="text" 
                             require-msg="每天获得帮助金额" /><font color="red">*小数</font>
                     </td>
                 </tr>
@@ -88,14 +88,14 @@
                         平台总会员人数：
                     </td>
                     <td>
-                        <input id="txtMinBuyGCount" runat="server" class="normal_input" type="text" require-type="int"
+                        <input id="txtMinBuyGCount" runat="server" class="normal_input" type="text" 
                             require-msg="平台总会员人数" /><font color="red">*整数</font>
                     </td>
                     <td>
                         每天新会员人数：
                     </td>
                     <td>
-                        <input id="txtDFHOutCount" runat="server" class="normal_input" type="text" require-type="int"
+                        <input id="txtDFHOutCount" runat="server" class="normal_input" type="text" 
                             require-msg="每天新会员人数" /><font color="red">*整数</font>
                     </td>
                 </tr>
@@ -217,7 +217,7 @@
                             require-msg="转账倍数" /><font color="red">*正整数</font>
                     </td>
                 </tr>
-                <tr>
+                <tr style="display:none;">
                     <td>
                         身份证注册帐号数量：
                     </td>

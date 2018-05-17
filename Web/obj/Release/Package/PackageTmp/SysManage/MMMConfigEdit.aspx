@@ -308,17 +308,16 @@
                         <input id="txtFreezeTimesOfRegister" runat="server" class="normal_input" type="text"
                             require-type="int" require-msg="激活不排单冻结[分钟]" /><font color="red">*分钟</font>
                     </td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
                     <td align="right">
-                        利息分配打款时间(内外):
+                        注册N天内不参加抢单:
                     </td>
                     <td>
                         <input id="txtMHBBase" runat="server" class="normal_input" type="text" require-type="int"
-                            require-msg="利息分配打款时间(内外)" /><font color="red">*整数(分钟)</font>
+                            require-msg="注册N天内不参加抢单" /><font color="red">*整数(分钟)</font>
                     </td>
+                </tr>
+                <tr style="display:none;">
+                  
                     <td align="right">
                         抢单区提供帮助排单期:
                     </td>
@@ -329,7 +328,7 @@
                 </tr>
 
               
-                <tr>
+                <tr style="display:none;">
                      <td align="right">
                         收款后不排单冻结时间:
                     </td>
@@ -364,16 +363,19 @@
                         <input id="txtLiXi1" runat="server" class="normal_input" type="text" require-type="decimal"
                             require-msg="不打款扣除推荐人许愿果" /><font color="red">*</font>
                     </td>
-                    <td align="right">
+                   <td></td>
+                    <td></td>
+                </tr>
+             
+                <tr style="display: none">
+                     <td align="right">
                         奖金烧伤比例:
                     </td>
                     <td>
                         <input id="txtLiXi2" runat="server" class="normal_input" type="text" require-type="decimal"
                             require-msg="奖金烧伤比例" /><font color="red">*</font>
                     </td>
-                </tr>
-             
-                <tr style="display: none">
+
                     <td align="right">
                         获得帮助不收款扣推荐人的比例:
                     </td>

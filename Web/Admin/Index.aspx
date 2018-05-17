@@ -538,7 +538,7 @@
                                 <!-- Tasks to do -->
                                 <div class="col-md-6">
                                     <div class="tile">
-                                        <h2 class="tile-title">Tasks to do</h2>
+                                        <h2 class="tile-title">待定</h2>
                                         <div class="tile-config dropdown">
                                             <a data-toggle="dropdown" href="" class="tile-menu"></a>
                                             <ul class="dropdown-menu pull-right text-right">
@@ -553,7 +553,7 @@
                                                 <div class="checkbox m-0">
                                                     <label class="t-overflow">
                                                         <%--<input type="checkbox">--%>
-                                                        Curabitur quis nisi ut nunc gravida suscipis
+                                                       待定信息
                                                     </label>
                                                 </div>
                                             </div>
