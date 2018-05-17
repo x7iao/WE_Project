@@ -22,22 +22,16 @@ namespace WE_Project.Web.ChangeMoney
                 if (!string.IsNullOrEmpty(Request.Form["txtMHB"]))
                 {
                     string moneyType = "MHB";
-                    if (Request.Form["txtMID"] == "MHB")
-                    {
-                        moneyType = "MHB";
-                    }
-                    else if (Request.Form["txtMID"] == "MCW")
-                    {
-                        moneyType = "MCW";
-                    }
-                    else if (Request.Form["txtMID"] == "MJB")
-                    {
+                    if (Request.Form["rdo"] == "MJB")
                         moneyType = "MJB";
-                    }
-                    //else if (Request.Form["txtMID"] == "MGP")
-                    //{
-                    //    moneyType = "MGP";
-                    //}
+                    if (Request.Form["rdo"] == "MGP")
+                        moneyType = "MGP";
+                    if (Request.Form["rdo"] == "MCW")
+                        moneyType = "MCW";
+                    if (Request.Form["rdo"] == "MJBF")
+                        moneyType = "MJBF";
+                    if (Request.Form["rdo"] == "TotalYFHMoney")
+                        moneyType = "TotalYFHMoney";
                     if (BLL.ChangeMoney.EnoughChange(Request.Form["txtMID"], int.Parse(Request.Form["txtMHB"]), moneyType))
                     {
                         Hashtable MyHs = new Hashtable();

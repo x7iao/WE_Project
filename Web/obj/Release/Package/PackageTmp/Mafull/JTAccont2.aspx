@@ -18,14 +18,14 @@
                             onclick="checkChange();" />
                     </td>
                 </tr>
-                <tr style="height: 50px;">
+              <%--  <tr style="height: 50px;">
                     <td align="right">
                     </td>
                     <td align="left">
                         <input class="normal_btnok" id="Button1" type="button" runat="server" value="规定时间不排单"
                             onclick="checkChange1();" />
                     </td>
-                </tr>
+                </tr>--%>
                 <%--<tr style="height: 50px;">
                     <td align="right">
                     </td>

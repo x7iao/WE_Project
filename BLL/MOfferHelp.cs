@@ -176,12 +176,22 @@ namespace WE_Project.BLL
         /// <summary>
         /// 获取最新的一单
         /// </summary>
+        public static Model.MOfferHelp GetLastMofferHelp(string mid,int helptype)
+        {
+            var list = GetList(" SQMID = '" + mid + "' and PPState <> 5 and helptype="+helptype+" order by [ID] desc ");
+
+            return list.FirstOrDefault();
+        }
+        /// <summary>
+        /// 获取最新的一单
+        /// </summary>
         public static Model.MOfferHelp GetLastMoffer(string mid)
         {
             var list = GetList(" SQMID = '" + mid + "' and PPState <> 5 order by [ID] desc ");
 
             return list.FirstOrDefault();
         }
+
 
         public static decimal GetMaxOfferMoney(string mid)
         {
@@ -235,10 +245,10 @@ namespace WE_Project.BLL
             {
                 return "1*超出每天排单排单金额限制，还能排单" + (BLL.MMMConfig.Model.MOfferNeedMCW-dayoff);
             }
-            if (BLL.MOfferHelp.GetSumCountByStr(string.Format(" SQDate >= '{0}' and SQMID = '" + member.MID + "' and PPState <> 5 and HelpType = 0 ", DateTime.Now.AddMinutes(-(int)BLL.MMMConfig.Model.OfferHelpRangeTimes))) > BLL.MMMConfig.Model.OfferHelpRangeCount)
-            {
-                return "1*您已申请过," + BLL.MMMConfig.Model.OfferHelpRangeTimes + "分钟内只能申请" + BLL.MMMConfig.Model.OfferHelpRangeCount + "次";
-            }
+            //if (BLL.MOfferHelp.GetSumCountByStr(string.Format(" SQDate >= '{0}' and SQMID = '" + member.MID + "' and PPState <> 5 and HelpType = 0 ", DateTime.Now.AddMinutes(-(int)BLL.MMMConfig.Model.OfferHelpRangeTimes))) > BLL.MMMConfig.Model.OfferHelpRangeCount)
+            //{
+            //    return "1*您已申请过," + BLL.MMMConfig.Model.OfferHelpRangeTimes + "分钟内只能申请" + BLL.MMMConfig.Model.OfferHelpRangeCount + "次";
+            //}
             //decimal maxOfferMoney = BLL.MMMConfig.Model.OfferHelpMax;
             //decimal minOfferMoney = BLL.MMMConfig.Model.OfferHelpMin;
             //var dic = DAL.ConfigDictionary.GetConfigDictionary(member.MConfig.TJCount, "OfferTop", "");
@@ -261,6 +271,14 @@ namespace WE_Project.BLL
             decimal minOfferMoney = WE_Project.BLL.MMMConfig.Model.OfferHelpMin;
             if (helptype == 1)
             {
+                //日抢单额度
+                decimal dayqdmoney= Convert.ToDecimal(BLL.CommonBase.GetSingle("select ISNULL(SUM(sqmoney),0) from MOfferHelp where DATEDIFF(DAY,SQDate,GETDATE())=0 and HelpType=1;"));
+                if (dayqdmoney + sqMoney > BLL.MMMConfig.Model.GetTJKF)
+                {
+                    return "1*超出日抢单额度，还能抢单"+(BLL.MMMConfig.Model.GetTJKF- dayqdmoney);
+                }
+
+
                 minOfferMoney = 1;
                 if (member.MCreateDate.AddMinutes(BLL.MMMConfig.Model.MHBBase) > DateTime.Now)
                 {
@@ -271,6 +289,17 @@ namespace WE_Project.BLL
                 if (sqcount > 0)
                 {
                     return "1*每月只能抢一单";
+                }
+            }
+            else
+            {
+                Model.MOfferHelp lastmo= BLL.MOfferHelp.GetLastMofferHelp(member.MID,0);
+                if (lastmo != null)
+                {
+                    if (lastmo.SQDate.AddMinutes(BLL.MMMConfig.Model.GLRewardFreezeTimes) > DateTime.Now)
+                    {
+                        return "1*正常排单两单间隔时间为"+ BLL.MMMConfig.Model.GLRewardFreezeTimes+"分钟，请等待";
+                    }
                 }
             }
 

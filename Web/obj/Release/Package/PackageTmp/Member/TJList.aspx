@@ -5,7 +5,7 @@
 <head id="Head1" runat="server">
     <title></title>
     <script type="text/javascript">
-        tState = 'true'
+        //tState = 'true'
         tUrl = "/Handler/MemberTJList.ashx";
         SearchByCondition();
     </script>
@@ -102,5 +102,17 @@
             </div>
         </div>
     </div>
+    <script>
+        function JHMember(mid) {
+            var relVal = RunAjaxGetKey('JHMember', mid);
+            if (relVal == "1") {
+                v5.alert('激活成功', '1', 'true');
+                SearchByCondition();
+            }
+            else {
+                v5.alert(relVal, '1', 'true');
+            }
+        }
+    </script>
 </body>
 </html>

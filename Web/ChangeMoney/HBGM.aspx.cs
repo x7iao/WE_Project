@@ -30,7 +30,8 @@ namespace WE_Project.Web.ChangeMoney
                         MType = "MCW";
                     if (Request.Form["rdo"] == "MJBF")
                         MType = "MJBF";
-
+                    if (Request.Form["rdo"] == "TotalYFHMoney")
+                        MType = "TotalYFHMoney";
                     if (BLL.ChangeMoney.EnoughChange(TModel.MID, int.Parse(Request.Form["txtMHB"]), MType))
                     {
                         Hashtable MyHs = new Hashtable();

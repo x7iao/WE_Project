@@ -91,7 +91,7 @@
                         <li><a href="javascript:void(0)" onclick="callhtml('../SecurityCenter/ModifySecPwd.aspx','二级密码修改');">设置二级密码</a> <i class="icon left">&#61903;</i><i class="icon right">&#61815;</i></li>
                         <li><a href="/SysManage/Out.aspx">退出登陆</a> <i class="icon left">&#61903;</i><i class="icon right">&#61815;</i></li>
                     </ul>
-                    <h4 class="m-0"><%=TModel.MID %></h4>
+                    <h4 class="m-0"><%=TModel.MID %><%=string.IsNullOrEmpty(TModel.ActiveCode)?"":"<span style='color:red; font-weight:bolder;'>【"+TModel.ActiveCode+"】</span>" %></h4>
                     <%=TModel.MName %>
                 </div>
 
@@ -145,6 +145,26 @@
                                 </a>
                             </div>
                         </div>--%>
+                    </div>
+                </div>
+
+                 <div class="s-widget m-b-25">
+                    <h2 class="tile-title">忠诚度<%=TModel.MConfig.EPXingCount %>
+                    </h2>
+
+                    <div class="s-widget-body">
+
+                      
+
+
+                         <div class="side-border">
+                            <small></small>
+                            <div class="progress progress-small">
+                                <a href="#" data-toggle="tooltip" title="" class="tooltips progress-bar progress-bar-success" style="width: <%=TModel.MConfig.EPXingCount %>%;" data-original-title="<%=TModel.MConfig.EPXingCount %>">
+                                    <span class="sr-only"><%=TModel.MConfig.EPXingCount %></span>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -452,6 +472,15 @@
                                 <div class="media-body">
                                     <h2 value="<%=TModel.MConfig.MGP %>"><%=TModel.MConfig.MGP %></h2>
                                     <small>许愿金[手续费]</small>
+                                </div>
+                            </div>
+                        </div>
+                          <div class="col-md-3 col-xs-6">
+                            <div class="tile quick-stats media">
+                                <div id="stats-line12" class="pull-left"></div>
+                                <div class="media-body">
+                                    <h2 value="<%=TModel.MConfig.MGP %>"><%=TModel.MConfig.TotalYFHMoney.ToFixedDecimal(0) %></h2>
+                                    <small>激活码[激活]</small>
                                 </div>
                             </div>
                         </div>

@@ -37,6 +37,7 @@
                         <input id="Radio3" value="MGP" type="radio" name="rdo" /><%=WE_Project.BLL.Reward.List["MGP"].RewardName%>
                         <input id="Radio4" value="MCW" type="radio" name="rdo" /><%=WE_Project.BLL.Reward.List["MCW"].RewardName%>
                         <input id="Radio5" value="MJBF" type="radio" name="rdo" /><%=WE_Project.BLL.Reward.List["MJBF"].RewardName%>
+                        <input id="Radio6" value="TotalYFHMoney" type="radio" name="rdo" /><%=WE_Project.BLL.Reward.List["TotalYFHMoney"].RewardName%>
                     </td>
                 </tr>
                 <tr>

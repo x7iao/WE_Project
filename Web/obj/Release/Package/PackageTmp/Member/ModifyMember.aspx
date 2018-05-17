@@ -113,7 +113,7 @@
                     </td>
                     <td>
                         <input id="chkIsClock" runat="server" type="checkbox" />冻结账号|<input id="chkClockAll"
-                            runat="server" type="checkbox" style="display:none;" />伞下同步
+                            runat="server" type="checkbox" style="display:none;" /><%--伞下同步--%>
                     </td>
                     <td align="right">
                         累计投资:
@@ -129,7 +129,7 @@
                     </td>
                     <td>
                         <input id="chkIsClose" runat="server" type="checkbox" />禁止登录|<input id="chkCloseAll"
-                            runat="server" type="checkbox" style="display:none;"  />伞下同步
+                            runat="server" type="checkbox" style="display:none;"  /><%--伞下同步--%>
                     </td>
                     <td align="right">
                         锁定说明：

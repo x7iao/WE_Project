@@ -244,8 +244,8 @@ namespace WE_Project.Web
             }
             //else
             //    TModel = null;
-            if (!IsPostBack)
-            {
+            //if (!IsPostBack)
+            //{
                 if (!WebModel.WebState || !TestCloseTime())
                 {
                     if ((BllModel == null || !TModel.Role.IsAdmin) && !Context.Request.Url.AbsolutePath.ToUpper().Contains("MANAGEMENTORS/LOGIN.ASPX"))
@@ -262,7 +262,7 @@ namespace WE_Project.Web
                 {
                     VerifyPower();
                 }
-            }
+            //}
         }
         /// <summary>
         /// 验证授权

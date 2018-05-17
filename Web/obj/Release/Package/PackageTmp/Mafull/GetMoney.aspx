@@ -51,7 +51,7 @@
                         <span id="spLeaveTime" runat="server"></span>
                     </td>
                 </tr>
-                <tr>
+                <tr style="color:#000000">
                     <td width="15%" align="right">
                         <span>付款方信息：</span>
                     </td>
@@ -105,7 +105,7 @@
                                     推荐人银行卡号：<%=getTJMemberModel.BankNumber%>
                                 </td>--%>
                             </tr>
-                            <tr>
+                            <tr style="display:none;">
                                 <td>
                                     支付宝账号：<%=getMemberModel.AliPay%>
                                 </td>
@@ -113,7 +113,7 @@
                                     推荐人支付宝账号：<%=getTJMemberModel.Email%>
                                 </td>--%>
                             </tr>
-                            <tr>
+                            <tr style="display:none;">
                                 <td>
                                     微信帐号：<%=getMemberModel.WeChat%>
                                 </td>

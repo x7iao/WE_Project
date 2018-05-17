@@ -99,14 +99,19 @@
                             require-msg="每天新会员人数" /><font color="red">*整数</font>
                     </td>
                 </tr>
-                <tr style="display: none">
-                    <td align="right">
-                        注册送币:
+                <tr>
+                      <td align="right">
+                        激活赠送许愿果:
                     </td>
                     <td>
                         <input id="txtDFHTopMoney" runat="server" class="normal_input" type="text" require-type="decimal"
-                            require-msg="商务股封顶出局" />
+                            require-msg="激活赠送许愿果" />
                     </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr style="display: none">
+                  
                     <td align="right">
                         动态奖金现金币拨入:
                     </td>
@@ -178,11 +183,11 @@
                         </select>
                     </td>
                     <td>
-                        每天注册人数：
+                        每天激活人数：
                     </td>
                     <td>
                         <input id="txtDayRegeditNumber" runat="server" class="normal_input" type="text" require-type="int"
-                            require-msg="每天注册人数" /><font color="red">*</font>
+                            require-msg="每天激活人数" /><font color="red">*</font>
                     </td>
                 </tr>
                 <tr>

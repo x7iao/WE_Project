@@ -41,7 +41,7 @@
                         <%=TModel.Tel %>
                     </td>
                 </tr>
-                <tr>
+              <%--  <tr>
                     <td align="right">
                         微信帐号:
                     </td>
@@ -56,7 +56,7 @@
                     <td>
                         <%=TModel.AliPay %>
                     </td>
-                </tr>
+                </tr>--%>
                 <tr>
                     <td align="right">
                         开户银行:
@@ -158,6 +158,13 @@
                     </td>
                     <td>
                         <%=TModel.MConfig.MJBF.ToString("F2")%>
+                    </td>
+                </tr>   <tr style="font-size: 16px; color: #55AA66;">
+                    <td align="right">
+                        <%=WE_Project.BLL.Reward.List["TotalYFHMoney"].RewardName%>:
+                    </td>
+                    <td>
+                        <%=TModel.MConfig.TotalYFHMoney.ToString("F2")%>
                     </td>
                 </tr>
                 <%} %>

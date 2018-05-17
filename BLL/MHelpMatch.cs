@@ -1239,6 +1239,16 @@ namespace WE_Project.BLL
                     //增加投资额
                     offModel.MConfig.SHMoney += (int)offer.SQMoney;
 
+
+                     Model.ConfigDictionary dic= DAL.ConfigDictionary.GetConfigDictionaryFloat(offer.SQMoney,"JTLevel","");
+                    if (dic != null)
+                    {
+                        if (dic.DValue != offModel.ActiveCode)
+                        {
+                            MyHs.Add("update Member set ActiveCode='" + dic.DValue + "' where MID='" + offModel.MID + "';", null);
+                        }
+                    }
+
                     //如果是抢单,直接给10天利息
                     //if (offer.HelpType == 1)
                     //{

@@ -47,7 +47,7 @@
 	padding: 20px;
 	background: #DDDDDD ;
 	position: fixed;
-	left: 50%;
+	left: 45%;
 	top: 50%;
 	box-shadow: 0px 0px 10px #555;
 	z-index: 99999;
@@ -55,7 +55,7 @@
 *behavior:;
 	display: none;
 	font-weight: bold;
-	width:23%;
+	width:43%;
 }
 #v5_prompt .content {
 	margin: 0 auto;

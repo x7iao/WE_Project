@@ -42,6 +42,7 @@ namespace WE_Project.Web.AjaxM
                 model.BankNumber = _context.Request.Form["txtBankNumber"];
                 model.MCreateDate = DateTime.Now;
                 model.MDate = DateTime.MaxValue;
+                model.ZDStatus = true;
                 model.Salt = new Random().Next(10000, 99999).ToString();
                 //model.Address = "";// Request.Form["hduploadPic1"];
 
@@ -94,12 +95,19 @@ namespace WE_Project.Web.AjaxM
                 context.Response.Write("非法关键字符");
                 return;
             }
-            int addcount = Convert.ToInt32(BLL.CommonBase.GetSingle("SELECT count(*) FROM Member WHERE DATEDIFF(DAY,MCreateDate,GETDATE())=0 AND RoleCode NOT IN('Manage');"));
-            if (BLL.Configuration.Model.DayRegeditNumber <= addcount)
+
+            if (!BLL.Member.getCardNameCount(MemberMode))
             {
-                context.Response.Write("每天注册人数超出上限，请明天再来");
+                context.Response.Write("三代内不能有同名开户账号");
                 return;
             }
+
+            //int addcount = Convert.ToInt32(BLL.CommonBase.GetSingle("SELECT count(*) FROM Member WHERE DATEDIFF(DAY,MCreateDate,GETDATE())=0 AND RoleCode NOT IN('Manage');"));
+            //if (BLL.Configuration.Model.DayRegeditNumber <= addcount)
+            //{
+            //    context.Response.Write("每天注册人数超出上限，请明天再来");
+            //    return;
+            //}
             //List<Model.Member> list = BLL.Member.ManageMember.GetMemberEntityList("Tel='" + _context.Request.Form["txtTel"].Trim() + "'");
             //if (list.Count >= BLL.Configuration.Model.E_BbinMaxCount)
             //{

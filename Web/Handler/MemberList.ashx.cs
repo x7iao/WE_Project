@@ -96,6 +96,7 @@ namespace WE_Project.Web.Handler
                 }
                 sb.Append(ListMember[i].MName + "~");
                 sb.Append(ListMember[i].MAgencyType.MAgencyName + "~");
+                sb.Append(ListMember[i].ActiveCode + "~");
                 //if (ListMember[i].MConfig.MHB - ListMember[i].MConfig.MHBFreeze < 0)
                 //{
                 //    sb.Append(ListMember[i].MConfig.MHB + "~");
@@ -109,10 +110,11 @@ namespace WE_Project.Web.Handler
                 sb.Append(ListMember[i].MConfig.MCW + "~");
                 sb.Append(ListMember[i].MConfig.MGP + "~");
                 sb.Append(ListMember[i].MConfig.MJBF + "~");
+                sb.Append(ListMember[i].MConfig.TotalYFHMoney.ToFixedDecimal(0) + "~");
                 sb.Append(ListMember[i].MConfig.EPXingCount + "~");
                 sb.Append(ListMember[i].MTJ + "~");
                 sb.Append((ListMember[i].IsClose ? "已锁定" : "未锁定") + ListMember[i].Province + "~");
-                sb.Append((ListMember[i].MConfig.PPLeavel == 0 ? "不优先" : "优先") + "~");
+                //sb.Append((ListMember[i].MConfig.PPLeavel == 0 ? "不优先" : "优先") + "~");
                 sb.Append(ListMember[i].MCreateDate.ToString("yyyy-MM-dd HH:mm") + "~");
                 if (ListMember[i].IsClose)
                 {

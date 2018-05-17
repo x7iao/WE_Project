@@ -92,15 +92,20 @@ namespace WE_Project.Web.Member
                         return error;
                     }
                 }
-                if (Request.Form["txtAliPay"].Trim() != null)
+                //if (Request.Form["txtAliPay"].Trim() != null)
+                //{
+                //    List<Model.Member> list2 = BllModel.GetMemberEntityList("Alipay='" + Request.Form["txtAliPay"].Trim() + "' and MID <> '" + TModel.MID + "'");
+                //    if (list2.Count > BLL.Configuration.Model.MaxBuyGCount)
+                //    {
+                //        error += "该支付宝已绑定,请更换其它帐号";
+                //        return error;
+                //    }
+                //}
+                if (!BLL.Member.getCardNameCount(MemberModel))
                 {
-                    List<Model.Member> list2 = BllModel.GetMemberEntityList("Alipay='" + Request.Form["txtAliPay"].Trim() + "' and MID <> '" + TModel.MID + "'");
-                    if (list2.Count > BLL.Configuration.Model.MaxBuyGCount)
-                    {
-                        error += "该支付宝已绑定,请更换其它帐号";
-                        return error;
-                    }
+                   return "三代内不能有同名开户账号";
                 }
+
                 Hashtable hs = new Hashtable();
                 BllModel.Update(MemberModel, hs);
                 BLL.Member.UpdateConfigTran(MemberModel.MID, "HLMoneyState", MemberModel.MConfig.HLMoneyState.ToString(), null, true, System.Data.SqlDbType.Bit, hs) ;

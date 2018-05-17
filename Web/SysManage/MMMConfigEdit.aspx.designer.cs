@@ -292,15 +292,6 @@ namespace WE_Project.Web.SysManage {
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtMOfferNeedMCW;
         
         /// <summary>
-        /// txtGetHelpFloat 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtGetHelpFloat;
-        
-        /// <summary>
         /// txtMacthSwitch 控件。
         /// </summary>
         /// <remarks>
@@ -337,6 +328,15 @@ namespace WE_Project.Web.SysManage {
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtMHBBase;
         
         /// <summary>
+        /// txtGetHelpFloat 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtGetHelpFloat;
+        
+        /// <summary>
         /// txtMHBRangeTimes 控件。
         /// </summary>
         /// <remarks>
@@ -355,6 +355,15 @@ namespace WE_Project.Web.SysManage {
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtGLRewardFreezeTimes;
         
         /// <summary>
+        /// txtReleaseConditionCount 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtReleaseConditionCount;
+        
+        /// <summary>
         /// txtLiXi1 控件。
         /// </summary>
         /// <remarks>
@@ -364,15 +373,6 @@ namespace WE_Project.Web.SysManage {
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtLiXi1;
         
         /// <summary>
-        /// txtLiXi2 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtLiXi2;
-        
-        /// <summary>
         /// txtGetTJKF 控件。
         /// </summary>
         /// <remarks>
@@ -380,6 +380,15 @@ namespace WE_Project.Web.SysManage {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtGetTJKF;
+        
+        /// <summary>
+        /// txtLiXi2 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtLiXi2;
         
         /// <summary>
         /// txtHonestFloat 控件。
@@ -407,14 +416,5 @@ namespace WE_Project.Web.SysManage {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtConfirmLimitTimesPre;
-        
-        /// <summary>
-        /// txtReleaseConditionCount 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtReleaseConditionCount;
     }
 }

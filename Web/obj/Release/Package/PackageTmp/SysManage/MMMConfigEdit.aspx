@@ -110,7 +110,7 @@
                             require-type="decimal" require-msg="许愿池提现倍数" /><font color="red">*</font>
                     </td>
                 </tr>
-                <tr>
+                <tr style="display:none;">
                     <td align="right">
                         提供帮助排单限制时间跨度:
                     </td>
@@ -126,7 +126,7 @@
                             require-type="int" require-msg="获得帮助排单限制时间跨度" /><font color="red">*整数(分钟)</font>
                     </td>
                 </tr>
-                <tr>
+                <tr  style="display:none;">
                     <td align="right">
                         提供帮助时间限制内最多排单数:
                     </td>
@@ -273,13 +273,7 @@
                     </td>
 
                    
-                     <td align="right">
-                        动态奖金提现额度比例:
-                    </td>
-                    <td>
-                        <input id="txtGetHelpFloat" runat="server" class="normal_input" type="text" require-type="decimal"
-                            require-msg="动态奖金提现额度比例" /><font color="red">*</font>
-                    </td>
+                    
                 </tr>
                 <tr>
                     <td align="right">
@@ -317,7 +311,13 @@
                     </td>
                 </tr>
                 <tr style="display:none;">
-                  
+                   <td align="right">
+                        动态奖金提现额度比例:
+                    </td>
+                    <td>
+                        <input id="txtGetHelpFloat" runat="server" class="normal_input" type="text" require-type="decimal"
+                            require-msg="动态奖金提现额度比例" /><font color="red">*</font>
+                    </td>
                     <td align="right">
                         抢单区提供帮助排单期:
                     </td>
@@ -328,16 +328,21 @@
                 </tr>
 
               
-                <tr style="display:none;">
+                <tr>
                      <td align="right">
-                        收款后不排单冻结时间:
+                        强制排单最小时间【两单间隔时间】:
                     </td>
                     <td>
                         <input id="txtGLRewardFreezeTimes" runat="server" class="normal_input" type="text"
-                            require-type="int" require-msg="收款后不排单冻结时间" /><font color="red">*整数(分钟)</font>
+                            require-type="int" require-msg="强制排单最小时间【两单间隔时间】" /><font color="red">*整数(分钟)</font>
                     </td>
-                    <td></td>
-                    <td></td>
+                    <td align="right">
+                        强制排单最大时间【超出冻结】:
+                    </td>
+                    <td>
+                        <input id="txtReleaseConditionCount" runat="server" class="normal_input" type="text"
+                            require-type="int" require-msg="强制排单最大时间【超出冻结】" /><font color="red">*整数(分钟)</font>
+                    </td>
                 </tr>
                 <%--<tr>
                     <td align="right">
@@ -363,8 +368,13 @@
                         <input id="txtLiXi1" runat="server" class="normal_input" type="text" require-type="decimal"
                             require-msg="不打款扣除推荐人许愿果" /><font color="red">*</font>
                     </td>
-                   <td></td>
-                    <td></td>
+                   <td align="right">
+                        日抢单额度:
+                    </td>
+                    <td>
+                        <input id="txtGetTJKF" runat="server" class="normal_input" type="text" require-type="decimal"
+                            require-msg="日抢单额度" /><font color="red">*</font>
+                    </td>
                 </tr>
              
                 <tr style="display: none">
@@ -376,13 +386,7 @@
                             require-msg="奖金烧伤比例" /><font color="red">*</font>
                     </td>
 
-                    <td align="right">
-                        获得帮助不收款扣推荐人的比例:
-                    </td>
-                    <td>
-                        <input id="txtGetTJKF" runat="server" class="normal_input" type="text" require-type="decimal"
-                            require-msg="获得帮助不收款扣推荐人的比例" /><font color="red">*</font>
-                    </td>
+                    
                 </tr>
                 <tr style="display: none">
                   
@@ -459,13 +463,7 @@
                     </td>
                 </tr>--%>
                 <tr style="display: none">
-                    <td align="right">
-                        爱心钱包释放需排单完成数量:
-                    </td>
-                    <td>
-                        <input id="txtReleaseConditionCount" runat="server" class="normal_input" type="text"
-                            require-type="int" require-msg="爱心钱包释放需排单完成数量" /><font color="red">*整数</font>
-                    </td>
+                    
                   
                 </tr>
             </table>

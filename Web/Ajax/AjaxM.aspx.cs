@@ -71,6 +71,9 @@ namespace WE_Project.Web.Ajax
                 case "ShMember":
                     ShMember();
                     break;
+                case "JHMember":
+                    JHMember();
+                    break;
                 case "SHTX":
                     SHTX();
                     break;
@@ -1123,6 +1126,9 @@ namespace WE_Project.Web.Ajax
             Response.Write("提款失败");
             return;
         }
+
+
+
 
         /// <summary>
         /// 锁定激活码
@@ -2461,6 +2467,58 @@ namespace WE_Project.Web.Ajax
         }
 
         /// <summary>
+        /// 审核会员
+        /// </summary>
+        private void JHMember()
+        {
+            if (!string.IsNullOrEmpty(Request["pram"]))
+            {
+                try
+                {
+                    string errresult = "";
+                    Model.Member acmember= BLL.Member.GetModelByMID(Request["pram"]);
+                    if (acmember.MState)
+                    {
+                        Response.Write("此会员已激活");
+                        return;
+                    }
+                    if (acmember.MTJ != TModel.MID && !TModel.Role.IsAdmin)
+                    {
+                        Response.Write("无权限访问");
+                        return;
+                    }
+
+                    int addcount = Convert.ToInt32(BLL.CommonBase.GetSingle("SELECT count(*) FROM Member WHERE DATEDIFF(DAY,MDate,GETDATE())=0 AND RoleCode NOT IN('Manage');"));
+                    if (BLL.Configuration.Model.DayRegeditNumber <= addcount)
+                    {
+                        Response.Write("每天激活人数超出上限，请明天再来");
+                        return;
+                    }
+
+                    Model.SHMoney shmoney = BLL.Configuration.Model.SHMoneyList["002"];
+                    Hashtable MyHs = new Hashtable();
+                    string result = BllModel.UpMAgencyType(shmoney, acmember.MID, TModel, 1, MyHs);
+                    if (result.Contains("激活成功"))
+                    {
+                        result = "1";
+                    }
+                    Response.Write(result);
+                    return;
+                }
+                catch (Exception ex)
+                {
+                    Response.Write(ex.Message);
+                    return;
+                }
+            }
+            else
+            {
+                Response.Write("参数异常");
+                return;
+            }
+        }
+
+        /// <summary>
         /// 审核提现
         /// </summary>
         private void SHTX()
@@ -2672,18 +2730,18 @@ namespace WE_Project.Web.Ajax
                     Response.Write("您已提款");
                     return;
                 }
-              
+
                 //校验转入时间是否已到
-               
-                if (offer.BOutMoney!=offer.FHDays)
+
+                if (offer.BOutMoney != offer.FHDays)
                 {
                     Response.Write("分红未完成不能提款");
                     return;
                 }
-            
+
                 if (offer.AMID == TModel.MID)
                 {
-                    BLL.ChangeMoney.HBChangeTran(offer.YJMoney,BLL.Member.ManageMember.TModel.MID,offer.AMID, "R_Tran",null,offer.BMBD,"",MyHs);
+                    BLL.ChangeMoney.HBChangeTran(offer.YJMoney, BLL.Member.ManageMember.TModel.MID, offer.AMID, "R_Tran", null, offer.BMBD, "", MyHs);
                     offer.BMState = true;
                     offer.BMDate = DateTime.Now;
                     BLL.BMember.Update(offer, MyHs);

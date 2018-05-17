@@ -53,7 +53,7 @@ namespace WE_Project.BLL
         public static bool TranDayFH()
         {
             Hashtable myhs = new Hashtable();
-            myhs.Add("update BMember set YJMoney=YJMoney+YJCount*BCount,FHDays=FHDays+1 where BMState=0 and BOutMoney>FHDays;",null);
+            myhs.Add("update BMember set YJMoney=YJMoney+YJCount*BCount,FHDays=FHDays+1 where BMState=0 and BOutMoney>FHDays;", null);
             return BLL.CommonBase.RunHashtable(myhs);
         }
 
@@ -73,15 +73,15 @@ namespace WE_Project.BLL
             return DAL.ChangeMoney.GetDayFHMoney(mid, type, day, dateType);
         }
 
-        public static string R_OptionFH(int type,decimal money)
+        public static string R_OptionFH(int type, decimal money)
         {
-            var list= BLL.MOfferHelp.GetList(" sqmoney in("+type+") and moneytype is null and ppstate in(3,4);");
+            var list = BLL.MOfferHelp.GetList(" sqmoney in(" + type + ") and moneytype is null and ppstate in(3,4);");
             Hashtable MyHs = new Hashtable();
             foreach (var item in list)
             {
-                BLL.ChangeMoney.HBChangeTran(money,BLL.Member.ManageMember.TModel.MID,item.SQMID,"R_OFH",null,"MHB",item.SQCode,MyHs);
+                BLL.ChangeMoney.HBChangeTran(money, BLL.Member.ManageMember.TModel.MID, item.SQMID, "R_OFH", null, "MHB", item.SQCode, MyHs);
                 item.MoneyType = "1";
-                BLL.MOfferHelp.Update(item,MyHs);
+                BLL.MOfferHelp.Update(item, MyHs);
             }
             if (BLL.CommonBase.RunHashtable(MyHs))
             {
@@ -1445,11 +1445,11 @@ namespace WE_Project.BLL
         //    return MyHs;
         //}
 
-        # endregion zx_126
+        #endregion zx_126
 
-        # region zx_179
+        #region zx_179
 
-      
+
 
         ///// <summary>
         ///// 冻结提款后3天不排单的
@@ -1575,9 +1575,9 @@ namespace WE_Project.BLL
         //    return MyHs;
         //}
 
-        # endregion zx_179
+        #endregion zx_179
 
-        # region zx_182
+        #region zx_182
 
         ///// <summary>
         ///// 管理奖
@@ -1769,9 +1769,9 @@ namespace WE_Project.BLL
         //    return CommonBase.RunHashtable(MyHs);
         //}
 
-        # endregion zx_182
+        #endregion zx_182
 
-        # region zx_197
+        #region zx_197
 
         ///// <summary>
         ///// 管理奖推荐奖
@@ -1916,9 +1916,9 @@ namespace WE_Project.BLL
         //    return CommonBase.RunHashtable(MyHs);
         //}
 
-        # endregion zx_197
+        #endregion zx_197
 
-        # region zx_202
+        #region zx_202
 
         /// <summary>
         /// 推荐奖
@@ -1928,10 +1928,10 @@ namespace WE_Project.BLL
             Model.Member mTJ = DAL.Member.GetModel(member.MTJ);
             if (mTJ != null && mTJ.MID != mTJ.MTJ)
             {
-                Model.MOfferHelp tjoff= BLL.MOfferHelp.GetList(" SQMID='"+mTJ.MID+"' and PPState in(0,1,2,3,4) order by SQDate desc;").FirstOrDefault() ;
+                Model.MOfferHelp tjoff = BLL.MOfferHelp.GetList(" SQMID='" + mTJ.MID + "' and PPState in(0,1,2,3,4) order by SQDate desc;").FirstOrDefault();
                 if (tjoff != null)
                 {
-                    decimal money = tjoff.SQMoney>off.SQMoney?off.SQMoney:tjoff.SQMoney;
+                    decimal money = tjoff.SQMoney > off.SQMoney ? off.SQMoney : tjoff.SQMoney;
 
                     HBChangeTran(money * mTJ.MAgencyType.TJFloat, BLL.Member.ManageMember.TModel.MID, mTJ.MID, "R_TJ", member, "MJB", off.SQCode, MyHs);
                 }
@@ -1972,12 +1972,12 @@ namespace WE_Project.BLL
                 Model.Member bdmodel = DAL.Member.GetModel(member.MTJ);
                 if (bdmodel != null && bdmodel.MID != bdmodel.MTJ)
                 {
-                    if (level >= minLevel&&bdmodel.MConfig.EPXingCount>0)
+                    if (level >= minLevel && bdmodel.MConfig.EPXingCount > 0)
                     {
                         Model.ConfigDictionary dic = DAL.ConfigDictionary.GetConfigDictionary(level, "GLFloat", "");
 
                         Model.ConfigDictionary diclevel = DAL.ConfigDictionary.GetConfigDictionary(1, "GLLevel", bdmodel.AgencyCode);//拿的层数
-                        if (dic != null&&diclevel!=null)
+                        if (dic != null && diclevel != null)
                         {
                             //管理奖烧伤：伞下会员级别超过推荐人，只能拿到该会员本身的奖金，拿不到这个会员伞下管理奖金
                             int agmember = Convert.ToInt32(member.AgencyCode);
@@ -1987,12 +1987,12 @@ namespace WE_Project.BLL
                             {
                                 isfj = false;
                             }
-                            if (Convert.ToInt32(diclevel.DValue) >= level&& isfj) //如果能拿层数大于等于当前层数就得奖
+                            if (Convert.ToInt32(diclevel.DValue) >= level && isfj) //如果能拿层数大于等于当前层数就得奖
                             {
                                 decimal money = match.SQMoney;
                                 money = money * Convert.ToDecimal(dic.DValue);
                                 //封顶
-                                decimal lsmoney= Convert.ToDecimal( BLL.CommonBase.GetSingle("select ISNULL(SUM(MONEY),0) from ChangeMoney where ToMID='"+bdmodel.MID+"' and CState=1 and ChangeType='R_GL' AND DATEDIFF(DAY,ChangeDate,GETDATE())=0;"));
+                                decimal lsmoney = Convert.ToDecimal(BLL.CommonBase.GetSingle("select ISNULL(SUM(MONEY),0) from ChangeMoney where ToMID='" + bdmodel.MID + "' and CState=1 and ChangeType='R_GL' AND DATEDIFF(DAY,ChangeDate,GETDATE())=0;"));
                                 if ((lsmoney + money) > bdmodel.MAgencyType.DTopMoney)
                                 {
                                     money = bdmodel.MAgencyType.DTopMoney - lsmoney;
@@ -2019,11 +2019,11 @@ namespace WE_Project.BLL
             {
                 //获得可升级的等级
 
-                Model.NConfigDictionary ncd= DAL.NConfigDictionary.GetConfigDictionary(0,"AutoSJ",mTJ.AgencyCode);
+                Model.NConfigDictionary ncd = DAL.NConfigDictionary.GetConfigDictionary(0, "AutoSJ", mTJ.AgencyCode);
                 //var shMoney = DAL.SHMoney.GetSJShmoney(mTJ.MConfig.YJCount, mTJ.MConfig.TJCount, mTJ.AgencyCode);
                 if (ncd != null)
                 {
-                    int count= BLL.Member.GetTJCount(mTJ.MID,ncd.Remark);
+                    int count = BLL.Member.GetTJCount(mTJ.MID, ncd.Remark);
                     if (count >= ncd.StartRec && count <= ncd.EndRec)
                     {
                         var shMoney = BLL.Configuration.Model.SHMoneyList[ncd.DValue];
@@ -2057,7 +2057,7 @@ namespace WE_Project.BLL
         public static bool DJBPD()
         {//未完成
             StringBuilder strSql = new StringBuilder();
-            strSql.Append(" select SQMID,SQMoney,MAX(ComfirmDate) sqdt from MGetHelp where PPState in (3) and ConfirmState=3 and DATEDIFF(MI,ComfirmDate,GETDATE()) > "+ BLL.MMMConfig.Model.GLRewardFreezeTimes +"  group by SQMID,SQMoney; ");
+            strSql.Append(" select SQMID,SQMoney,MAX(ComfirmDate) sqdt from MGetHelp where PPState in (3) and ConfirmState=3 and DATEDIFF(MI,ComfirmDate,GETDATE()) > " + BLL.MMMConfig.Model.GLRewardFreezeTimes + "  group by SQMID,SQMoney; ");
             DataTable dt = CommonBase.GetTable(strSql.ToString());
             foreach (DataRow row in dt.Rows)
             {
@@ -2067,14 +2067,32 @@ namespace WE_Project.BLL
                     var list = BLL.MOfferHelp.GetList(" SQMID = '" + row["SQMID"] + "' and PPState <> 5 and SQDate > '" + time.ToString("yyyy-MM-dd HH:mm:ss") + "'; ");
                     var list2 = BLL.MOfferHelp.GetList(" SQMID = '" + row["SQMID"] + "' and PPState < 3 ; ");//查看是否有未完成的订单
 
-                    if (list2.Count == 0) 
+                    if (list2.Count == 0)
                     {
                         if (list == null || !list.Any())
                         {
                             BLL.CommonBase.RunSql("update Member set IsClock = 1 , IsClose = 1,Province='收款完成未排单' where IsClock = 0 and IsClose = 0 and RoleCode = 'Nomal' and MID='" + row["SQMID"] + "' ;");
                         }
                     }
-                    
+
+                }
+            }
+            return true;
+        }
+        /// <summary>
+        /// 正常排单限制
+        /// </summary>
+        /// <returns></returns>
+        public static bool PDXZ()
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("  select SQMID,SQMoney,MAX(SQDate) sqdt from MOfferHelp where PPState <> 5  and dateadd(MI, " + BLL.MMMConfig.Model.ReleaseConditionCount + ", SQDate) < GETDATE() and HelpType = 0 and SQMID in(select MID from Member where IsClock = 0) group by SQMID,SQMoney; ");
+            DataTable dt = CommonBase.GetTable(strSql.ToString());
+            foreach (DataRow row in dt.Rows)
+            {
+                if (row["SQMID"] != null)
+                {
+                    BLL.CommonBase.RunSql("update Member set IsClock = 1 , IsClose = 1,Province='强制不排单超时冻结' where IsClock = 0 and IsClose = 0 and RoleCode = 'Nomal' and MID='" + row["SQMID"] + "' ;");
                 }
             }
             return true;
@@ -2095,6 +2113,6 @@ namespace WE_Project.BLL
         #endregion zx_202
 
 
-       
+
     }
 }

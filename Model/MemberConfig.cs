@@ -104,7 +104,7 @@ namespace WE_Project.Model
         /// </summary>
         public decimal TotalZFHMoney { get; set; }
         /// <summary>
-        /// 月分红
+        /// 激活码
         /// </summary>
         public decimal TotalYFHMoney { get; set; }
 

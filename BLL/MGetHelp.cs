@@ -145,10 +145,10 @@ namespace WE_Project.BLL
 
 
             //校验援助次数
-            if (!CanApplyHelp(member.MID, BLL.MMMConfig.Model.GetHelpRangeTimes, BLL.MMMConfig.Model.GetHelpRangeCount, false, moneyType))
-            {
-                return "1*申请失败，您" + BLL.MMMConfig.Model.GetHelpRangeTimes + "分钟内只能申请" + BLL.MMMConfig.Model.GetHelpRangeCount + "次";
-            }
+            //if (!CanApplyHelp(member.MID, BLL.MMMConfig.Model.GetHelpRangeTimes, BLL.MMMConfig.Model.GetHelpRangeCount, false, moneyType))
+            //{
+            //    return "1*申请失败，您" + BLL.MMMConfig.Model.GetHelpRangeTimes + "分钟内只能申请" + BLL.MMMConfig.Model.GetHelpRangeCount + "次";
+            //}
             //需要一个提供帮助的订单，并且已经打过预付款的
             //object offid= BLL.CommonBase.GetSingle("select ID from MOfferHelp where SQMID='aaa111' and PPState in(0,1,2,3) and MatchMoney>= MFLMoney;");
             //if (offid != null)

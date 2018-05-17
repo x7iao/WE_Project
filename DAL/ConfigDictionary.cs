@@ -160,5 +160,35 @@ namespace WE_Project.DAL
             }
             return null;
         }
+
+        /// <summary>
+        /// 得到见点奖
+        /// </summary>
+        /// <param name="mid">推荐会员账号</param>
+        /// <returns></returns>
+        public static Model.ConfigDictionary GetConfigDictionaryFloat(decimal Level, string DType, string DKey)
+        {
+            if (!string.IsNullOrEmpty(DKey))
+            {
+                foreach (Model.ConfigDictionary item in DAL.Configuration.TModel.ConfigDictionaryList[DType].Where(emp => emp.DKey == DKey))
+                {
+                    if (item.StartLevel <= Level && Level <= item.EndLevel)
+                    {
+                        return item;
+                    }
+                }
+            }
+            else
+            {
+                foreach (Model.ConfigDictionary item in DAL.Configuration.TModel.ConfigDictionaryList[DType])
+                {
+                    if (item.StartLevel <= Level && Level <= item.EndLevel)
+                    {
+                        return item;
+                    }
+                }
+            }
+            return null;
+        }
     }
 }

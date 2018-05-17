@@ -53,7 +53,7 @@
                                 <option value="false">未锁定</option>
                             </select>
                         </td>
-                        <td>
+                        <td style="display:none;">
                             <select id="IsPPLeavel" name="txtKey" onchange="SearchByCondition()">
                                 <option value="">优先匹配</option>
                                 <option value="0">不优先</option>
@@ -83,6 +83,9 @@
                         会员级别
                     </th>
                     <th>
+                        静态级别
+                    </th>
+                    <th>
                         <%=WE_Project.BLL.Reward.List["MHB"].RewardName %>
                     </th>
                     <th>
@@ -98,6 +101,9 @@
                         <%=WE_Project.BLL.Reward.List["MJBF"].RewardName %>
                     </th>
                      <th>
+                        <%=WE_Project.BLL.Reward.List["TotalYFHMoney"].RewardName %>
+                    </th>
+                     <th>
                         忠诚度
                     </th>
                     <th>
@@ -106,9 +112,9 @@
                     <th>
                         锁定状态
                     </th>
-                    <th>
+                  <%--  <th>
                         优先状态
-                    </th>
+                    </th>--%>
                     <th>
                         注册日期
                     </th>

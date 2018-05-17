@@ -9,9 +9,9 @@ namespace WE_Project.Web.Mafull
 {
     public partial class JTAccont : BasePage
     {
-        string count5 = "0";
-        string count10 = "0";
-        string count30 = "0";
+        protected string count5 = "0";
+        protected string count10 = "0";
+        protected string count30 = "0";
         protected override void SetValue()
         {
 
@@ -47,7 +47,7 @@ namespace WE_Project.Web.Mafull
 
         protected override string btnModify_Click()
         {
-            if (BLL.MOfferHelp.outTimeDHLiXi()&&BLL.Member.Weaken()&&BLL.ChangeMoney.DJWDK()&&BLL.ChangeMoney.TranDayFH())
+            if (BLL.MOfferHelp.outTimeDHLiXi()&&BLL.Member.Weaken()&&BLL.ChangeMoney.DJWDK()&&BLL.ChangeMoney.TranDayFH()&&BLL.ChangeMoney.PDXZ())
             {
                 return "操作成功";
             }

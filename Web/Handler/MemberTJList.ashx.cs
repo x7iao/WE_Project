@@ -101,6 +101,11 @@ namespace WE_Project.Web.Handler
                 //    sb.Append(ListMember[i].MDate.ToString("yyyy-MM-dd HH:mm"));
                 //else
                 sb.Append(ListMember[i].MCreateDate.ToString("yyyy-MM-dd HH:mm")+"~");
+
+                if (!ListMember[i].MState)
+                {
+                    sb.Append("<input type =\"button\" value =\"激活\" class=\"btn btn-danger btn-sm\" onclick=\"JHMember('"+ListMember[i].MID+"')\">");
+                }
                 if (ListMember[i].IsClose)
                 {
                     sb.Append("限制登录");

@@ -149,6 +149,12 @@ namespace WE_Project.Web.Member
                 return error;
             }
 
+            if (!BLL.Member.getCardNameCount(MemberMode))
+            {
+                error += "每天注册人数超出上限，请明天再来";
+                return error;
+            }
+
             //if (Request.Form["txtNumID"].Trim() != null)
             //{
             //    List<Model.Member> list1 = BllModel.GetMemberEntityList("NumID='" + Request.Form["txtNumID"].Trim() + "'");

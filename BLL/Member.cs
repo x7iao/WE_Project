@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Data;
 using System.Collections;
+using WE_Project.Model;
 
 namespace WE_Project.BLL
 {
@@ -190,13 +191,35 @@ namespace WE_Project.BLL
             }
             return "激活失败";
         }
+        /// <summary>
+        /// 获得上下三代
+        /// </summary>
+        /// <param name="memberMode"></param>
+        /// <returns></returns>
+        public static bool getCardNameCount(Model.Member memberMode)
+        {
+            int cardcount= Convert.ToInt32( BLL.CommonBase.GetSingle("select COUNT(*) from dbo.getSubTJMemberLevel('"+memberMode.MID+"',3) where cardname='"+memberMode.BankCardName+"'"));
+            if (cardcount > 0)
+            {
+                return false;
+            }
+            List<Model.Member> listtj = new List<Model.Member>();
+            string mtj = memberMode.MTJ;
+            for (int i = 0; i < 3; i++)
+            {
+                Model.Member m= BLL.Member.GetModelByMID(mtj);
+                if (m.BankCardName == memberMode.BankCardName)
+                    return false;
+            }
+            return true;
+        }
 
         public string UpMAgencyType(Model.SHMoney shmoney, string mid, Model.Member shmodel, decimal appendMoney, Hashtable MyHs)
         {
             Model.Member model = DAL.Member.GetModel(mid);
             string agencyCode = model.AgencyCode;
             if (model == null)
-                return "升会员不存在";
+                return "激活会员不存在";
             if (string.IsNullOrEmpty(model.MTJ))
                 return "请联系管理员设置您的推荐人";
             //int sjmoney = shmoney.Money - model.MAgencyType.Money;
@@ -204,13 +227,13 @@ namespace WE_Project.BLL
             int sjmoney = int.Parse(decimal.Round(appendMoney, 0).ToString());
             lock (DAL.Member.tempMemberList)
             {
-                if (!BLL.ChangeMoney.EnoughChange(shmodel.MID, sjmoney, "MJB"))
+                if (!BLL.ChangeMoney.EnoughChange(shmodel.MID, sjmoney, "TotalYFHMoney"))
                 {
-                    return "您的" + BLL.Reward.List["MJB"].RewardName + "不足";
+                    return "您的" + BLL.Reward.List["TotalYFHMoney"].RewardName + "不足";
                 }
                 DAL.Member.tempMemberList.Clear();
                 DAL.Member.tempMemberAdd(model);
-                //if (BLL.ChangeMoney.HBChangeTran(sjmoney, shmodel.MID, ManageMember.TModel.MID, "SJ", model, "MJB", model.MAgencyType.MAgencyName + "->" + shmoney.MAgencyName, MyHs) >= 0)
+                if (BLL.ChangeMoney.HBChangeTran(sjmoney, shmodel.MID, ManageMember.TModel.MID, "SJ", model, "TotalYFHMoney", model.MAgencyType.MAgencyName + "->" + shmoney.MAgencyName, MyHs) >= 0)
                 {
                     model.MConfig.YJMoney += sjmoney;
                     DAL.MemberConfig.UpdateConfigTran(model.MID, "YJMoney", sjmoney.ToString(), model, false, SqlDbType.Int, MyHs);
@@ -227,6 +250,9 @@ namespace WE_Project.BLL
                         }
                         model.MConfig.YJCount += 1;
                         DAL.MemberConfig.UpdateConfigTran(model.MID, "YJCount", "1", model, false, SqlDbType.Int, MyHs);
+
+                        model.MConfig.YJCount += 1;
+                        DAL.MemberConfig.UpdateConfigTran(model.MID, "MCW", BLL.Configuration.Model.DFHTopMoney.ToString(), model, false, SqlDbType.Decimal, MyHs);
                         model.MConfig.JTFHState = true;
                         DAL.MemberConfig.UpdateConfigTran(model.MID, "JTFHState", "1", model, true, SqlDbType.Bit, MyHs);
                         model.MConfig.DTFHState = true;

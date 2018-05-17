@@ -175,7 +175,7 @@ namespace WE_Project.Model
             get;
         }
         /// <summary>
-        /// 每天注册人数
+        /// 每天激活人数
         /// </summary>
         public int DayRegeditNumber
         {
