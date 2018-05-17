@@ -441,6 +441,17 @@
     <Content Include="Mafull\JTAccont2.aspx" />
     <Content Include="Mafull\MatchGetListJujue.aspx" />
     <Content Include="Mafull\UploadPic.aspx" />
+    <Content Include="Manage\index.html" />
+    <Content Include="Manage\public\css\base.css" />
+    <Content Include="Manage\public\css\login.css" />
+    <Content Include="Manage\public\images\admin_logo.png" />
+    <Content Include="Manage\public\images\login_bg.jpg" />
+    <Content Include="Manage\public\images\login_button.jpg" />
+    <Content Include="Manage\public\images\login_logo.jpg" />
+    <Content Include="Manage\public\images\login_name_bg.jpg" />
+    <Content Include="Manage\public\images\复件 login_logo.jpg" />
+    <Content Include="Manage\public\ui\config.js" />
+    <Content Include="Manage\public\ui\do.js" />
     <Content Include="Member\ActiveCodeList.aspx" />
     <Content Include="Member\ApplyUp.aspx" />
     <Content Include="Member\BuyActiveCode.aspx" />
