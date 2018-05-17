@@ -333,6 +333,7 @@
     <Content Include="Admin\js\functions.js" />
     <Content Include="Admin\js\icheck.js" />
     <Content Include="Admin\js\input-mask.min.js" />
+    <Content Include="Admin\js\jquery-1.9.1.min.js" />
     <Content Include="Admin\js\jquery-ui.min.js" />
     <Content Include="Admin\js\jquery.cookie.js" />
     <Content Include="Admin\js\jquery.easing.1.3.js" />
@@ -726,6 +727,15 @@
     <Content Include="plugin\kindeditor\themes\qq\editor.gif" />
     <Content Include="plugin\kindeditor\themes\qq\qq.css" />
     <Content Include="plugin\kindeditor\themes\simple\simple.css" />
+    <Content Include="plugin\layer\extend\layer.ext.js" />
+    <Content Include="plugin\layer\layer.js" />
+    <Content Include="plugin\layer\skin\default\icon-ext.png" />
+    <Content Include="plugin\layer\skin\default\icon.png" />
+    <Content Include="plugin\layer\skin\default\loading-0.gif" />
+    <Content Include="plugin\layer\skin\default\loading-1.gif" />
+    <Content Include="plugin\layer\skin\default\loading-2.gif" />
+    <Content Include="plugin\layer\skin\layer.css" />
+    <Content Include="plugin\layer\skin\layer.ext.css" />
     <Content Include="plugin\layui\css\layui.css" />
     <Content Include="plugin\layui\css\layui.mobile.css" />
     <Content Include="plugin\layui\css\modules\code.css" />
@@ -1370,6 +1380,8 @@
     <Content Include="plugin\layui\font\iconfont.ttf" />
     <Content Include="plugin\layui\font\iconfont.woff" />
     <Content Include="Ajax\Regedit.ashx" />
+    <Content Include="Admin\UpLoadPic\IbeaconHandler.ashx" />
+    <Content Include="Admin\UpLoadPic\UploadImage.ashx" />
     <None Include="plugin\ztree\demo\cn\asyncData\getNodes.php" />
     <None Include="plugin\ztree\demo\cn\asyncData\getNodesForBigData.php" />
     <None Include="plugin\ztree\demo\en\asyncData\getNodes.php" />
@@ -1383,6 +1395,12 @@
     </Compile>
     <Compile Include="Admin\Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\UpLoadPic\IbeaconHandler.ashx.cs">
+      <DependentUpon>IbeaconHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\UpLoadPic\UploadImage.ashx.cs">
+      <DependentUpon>UploadImage.ashx</DependentUpon>
     </Compile>
     <Compile Include="Ajax\AjaxM.aspx.cs">
       <DependentUpon>AjaxM.aspx</DependentUpon>

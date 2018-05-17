@@ -115,8 +115,8 @@ namespace WE_Project.BLL
                 return "1*您有未完成的订单";
             }
 
-            decimal HelpBase = 0;
-            decimal HelpMax = 0;
+            decimal HelpBase = BLL.MMMConfig.Model.GetHelpBase;
+            decimal HelpMax = BLL.MMMConfig.Model.GetHelpMax;
             if (moneyType == "MJB")//许愿池派单
             {
                 HelpBase = BLL.MMMConfig.Model.GetHelpDayTotalMoney;

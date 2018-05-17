@@ -162,7 +162,7 @@ namespace WE_Project.BLL
                 DateTime getnow = DateTime.Now.AddMinutes(-BLL.MMMConfig.Model.FreezeTimesOfOffer);
                 //提供帮助的记录
                 List<Model.MOfferHelp> offerlist = new List<Model.MOfferHelp>();
-                offerlist = BLL.MOfferHelp.GetListJoin("PPState in (0,1,2) and HelpType = 0 and SQDate <= '" + now.ToString("yyyy-MM-dd HH:mm:ss") + "' and SQMID in (select MID from Member where MState='1' and IsClose<>'1' )  and sqmid not in(select SQMID from MGetHelp where PPState in(0,1,2) and sqmid in(select mid from member zdstatus=1))  order by SQDate,mc.EPXingCount desc");
+                offerlist = BLL.MOfferHelp.GetListJoin("PPState in (0,1,2) and HelpType = 0 and SQDate <= '" + now.ToString("yyyy-MM-dd HH:mm:ss") + "' and SQMID in (select MID from Member where MState='1' and IsClose<>'1' )  and sqmid not in(select SQMID from MGetHelp where PPState in(0,1,2) and sqmid in(select mid from member where zdstatus=1))  order by SQDate,mc.EPXingCount desc");
                 //管理员记录
                 List<Model.MGetHelp> getadminlist = new List<Model.MGetHelp>();
                 getadminlist = BLL.MGetHelp.GetListJoinMember("t1.PPState in (0,1,2)  and SQDate <= '" + getnow.ToString("yyyy-MM-dd HH:mm:ss") + "' and SQMID in (select MID from Member where MState='1' and IsClose<>'1' ) and t2.PPLeavel is not NULL and PPLeavel > 0  order by t1.SQDate asc,t2.EPXingCount desc");
