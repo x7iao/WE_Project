@@ -29,7 +29,7 @@ namespace WE_Project.Web.Mafull
                 getMemberModel = BllModel.GetModel(match.OfferMID);
                 getTJMemberModel = BllModel.GetModel(getMemberModel.MTJ);
 
-                spLeaveTime.InnerHtml = MatchTimeLeave(match, MMMMatchTimeType.ConfirmLimitTime, "", "", DateDiffType.SS);
+                spLeaveTime.InnerHtml = MatchTimeLeave(match, MMMMatchTimeType.ConfirmLimitTime, "收款确认倒计时", "");
                 //DateTime PayTime = Convert.ToDateTime(match.PayTime);
                 //DateTime matchTimeAdd = PayTime.AddMinutes(BLL.MMMConfig.Model.ConfirmLimitTimes);//以分钟计算
                 //TimeSpan d3 = matchTimeAdd.Subtract(DateTime.Now);
@@ -69,7 +69,7 @@ namespace WE_Project.Web.Mafull
                             //member1.AgencyCode = "003";
                             //member1.MAgencyType = shmoney;
                             //BLL.ChangeMoney.R_SJ(member1.MID);
-                            string Msg = "尊敬的会员您好！您订单号" + offer.SQCode + "提供帮助的订单已经确认收款(匹配编号[" + match.MatchCode + "])，请注意查看，感谢您的参与！祝您生活愉快！";
+                            string Msg = "尊敬的会员您好！您订单号" + offer.SQCode + "买入许愿果的订单已经确认收款(匹配编号[" + match.MatchCode + "])，请注意查看，感谢您的参与！祝您生活愉快！";
                             Model.SMS model = new Model.SMS { SType = Model.SMSType.QT, Tel = member1.Tel, SContent = Msg };
                             string error = "";
                             BLL.SMS.Insert(model, ref error);

@@ -28,9 +28,9 @@ namespace WE_Project.Web.Admin
 
 
         protected DataTable dtxxfloat = null;
-        ////提供帮助总额
+        ////买入许愿果总额
         //protected decimal ShowOfferTotalMoney = 0;
-        ////获得帮助总额
+        ////卖出许愿果总额
         //protected decimal ShowGetTotalMoney = 0;
         ////总人数
         //protected int ShowTotalNumber = 0;

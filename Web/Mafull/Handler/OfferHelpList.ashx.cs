@@ -67,8 +67,8 @@ namespace WE_Project.Web.Mafull.Handler
                 sb.Append(GetHelpState(offerList[i].PPState) + "~");
                 sb.Append((offerList[i].HelpType==0?"正常排单":"抢单区排单") + "~");
                 //sb.Append(offerList[i].TotalInterestDays + "~");
-                sb.Append(offerList[i].SQMoney + "~");
-                sb.Append(offerList[i].MatchMoney + "~");
+                sb.Append((offerList[i].SQMoney + "(" + offerList[i].SQMoney * 2000 + ")") + "~");
+                sb.Append((offerList[i].MatchMoney + "(" + offerList[i].MatchMoney * 2000 + ")") + "~");
                 sb.Append(offerList[i].TotalInterest + "~");
                 //sb.Append((offerList[i].InterestState == 1 ? "正常" : "冻结") + "~");
                 //sb.Append(offerList[i].TotalSincerity + "~");
@@ -83,7 +83,7 @@ namespace WE_Project.Web.Mafull.Handler
                     op = OfferTimeLeave(offerList[i], MMMOfferTimeType.FreezeTime, "提款倒计时:", "");
                     if (string.IsNullOrEmpty(op))
                     {
-                        op = "<input type='button' value='我要提款' class='btn btn-danger btn-sm' onclick=\"MatchGetMoney(" + offerList[i].Id + ",this)\" />";
+                        op = "<input type='button' value='圆梦' class='btn btn-danger btn-sm' onclick=\"MatchGetMoney(" + offerList[i].Id + ",this)\" />";
                     }
                 }
                 if (offerList[i].PPState != 0)

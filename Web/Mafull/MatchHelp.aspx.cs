@@ -36,24 +36,24 @@ namespace WE_Project.Web.Mafull
             string get = Request.Form["txtget"].Trim();
             if (string.IsNullOrEmpty(offer))
             {
-                return "提供帮助会员帐号不能为空";
+                return "买入许愿果会员帐号不能为空";
             }
             else
             {
                 if (BllModel.GetModel(offer) == null)
                 {
-                    return "提供帮助会员帐号不存在";
+                    return "买入许愿果会员帐号不存在";
                 }
             }
             if (string.IsNullOrEmpty(get))
             {
-                return "获得帮助会员帐号不能为空";
+                return "卖出许愿果会员帐号不能为空";
             }
             else
             {
                 if (BllModel.GetModel(get) == null)
                 {
-                    return "获得帮助会员帐号不存在";
+                    return "卖出许愿果会员帐号不存在";
                 }
             }
             return BLL.MHelpMatch.MatchingHelp3(offer, get);

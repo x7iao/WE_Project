@@ -210,7 +210,14 @@ namespace WE_Project.BLL
                 Model.Member m= BLL.Member.GetModelByMID(mtj);
                 if (m.BankCardName == memberMode.BankCardName)
                     return false;
+                mtj = m.MID;
             }
+            int cardcounttj = Convert.ToInt32(BLL.CommonBase.GetSingle("select COUNT(*) from dbo.getSubTJMemberLevel('" + mtj + "',3) where cardname='" + memberMode.BankCardName + "'"));
+            if (cardcounttj > 0)
+            {
+                return false;
+            }
+
             return true;
         }
 
@@ -252,7 +259,7 @@ namespace WE_Project.BLL
                         DAL.MemberConfig.UpdateConfigTran(model.MID, "YJCount", "1", model, false, SqlDbType.Int, MyHs);
 
                         model.MConfig.YJCount += 1;
-                        DAL.MemberConfig.UpdateConfigTran(model.MID, "MCW", BLL.Configuration.Model.DFHTopMoney.ToString(), model, false, SqlDbType.Decimal, MyHs);
+                        DAL.MemberConfig.UpdateConfigTran(model.MID, "MHB", BLL.Configuration.Model.DFHTopMoney.ToString(), model, false, SqlDbType.Decimal, MyHs);
                         model.MConfig.JTFHState = true;
                         DAL.MemberConfig.UpdateConfigTran(model.MID, "JTFHState", "1", model, true, SqlDbType.Bit, MyHs);
                         model.MConfig.DTFHState = true;

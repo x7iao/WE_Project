@@ -24,7 +24,7 @@
                         <span>付款金额：</span>
                     </td>
                     <td width="35%">
-                        <%=match.MatchMoney%>
+                       <%= match.MatchMoney%>（ <%=match.MatchMoney*2000%>）
                     </td>
                 </tr>
                 <tr>
@@ -105,7 +105,7 @@
                                     推荐人银行卡号：<%=getTJMemberModel.BankNumber%>
                                 </td>--%>
                             </tr>
-                            <tr style="display:none;">
+                            <tr>
                                 <td>
                                     支付宝账号：<%=getMemberModel.AliPay%>
                                 </td>
@@ -113,7 +113,7 @@
                                     推荐人支付宝账号：<%=getTJMemberModel.Email%>
                                 </td>--%>
                             </tr>
-                            <tr style="display:none;">
+                            <tr>
                                 <td>
                                     微信帐号：<%=getMemberModel.WeChat%>
                                 </td>

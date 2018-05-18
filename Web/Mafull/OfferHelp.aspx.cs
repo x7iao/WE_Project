@@ -22,7 +22,7 @@ namespace WE_Project.Web.Mafull
         /// <param name="e"></param>
         protected override string btnAdd_Click()
         {
-            int sqMoney = int.Parse(Request.Form["txtSQMoneyOff"]);
+            decimal sqMoney = decimal.Parse(Request.Form["txtSQMoneyOff"]);
             int helptype = 0;
             if (int.Parse(Request.Form["offerrdo"]) == 1)
             {

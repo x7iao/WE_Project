@@ -10,7 +10,7 @@
 
         <meta name="description" content="Violate Responsive Admin Template">
         <meta name="keywords" content="Super Admin, Admin, Template, Bootstrap">
-
+        <link rel = "Shortcut Icon" href=/Admin/img/icon.ico>
         <title><%=WebModel.WebTitle %></title>
             
         <!-- CSS -->
@@ -49,22 +49,22 @@
                 v5.error('交易密码与登录密码不能相同', '1', 'true');
             } else if (!$('#txtTel').val().TryTel()) {
                 v5.error('手机号码格式不正确', '1', 'true');
+            } else if ($('#txtAlipay').val() == "") {
+                v5.error('支付宝帐号不能为空', '1', 'true');
+            }  else  if ($('#txtBank').val() == "") {
+                v5.error('请选择开户银行', '1', 'true');
+
+            } else if ($('#txtBranch').val() == "") {
+                v5.error('请填写开户支行', '1', 'true');
+
+            } else if (!$('#txtBankCardName').val().TryWENZI()) {
+                v5.error('开户名格式不正确', '1', 'true');
+
+            } else if ($('#txtBankNumber').val() == "") {
+                v5.error('请填写银行卡号', '1', 'true');
+
             } else {
-                if ($('#txtBankNumber').val() != "") {
-                    if ($('#txtBank').val() == "") {
-                        v5.error('请选择开户银行', '1', 'true');
-                        return;
-                    } else if ($('#txtBranch').val() == "") {
-                        v5.error('请填写开户支行', '1', 'true');
-                        return;
-                    } else if (!$('#txtBankCardName').val().TryWENZI()) {
-                        v5.error('开户名格式不正确', '1', 'true');
-                        return;
-                    } else if ($('#txtBankNumber').val() == "") {
-                        v5.error('请填写银行卡号', '1', 'true');
-                        return;
-                    }
-                }
+              
                 if (checkForm()) {
                     $.ajax({
                         type: 'post',
@@ -118,6 +118,9 @@
 
                 <input type="password" class="login-control m-b-10"  id="txtSecPsd" name="txtSecPsd" placeholder="交易密码">
                 <input type="password" class="login-control m-b-20" id="txtSecPsd2" name="txtSecPsd2" placeholder="确认交易密码">
+                <input type="text" class="login-control m-b-10"  id="txtWeChat" runat="server" placeholder="微信帐号">    
+                <input type="text" class="login-control m-b-10"  id="txtAlipay" runat="server" placeholder="支付宝帐号">    
+
                  <select name="txtBank" id="txtBank"  class="login-control m-b-20" >
                             <option selected="selected" value="">请选择</option>
                             <option value="中国银行">中国银行</option>

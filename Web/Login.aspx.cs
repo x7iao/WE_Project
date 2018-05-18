@@ -50,6 +50,11 @@ namespace WE_Project.Web
                         Response.Write("-1");
                         return;
                     }
+                    else if (!model.MState)
+                    {
+                        Response.Write("4");
+                        return;
+                    }
                     else
                     {
                         if (model.Role.IsAdmin && !Request.Form["href"].ToLower().Contains("manage"))

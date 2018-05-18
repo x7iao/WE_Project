@@ -147,7 +147,7 @@ namespace WE_Project.Model
         /// </summary>
         public decimal TotalLDMoney { get; set; }
         /// <summary>
-        /// 提供援助的额度
+        /// 提供买入许愿果的额度
         /// </summary>
         public decimal OfferQuota { get; set; }
         /// <summary>

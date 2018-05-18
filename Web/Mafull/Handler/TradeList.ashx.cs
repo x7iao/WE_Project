@@ -180,7 +180,7 @@ namespace WE_Project.Web.Mafull.Handler
                 strText.AppendFormat("<table class=\"tab_table\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\">");
                 strText.AppendFormat("<thead><tr><th>交易类型</th><th>会员姓名</th><th>匹配金额</th><th>当前状态</th><th>订单编号</th><th>对方信息</th></tr></thead>");
                 strText.AppendFormat("<tbody><tr>");
-                strText.AppendFormat("<td>{0}</td>", "提供帮助");
+                strText.AppendFormat("<td>{0}</td>", "买入许愿果");
                 strText.AppendFormat("<td>{0}</td>", Fmember.MName);
                 strText.AppendFormat("<td>{0}</td>", (model.MatchMoney).ToString("F2"));
                 strText.AppendFormat("<td><font>{0}</font></td>", GetStatus(model));
@@ -233,7 +233,7 @@ namespace WE_Project.Web.Mafull.Handler
                 strText.AppendFormat("<label>");
                 strText.AppendFormat("<b class=\"b1\">匹配成功</b></label>");
                 strText.AppendFormat("<label>");
-                if (model.OfferMID == TModel.MID)//提供帮助
+                if (model.OfferMID == TModel.MID)//买入许愿果
                 {
                     if (!string.IsNullOrEmpty(MatchTimeLeave(model, MMMMatchTimeType.PayLimitTime, "", "")))
                     {
@@ -265,7 +265,7 @@ namespace WE_Project.Web.Mafull.Handler
                 strText.AppendFormat("<label>");
                 strText.AppendFormat("<b class=\"b1\">匹配成功</b></label>");
                 strText.AppendFormat("<label>");
-                if (model.OfferMID == TModel.MID)//提供帮助
+                if (model.OfferMID == TModel.MID)//买入许愿果
                 {
                     strText.AppendFormat("<b class=\"b22\">请及时打款</b></label>");
                 }
@@ -274,7 +274,7 @@ namespace WE_Project.Web.Mafull.Handler
                     strText.AppendFormat("<b class=\"b22\">等待对方付款</b></label>");
                 }
                 strText.AppendFormat("<label>");
-                if (model.GetMID == TModel.MID)//提供帮助
+                if (model.GetMID == TModel.MID)//买入许愿果
                 {
                     if (!string.IsNullOrEmpty(MatchTimeLeave(model, MMMMatchTimeType.ConfirmLimitTime, "", "")))
                     {
@@ -297,7 +297,7 @@ namespace WE_Project.Web.Mafull.Handler
                 strText.AppendFormat("<label>");
                 strText.AppendFormat("<b class=\"b1\">匹配成功</b></label>");
                 strText.AppendFormat("<label>");
-                if (model.OfferMID == TModel.MID)//提供帮助
+                if (model.OfferMID == TModel.MID)//买入许愿果
                 {
                     strText.AppendFormat("<b class=\"b22\">请及时打款</b></label>");
                 }

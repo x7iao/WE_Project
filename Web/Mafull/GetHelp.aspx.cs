@@ -47,14 +47,15 @@ namespace WE_Project.Web.Mafull
             {
                 MoneyType = "MHB";
             }
-            else if (Request.Form["rdo"] == "MJB")
+            else 
+            if (Request.Form["rdo"] == "MJB")
             {
                 MoneyType = "MJB";
             }
-            else if (Request.Form["rdo"] == "MCW")
-            {
-                MoneyType = "MCW";
-            }
+            //else if (Request.Form["rdo"] == "MCW")
+            //{
+            //    MoneyType = "MCW";
+            //}
 
             return BLL.MGetHelp.GetHelp(TModel, MoneyType, sqMoney);
         }

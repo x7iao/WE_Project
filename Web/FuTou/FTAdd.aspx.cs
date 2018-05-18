@@ -16,7 +16,7 @@ namespace WE_Project.Web.FuTou
             DataTable dt= BLL.CommonBase.GetTable("select * from ConfigDictionary where DType='TranConfig';");
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                remain2 += "<option value=\""+ dt.Rows[i]["StartLevel"]+ "\">"+ dt.Rows[i]["StartLevel"] + "天[日收益"+ Convert.ToDecimal(dt.Rows[i]["DValue"])*100 + "%]</option>";
+                remain2 += "<option value=\""+ dt.Rows[i]["StartLevel"]+ "\">"+ dt.Rows[i]["StartLevel"] + "天[总收益"+ Convert.ToDecimal(dt.Rows[i]["DKey"])*100 + "%]</option>";
             }
             remain2 += "</select>";
 

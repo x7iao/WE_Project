@@ -39,7 +39,7 @@
                         <input id="txtTel" runat="server" class="normal_input" type="text" />
                     </td>
                 </tr>
-                <tr style="display:none;">
+                <tr>
                     <td align="right">
                         支付宝账号:
                     </td>
@@ -47,7 +47,7 @@
                         <input id="txtAlipay" runat="server" class="normal_input" type="text" /><font style="color: Red"></font>
                     </td>
                 </tr>
-                <tr style="display:none;">
+                <tr>
                     <td align="right">
                         微信账号:
                     </td>
@@ -106,7 +106,7 @@
                        <select id="txtZDStatus" runat="server">
                             <option value="0">关闭</option>
                             <option value="1">开启</option>
-                        </select>
+                        </select><span style="color:red;">*防撞单关闭后不可再次开启</span>
                     </td>
                 </tr>
                 <tr style="height: 50px;">

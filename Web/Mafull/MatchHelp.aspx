@@ -12,7 +12,7 @@
             <table cellpadding="0" cellspacing="0">
                 <tr>
                     <td align="right">
-                        申请帮助数量:
+                        买入许愿果数量:
                     </td>
                     <td>
                         <input id="txtOfferCount" runat="server" class="normal_input" type="text" readonly="readonly" />
@@ -20,7 +20,7 @@
                 </tr>
                 <tr>
                     <td align="right">
-                        获得帮助数量:
+                        卖出许愿果数量:
                     </td>
                     <td>
                         <input id="txtGetCount" runat="server" class="normal_input" type="text" readonly="readonly" />
@@ -38,7 +38,7 @@
                 </tr>
                 <tr>
                     <td align="right">
-                        申请帮助会员帐号:
+                        买入许愿果会员帐号:
                     </td>
                     <td>
                         <input id="txtoffer" runat="server" class="normal_input" type="text" />
@@ -46,7 +46,7 @@
                 </tr>
                 <tr>
                     <td align="right">
-                        获得帮助会员帐号:
+                        卖出许愿果会员帐号:
                     </td>
                     <td>
                         <input id="txtget" runat="server" class="normal_input" type="text" />

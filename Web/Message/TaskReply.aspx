@@ -4,30 +4,22 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
     <title>发送信息</title>
-    <link rel="stylesheet" href="/plugin/kindeditor/themes/default/default.css" />
-    <script type="text/javascript">
-        var K = window.KKKK;
-        var uploadbutton = K.uploadbutton({
-            button: K('#GatheringPic')[0],
-            fieldName: 'imgFile',
-            url: '/plugin/kindeditor/asp.net/upload_json.ashx?dir=image',
-            afterUpload: function (data) {
-                if (data.error === 0) {
-                    var url = K.formatUrl(data.url, 'absolute');
-                    K('#hduploadPic1').val(url);
-                    K('#uploadLog').html("上传成功");
-                    K("#imgPic").attr("src", url);
-                } else {
-                    $('#uploadLog').html(data.message);
+   <script>
+        layui.use("upload", function () {
+            layui.upload({
+                url: '/Admin/UpLoadPic/UploadImage.ashx',
+                success: function (res) {
+                    console.log(res); //上传成功返回值，必须为json格式
+                    if (res.isSuccess) {
+                        $("#upimage").attr("src", res.msg);
+                        $("#hduploadPic1").val(res.msg);
+                    } else {
+                        v5.alert(res.msg, '1', 'true')
+                    }
                 }
-            },
-            afterError: function (str) {
-                alert('自定义错误信息: ' + str);
-            }
+            });
         });
-        uploadbutton.fileBox.change(function (e) {
-            uploadbutton.submit();
-        });
+
     </script>
 </head>
 <body>
@@ -82,11 +74,9 @@
                         附件上传：
                     </td>
                     <td>
-                        <input type="button" id="GatheringPic" value="上传图片" />
-                        <div id='uploadLog'>
-                        </div>
-                        <input type="hidden" id="hduploadPic1" name="hduploadPic1" />
-                        <img id="imgPic" class='appImg' style='max-width: 700px;' />
+                       <input type="file" name="upload" class="layui-upload-file" style="display:block;">
+                            <input type="hidden" id="hduploadPic1" name="hduploadPic1" runat="server" />
+                            <img id="upimage" width="100px;" height="100px" />
                     </td>
                 </tr>
                 <tr style="height: 40px;">

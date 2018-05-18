@@ -31,7 +31,7 @@ namespace WE_Project.Web.Mafull
                 getMemberModel = BllModel.GetModel(match.GetMID);
                 getTJMemberModel = BllModel.GetModel(getMemberModel.MTJ);
 
-                spLeaveTime.InnerHtml = MatchTimeLeave(match, MMMMatchTimeType.PayLimitTime, "", "", DateDiffType.SS);
+                spLeaveTime.InnerHtml = MatchTimeLeave(match, MMMMatchTimeType.PayLimitTime, "打款倒计时", "");
                 ////剩余付款时间
                 //DateTime matchTime = match.MatchTime;
                 //DateTime matchTimeAdd = matchTime.AddMinutes(BLL.MMMConfig.Model.PayLimitTimes);

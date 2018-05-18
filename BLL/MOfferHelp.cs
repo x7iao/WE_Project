@@ -68,12 +68,12 @@ namespace WE_Project.BLL
                 }  
                 //if (offer.SQMID == TModel.MID)
                 {
-                    //更新该提供帮助的匹配记录
+                    //更新该买入许愿果的匹配记录
                     decimal changeMoney = offer.SQMoney;
                     //if (offer.InterestState == 1)
                     {
                         changeMoney += offer.TotalInterest;
-                        BLL.ChangeMoney.HBChangeTran(changeMoney, BLL.Member.ManageMember.TModel.MID, offer.SQMID, "TGBZ", BLL.Member.ManageMember.TModel, "MHB", "提供帮助(" + offer.SQCode + ")本金加利息超时自动进入"+BLL.Reward.List["MJB"].RewardName, MyHs);
+                        BLL.ChangeMoney.HBChangeTran(changeMoney, BLL.Member.ManageMember.TModel.MID, offer.SQMID, "TGBZ", BLL.Member.ManageMember.TModel, "MHB", "买入许愿果(" + offer.SQCode + ")本金加利息超时自动进入"+BLL.Reward.List["MJB"].RewardName, MyHs);
                     }
                   
                     offer.PPState = 4;
@@ -214,7 +214,7 @@ namespace WE_Project.BLL
         }
 
         /// <summary>
-        /// 提供帮助
+        /// 买入许愿果
         /// </summary>
         public static string GetHelp(Model.Member member, decimal sqMoney, int helptype,Hashtable MyHs)
         {
@@ -228,7 +228,7 @@ namespace WE_Project.BLL
                 return "1*不可申请";
             }
 
-            //提供帮助开关
+            //买入许愿果开关
             if (!BLL.MMMConfig.Model.OfferHelpSwitch || !SystemTimeRange.TimeIsClose(BLL.MMMConfig.Model.OfferHelpTimes, DateTime.Now))
             {
                 return "1*当前时间不能申请";
@@ -263,7 +263,7 @@ namespace WE_Project.BLL
             //decimal dicmoney = Convert.ToDecimal(dictj.DValue) >Convert.ToDecimal(dicyj.DValue) ? Convert.ToDecimal(dicyj.DValue) :Convert.ToDecimal(dictj.DValue);//取小
 
             //if (sqMoney != 2000 && sqMoney != 5000 && sqMoney != 10000 && sqMoney != 20000)
-            //    return "1*援助金额应为2000,5000,10000或20000";
+            //    return "1*买入许愿果金额应为2000,5000,10000或20000";
 
             decimal maxOfferMoney = WE_Project.BLL.MMMConfig.Model.OfferHelpMax;
 
@@ -308,7 +308,7 @@ namespace WE_Project.BLL
 
             if (sqMoney % BLL.MMMConfig.Model.OfferHelpBase != 0)
             {
-                return "1*援助金额应为" + BLL.MMMConfig.Model.OfferHelpBase + "的倍数";
+                return "1*买入许愿果金额应为" + BLL.MMMConfig.Model.OfferHelpBase + "的倍数";
             }
             else
             {
@@ -354,7 +354,7 @@ namespace WE_Project.BLL
                             BLL.MOfferHelp.Insert(offer, MyHs);
                             BLL.Member.UpdateConfigTran(member.MID, "SQCount", "1", member, false, System.Data.SqlDbType.Int, MyHs);
                             if (helptype==0)
-                                BLL.ChangeMoney.HBChangeTran(mcwdic, member.MID, BLL.Member.ManageMember.TModel.MID, "TGBH", member, "MGP", "提供帮助需" + mcwdic + BLL.Reward.List["MGP"].RewardName, MyHs);
+                                BLL.ChangeMoney.HBChangeTran(mcwdic, member.MID, BLL.Member.ManageMember.TModel.MID, "TGBH", member, "MGP", "买入许愿果需" + mcwdic + BLL.Reward.List["MGP"].RewardName, MyHs);
                             
                             //BLL.ChangeMoney.R_GL(offer, TModel, TModel, 1, MyHs);
                             return "1*0";
@@ -377,7 +377,7 @@ namespace WE_Project.BLL
         }
 
         /// <summary>
-        /// 提供帮助
+        /// 买入许愿果
         /// </summary>
         public static string GetHelp(Model.Member member, decimal sqMoney,int helptype)
         {

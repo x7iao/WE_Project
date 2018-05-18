@@ -1276,7 +1276,7 @@ namespace WE_Project.BLL
         # region zx_126
 
         /// <summary>
-        /// 获取会员最小援助金额
+        /// 获取会员最小买入许愿果金额
         /// </summary>
         /// <returns></returns>
         public static decimal GetMinOfferMoney(Model.Member model)
@@ -1327,7 +1327,7 @@ namespace WE_Project.BLL
         //            var dic = DAL.ConfigDictionary.GetConfigDictionary(level, "TJFloat", "");
         //            if (dic != null)
         //            {
-        //                HBChangeTran(money * Convert.ToDecimal(dic.DValue), BLL.Member.ManageMember.TModel.MID, mtj.MID, "R_TJ", shMember, "MJB", level.ToString() + "代会员" + shMember.MID + "提供帮助" + money, MyHs);
+        //                HBChangeTran(money * Convert.ToDecimal(dic.DValue), BLL.Member.ManageMember.TModel.MID, mtj.MID, "R_TJ", shMember, "MJB", level.ToString() + "代会员" + shMember.MID + "买入许愿果" + money, MyHs);
         //            }
         //        }
         //    }
@@ -1923,7 +1923,7 @@ namespace WE_Project.BLL
         /// <summary>
         /// 推荐奖
         /// </summary>
-        public static Hashtable R_TJ(Model.MOfferHelp off, Model.Member member, Hashtable MyHs)
+        public static Hashtable R_TJ(Model.MGetHelp off, Model.Member member, Hashtable MyHs)
         {
             Model.Member mTJ = DAL.Member.GetModel(member.MTJ);
             if (mTJ != null && mTJ.MID != mTJ.MTJ)
@@ -1942,7 +1942,7 @@ namespace WE_Project.BLL
         /// <summary>
         /// 管理奖推荐奖
         /// </summary>
-        public static Hashtable R_GL(Model.MOfferHelp match, Model.Member member, Hashtable MyHs)
+        public static Hashtable R_GL(Model.MGetHelp match, Model.Member member, Hashtable MyHs)
         {
             var configs = DAL.ConfigDictionary.GetDicList();
             int max = 0;
@@ -1965,7 +1965,7 @@ namespace WE_Project.BLL
         /// <summary>
         /// 管理奖发放流程
         /// </summary>
-        public static Hashtable R_LDReward(Model.MOfferHelp match, Model.Member member, Model.Member shmodel, int count, int level, int maxLevel, int minLevel, Hashtable MyHs)
+        public static Hashtable R_LDReward(Model.MGetHelp match, Model.Member member, Model.Member shmodel, int count, int level, int maxLevel, int minLevel, Hashtable MyHs)
         {
             if (level <= maxLevel)
             {

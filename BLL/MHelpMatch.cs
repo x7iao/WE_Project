@@ -76,7 +76,7 @@ namespace WE_Project.BLL
             if (type == 1)
             {
                 DateTime now = DateTime.Now.AddMinutes(-BLL.MMMConfig.Model.LineTimes);
-                //提供帮助 //查询出排队过15天的
+                //买入许愿果 //查询出排队过15天的
                 DataTable list = BLL.CommonBase.GetTable(@"select (t1.SQMoney-t1.MatchMoney) as SQMoney,t1.SQMoney as OrginSQMoney,PPState,SQMID,SQDate,SQCode,t1.Id from MOfferHelp t1 left join Member a on t1.SQMID=a.MID
  inner join MemberConfig b on a.MID=b.MID  where  MState='1' and IsClose<>'1' and PPState in (0,1,2) and SQDate <= '" + now.ToString("yyyy-MM-dd HH:mm:ss") + "' and (MatchMoney <> SQMoney or MatchMoney < MFLMoney) and HelpType = 0 ");
                 return list;
@@ -84,14 +84,14 @@ namespace WE_Project.BLL
             else if (type == 2)
             {
                 DateTime now = DateTime.Now.AddMinutes(-BLL.MMMConfig.Model.MHBRangeTimes);
-                //提供帮助 //查询出排队过15天的
+                //买入许愿果 //查询出排队过15天的
                 DataTable list = BLL.CommonBase.GetTable(@"select (t1.SQMoney-t1.MatchMoney) as SQMoney,t1.SQMoney as OrginSQMoney,PPState,SQMID,SQDate,SQCode,t1.Id from MOfferHelp t1 left join Member a on t1.SQMID=a.MID
  inner join MemberConfig b on a.MID=b.MID  where  MState='1' and IsClose<>'1' and PPState in (0,1,2) and SQDate <= '" + now.ToString("yyyy-MM-dd HH:mm:ss") + "' and (MatchMoney <> SQMoney or MatchMoney < MFLMoney) and HelpType = 1 ");
                 return list;
             }
             else
             {
-                //获得帮助
+                //卖出许愿果
                 DataTable list = BLL.CommonBase.GetTable(@"select t1.SQMoney,SQMID,SQDate,SQCode,t1.Id,b.PPLeavel from MGetHelp t1 left join Member a on t1.SQMID=a.MID
  inner join MemberConfig b on a.MID=b.MID  where  MState='1' and IsClose<>'1' and PPState in (0,1,2) and  t1.SQMoney <>  t1.MatchMoney order by SQDate desc");
                 return list;
@@ -112,7 +112,7 @@ namespace WE_Project.BLL
                 guilist.Clear();
                 DateTime now = DateTime.Now.AddMinutes(-BLL.MMMConfig.Model.LineTimes);
                 DateTime getnow = DateTime.Now.AddMinutes(-BLL.MMMConfig.Model.FreezeTimesOfOffer);
-                //提供帮助的记录
+                //买入许愿果的记录
                 List<Model.MOfferHelp> offerlist = new List<Model.MOfferHelp>();
                 offerlist = BLL.MOfferHelp.GetList(" PPState in (0,1,2) and HelpType = 0 and  SQMoney <> MatchMoney and SQDate <= '" + now.ToString("yyyy-MM-dd HH:mm:ss") + "' and [Id] in (" + offid + ") order by SQDate");
                 //管理员记录
@@ -136,7 +136,7 @@ namespace WE_Project.BLL
                 guilist.Clear();
                 DateTime now = DateTime.Now.AddMinutes(-BLL.MMMConfig.Model.LineTimes);
                 DateTime getnow = DateTime.Now.AddMinutes(-BLL.MMMConfig.Model.FreezeTimesOfOffer);
-                //提供帮助的记录
+                //买入许愿果的记录
                 List<Model.MOfferHelp> offerlist = new List<Model.MOfferHelp>();
                 offerlist = BLL.MOfferHelp.GetList("PPState in (0,1,2) and HelpType = 0 and SQDate <= '" + now.ToString("yyyy-MM-dd HH:mm:ss") + "' and SQMID in (select MID from Member where MState='1' and IsClose<>'1' and mid = '" + offmid + "' )  order by SQDate");
                 //管理员记录
@@ -160,7 +160,7 @@ namespace WE_Project.BLL
                 guilist.Clear();
                 DateTime now = DateTime.Now.AddMinutes(-BLL.MMMConfig.Model.LineTimes);
                 DateTime getnow = DateTime.Now.AddMinutes(-BLL.MMMConfig.Model.FreezeTimesOfOffer);
-                //提供帮助的记录
+                //买入许愿果的记录
                 List<Model.MOfferHelp> offerlist = new List<Model.MOfferHelp>();
                 offerlist = BLL.MOfferHelp.GetListJoin("PPState in (0,1,2) and HelpType = 0 and SQDate <= '" + now.ToString("yyyy-MM-dd HH:mm:ss") + "' and SQMID in (select MID from Member where MState='1' and IsClose<>'1' )  and sqmid not in(select SQMID from MGetHelp where PPState in(0,1,2) and sqmid in(select mid from member where zdstatus=1))  order by SQDate,mc.EPXingCount desc");
                 //管理员记录
@@ -190,7 +190,7 @@ namespace WE_Project.BLL
 
                 DateTime getnow = DateTime.Now.AddMinutes(-BLL.MMMConfig.Model.FreezeTimesOfOffer);
 
-                //提供帮助的记录
+                //买入许愿果的记录
                 List<Model.MOfferHelp> offerlist = new List<Model.MOfferHelp>();
                 //offerlist = BLL.MOfferHelp.GetList("PPState in (0,1,2)  and HelpType = 0  and MatchMoney < MFLMoney and SQMID in (select MID from Member where MState='1' and IsClose<>'1' ) order by SQDate");
                 offerlist = BLL.MOfferHelp.GetListJoin("PPState in (0, 1, 2)  and HelpType = 0  and MatchMoney < MFLMoney and SQMID in (select MID from Member where MState = '1' and IsClose<> '1' )  order by SQDate,mc.EPXingCount desc");
@@ -215,7 +215,7 @@ namespace WE_Project.BLL
                 guilist.Clear();
                 DateTime now = DateTime.Now.AddMinutes(-BLL.MMMConfig.Model.LineTimes);
                 DateTime getnow = DateTime.Now.AddMinutes(-BLL.MMMConfig.Model.FreezeTimesOfOffer);
-                //提供帮助的记录
+                //买入许愿果的记录
                 List<Model.MOfferHelp> offerlist = new List<Model.MOfferHelp>();
                 offerlist = BLL.MOfferHelp.GetList("PPState in (0,1,2) and HelpType = 0 and SQDate > '" + now.ToString("yyyy-MM-dd HH:mm:ss") + "' and MatchMoney < MFLMoney and SQMID in (select MID from Member where MState='1' and IsClose<>'1' and mid = '" + offmid + "' ) order by SQDate");
                 //管理员记录
@@ -239,7 +239,7 @@ namespace WE_Project.BLL
                 guilist.Clear();
                 DateTime now = DateTime.Now.AddMinutes(-BLL.MMMConfig.Model.LineTimes);
                 DateTime getnow = DateTime.Now.AddMinutes(-BLL.MMMConfig.Model.FreezeTimesOfOffer);
-                //提供帮助的记录
+                //买入许愿果的记录
                 List<Model.MOfferHelp> offerlist = new List<Model.MOfferHelp>();
                 offerlist = BLL.MOfferHelp.GetList("PPState in (0,1,2) and SQDate > '" + now.ToString("yyyy-MM-dd HH:mm:ss") + "' and MatchMoney < MFLMoney and [Id] in (" + offid + ") and SQMID in (select MID from Member where MState='1' and IsClose<>'1' ) order by SQDate");
                 //管理员记录
@@ -267,7 +267,7 @@ namespace WE_Project.BLL
                 guilist.Clear();
                 DateTime now = DateTime.Now.AddMinutes(-BLL.MMMConfig.Model.LineTimes);
 
-                //提供帮助的记录
+                //买入许愿果的记录
                 List<Model.MOfferHelp> offerlist = new List<Model.MOfferHelp>();
                 offerlist = BLL.MOfferHelp.GetList(" PPState in (0,1,2) and  SQMoney <> MatchMoney and HelpType = 1 and [Id] in (" + offid + ") order by SQDate");
                 //管理员记录
@@ -290,7 +290,7 @@ namespace WE_Project.BLL
                 guilist.Clear();
                 DateTime now = DateTime.Now.AddMinutes(-BLL.MMMConfig.Model.LineTimes);
 
-                //提供帮助的记录
+                //买入许愿果的记录
                 List<Model.MOfferHelp> offerlist = new List<Model.MOfferHelp>();
                 offerlist = BLL.MOfferHelp.GetList("PPState in (0,1,2) and HelpType = 0  and SQMID in (select MID from Member where MState='1' and IsClose<>'1' and mid = '" + offmid + "' )  order by SQDate");
                 //管理员记录
@@ -314,7 +314,7 @@ namespace WE_Project.BLL
                 guilist.Clear();
                 DateTime now = DateTime.Now.AddMinutes(-BLL.MMMConfig.Model.LineTimes);
 
-                //提供帮助的记录
+                //买入许愿果的记录
                 List<Model.MOfferHelp> offerlist = new List<Model.MOfferHelp>();
                 offerlist = BLL.MOfferHelp.GetList("PPState in (0,1,2) and HelpType = 0 and SQMID in (select MID from Member where MState='1' and IsClose<>'1' ) order by SQDate");
                 //管理员记录
@@ -370,7 +370,7 @@ namespace WE_Project.BLL
                 guilist.Clear();
                 DateTime now = DateTime.Now.AddMinutes(-BLL.MMMConfig.Model.MHBRangeTimes);
                 DateTime getnow = DateTime.Now.AddMinutes(-BLL.MMMConfig.Model.FreezeTimesOfOffer);
-                //提供帮助的记录
+                //买入许愿果的记录
                 List<Model.MOfferHelp> offerlist = new List<Model.MOfferHelp>();
                 offerlist = BLL.MOfferHelp.GetList("PPState in (0,1,2) and HelpType = 1 and SQDate <= '" + now.ToString("yyyy-MM-dd HH:mm:ss") + "' and SQMID in (select MID from Member where MState='1' and IsClose<>'1' ) order by SQDate");
                 //管理员记录
@@ -419,7 +419,7 @@ namespace WE_Project.BLL
                 guilist.Clear();
                 DateTime now = DateTime.Now.AddMinutes(-BLL.MMMConfig.Model.MHBRangeTimes);
                 DateTime getnow = DateTime.Now.AddMinutes(-BLL.MMMConfig.Model.FreezeTimesOfOffer);
-                //提供帮助的记录
+                //买入许愿果的记录
                 List<Model.MOfferHelp> offerlist = new List<Model.MOfferHelp>();
                 offerlist = BLL.MOfferHelp.GetList("PPState in (0,1,2) and HelpType =1 and SQDate <= '" + now.ToString("yyyy-MM-dd HH:mm:ss") + "' and SQMID in (select MID from Member where MState='1' and IsClose<>'1' and mid = '" + offmid + "' )  order by SQDate");
                 //管理员记录
@@ -473,7 +473,7 @@ namespace WE_Project.BLL
                 guilist.Clear();
                 DateTime now = DateTime.Now.AddMinutes(-BLL.MMMConfig.Model.MHBRangeTimes);
                 DateTime getnow = DateTime.Now.AddMinutes(-BLL.MMMConfig.Model.FreezeTimesOfOffer);
-                //提供帮助的记录
+                //买入许愿果的记录
                 List<Model.MOfferHelp> offerlist = new List<Model.MOfferHelp>();
                 offerlist = BLL.MOfferHelp.GetList(" PPState in (0,1,2) and HelpType = 1 and  SQMoney <> MatchMoney and SQDate <= '" + now.ToString("yyyy-MM-dd HH:mm:ss") + "' and [Id] in (" + offid + ") order by SQDate");
                 //管理员记录
@@ -602,12 +602,12 @@ namespace WE_Project.BLL
                 Model.MOfferHelp offer = DAL.MOfferHelp.GetModel(mh.OfferId);
                 Model.Member getMember = DAL.Member.GetModel(mh.GetMID);
                 Model.MGetHelp get = DAL.MGetHelp.GetModel(mh.GetId);
-                //提供帮助
-                string Msg = "尊敬的会员您好！您订单号" + offer.SQCode + "提供帮助的订单已经匹配成功，请在规定时间内完成，感谢您的参与！祝您生活愉快！";
+                //买入许愿果
+                string Msg = "尊敬的会员您好！您订单号" + offer.SQCode + "买入许愿果的订单已经匹配成功，请在规定时间内完成，感谢您的参与！祝您生活愉快！";
                 Model.SMS model = new Model.SMS { SType = Model.SMSType.ZCYZ, Tel = offMember.Tel, SContent = Msg };
                 string error = "";
                 BLL.SMS.Insert(model, ref error);
-                //获得帮助
+                //卖出许愿果
                 model.SContent = "尊敬的会员您好！您订单号" + get.SQCode + "得到帮助的订单已经匹配成功，请注意查看，感谢您的参与！祝您生活愉快！";
                 model.Tel = getMember.Tel;
                 BLL.SMS.Insert(model, ref error);
@@ -627,11 +627,11 @@ namespace WE_Project.BLL
                 Model.MOfferHelp offer = DAL.MOfferHelp.GetModel(mh.OfferId);
                 Model.Member getMember = DAL.Member.GetModel(mh.GetMID);
                 Model.MGetHelp get = DAL.MGetHelp.GetModel(mh.GetId);
-                string Msg = "尊敬的会员您好！您订单号" + offer.SQCode + "提供帮助的订单已经匹配成功，请在规定时间内完成，感谢您的参与！祝您生活愉快！";
+                string Msg = "尊敬的会员您好！您订单号" + offer.SQCode + "买入许愿果的订单已经匹配成功，请在规定时间内完成，感谢您的参与！祝您生活愉快！";
                 Model.SMS model = new Model.SMS { SType = Model.SMSType.ZCYZ, Tel = offMember.Tel, SContent = Msg };
                 string error = "";
                 BLL.SMS.Insert(model, ref error);
-                //获得帮助
+                //卖出许愿果
                 model.SContent = "尊敬的会员您好！您订单号" + get.SQCode + "得到帮助的订单已经匹配成功，请注意查看，感谢您的参与！祝您生活愉快！";
                 model.Tel = getMember.Tel;
                 BLL.SMS.Insert(model, ref error);
@@ -1220,7 +1220,7 @@ namespace WE_Project.BLL
 
             Model.Member offModel = null;
             offModel = BLL.Member.GetModelByMID(offer.SQMID);
-            //提供帮助最后一个匹配项完了
+            //买入许愿果最后一个匹配项完了
             if (BLL.MHelpMatch.GetList("MatchState in(1,2) and MatchCode<>'" + match.MatchCode + "' and OfferId=" + match.OfferId).Count <= 0)
             {
                 //订单存在并且未匹配为0
@@ -1270,8 +1270,6 @@ namespace WE_Project.BLL
                     BLL.ChangeMoney.TJMoneyTran(offer.SQMoney, offModel.MTJ, MyHs);
 
 
-                    BLL.ChangeMoney.R_GL(offer, offModel, MyHs);
-                    BLL.ChangeMoney.R_TJ(offer, offModel, MyHs);
                     ////返还激活码
                     //BLL.ChangeMoney.FHJHM(offer, offModel, MyHs);
                     ////抢单奖
@@ -1331,10 +1329,10 @@ namespace WE_Project.BLL
                 MyHs.Add("update MemberConfig set EPXingCount=EPXingCount+"+30+" where mid='"+mtj.MID+"';", null);
             }
 
-            //更新提供帮助
+            //更新买入许愿果
             BLL.MOfferHelp.Update(offer, MyHs);
 
-            //获得帮助最后一个匹配项完了
+            //卖出许愿果最后一个匹配项完了
             if (BLL.MHelpMatch.GetList("MatchState in(1,2) and MatchCode<>'" + match.MatchCode + "' and GetId=" + match.GetId).Count <= 0)
             {
                 Model.MGetHelp get = BLL.MGetHelp.GetModel(match.GetId);

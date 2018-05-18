@@ -1034,9 +1034,9 @@ namespace WE_Project.Web.Ajax
                 {
                     if (offer.PPState == 4)
                     {
-                        //更新该提供帮助的匹配记录
+                        //更新该买入许愿果的匹配记录
                         decimal changeMoney = offer.TotalInterest;
-                        BLL.ChangeMoney.HBChangeTran(changeMoney, BLL.Member.ManageMember.TModel.MID, offer.SQMID, "TGBZ", TModel, "MHB", "提供帮助(" + offer.SQCode + ")利息", MyHs);
+                        BLL.ChangeMoney.HBChangeTran(changeMoney, BLL.Member.ManageMember.TModel.MID, offer.SQMID, "TGBZ", TModel, "MHB", "买入许愿果(" + offer.SQCode + ")利息", MyHs);
                     }
                     offer.InterestState = 1;
 
@@ -1091,16 +1091,16 @@ namespace WE_Project.Web.Ajax
                 //}
                 if (offer.SQMID == TModel.MID)
                 {
-                    //更新该提供帮助的匹配记录
+                    //更新该买入许愿果的匹配记录
                     decimal changeMoney = offer.SQMoney;
                     //if (offer.InterestState == 1)
                     {
                         changeMoney += offer.TotalInterest;
-                        BLL.ChangeMoney.HBChangeTran(changeMoney, BLL.Member.ManageMember.TModel.MID, offer.SQMID, "TGBZ", TModel, "MHB", "提供帮助(" + offer.SQCode + ")本金加利息", MyHs);
+                        BLL.ChangeMoney.HBChangeTran(changeMoney, BLL.Member.ManageMember.TModel.MID, offer.SQMID, "TGBZ", TModel, "MHB", "买入许愿果(" + offer.SQCode + ")本金加利息", MyHs);
                     }
                     //else
                     //{
-                    //    BLL.ChangeMoney.HBChangeTran(changeMoney, BLL.Member.ManageMember.TModel.MID, offer.SQMID, "TGBZ", TModel, "MHB", "提供帮助(" + offer.SQCode + ")本金", MyHs);
+                    //    BLL.ChangeMoney.HBChangeTran(changeMoney, BLL.Member.ManageMember.TModel.MID, offer.SQMID, "TGBZ", TModel, "MHB", "买入许愿果(" + offer.SQCode + ")本金", MyHs);
                     //}
 
                     //BLL.ChangeMoney.HBChangeTran(offer.TotalSincerity, BLL.Member.ManageMember.TModel.MID, offer.SQMID, "R_DK", TModel, "MHB", "诚信奖", MyHs);

@@ -8,6 +8,7 @@
     <meta charset="UTF-8">
     <meta name="description" content="Violate Responsive Admin Template">
     <meta name="keywords" content="Super Admin, Admin, Template, Bootstrap">
+    <link rel = "Shortcut Icon" href=/Admin/img/icon.ico>
     <title><%=WebModel.WebTitle %></title>
 
     <!-- CSS -->
@@ -234,7 +235,7 @@
             <ol class="breadcrumb hidden-xs">
                 <%--<li><a href="#">Home</a></li>
                 <li><a href="#">Library</a></li>--%>
-                <li class="active">Data</li>
+                <%--<li class="active">Data</li>--%>
             </ol>
 
             <h4 class="page-title">快捷菜单</h4>
@@ -253,11 +254,11 @@
                     <img src="/Admin/img/shortcuts/calendar.png" alt="">
                     <small class="t-overflow">卖出</small>
                 </a>
-                <a class="shortcut tile" href="JavaScript:void(0)" onclick="callhtml('../Mafull/OfferHelpList.aspx','提供帮助列表 ');">
+                <a class="shortcut tile" href="JavaScript:void(0)" onclick="callhtml('../Mafull/OfferHelpList.aspx','买入许愿果列表 ');">
                     <img src="/Admin/img/shortcuts/stats.png" alt="">
                     <small class="t-overflow">买入列表</small>
                 </a>
-                <a class="shortcut tile" href="JavaScript:void(0)" onclick="callhtml('../Mafull/GetHelpList.aspx','获得帮助列表');">
+                <a class="shortcut tile" href="JavaScript:void(0)" onclick="callhtml('../Mafull/GetHelpList.aspx','卖出许愿果列表');">
                     <img src="/Admin/img/shortcuts/connections.png" alt="">
                     <small class="t-overflow">卖出列表</small>
                 </a>
@@ -267,11 +268,11 @@
                 </a>--%>
             </div>
 
-            <!--提供帮助-->
+            <!--买入许愿果-->
             <div id="OfferHelp" class="tile drawer animated" style="margin: 10px 10px 0;">
                 <div class="listview narrow">
                     <div class="media">
-                        <a href="">提供帮助</a>
+                        <a href="">买入许愿果</a>
                         <span class="drawer-close">&times;</span>
                     </div>
                     <div class="overflow" style="height: 254px">
@@ -279,12 +280,12 @@
                         <table cellpadding="0" cellspacing="0" style="margin-top: 10px;">
                             <tr>
                                 <td width="45%" align="right">
-                                    <span>申请援助说明：</span>
+                                    <span>买入许愿果说明：</span>
                                 </td>
                                 <td>
                                     <div>
                                         <p>
-                                            额度：<%= WE_Project.BLL.MMMConfig.Model.OfferHelpMin%>-<%=WE_Project.BLL.MMMConfig.Model.OfferHelpMax%>（<%=WE_Project.BLL.MMMConfig.Model.OfferHelpBase %>的倍数）
+                                            目前平台开放额度：<%= WE_Project.BLL.MMMConfig.Model.OfferHelpMin%>-<%=WE_Project.BLL.MMMConfig.Model.OfferHelpMax%>（<%=WE_Project.BLL.MMMConfig.Model.OfferHelpBase %>的倍数）
                                         </p>
                                     </div>
                                 </td>
@@ -310,7 +311,7 @@
                             </tr>
                             <tr>
                                 <td align="right">
-                                    <span>申请援助金额：</span>
+                                    <span>买入许愿果金额：</span>
                                 </td>
                                 <td>
                                     <input type="text" id="txtSQMoneyOffindex" name="txtSQMoneyOffindex" style="width: 100px; margin-top: 4px;" />
@@ -330,11 +331,11 @@
                 </div>
             </div>
 
-            <!--提供帮助-->
+            <!--买入许愿果-->
             <div id="GetHelp" class="tile drawer animated" style="margin: 10px 10px 0;">
                 <div class="listview narrow">
                     <div class="media">
-                        <a href="">获得帮助</a>
+                        <a href="">卖出许愿果</a>
                         <span class="drawer-close">&times;</span>
                     </div>
                     <div class="overflow" style="height: 254px">
@@ -357,17 +358,17 @@
                                     </td>
                                 </tr>
                           
-                                <tr>
+                               <%-- <tr>
                                     <td width="35%" align="right">
                                         <span>我的<%=WE_Project.BLL.Reward.List["MCW"].RewardName %>：</span>
                                     </td>
                                     <td>
                                         <%=TModel.MConfig.MCW%>
                                     </td>
-                                </tr>
+                                </tr>--%>
                                 <tr>
                                     <td width="35%" align="right">
-                                        <span>申请援助说明：</span>
+                                        <span>卖出许愿果说明：</span>
                                     </td>
                                     <td>
                                         <div>
@@ -395,8 +396,8 @@
                                     </td>
                                     <td>
 
-                                        <input value="MCW" type="radio" name="getrdoindex" checked="checked" /><%=WE_Project.BLL.Reward.List["MCW"].RewardName %>
-                                        <input value="MHB" type="radio" name="getrdoindex" /><%=WE_Project.BLL.Reward.List["MHB"].RewardName %>
+                                       <%-- <input value="MCW" type="radio" name="getrdoindex" checked="checked" /><%=WE_Project.BLL.Reward.List["MCW"].RewardName %>--%>
+                                        <input value="MHB" type="radio" name="getrdoindex" checked="checked"/><%=WE_Project.BLL.Reward.List["MHB"].RewardName %>
                                         <input value="MJB" type="radio" name="getrdoindex" /><%=WE_Project.BLL.Reward.List["MJB"].RewardName %>
                                     </td>
                                 </tr>
@@ -425,7 +426,7 @@
                 <!-- Quick Stats -->
                 <div class="block-area">
                     <div class="row">
-                        <div class="col-md-3 col-xs-6">
+                      <%--  <div class="col-md-3 col-xs-6">
                             <div class="tile quick-stats">
                                 <div id="stats-line12" class="pull-left"></div>
                                 <div class="data">
@@ -433,14 +434,14 @@
                                     <small>许愿果[用来排单]</small>
                                 </div>
                             </div>
-                        </div>
+                        </div>--%>
 
                         <div class="col-md-3 col-xs-6">
                             <div class="tile quick-stats media">
                                 <div id="stats-line12" class="pull-left"></div>
                                 <div class="media-body">
                                     <h2 value="<%=TModel.MConfig.MJBF %>"><%=TModel.MConfig.MJBF %></h2>
-                                    <small>许愿台[用来理财]</small>
+                                    <small><%=WE_Project.BLL.Reward.List["MJBF"].RewardName %>-颗</small>
                                 </div>
                             </div>
                         </div>
@@ -451,8 +452,8 @@
                                 <div id="stats-line12" class="pull-left"></div>
 
                                 <div class="media-body">
-                                    <h2 value="<%=TModel.MConfig.MJB %>"><%=TModel.MConfig.MJB %></h2>
-                                    <small>许愿池[动态奖金]</small>
+                                    <h2 value="<%=TModel.MConfig.MJB %>"><%=TModel.MConfig.MJB.ToFixedDecimal(4) %></h2>
+                                    <small><%=WE_Project.BLL.Reward.List["MJB"].RewardName %>-颗</small>
                                 </div>
                             </div>
                         </div>
@@ -461,8 +462,8 @@
                             <div class="tile quick-stats media">
                                 <div id="stats-line12" class="pull-left"></div>
                                 <div class="media-body">
-                                    <h2 value="<%=TModel.MConfig.MHB %>"><%=TModel.MConfig.MHB %></h2>
-                                    <small>许愿树[静态奖金]</small>
+                                    <h2 value="<%=TModel.MConfig.MHB %>"><%=TModel.MConfig.MHB.ToFixedDecimal(4) %></h2>
+                                    <small><%=WE_Project.BLL.Reward.List["MHB"].RewardName %>-颗</small>
                                 </div>
                             </div>
                         </div>
@@ -470,8 +471,8 @@
                             <div class="tile quick-stats media">
                                 <div id="stats-line12" class="pull-left"></div>
                                 <div class="media-body">
-                                    <h2 value="<%=TModel.MConfig.MGP %>"><%=TModel.MConfig.MGP %></h2>
-                                    <small>许愿金[手续费]</small>
+                                    <h2 value="<%=TModel.MConfig.MGP %>"><%=TModel.MConfig.MGP.ToFixedDecimal(4) %></h2>
+                                    <small><%=WE_Project.BLL.Reward.List["MGP"].RewardName %>-颗</small>
                                 </div>
                             </div>
                         </div>
@@ -479,8 +480,8 @@
                             <div class="tile quick-stats media">
                                 <div id="stats-line12" class="pull-left"></div>
                                 <div class="media-body">
-                                    <h2 value="<%=TModel.MConfig.MGP %>"><%=TModel.MConfig.TotalYFHMoney.ToFixedDecimal(0) %></h2>
-                                    <small>激活码[激活]</small>
+                                    <h2 value="<%=TModel.MConfig.TotalYFHMoney %>"><%=TModel.MConfig.TotalYFHMoney.ToFixedDecimal(0) %></h2>
+                                    <small><%=WE_Project.BLL.Reward.List["TotalYFHMoney"].RewardName %>-个</small>
                                 </div>
                             </div>
                         </div>
@@ -613,8 +614,11 @@
                             </div>--%>
 
 
-
-                            <!-- Activity -->
+                            <%
+                                if (TModel.Role.IsAdmin)
+                                {
+                                    %>
+                              <!-- Activity -->
                             <div class="tile">
                                 <h2 class="tile-title">平台数据</h2>
                                 <div class="tile-config dropdown">
@@ -680,6 +684,10 @@
                                     </div>
                                 </div>
                             </div>
+                            <%
+                                }
+                             %>
+                          
                         </div>
                         <div class="clearfix"></div>
                     </div>
@@ -933,10 +941,10 @@
                     success: function (info) {
                         info = info.split('*')[1];
                         if (info == 0) {
-                            v5.alert('提供帮助成功，请等待匹配', '2', 'true');
+                            v5.alert('买入许愿果成功，请等待匹配', '2', 'true');
                             setTimeout(function () {
                                 v5.clearall();
-                                callhtml('../Mafull/OfferHelpList.aspx', '提供帮助列表 ');
+                                callhtml('../Mafull/OfferHelpList.aspx', '买入许愿果列表 ');
                             }, 2000);
                         }
                         else {
@@ -965,7 +973,7 @@
                             v5.alert('提现成功', '2', 'true');
                             //setTimeout(function () {
                             //    v5.clearall();
-                            //    callhtml('../Mafull/GetHelpList.aspx', '获得帮助列表');
+                            //    callhtml('../Mafull/GetHelpList.aspx', '卖出许愿果列表');
                             //}, 2000);
                         }
                         else {

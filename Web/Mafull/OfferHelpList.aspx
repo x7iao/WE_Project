@@ -8,7 +8,7 @@
     <style type="text/css">
         td span
         {
-            color: Red;
+            /*color: Red;*/
         }
     </style>
     <script type="text/javascript">
@@ -113,7 +113,7 @@
                         结息天数
                     </th>--%>
                     <th>
-                        援助总金额
+                        买入许愿果总金额
                     </th>
                     <th>
                         已匹配金额
@@ -146,7 +146,7 @@
                         删除</a>
                 </div>
                 <div class="pn" runat="server" id="matchMui">
-                    <input type="button" value="多人匹配" class="btn btn-success" onclick="MatchOtherPage('/Mafull/GetHelpList.aspx','提供帮助列表')" />
+                    <input type="button" value="多人匹配" class="btn btn-success" onclick="MatchOtherPage('/Mafull/GetHelpList.aspx','买入许愿果列表')" />
                 </div>
                 <div class="pn" runat="server" id="matchSure" visible="false">
                     <input type="button" value="确认匹配" class="btn btn-success" onclick="MatchOtherPageOffSure('<%=matchid %>')" />

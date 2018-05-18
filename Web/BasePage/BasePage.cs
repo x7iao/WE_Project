@@ -160,7 +160,22 @@ namespace WE_Project.Web
                         }
                         else
                         {
-                            _tModel = ActualTModel;
+                            if (!string.IsNullOrEmpty(LoggedInMID))
+                            {
+                                Model.Member urlm = BLL.Member.GetModelByMID(LoggedInMID);//要操作的托管会员
+
+                                if (ActualTModel.MID != urlm.MTJ)//如果当前会员不是要托管账号的推荐人就不能托管进入
+                                {
+                                    _tModel = ActualTModel;
+                                }
+                                else {
+                                    _tModel = BLL.Member.GetModelByMID(LoggedInMID);
+                                }
+                            }
+                            else
+                            {
+                                _tModel = ActualTModel;
+                            }
                         }
                     }
                 }
@@ -723,7 +738,7 @@ namespace WE_Project.Web
         /// <summary>
         /// 时间剩余
         /// </summary>
-        /// <param name="match">提供帮助实例</param>
+        /// <param name="match">买入许愿果实例</param>
         /// <param name="type">类型</param>
         /// <returns></returns>
         protected string OfferTimeLeave(Model.MOfferHelp offer, MMMOfferTimeType type, string prefixStr = "倒计时：", string overtimeStr = "已超时", DateDiffType ddType = DateDiffType.MI)

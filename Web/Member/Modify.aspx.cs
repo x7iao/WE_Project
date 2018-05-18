@@ -50,7 +50,11 @@ namespace WE_Project.Web.Member
                 model.BankCardName = Request.Form["txtBankCardName"];
                 model.AliPay = Request.Form["txtAliPay"];
                 model.MConfig.HLMoneyState =Request.Form["txtHLMoneyState"] == "1" ;
-                model.ZDStatus = Request.Form["txtZDStatus"] == "1";
+                if (model.ZDStatus)
+                {
+                    model.ZDStatus = Request.Form["txtZDStatus"] == "1";
+                }
+                
                 model.WeChat = Request.Form["txtWeChat"];
                 return model;
             }

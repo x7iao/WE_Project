@@ -79,11 +79,11 @@ namespace WE_Project.Web.SysManage
                 }
                 if (!SystemTimeRange.IsTimeList(model.GetHelpTimes))
                 {
-                    throw new Exception("获得帮助时间格式不正确");
+                    throw new Exception("卖出许愿果时间格式不正确");
                 }
                 if (!SystemTimeRange.IsTimeList(model.OfferHelpTimes))
                 {
-                    throw new Exception("提供帮助时间格式不正确");
+                    throw new Exception("买入许愿果时间格式不正确");
                 }
                 return model;
             }

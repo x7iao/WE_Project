@@ -40,6 +40,9 @@ namespace WE_Project.Web.AjaxM
                 model.Branch = _context.Request.Form["txtBranch"];
                 model.BankCardName = _context.Request.Form["txtBankCardName"];
                 model.BankNumber = _context.Request.Form["txtBankNumber"];
+
+                model.WeChat = _context.Request.Form["txtWeChat"];
+                model.AliPay = _context.Request.Form["txtAlipay"];
                 model.MCreateDate = DateTime.Now;
                 model.MDate = DateTime.MaxValue;
                 model.ZDStatus = true;
@@ -108,11 +111,11 @@ namespace WE_Project.Web.AjaxM
             //    context.Response.Write("每天注册人数超出上限，请明天再来");
             //    return;
             //}
-            //List<Model.Member> list = BLL.Member.ManageMember.GetMemberEntityList("Tel='" + _context.Request.Form["txtTel"].Trim() + "'");
-            //if (list.Count >= BLL.Configuration.Model.E_BbinMaxCount)
-            //{
-            //    error += "该手机号码已被绑定";
-            //}
+            List<Model.Member> list = BLL.Member.ManageMember.GetMemberEntityList("Tel='" + _context.Request.Form["txtTel"].Trim() + "'");
+            if (list.Count >= 1)
+            {
+                error += "该手机号码已被绑定";
+            }
             //else
             //{
             //    string code = BLL.SMS.GetSKeyBuyTel(_context.Request.Form["txtTel"].Trim(), Model.SMSType.ZCYZ);

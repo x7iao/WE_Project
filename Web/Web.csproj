@@ -193,6 +193,7 @@
     <Content Include="Admin\img\gallery\thumbs\3.jpg" />
     <Content Include="Admin\img\gallery\thumbs\4.jpg" />
     <Content Include="Admin\img\gallery\thumbs\5.jpg" />
+    <Content Include="Admin\img\icon.ico" />
     <Content Include="Admin\img\icon\add%402x.png" />
     <Content Include="Admin\img\icon\add.png" />
     <Content Include="Admin\img\icon\archive%402x.png" />

@@ -183,7 +183,7 @@ namespace WE_Project.Model
             get;
         }
         /// <summary>
-        /// 显示提供帮助总金额
+        /// 显示买入许愿果总金额
         /// </summary>
         public decimal ShowOfferTotalMoney
         {
@@ -191,7 +191,7 @@ namespace WE_Project.Model
             get;
         }
         /// <summary>
-        /// 显示获得帮助总金额
+        /// 显示卖出许愿果总金额
         /// </summary>
         public decimal ShowGetTotalMoney
         {

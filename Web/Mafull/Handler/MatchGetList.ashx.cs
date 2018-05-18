@@ -60,7 +60,7 @@ namespace WE_Project.Web.Mafull.Handler
                 Model.Member getmodel = BLL.Member.ManageMember.GetModel(match[i].GetMID);
                 sb.Append(match[i].Id + "~");
                 sb.Append(match[i].MatchCode + "~");
-                sb.Append(match[i].MatchMoney + "~");
+                sb.Append((match[i].MatchMoney + "(" + match[i].MatchMoney * 2000 + ")") + "~");
                 sb.Append(match[i].MatchTime.ToString("yyyy-MM-dd HH:mm") + "~");
                 sb.Append(GetMatchState(match[i].MatchState, match[i].PicUrl1) + "~");
                 sb.Append(match[i].OfferMID + "~");

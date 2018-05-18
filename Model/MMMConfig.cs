@@ -103,7 +103,7 @@ namespace WE_Project.Model
             get { return _mofferneedmcw; }
         }
         /// <summary>
-        /// 提供帮助最小金额
+        /// 买入许愿果最小金额
         /// </summary>
         public decimal OfferHelpMin
         {
@@ -111,7 +111,7 @@ namespace WE_Project.Model
             get { return _offerhelpmin; }
         }
         /// <summary>
-        /// 提供帮助最大金额
+        /// 买入许愿果最大金额
         /// </summary>
         public decimal OfferHelpMax
         {
@@ -119,7 +119,7 @@ namespace WE_Project.Model
             get { return _offerhelpmax; }
         }
         /// <summary>
-        /// 提供帮助倍数
+        /// 买入许愿果倍数
         /// </summary>
         public decimal OfferHelpBase
         {
@@ -127,7 +127,7 @@ namespace WE_Project.Model
             get { return _offerhelpbase; }
         }
         /// <summary>
-        /// 提供帮助间隔排单时间
+        /// 买入许愿果间隔排单时间
         /// </summary>
         public int OfferHelpRangeTimes
         {
@@ -151,7 +151,7 @@ namespace WE_Project.Model
             get { return _offerhelpneedcomplete; }
         }
         /// <summary>
-        /// 获得帮助最小金额
+        /// 卖出许愿果最小金额
         /// </summary>
         public decimal GetHelpMin
         {
@@ -159,7 +159,7 @@ namespace WE_Project.Model
             get { return _gethelpmin; }
         }
         /// <summary>
-        /// 获得帮助最大金额
+        /// 卖出许愿果最大金额
         /// </summary>
         public decimal GetHelpMax
         {
@@ -167,7 +167,7 @@ namespace WE_Project.Model
             get { return _gethelpmax; }
         }
         /// <summary>
-        /// 获得帮助倍数
+        /// 卖出许愿果倍数
         /// </summary>
         public decimal GetHelpBase
         {
@@ -336,7 +336,7 @@ namespace WE_Project.Model
             get { return _confirmlimittimespre; }
         }
         /// <summary>
-        /// 提供帮助日限额
+        /// 买入许愿果日限额
         /// </summary>
         public decimal OfferHelpDayTotalMoney
         {
@@ -344,7 +344,7 @@ namespace WE_Project.Model
             get { return _offerhelpdaytotalmoney; }
         }
         /// <summary>
-        /// 获得帮助日限额
+        /// 卖出许愿果日限额
         /// </summary>
         public decimal GetHelpDayTotalMoney
         {
@@ -384,7 +384,7 @@ namespace WE_Project.Model
             get { return _interestper; }
         }
         /// <summary>
-        /// 获得帮助时间段
+        /// 卖出许愿果时间段
         /// </summary>
         public string GetHelpTimes
         {
@@ -392,7 +392,7 @@ namespace WE_Project.Model
             get { return _gethelptimes; }
         }
         /// <summary>
-        /// 提供帮助时间段
+        /// 买入许愿果时间段
         /// </summary>
         public string OfferHelpTimes
         {
@@ -400,7 +400,7 @@ namespace WE_Project.Model
             get { return _offerhelptimes; }
         }
         /// <summary>
-        /// 获得帮助开关
+        /// 卖出许愿果开关
         /// </summary>
         public bool GetHelpSwitch
         {
@@ -408,7 +408,7 @@ namespace WE_Project.Model
             get { return _gethelpswitch; }
         }
         /// <summary>
-        /// 提供帮助开关
+        /// 买入许愿果开关
         /// </summary>
         public bool OfferHelpSwitch
         {
@@ -488,7 +488,7 @@ namespace WE_Project.Model
             get { return _freezetimesofregister; }
         }
         /// <summary>
-        /// 获得帮助排队期
+        /// 卖出许愿果排队期
         /// </summary>
         public int FreezeTimesOfOffer
         {

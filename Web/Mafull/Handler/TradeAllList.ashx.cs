@@ -208,7 +208,7 @@ namespace WE_Project.Web.Mafull.Handler
         }
 
         /// <summary>
-        /// 判断是获得帮助还是提供帮助
+        /// 判断是卖出许愿果还是买入许愿果
         /// </summary>
         private string GetClass(Model.MHelpMatch match)
         {
@@ -239,7 +239,7 @@ namespace WE_Project.Web.Mafull.Handler
                 strText.AppendFormat("<div class=\"apply001\">");
                 strText.AppendFormat("<img src=\"admin/images/strelka32.png\"/>");
                 strText.AppendFormat("<div class=\"ord_title\">");
-                strText.AppendFormat("<span>{0}：</span><br />", (row["mtype"].ToString() == "1" ? "提供帮助" : "获得帮助"));
+                strText.AppendFormat("<span>{0}：</span><br />", (row["mtype"].ToString() == "1" ? "买入许愿果" : "卖出许愿果"));
                 strText.AppendFormat("<span>{0}</span>", row["SQCode"]);
                 strText.AppendFormat("</div>");
                 strText.AppendFormat("</div>");

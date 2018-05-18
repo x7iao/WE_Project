@@ -48,50 +48,50 @@
                 </tr>
                 <tr>
                     <td align="right">
-                        提供帮助最小金额:
+                        买入许愿果最小金额:
                     </td>
                     <td>
                         <input id="txtOfferHelpMin" runat="server" class="normal_input" type="text" require-type="decimal"
-                            require-msg="提供帮助最小金额" /><font color="red">*</font>
+                            require-msg="买入许愿果最小金额" /><font color="red">*</font>
                     </td>
                     <td align="right">
-                        获得帮助最小金额:
+                        卖出许愿果最小金额:
                     </td>
                     <td>
                         <input id="txtGetHelpMin" runat="server" class="normal_input" type="text" require-type="decimal"
-                            require-msg="获得帮助最小金额" /><font color="red">*</font>
+                            require-msg="卖出许愿果最小金额" /><font color="red">*</font>
                     </td>
                 </tr>
                 <tr>
                     <td align="right">
-                        提供帮助最大金额:
+                        买入许愿果最大金额:
                     </td>
                     <td>
                         <input id="txtOfferHelpMax" runat="server" class="normal_input" type="text" require-type="decimal"
-                            require-msg="提供帮助最大金额" /><font color="red">*</font>
+                            require-msg="买入许愿果最大金额" /><font color="red">*</font>
                     </td>
                     <td align="right">
-                        获得帮助最大金额:
+                        卖出许愿果最大金额:
                     </td>
                     <td>
                         <input id="txtGetHelpMax" runat="server" class="normal_input" type="text" require-type="decimal"
-                            require-msg="获得帮助最大金额" /><font color="red">*</font>
+                            require-msg="卖出许愿果最大金额" /><font color="red">*</font>
                     </td>
                 </tr>
                 <tr>
                     <td align="right">
-                        提供帮助倍数:
+                        买入许愿果倍数:
                     </td>
                     <td>
                         <input id="txtOfferHelpBase" runat="server" class="normal_input" type="text" require-type="decimal"
-                            require-msg="提供帮助倍数" /><font color="red">*整数</font>
+                            require-msg="买入许愿果倍数" /><font color="red">*整数</font>
                     </td>
                     <td align="right">
-                        获得帮助倍数:
+                        卖出许愿果倍数:
                     </td>
                     <td>
                         <input id="txtGetHelpBase" runat="server" class="normal_input" type="text" require-type="decimal"
-                            require-msg="获得帮助倍数" /><font color="red">*整数</font>
+                            require-msg="卖出许愿果倍数" /><font color="red">*整数</font>
                     </td>
                 </tr>
                 <tr >
@@ -112,55 +112,55 @@
                 </tr>
                 <tr style="display:none;">
                     <td align="right">
-                        提供帮助排单限制时间跨度:
+                        买入许愿果排单限制时间跨度:
                     </td>
                     <td>
                         <input id="txtOfferHelpRangeTimes" runat="server" class="normal_input" type="text"
-                            require-type="int" require-msg="提供帮助排单限制时间跨度" /><font color="red">*整数(分钟)</font>
+                            require-type="int" require-msg="买入许愿果排单限制时间跨度" /><font color="red">*整数(分钟)</font>
                     </td>
                     <td align="right">
-                        获得帮助排单限制时间跨度:
+                        卖出许愿果排单限制时间跨度:
                     </td>
                     <td>
                         <input id="txtGetHelpRangeTimes" runat="server" class="normal_input" type="text"
-                            require-type="int" require-msg="获得帮助排单限制时间跨度" /><font color="red">*整数(分钟)</font>
+                            require-type="int" require-msg="卖出许愿果排单限制时间跨度" /><font color="red">*整数(分钟)</font>
                     </td>
                 </tr>
                 <tr  style="display:none;">
                     <td align="right">
-                        提供帮助时间限制内最多排单数:
+                        买入许愿果时间限制内最多排单数:
                     </td>
                     <td>
                         <input id="txtOfferHelpRangeCount" runat="server" class="normal_input" type="text"
-                            require-type="int" require-msg="提供帮助时间限制内最多排单数" /><font color="red">*整数</font>
+                            require-type="int" require-msg="买入许愿果时间限制内最多排单数" /><font color="red">*整数</font>
                     </td>
                     <td align="right">
-                        获得帮助时间限制内最多排单数:
+                        卖出许愿果时间限制内最多排单数:
                     </td>
                     <td>
                         <input id="txtGetHelpRangeCount" runat="server" class="normal_input" type="text"
-                            require-type="int" require-msg="获得帮助时间限制内最多排单数" /><font color="red">*整数</font>
+                            require-type="int" require-msg="卖出许愿果时间限制内最多排单数" /><font color="red">*整数</font>
                     </td>
                 </tr>
                 <tr>
                     <td align="right">
-                        提供帮助时间范围:
+                        买入许愿果时间范围:
                     </td>
                     <td>
                         <input id="txtOfferHelpTimes" runat="server" class="normal_input" type="text" require-type="require"
-                            require-msg="提供帮助时间范围" /><font color="red">*(00:00-23:59)</font>
+                            require-msg="买入许愿果时间范围" /><font color="red">*(00:00-23:59)</font>
                     </td>
                     <td align="right">
-                        获得帮助时间范围:
+                        卖出许愿果时间范围:
                     </td>
                     <td>
                         <input id="txtGetHelpTimes" runat="server" class="normal_input" type="text" require-type="require"
-                            require-msg="获得帮助时间范围" /><font color="red">*(00:00-23:59)</font>
+                            require-msg="卖出许愿果时间范围" /><font color="red">*(00:00-23:59)</font>
                     </td>
                 </tr>
                 <tr>
                     <td align="right">
-                        提供帮助开关:
+                        买入许愿果开关:
                     </td>
                     <td>
                         <select id="txtOfferHelpSwitch" runat="server">
@@ -169,7 +169,7 @@
                         </select>
                     </td>
                     <td align="right">
-                        获得帮助开关:
+                        卖出许愿果开关:
                     </td>
                     <td>
                         <select id="txtGetHelpSwitch" runat="server">
@@ -197,11 +197,11 @@
                 </tr>
                 <tr style=" display:none;">
                     <td align="right" style="display: none">
-                        提供帮助不小于上一单的比例:
+                        买入许愿果不小于上一单的比例:
                     </td>
                     <td style="display: none">
                         <input id="txtLastProportion" runat="server" class="normal_input" type="text" require-type="decimal"
-                            require-msg="提供帮助不小于上一单的比例" /><font color="red">*</font>
+                            require-msg="买入许愿果不小于上一单的比例" /><font color="red">*</font>
                     </td>
                     <td align="right">
                         激活码价格:
@@ -248,7 +248,7 @@
                 </tr>
                 <tr>
                   <td align="right">
-                        提供帮助排队期:
+                        买入许愿果排队期:
                     </td>
                     <td>
                         <input id="txtLineTimes" runat="server" class="normal_input" type="text" require-type="int"
@@ -256,11 +256,11 @@
                     </td>
 
                     <td align="right">
-                        获得帮助排队期:
+                        卖出许愿果排队期:
                     </td>
                     <td>
                         <input id="txtFreezeTimesOfOffer" runat="server" class="normal_input" type="text"
-                            require-type="int" require-msg="获得帮助排队期" /><font color="red">*分钟</font>
+                            require-type="int" require-msg="卖出许愿果排队期" /><font color="red">*分钟</font>
                     </td>
                 </tr>
                 <tr>
@@ -319,11 +319,11 @@
                             require-msg="动态奖金提现额度比例" /><font color="red">*</font>
                     </td>
                     <td align="right">
-                        抢单区提供帮助排单期:
+                        抢单区买入许愿果排单期:
                     </td>
                     <td>
                         <input id="txtMHBRangeTimes" runat="server" class="normal_input" type="text" require-type="int"
-                            require-msg="抢单区提供帮助排单期" /><font color="red">*整数(分钟)</font>
+                            require-msg="抢单区买入许愿果排单期" /><font color="red">*整数(分钟)</font>
                     </td>
                 </tr>
 

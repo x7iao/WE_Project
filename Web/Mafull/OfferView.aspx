@@ -21,10 +21,10 @@
                 </tr>
                 <tr>
                     <td width="15%" align="right">
-                        <span>申请援助金额：</span>
+                        <span>买入许愿果金额：</span>
                     </td>
                     <td width="35%">
-                        <%=offer.SQMoney%>
+                        <%=offer.SQMoney%>（ <%=offer.SQMoney*2000%>）
                     </td>
                 </tr>
                 <tr>

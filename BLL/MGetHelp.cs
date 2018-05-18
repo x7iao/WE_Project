@@ -90,7 +90,7 @@ namespace WE_Project.BLL
         }
 
         /// <summary>
-        /// 获得帮助
+        /// 卖出许愿果
         /// </summary>
         public static string GetHelp(Model.Member member, string moneyType, decimal sqMoney, Hashtable MyHs, bool isMoneyChcek = true)
         {
@@ -103,7 +103,7 @@ namespace WE_Project.BLL
                 return "1*不可申请";
             }
 
-            //获得帮助开关
+            //卖出许愿果开关
             if (!BLL.MMMConfig.Model.GetHelpSwitch || !SystemTimeRange.TimeIsClose(BLL.MMMConfig.Model.GetHelpTimes, DateTime.Now))
             {
                 return "1*当前时间不能申请";
@@ -144,12 +144,12 @@ namespace WE_Project.BLL
             }
 
 
-            //校验援助次数
+            //校验买入许愿果次数
             //if (!CanApplyHelp(member.MID, BLL.MMMConfig.Model.GetHelpRangeTimes, BLL.MMMConfig.Model.GetHelpRangeCount, false, moneyType))
             //{
             //    return "1*申请失败，您" + BLL.MMMConfig.Model.GetHelpRangeTimes + "分钟内只能申请" + BLL.MMMConfig.Model.GetHelpRangeCount + "次";
             //}
-            //需要一个提供帮助的订单，并且已经打过预付款的
+            //需要一个买入许愿果的订单，并且已经打过预付款的
             //object offid= BLL.CommonBase.GetSingle("select ID from MOfferHelp where SQMID='aaa111' and PPState in(0,1,2,3) and MatchMoney>= MFLMoney;");
             //if (offid != null)
             //{
@@ -167,7 +167,7 @@ namespace WE_Project.BLL
             //    }
             //}
             //else {
-            //    return "1*提现失败，请提供帮助并付预付款后再提现";
+            //    return "1*提现失败，请买入许愿果并付预付款后再提现";
             //}
 
 
@@ -186,7 +186,7 @@ namespace WE_Project.BLL
             //    if(!BLL.ChangeMoney.EnoughChange(member.MID,getmgp,"MGP"))
             //        return "1*提现失败，排单币不足";
             //    else
-            //        BLL.ChangeMoney.HBChangeTran(getmgp, member.MID, BLL.Member.ManageMember.TModel.MID, "TXBH", member, "MGP", "获得帮助需" + getmgp + "个排单币", MyHs);
+            //        BLL.ChangeMoney.HBChangeTran(getmgp, member.MID, BLL.Member.ManageMember.TModel.MID, "TXBH", member, "MGP", "卖出许愿果需" + getmgp + "个排单币", MyHs);
             //}
            
 
@@ -206,6 +206,14 @@ namespace WE_Project.BLL
                 //get.Remark = Request.Form["BankCode"];
                 //Hashtable hs = new Hashtable();
                 BLL.MGetHelp.Insert(get, MyHs);
+
+                if (moneyType == "MHB")
+                {
+                    BLL.ChangeMoney.R_GL(get, member, MyHs);
+                    BLL.ChangeMoney.R_TJ(get, member, MyHs);
+                }
+                
+
                 //扣除马夫罗
                 BLL.ChangeMoney.HBChangeTran(get.SQMoney, member.MID, BLL.Member.ManageMember.TModel.MID, "GET", null, moneyType, member.MID + "申请获得" + get.SQMoney + "的帮助", MyHs);
                 return "1*0";
@@ -226,7 +234,7 @@ namespace WE_Project.BLL
         }
 
         /// <summary>
-        /// 获得帮助
+        /// 卖出许愿果
         /// </summary>
         public static string GetHelp(Model.Member member, string moneyType, decimal sqMoney, bool isMoneyChcek = true)
         {
@@ -254,7 +262,7 @@ namespace WE_Project.BLL
             //MHB互助钱包,100的倍数,一天一次
             if (sqMoney % moneyBase != 0)
             {
-                return "1*援助金额应为" + moneyBase + "的倍数";
+                return "1*买入许愿果金额应为" + moneyBase + "的倍数";
             }
 
             if (sqMoney < minGetMoney || sqMoney > maxGetMoney)
@@ -262,7 +270,7 @@ namespace WE_Project.BLL
                 return "1*提交申请失败：申请金额应该为：" + minGetMoney + "-" + maxGetMoney;
             }
 
-            //校验援助次数
+            //校验买入许愿果次数
             if (!CanApplyHelp(member.MID, BLL.MMMConfig.Model.GetHelpRangeTimes, BLL.MMMConfig.Model.GetHelpRangeCount, false, moneyType))
             {
                 return "1*申请失败，您" + BLL.MMMConfig.Model.GetHelpRangeTimes + "分钟内只能用" + BLL.Reward.List[moneyType].RewardName + "申请" + BLL.MMMConfig.Model.GetHelpRangeCount + "次";
