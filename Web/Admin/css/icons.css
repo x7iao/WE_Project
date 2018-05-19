@@ -85,7 +85,7 @@
 }
 
 .sa-list-add { background-image: url(../img/icon/add.png); }
-.sa-list-refresh { background-image: url(../img/icon/refresh.png); }
+.sa-list-Refresh { background-image: url(../img/icon/Refresh.png); }
 .sa-list-move { background-image: url(../img/icon/move.png); }
 .sa-list-delete { background-image: url(../img/icon/delete.png); }
 .sa-list-back { background-image: url(../img/icon/back.png); }
@@ -158,7 +158,7 @@ only screen and (                min-resolution: 1.25dppx) {
 
     /* List Icons */    
     .sa-list-add { background-image: url(../img/icon/add@2x.png); background-size: 19px 19px;  }
-    .sa-list-refresh { background-image: url(../img/icon/refresh@2x.png); background-size: 18px 19px; }
+    .sa-list-Refresh { background-image: url(../img/icon/Refresh@2x.png); background-size: 18px 19px; }
     .sa-list-move { background-image: url(../img/icon/move@2x.png); background-size: 19px 19px; }
     .sa-list-delete { background-image: url(../img/icon/delete@2x.png); background-size: 15px 19px; }
     .sa-list-back { background-image: url(../img/icon/back@2x.png); background-size: 12px 21px; }

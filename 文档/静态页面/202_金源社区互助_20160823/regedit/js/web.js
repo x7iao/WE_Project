@@ -1,6 +1,6 @@
 (function($) {
 	
-	$(".refresh").click(function(){window.location.reload();});
+	$(".Refresh").click(function(){window.location.reload();});
 	
 	 /*删除一条数据*/
 	 $(".delete").click(function(){

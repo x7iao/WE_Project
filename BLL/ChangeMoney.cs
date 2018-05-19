@@ -850,11 +850,11 @@ namespace WE_Project.BLL
                 if (!DAL.Member.tempMemberAdd(tempmodel))
                     tempmodel = DAL.Member.tempMemberList[tempmodel.MID];
 
-                int yjmoney = shmodel.SHMoney - shmodel.MConfig.SHMoney;
-                tempmodel.MConfig.YJMoney += yjmoney;
-                DAL.MemberConfig.UpdateConfigTran(tempmodel.MID, "YJMoney", yjmoney.ToString(), shmodel, false, SqlDbType.Int, MyHs);
-                tempmodel.MConfig.UpSumMoney += yjmoney;
-                DAL.MemberConfig.UpdateConfigTran(tempmodel.MID, "UpSumMoney", yjmoney.ToString(), shmodel, false, SqlDbType.Int, MyHs);
+                //int yjmoney = shmodel.SHMoney - shmodel.MConfig.SHMoney;
+                //tempmodel.MConfig.YJMoney += yjmoney;
+                //DAL.MemberConfig.UpdateConfigTran(tempmodel.MID, "YJMoney", yjmoney.ToString(), shmodel, false, SqlDbType.Int, MyHs);
+                //tempmodel.MConfig.UpSumMoney += yjmoney;
+                //DAL.MemberConfig.UpdateConfigTran(tempmodel.MID, "UpSumMoney", yjmoney.ToString(), shmodel, false, SqlDbType.Int, MyHs);
 
                 tempmodel.MConfig.YJCount += 1;
                 DAL.MemberConfig.UpdateConfigTran(tempmodel.MID, "YJCount", "1", shmodel, false, SqlDbType.Int, MyHs);
@@ -890,8 +890,8 @@ namespace WE_Project.BLL
             Model.Member mTJ = DAL.Member.GetModel(mTJmid);
             if (mTJ != null && mTJ.MID != mTJ.MTJ)
             {
-                mTJ.MConfig.YJMoney += (int)money;
-                DAL.MemberConfig.UpdateConfigTran(mTJ.MID, "TJMoney", money.ToString(), null, false, SqlDbType.Int, MyHs);
+                mTJ.MConfig.TJMoney += (decimal)money;
+                DAL.MemberConfig.UpdateConfigTran(mTJ.MID, "TJMoney", money.ToString(), null, false, SqlDbType.Decimal, MyHs);
             }
             return MyHs;
         }

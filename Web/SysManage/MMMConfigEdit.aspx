@@ -84,14 +84,14 @@
                     </td>
                     <td>
                         <input id="txtOfferHelpBase" runat="server" class="normal_input" type="text" require-type="decimal"
-                            require-msg="买入许愿果倍数" /><font color="red">*整数</font>
+                            require-msg="买入许愿果倍数" /><font color="red">*小数</font>
                     </td>
                     <td align="right">
                         卖出许愿果倍数:
                     </td>
                     <td>
                         <input id="txtGetHelpBase" runat="server" class="normal_input" type="text" require-type="decimal"
-                            require-msg="卖出许愿果倍数" /><font color="red">*整数</font>
+                            require-msg="卖出许愿果倍数" /><font color="red">*小数</font>
                     </td>
                 </tr>
                 <tr >

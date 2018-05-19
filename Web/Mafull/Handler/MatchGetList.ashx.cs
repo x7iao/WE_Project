@@ -153,7 +153,13 @@ namespace WE_Project.Web.Mafull.Handler
                     }
                     else
                     {
-                        sb.Append("<input type='button' class='btn btn-info btn-sm' onclick=\"callhtml('../Mafull/MatchView.aspx?id=" + match[i].Id.ToString() + "','订单详情');\" value='查看详细>>' />");
+                        sb.Append("<input type='button' class='btn btn-info btn-sm' onclick=\"callhtml('../Mafull/MatchView.aspx?id=" + match[i].Id.ToString() + "','订单详情');\" value='订单详情>>' />");
+
+                        if (match[i].GetPJ == 0)
+                        {
+                            sb.Append("<input type='button' value='去评价' class='btn btn-info btn-sm' onclick=\"callhtml('../Mafull/MatchView.aspx?id=" + match[i].Id + "','去评价');\" />");
+                        }
+
                     }
                 }
                 if (match[i].MatchState == 2)

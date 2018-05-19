@@ -208,11 +208,11 @@ namespace WE_Project.BLL
             for (int i = 0; i < 3; i++)
             {
                 Model.Member m= BLL.Member.GetModelByMID(mtj);
-                if (m.BankCardName == memberMode.BankCardName)
+                if (m.BankCardName == memberMode.BankCardName&&m.MID!=memberMode.MID)
                     return false;
                 mtj = m.MID;
             }
-            int cardcounttj = Convert.ToInt32(BLL.CommonBase.GetSingle("select COUNT(*) from dbo.getSubTJMemberLevel('" + mtj + "',3) where cardname='" + memberMode.BankCardName + "'"));
+            int cardcounttj = Convert.ToInt32(BLL.CommonBase.GetSingle("select COUNT(*) from dbo.getSubTJMemberLevel('" + mtj + "',3) where cardname='" + memberMode.BankCardName + "' and mid<>'"+memberMode.MID+"'"));
             if (cardcounttj > 0)
             {
                 return false;

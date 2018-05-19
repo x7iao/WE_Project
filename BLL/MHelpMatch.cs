@@ -976,7 +976,7 @@ namespace WE_Project.BLL
                         --正常订单
                         where HelpType = 0 
                         --没有提现
-                        and PPState < 4
+                        and PPState = 3
                         --已发次数小于该发次数
                         and TotalInterestDays < @lixiTimeBase;
                 ", null);
@@ -996,17 +996,16 @@ namespace WE_Project.BLL
                 DataTable list = BLL.CommonBase.GetTable(@"
                                                         declare @PLT1 int;
                                                         declare @PLT2 int;
-                                                        declare @PLT3 int;
+                                                        
                                                         set @PLT1 = (select PayLimitTimes from MMMConfig)
                                                         set @PLT2 = (select PayLimitTimesPre from MMMConfig)
-                                                        set @PLT3 = (select PayLimitTimes from MMMConfigScramble)
+                                                   
 
                                                         select distinct OfferMID,OfferId 
                                                         from MHelpMatch 
                                                         where MatchState=1  and (
 	                                                        (MatchType=0 and datediff(MI,MatchTime,getdate())>@PLT1)
                                                          or (MatchType=1 and datediff(MI,MatchTime,getdate())>@PLT2)
-                                                         or (MatchType=2 and datediff(MI,MatchTime,getdate())>@PLT3)
                                                         )");
                 List<string> matchlist = new List<string>();
                 foreach (DataRow item in list.Rows)
@@ -1041,52 +1040,52 @@ namespace WE_Project.BLL
         /// </summary>
         public static Hashtable freezeMember(Model.MOfferHelp off, Hashtable MyHs, string remark = "超时打款")
         {
-            MyHs.Add("update member set IsClock='1',IsClose='1',Province='" + remark + "' where mid='" + off.SQMID + "'; select '" + Guid.NewGuid().ToString() + "';", null);
-            Model.Member member = BLL.Member.GetModelByMID(off.SQMID);
-            if (member.MTJ != BLL.Member.ManageMember.TModel.MID)
-            {
-                MyHs.Add("update mofferhelp set sqmid='"+ member.MTJ+"' where id=" + off.Id + "'; select '" + Guid.NewGuid().ToString() + "';", null);
-                MyHs.Add("update MHelpMatch set OfferMID='"+ member.MTJ+ "',MatchTime=getdate() ,PicUrl3=PicUrl3+'["+DateTime.Now.ToString()+member.MID+"超时付款转给推荐人>"+member.MTJ+"付款]' where OfferId=" + off.Id+"'; select '" + Guid.NewGuid().ToString() + "';", null);
-            }
-            return MyHs;
-            //List<Model.MHelpMatch> listOfferMatch = BLL.MHelpMatch.GetList("OfferId=" + off.Id);
-            //foreach (Model.MHelpMatch match in listOfferMatch)
+            //MyHs.Add("update member set IsClock='1',IsClose='1',Province='" + remark + "' where mid='" + off.SQMID + "'; select '" + Guid.NewGuid().ToString() + "';", null);
+            //Model.Member member = BLL.Member.GetModelByMID(off.SQMID);
+            //if (member.MTJ != BLL.Member.ManageMember.TModel.MID)
             //{
-            //    if (match != null && match.MatchState < 3)
-            //    {
-            //        BLL.MHelpMatch.Delete(match.Id, MyHs);
-            //        off.MatchMoney = off.MatchMoney - match.MatchMoney;
-
-            //        Model.MGetHelp get = BLL.MGetHelp.GetModel(match.GetId);
-            //        get.MatchMoney = get.MatchMoney - match.MatchMoney;
-            //        if (get.MatchMoney == 0)
-            //        {
-            //            get.PPState = 0;
-            //        }
-            //        else if (get.Money > 0)
-            //        {
-            //            get.PPState = 2;
-            //        }
-            //        BLL.MGetHelp.Update(get, MyHs);
-
-            //        MyHs.Add("update member set IsClock='1',IsClose='1',Province='" + remark + "' where mid='" + off.SQMID + "'; select '" + Guid.NewGuid().ToString() + "';", null);
-            //    }
+            //    MyHs.Add("update mofferhelp set sqmid='"+ member.MTJ+"' where id=" + off.Id + "'; select '" + Guid.NewGuid().ToString() + "';", null);
+            //    MyHs.Add("update MHelpMatch set OfferMID='"+ member.MTJ+ "',MatchTime=getdate() ,PicUrl3=PicUrl3+'["+DateTime.Now.ToString()+member.MID+"超时付款转给推荐人>"+member.MTJ+"付款]' where OfferId=" + off.Id+"'; select '" + Guid.NewGuid().ToString() + "';", null);
             //}
-            //if (off.MatchMoney == 0)
-            //{
-            //    off.PPState = 0;
-            //    off.DKState = 0;
-            //    off.HelpType = 99;
-            //    //MyHs.Add(" delete from MOfferHelp where SQCode = '" + off.SQCode + "' ", null);
-            //}
-            //else if (off.Money > 0)
-            //{
-            //    off.PPState = 2;
-            //}
-            //BLL.MOfferHelp.Update(off, MyHs);
-            ////MyHs.Add("delete from MOfferHelp where PPState=0 and SQMID='" + off.SQMID + "'; select '" + Guid.NewGuid().ToString() + "';", null);
-            //MyHs.Add("delete from  ChangeMoney  where CFileds2='" + off.SQCode + "'; select '" + Guid.NewGuid().ToString() + "';", null);
             //return MyHs;
+            List<Model.MHelpMatch> listOfferMatch = BLL.MHelpMatch.GetList("OfferId=" + off.Id);
+            foreach (Model.MHelpMatch match in listOfferMatch)
+            {
+                if (match != null && match.MatchState < 3)
+                {
+                    BLL.MHelpMatch.Delete(match.Id, MyHs);
+                    off.MatchMoney = off.MatchMoney - match.MatchMoney;
+
+                    Model.MGetHelp get = BLL.MGetHelp.GetModel(match.GetId);
+                    get.MatchMoney = get.MatchMoney - match.MatchMoney;
+                    if (get.MatchMoney == 0)
+                    {
+                        get.PPState = 0;
+                    }
+                    else if (get.Money > 0)
+                    {
+                        get.PPState = 2;
+                    }
+                    BLL.MGetHelp.Update(get, MyHs);
+
+                    MyHs.Add("update member set IsClock='1',IsClose='1',Province='" + remark + "' where mid='" + off.SQMID + "'; select '" + Guid.NewGuid().ToString() + "';", null);
+                }
+            }
+            if (off.MatchMoney == 0)
+            {
+                off.PPState = 0;
+                off.DKState = 0;
+                off.HelpType = 99;
+                //MyHs.Add(" delete from MOfferHelp where SQCode = '" + off.SQCode + "' ", null);
+            }
+            else if (off.Money > 0)
+            {
+                off.PPState = 2;
+            }
+            BLL.MOfferHelp.Update(off, MyHs);
+            //MyHs.Add("delete from MOfferHelp where PPState=0 and SQMID='" + off.SQMID + "'; select '" + Guid.NewGuid().ToString() + "';", null);
+            MyHs.Add("delete from  ChangeMoney  where CFileds2='" + off.SQCode + "'; select '" + Guid.NewGuid().ToString() + "';", null);
+            return MyHs;
         }
 
         /// <summary>
@@ -1157,15 +1156,15 @@ namespace WE_Project.BLL
                 DataTable list = BLL.CommonBase.GetTable(@"
                                                         declare @CLT1 int;
                                                         declare @CLT2 int;
-                                                        declare @CLT3 int;
+                                                        
                                                         set @CLT1 = (select ConfirmLimitTimes from MMMConfig)
                                                         set @CLT2 = (select ConfirmLimitTimesPre from MMMConfig)
-                                                        set @CLT3 = (select ConfirmLimitTimes from MMMConfigScramble)
+                                                        
                                                         select * from MHelpMatch
                                                         where MatchState=2  and (
 	                                                        (MatchType=0 and datediff(MI,PayTime,getdate())>@CLT1) 
                                                          or (MatchType=1 and datediff(MI,PayTime,getdate())>@CLT2)
-                                                         or (MatchType=2 and datediff(MI,PayTime,getdate())>@CLT3)
+                                                        
                                                         )");
                 foreach (DataRow item in list.Rows)
                 {

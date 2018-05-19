@@ -1593,7 +1593,7 @@ $.widget( "ui.accordion", {
 			.show();
 
 		this._createIcons();
-		this.refresh();
+		this.Refresh();
 
 		// ARIA
 		this.element.attr( "role", "tablist" );
@@ -1800,7 +1800,7 @@ $.widget( "ui.accordion", {
 		}
 	},
 
-	refresh: function() {
+	Refresh: function() {
 		var maxHeight, overflow,
 			heightStyle = this.options.heightStyle,
 			parent = this.element.parent();
@@ -2176,7 +2176,7 @@ if ( $.uiBackCompat !== false ) {
 	}( jQuery, jQuery.ui.accordion.prototype ) );
 
 	// resize method
-	jQuery.ui.accordion.prototype.resize = jQuery.ui.accordion.prototype.refresh;
+	jQuery.ui.accordion.prototype.resize = jQuery.ui.accordion.prototype.Refresh;
 
 	// change events
 	(function( $, prototype ) {
@@ -2716,7 +2716,7 @@ $.widget( "ui.autocomplete", {
 			.empty()
 			.zIndex( this.element.zIndex() + 1 );
 		this._renderMenu( ul, items );
-		this.menu.refresh();
+		this.menu.Refresh();
 
 		// size and position menu
 		ul.show();
@@ -2842,7 +2842,7 @@ var lastActive, startXPos, startYPos, clickDragged,
 	formResetHandler = function() {
 		var buttons = $( this ).find( ":ui-button" );
 		setTimeout(function() {
-			buttons.button( "refresh" );
+			buttons.button( "Refresh" );
 		}, 1 );
 	},
 	radioGroup = function( radio ) {
@@ -2938,7 +2938,7 @@ $.widget( "ui.button", {
 				if ( clickDragged ) {
 					return;
 				}
-				that.refresh();
+				that.Refresh();
 			});
 			// if mouse moves between mousedown and mouseup (drag) set clickDragged flag
 			// prevents issue where button state changes but checkbox/radio checked state
@@ -3103,7 +3103,7 @@ $.widget( "ui.button", {
 		this._resetButton();
 	},
 
-	refresh: function() {
+	Refresh: function() {
 		//See #8237 & #8828
 		var isDisabled = this.element.is( "input, button" ) ? this.element.is( ":disabled" ) : this.element.hasClass( "ui-button-disabled" );
 
@@ -3190,7 +3190,7 @@ $.widget( "ui.buttonset", {
 	},
 
 	_init: function() {
-		this.refresh();
+		this.Refresh();
 	},
 
 	_setOption: function( key, value ) {
@@ -3201,12 +3201,12 @@ $.widget( "ui.buttonset", {
 		this._super( key, value );
 	},
 
-	refresh: function() {
+	Refresh: function() {
 		var rtl = this.element.css( "direction" ) === "rtl";
 
 		this.buttons = this.element.find( this.options.items )
 			.filter( ":ui-button" )
-				.button( "refresh" )
+				.button( "Refresh" )
 			.end()
 			.not( ":ui-button" )
 				.button()
@@ -3716,7 +3716,7 @@ $.extend(Datepicker.prototype, {
 
 	/* Redraw the date picker attached to an input field or division.
 	   @param  target  element - the target input field or division or span */
-	_refreshDatepicker: function(target) {
+	_RefreshDatepicker: function(target) {
 		var inst = this._getInst(target);
 		if (inst) {
 			this._updateDatepicker(inst);
@@ -5927,7 +5927,7 @@ $.widget("ui.draggable", $.ui.mouse, {
 		helper: "original",
 		iframeFix: false,
 		opacity: false,
-		refreshPositions: false,
+		RefreshPositions: false,
 		revert: false,
 		revertDuration: 500,
 		scope: "default",
@@ -6412,7 +6412,7 @@ $.ui.plugin.add("draggable", "connectToSortable", {
 					instance: sortable,
 					shouldRevert: sortable.options.revert
 				});
-				sortable.refreshPositions();	// Call the sortable's refreshPositions at drag start to refresh the containerCache since the sortable container cache is used in drag and needs to be up to date (this will ensure it's initialised as well as being kept in step with any changes that might have happened on the page).
+				sortable.RefreshPositions();	// Call the sortable's RefreshPositions at drag start to Refresh the containerCache since the sortable container cache is used in drag and needs to be up to date (this will ensure it's initialised as well as being kept in step with any changes that might have happened on the page).
 				sortable._trigger("activate", event, uiSortable);
 			}
 		});
@@ -6950,13 +6950,13 @@ $.ui.ddmanager = {
 	dragStart: function( draggable, event ) {
 		//Listen for scrolling so that if the dragging causes scrolling the position of the droppables can be recalculated (see #5003)
 		draggable.element.parentsUntil( "body" ).bind( "scroll.droppable", function() {
-			if( !draggable.options.refreshPositions ) $.ui.ddmanager.prepareOffsets( draggable, event );
+			if( !draggable.options.RefreshPositions ) $.ui.ddmanager.prepareOffsets( draggable, event );
 		});
 	},
 	drag: function(draggable, event) {
 
 		//If you have a highly dynamic page, you might try this option. It renders positions every time you move the mouse.
-		if(draggable.options.refreshPositions) $.ui.ddmanager.prepareOffsets(draggable, event);
+		if(draggable.options.RefreshPositions) $.ui.ddmanager.prepareOffsets(draggable, event);
 
 		//Run through all droppables and check their positions based on specific tolerance options
 		$.each($.ui.ddmanager.droppables[draggable.options.scope] || [], function() {
@@ -7003,7 +7003,7 @@ $.ui.ddmanager = {
 	dragStop: function( draggable, event ) {
 		draggable.element.parentsUntil( "body" ).unbind( "scroll.droppable" );
 		//Call prepareOffsets one final time since IE does not fire return scroll events when overflow was caused by drag (see #5003)
-		if( !draggable.options.refreshPositions ) $.ui.ddmanager.prepareOffsets( draggable, event );
+		if( !draggable.options.RefreshPositions ) $.ui.ddmanager.prepareOffsets( draggable, event );
 	}
 };
 
@@ -9358,7 +9358,7 @@ $.widget( "ui.menu", {
 			keydown: "_keydown"
 		});
 
-		this.refresh();
+		this.Refresh();
 
 		// Clicks outside of a menu collapse any open menus
 		this._on( this.document, {
@@ -9514,7 +9514,7 @@ $.widget( "ui.menu", {
 		}
 	},
 
-	refresh: function() {
+	Refresh: function() {
 		var menus,
 			icon = this.options.icons.submenu,
 			submenus = this.element.find( this.options.menus );
@@ -9543,7 +9543,7 @@ $.widget( "ui.menu", {
 
 		menus = submenus.add( this.element );
 
-		// Don't refresh list items that are already adapted
+		// Don't Refresh list items that are already adapted
 		menus.children( ":not(.ui-menu-item):has(a)" )
 			.addClass( "ui-menu-item" )
 			.attr( "role", "presentation" )
@@ -9871,7 +9871,7 @@ $.widget( "ui.progressbar", {
 			.appendTo( this.element );
 
 		this.oldValue = this._value();
-		this._refreshValue();
+		this._RefreshValue();
 	},
 
 	_destroy: function() {
@@ -9897,7 +9897,7 @@ $.widget( "ui.progressbar", {
 	_setOption: function( key, value ) {
 		if ( key === "value" ) {
 			this.options.value = value;
-			this._refreshValue();
+			this._RefreshValue();
 			if ( this._value() === this.options.max ) {
 				this._trigger( "complete" );
 			}
@@ -9919,7 +9919,7 @@ $.widget( "ui.progressbar", {
 		return 100 * this._value() / this.options.max;
 	},
 
-	_refreshValue: function() {
+	_RefreshValue: function() {
 		var value = this.value(),
 			percentage = this._percentage();
 
@@ -10743,7 +10743,7 @@ $.widget("ui.selectable", $.ui.mouse, {
 
 		// cache selectee children based on filter
 		var selectees;
-		this.refresh = function() {
+		this.Refresh = function() {
 			selectees = $(that.options.filter, that.element[0]);
 			selectees.addClass("ui-selectee");
 			selectees.each(function() {
@@ -10763,7 +10763,7 @@ $.widget("ui.selectable", $.ui.mouse, {
 				});
 			});
 		};
-		this.refresh();
+		this.Refresh();
 
 		this.selectees = selectees.addClass("ui-selectee");
 
@@ -10805,7 +10805,7 @@ $.widget("ui.selectable", $.ui.mouse, {
 		});
 
 		if (options.autoRefresh) {
-			this.refresh();
+			this.Refresh();
 		}
 
 		this.selectees.filter('.ui-selected').each(function() {
@@ -11148,7 +11148,7 @@ $.widget( "ui.slider", $.ui.mouse, {
 			}
 		});
 
-		this._refreshValue();
+		this._RefreshValue();
 
 		this._animateOff = false;
 	},
@@ -11382,7 +11382,7 @@ $.widget( "ui.slider", $.ui.mouse, {
 	value: function( newValue ) {
 		if ( arguments.length ) {
 			this.options.value = this._trimAlignValue( newValue );
-			this._refreshValue();
+			this._RefreshValue();
 			this._change( null, 0 );
 			return;
 		}
@@ -11397,7 +11397,7 @@ $.widget( "ui.slider", $.ui.mouse, {
 
 		if ( arguments.length > 1 ) {
 			this.options.values[ index ] = this._trimAlignValue( newValue );
-			this._refreshValue();
+			this._RefreshValue();
 			this._change( null, index );
 			return;
 		}
@@ -11410,7 +11410,7 @@ $.widget( "ui.slider", $.ui.mouse, {
 					vals[ i ] = this._trimAlignValue( newValues[ i ] );
 					this._change( null, i );
 				}
-				this._refreshValue();
+				this._RefreshValue();
 			} else {
 				if ( this.options.values && this.options.values.length ) {
 					return this._values( index );
@@ -11450,17 +11450,17 @@ $.widget( "ui.slider", $.ui.mouse, {
 				this.element
 					.removeClass( "ui-slider-horizontal ui-slider-vertical" )
 					.addClass( "ui-slider-" + this.orientation );
-				this._refreshValue();
+				this._RefreshValue();
 				break;
 			case "value":
 				this._animateOff = true;
-				this._refreshValue();
+				this._RefreshValue();
 				this._change( null, 0 );
 				this._animateOff = false;
 				break;
 			case "values":
 				this._animateOff = true;
-				this._refreshValue();
+				this._RefreshValue();
 				for ( i = 0; i < valsLength; i += 1 ) {
 					this._change( null, i );
 				}
@@ -11469,7 +11469,7 @@ $.widget( "ui.slider", $.ui.mouse, {
 			case "min":
 			case "max":
 				this._animateOff = true;
-				this._refreshValue();
+				this._RefreshValue();
 				this._animateOff = false;
 				break;
 		}
@@ -11538,7 +11538,7 @@ $.widget( "ui.slider", $.ui.mouse, {
 		return this.options.max;
 	},
 
-	_refreshValue: function() {
+	_RefreshValue: function() {
 		var lastValPercent, valPercent, value, valueMin, valueMax,
 			oRange = this.options.range,
 			o = this.options,
@@ -11635,7 +11635,7 @@ $.widget("ui.sortable", $.ui.mouse, {
 		this.element.addClass("ui-sortable");
 
 		//Get the items
-		this.refresh();
+		this.Refresh();
 
 		//Let's determine if the items are being displayed horizontally
 		this.floating = this.items.length ? o.axis === 'x' || (/left|right/).test(this.items[0].item.css('float')) || (/inline|table-cell/).test(this.items[0].item.css('display')) : false;
@@ -11682,8 +11682,8 @@ $.widget("ui.sortable", $.ui.mouse, {
 
 		if(this.options.disabled || this.options.type == 'static') return false;
 
-		//We have to refresh the items data once first
-		this._refreshItems(event);
+		//We have to Refresh the items data once first
+		this._RefreshItems(event);
 
 		//Find out if the clicked node (or one of its parents) is a actual item in this.items
 		var currentItem = null, nodes = $(event.target).parents().each(function() {
@@ -11713,8 +11713,8 @@ $.widget("ui.sortable", $.ui.mouse, {
 		var o = this.options;
 		this.currentContainer = this;
 
-		//We only need to call refreshPositions, because the refreshItems call has been moved to mouseCapture
-		this.refreshPositions();
+		//We only need to call RefreshPositions, because the RefreshItems call has been moved to mouseCapture
+		this.RefreshPositions();
 
 		//Create and append the visible helper
 		this.helper = this._createHelper(event);
@@ -12100,9 +12100,9 @@ $.widget("ui.sortable", $.ui.mouse, {
 		return delta != 0 && (delta > 0 ? "right" : "left");
 	},
 
-	refresh: function(event) {
-		this._refreshItems(event);
-		this.refreshPositions();
+	Refresh: function(event) {
+		this._RefreshItems(event);
+		this.RefreshPositions();
 		return this;
 	},
 
@@ -12157,7 +12157,7 @@ $.widget("ui.sortable", $.ui.mouse, {
 
 	},
 
-	_refreshItems: function(event) {
+	_RefreshItems: function(event) {
 
 		this.items = [];
 		this.containers = [this];
@@ -12198,7 +12198,7 @@ $.widget("ui.sortable", $.ui.mouse, {
 
 	},
 
-	refreshPositions: function(fast) {
+	RefreshPositions: function(fast) {
 
 		//This has to be redone because due to the item being moved out/into the offsetParent, the offsetParent's position will change
 		if(this.offsetParent && this.helper) {
@@ -12224,8 +12224,8 @@ $.widget("ui.sortable", $.ui.mouse, {
 			item.top = p.top;
 		};
 
-		if(this.options.custom && this.options.custom.refreshContainers) {
-			this.options.custom.refreshContainers.call(this);
+		if(this.options.custom && this.options.custom.RefreshContainers) {
+			this.options.custom.RefreshContainers.call(this);
 		} else {
 			for (var i = this.containers.length - 1; i >= 0; i--){
 				var p = this.containers[i].element.offset();
@@ -12510,7 +12510,7 @@ $.widget("ui.sortable", $.ui.mouse, {
 		// This is another very weird special case that only happens for relative elements:
 		// 1. If the css position is relative
 		// 2. and the scroll parent is the document or similar to the offset parent
-		// we have to refresh the relative offset during the scroll so there are no jumps
+		// we have to Refresh the relative offset during the scroll so there are no jumps
 		if(this.cssPosition == 'relative' && !(this.scrollParent[0] != document && this.scrollParent[0] != this.offsetParent[0])) {
 			this.offset.relative = this._getRelativeOffset();
 		}
@@ -12566,7 +12566,7 @@ $.widget("ui.sortable", $.ui.mouse, {
 		a ? a[0].appendChild(this.placeholder[0]) : i.item[0].parentNode.insertBefore(this.placeholder[0], (this.direction == 'down' ? i.item[0] : i.item[0].nextSibling));
 
 		//Various things done here to improve the performance:
-		// 1. we create a setTimeout, that calls refreshPositions
+		// 1. we create a setTimeout, that calls RefreshPositions
 		// 2. on the instance, we have a counter variable, that get's higher after every append
 		// 3. on the local scope, we copy the counter variable, and check in the timeout, if it's still the same
 		// 4. this lets only the last addition to the timeout stack through
@@ -12574,7 +12574,7 @@ $.widget("ui.sortable", $.ui.mouse, {
 		var counter = this.counter;
 
 		this._delay(function() {
-			if(counter == this.counter) this.refreshPositions(!hardRefresh); //Precompute after each DOM insertion, NOT on mousemove
+			if(counter == this.counter) this.RefreshPositions(!hardRefresh); //Precompute after each DOM insertion, NOT on mousemove
 		});
 
 	},
@@ -12685,7 +12685,7 @@ function modifier( fn ) {
 	return function() {
 		var previous = this.element.val();
 		fn.apply( this, arguments );
-		this._refresh();
+		this._Refresh();
 		if ( previous !== this.element.val() ) {
 			this._trigger( "change" );
 		}
@@ -12726,7 +12726,7 @@ $.widget( "ui.spinner", {
 
 		this._draw();
 		this._on( this._events );
-		this._refresh();
+		this._Refresh();
 
 		// turning off autocomplete prevents the browser from remembering the
 		// value when navigating through history, so we re-enable autocomplete
@@ -12768,7 +12768,7 @@ $.widget( "ui.spinner", {
 				return;
 			}
 
-			this._refresh();
+			this._Refresh();
 			if ( this.previous !== this.element.val() ) {
 				this._trigger( "change", event );
 			}
@@ -13070,7 +13070,7 @@ $.widget( "ui.spinner", {
 			value;
 	},
 
-	_refresh: function() {
+	_Refresh: function() {
 		this.element.attr({
 			"aria-valuemin": this.options.min,
 			"aria-valuemax": this.options.max,
@@ -13092,7 +13092,7 @@ $.widget( "ui.spinner", {
 			}
 		}
 		this.element.val( value );
-		this._refresh();
+		this._Refresh();
 	},
 
 	_destroy: function() {
@@ -13263,7 +13263,7 @@ $.widget( "ui.tabs", {
 			this.active = $();
 		}
 
-		this._refresh();
+		this._Refresh();
 
 		if ( this.active.length ) {
 			this.load( options.active );
@@ -13428,12 +13428,12 @@ $.widget( "ui.tabs", {
 		return hash ? hash.replace( /[!"$%&'()*+,.\/:;<=>?@\[\]\^`{|}~]/g, "\\$&" ) : "";
 	},
 
-	refresh: function() {
+	Refresh: function() {
 		var options = this.options,
 			lis = this.tablist.children( ":has(a[href])" );
 
 		// get disabled tabs from class attribute from HTML
-		// this will get converted to a boolean if needed in _refresh()
+		// this will get converted to a boolean if needed in _Refresh()
 		options.disabled = $.map( lis.filter( ".ui-state-disabled" ), function( tab ) {
 			return lis.index( tab );
 		});
@@ -13460,10 +13460,10 @@ $.widget( "ui.tabs", {
 			options.active = this.tabs.index( this.active );
 		}
 
-		this._refresh();
+		this._Refresh();
 	},
 
-	_refresh: function() {
+	_Refresh: function() {
 		this._setupDisabled( this.options.disabled );
 		this._setupEvents( this.options.event );
 		this._setupHeightStyle( this.options.heightStyle );
@@ -14191,7 +14191,7 @@ if ( $.uiBackCompat !== false ) {
 				return n >= index ? ++n : n;
 			});
 
-			this.refresh();
+			this.Refresh();
 			if ( this.tabs.length === 1 && options.active === false ) {
 				this.option( "active", 0 );
 			}
@@ -14223,7 +14223,7 @@ if ( $.uiBackCompat !== false ) {
 					return n >= index ? --n : n;
 				});
 
-			this.refresh();
+			this.Refresh();
 
 			this._trigger( "remove", null, this._ui( tab.find( "a" )[ 0 ], panel[ 0 ] ) );
 			return this;
@@ -14388,7 +14388,7 @@ if ( $.uiBackCompat !== false ) {
 			}
 			return $.cookie.apply( null, cookie );
 		},
-		_refresh: function() {
+		_Refresh: function() {
 			this._super();
 			if ( this.options.cookie ) {
 				this._cookie( this.options.active, this.options.cookie );

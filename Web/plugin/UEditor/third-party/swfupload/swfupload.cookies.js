@@ -2,7 +2,7 @@
 	Cookie Plug-in
 	
 	This plug in automatically gets all the cookies for this site and adds them to the post_params.
-	Cookies are loaded only on initialization.  The refreshCookies function can be called to update the post_params.
+	Cookies are loaded only on initialization.  The RefreshCookies function can be called to update the post_params.
 	The cookies will override any other post params with the same name.
 */
 
@@ -14,12 +14,12 @@ if (typeof(SWFUpload) === "function") {
 				oldInitSettings.call(this, userSettings);
 			}
 			
-			this.refreshCookies(false);	// The false parameter must be sent since SWFUpload has not initialzed at this point
+			this.RefreshCookies(false);	// The false parameter must be sent since SWFUpload has not initialzed at this point
 		};
 	}(SWFUpload.prototype.initSettings);
 	
-	// refreshes the post_params and updates SWFUpload.  The sendToFlash parameters is optional and defaults to True
-	SWFUpload.prototype.refreshCookies = function (sendToFlash) {
+	// Refreshes the post_params and updates SWFUpload.  The sendToFlash parameters is optional and defaults to True
+	SWFUpload.prototype.RefreshCookies = function (sendToFlash) {
 		if (sendToFlash === undefined) {
 			sendToFlash = true;
 		}

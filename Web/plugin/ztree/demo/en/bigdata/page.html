@@ -51,7 +51,7 @@
 			if (curPage == treeNode.page) return;
 			curPage = treeNode.page;
 			var zTree = $.fn.zTree.getZTreeObj("treeDemo");
-			zTree.reAsyncChildNodes(treeNode, "refresh");
+			zTree.reAsyncChildNodes(treeNode, "Refresh");
 		}
 		function beforeExpand(treeId, treeNode) {
 			if (treeNode.page == 0) treeNode.page = 1;

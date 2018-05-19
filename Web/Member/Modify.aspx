@@ -5,6 +5,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <script>
+        layui.use("upload", function () {
+            layui.upload({
+                url: '/Admin/UpLoadPic/UploadImage.ashx',
+                success: function (res) {
+                    console.log(res); //上传成功返回值，必须为json格式
+                    if (res.isSuccess) {
+                        $("#upimage").attr("src", res.msg);
+                        $("#hduploadPic1").val(res.msg);
+                    } else {
+                        v5.alert(res.msg, '1', 'true')
+                    }
+                }
+            });
+        });
+
+    </script>
 </head>
 <body>
     <div id="mempay">
@@ -109,6 +126,17 @@
                         </select><span style="color:red;">*防撞单关闭后不可再次开启</span>
                     </td>
                 </tr>
+                  <tr>
+                    <td align="right">
+                        头像:
+                    </td>
+                    <td>
+                         <input type="file" name="upload" class="layui-upload-file" style="display:block;">
+                            <input type="hidden" id="hduploadPic1" name="hduploadPic1" runat="server" />
+                            <img id="upimage" width="100px;" height="100px" />
+                    </td>
+                </tr>
+
                 <tr style="height: 50px;">
                     <td align="right">
                         <input name="重置" type="reset" class="normal_btnok" value="重置" style="display: none;" />

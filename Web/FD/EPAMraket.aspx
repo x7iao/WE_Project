@@ -105,7 +105,7 @@
                                 <div id="bar-1" style="height: 200px; width: 100%;">
                                 </div>
                                 <br />
-                                <a href="#" id="bar-1-randomize" class="btn btn-primary btn-small">刷新</a>
+                                <a href="#" id="bar-1-randomize" class="btn btn-primary btn-small">Refresh</a>
                             </div>
                         </div>
                     </div>

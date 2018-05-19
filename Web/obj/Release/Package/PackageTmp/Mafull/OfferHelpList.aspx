@@ -74,7 +74,7 @@
                         class="btn btn-success">等待匹配中</a> <a href="javascript:void(0);" onclick="SearchByState('2',this);CountOrderCount('2');"
                             class="btn btn-success">匹配成功</a> <a href="javascript:void(0);" onclick="SearchByState('3',this);CountOrderCount('3');"
                                 class="btn btn-success">交易完成</a> <a href="javascript:void(0);" onclick="SearchByState('4',this);CountOrderCount('4');"
-                                    class="btn btn-success">可取款</a>
+                                    class="btn btn-success">可圆梦</a> 
                 <%if (TModel.Role.IsAdmin)
                   { %>
                 <a href="javascript:void(0);" onclick="SearchByState('5',this);CountOrderCount('5');"

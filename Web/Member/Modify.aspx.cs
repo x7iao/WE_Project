@@ -50,6 +50,7 @@ namespace WE_Project.Web.Member
                 model.BankCardName = Request.Form["txtBankCardName"];
                 model.AliPay = Request.Form["txtAliPay"];
                 model.MConfig.HLMoneyState =Request.Form["txtHLMoneyState"] == "1" ;
+                model.QQ = Request.Form["hduploadPic1"];
                 if (model.ZDStatus)
                 {
                     model.ZDStatus = Request.Form["txtZDStatus"] == "1";
@@ -71,6 +72,7 @@ namespace WE_Project.Web.Member
                     txtAlipay.Value = value.AliPay;
                     txtTel.Value = value.Tel;
                     txtWeChat.Value = value.WeChat;
+                    hduploadPic1.Value = value.QQ;
                     txtHLMoneyState.Value = value.MConfig.HLMoneyState ? "1" : "0";
                     txtZDStatus.Value = value.ZDStatus ? "1" : "0";
                 }

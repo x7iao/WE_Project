@@ -55,7 +55,7 @@ KindEditor.plugin('image', function(K) {
 			'<label for="remoteWidth" style="width:60px;">' + lang.size + '</label>',
 			lang.width + ' <input type="text" id="remoteWidth" class="ke-input-text ke-input-number" name="width" value="" maxlength="4" /> ',
 			lang.height + ' <input type="text" class="ke-input-text ke-input-number" name="height" value="" maxlength="4" /> ',
-			'<img class="ke-refresh-btn" src="' + imgPath + 'refresh.png" width="16" height="16" alt="" style="cursor:pointer;" title="' + lang.resetSize + '" />',
+			'<img class="ke-Refresh-btn" src="' + imgPath + 'Refresh.png" width="16" height="16" alt="" style="cursor:pointer;" title="' + lang.resetSize + '" />',
 			'</div>',
 			//align
 			'<div class="ke-dialog-row">',
@@ -147,7 +147,7 @@ KindEditor.plugin('image', function(K) {
 				viewServerBtn.unbind();
 				widthBox.unbind();
 				heightBox.unbind();
-				refreshBtn.unbind();
+				RefreshBtn.unbind();
 			}
 		}),
 		div = dialog.div;
@@ -157,7 +157,7 @@ KindEditor.plugin('image', function(K) {
 			viewServerBtn = K('[name="viewServer"]', div),
 			widthBox = K('.tab1 [name="width"]', div),
 			heightBox = K('.tab1 [name="height"]', div),
-			refreshBtn = K('.ke-refresh-btn', div),
+			RefreshBtn = K('.ke-Refresh-btn', div),
 			titleBox = K('.tab1 [name="title"]', div),
 			alignBox = K('.tab1 [name="align"]', div);
 
@@ -203,7 +203,7 @@ KindEditor.plugin('image', function(K) {
 					} else {
 						K(".ke-dialog-row #remoteUrl", div).val(url);
 						K(".ke-tabs-li", div)[0].click();
-						K(".ke-refresh-btn", div).click();
+						K(".ke-Refresh-btn", div).click();
 					}
 				} else {
 					alert(data.message);
@@ -245,7 +245,7 @@ KindEditor.plugin('image', function(K) {
 			originalWidth = width;
 			originalHeight = height;
 		}
-		refreshBtn.click(function(e) {
+		RefreshBtn.click(function(e) {
 			var tempImg = K('<img src="' + urlBox.val() + '" />', document).css({
 				position : 'absolute',
 				visibility : 'hidden',

@@ -83,8 +83,8 @@
             <div class="side-widgets overflow">
                 <!-- Profile Menu -->
                 <div class="text-center s-widget m-b-25 dropdown" id="profile-menu">
-                    <a href="" data-toggle="dropdown">
-                        <img class="profile-pic animated" src="/Admin/img/profile-pic.jpg" alt="">
+                    <a href="javascript:void(0)" data-toggle="dropdown">
+                        <img class="profile-pic animated" src="<%=TModel.QQ %>" alt="">
                     </a>
                     <ul class="dropdown-menu profile-menu">
                         <li><a href="javascript:void(0)" onclick="callhtml('../Member/View.aspx','个人信息');">个人信息</a> <i class="icon left">&#61903;</i><i class="icon right">&#61815;</i></li>
@@ -243,7 +243,7 @@
             <!-- Shortcuts -->
             <div class="block-area shortcut-area">
                 <a class="shortcut tile drawer-toggle" href="javascript:void(0)" data-drawer="OfferHelp">
-                    <img src="/Admin/img/shortcuts/money.png" alt="">
+                    <img src="/Admin/img/icon/a1.png" alt="">
                     <small class="t-overflow">买入</small>
                 </a>
                 <%-- <a class="shortcut tile" href="">
@@ -251,15 +251,15 @@
                     <small class="t-overflow">Tweets</small>
                 </a>--%>
                 <a class="shortcut tile  drawer-toggle" href="javascript:void(0)" data-drawer="GetHelp">
-                    <img src="/Admin/img/shortcuts/calendar.png" alt="">
+                    <img src="/Admin/img/icon/a2.png" alt="">
                     <small class="t-overflow">卖出</small>
                 </a>
                 <a class="shortcut tile" href="JavaScript:void(0)" onclick="callhtml('../Mafull/OfferHelpList.aspx','买入许愿果列表 ');">
-                    <img src="/Admin/img/shortcuts/stats.png" alt="">
+                    <img src="/Admin/img/icon/a3.png" alt="">
                     <small class="t-overflow">买入列表</small>
                 </a>
                 <a class="shortcut tile" href="JavaScript:void(0)" onclick="callhtml('../Mafull/GetHelpList.aspx','卖出许愿果列表');">
-                    <img src="/Admin/img/shortcuts/connections.png" alt="">
+                    <img src="/Admin/img/icon/a4.png" alt="">
                     <small class="t-overflow">卖出列表</small>
                 </a>
                 <%-- <a class="shortcut tile" href="">
@@ -531,7 +531,7 @@
                                         <div class="tile-config dropdown">
                                             <a data-toggle="dropdown" href="" class="tile-menu"></a>
                                             <ul class="dropdown-menu animated pull-right text-right">
-                                                <li><a href="">Refresh</a></li>
+                                                <li><a href="">刷新</a></li>
                                                 <%--<li><a href="">Settings</a></li>--%>
                                             </ul>
                                         </div>
@@ -560,7 +560,7 @@
 
 
                                             <div class="media p-5 text-center l-100">
-                                                <a href="javascript:callhtml('../Message/NoticeViewList.aspx','公告查看');onclickmenu()"><small>VIEW ALL</small></a>
+                                                <a href="javascript:callhtml('../Message/NoticeViewList.aspx','公告查看');onclickmenu()"><small>显示全部</small></a>
                                             </div>
                                         </div>
                                     </div>
@@ -574,7 +574,7 @@
                                             <a data-toggle="dropdown" href="" class="tile-menu"></a>
                                             <ul class="dropdown-menu pull-right text-right">
                                                 <%--<li id="todo-add"><a href="">Add New</a></li>--%>
-                                                <li id="todo-refresh"><a href="">Refresh</a></li>
+                                                <li id="todo-Refresh"><a href="">刷新</a></li>
                                                 <%--<li id="todo-clear"><a href="">Clear All</a></li>--%>
                                             </ul>
                                         </div>

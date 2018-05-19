@@ -70,7 +70,7 @@
                 </tr>
                 <tr>
                     <td align="right">
-                        <span>转账数量：</span>
+                        <span>转账金额：</span>
                     </td>
                     <td>
                         <input name="txtMHB" id="txtMHB" class="normal_input" type="text" maxlength="6" onchange="setMoney()" />

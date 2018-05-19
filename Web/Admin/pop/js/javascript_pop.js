@@ -124,7 +124,7 @@ var PageLoad = function () {
         return;
     }
 
-    InitTable(cur_pageIndex); //0刷新为首页,cur_pageIndex刷新为当前页
+    InitTable(cur_pageIndex); //0Refresh为首页,cur_pageIndexRefresh为当前页
 
     function page(count) {
         $("#Pagination").pagination(count, {
@@ -133,7 +133,7 @@ var PageLoad = function () {
             next_text: '>', //下一页按钮里text
             items_per_page: pageSize, //显示条数
             num_display_entries: 6, //连续分页主体部分分页条目数
-            current_page: cur_pageIndex, //当前页索引     pageIndex刷新为首页,cur_pageIndex刷新为当前页
+            current_page: cur_pageIndex, //当前页索引     pageIndexRefresh为首页,cur_pageIndexRefresh为当前页
             num_edge_entries: 2, //两侧首尾分页条目数
             jump_text: '>>', //跳转按钮里text
             isSum: false, //是否显示总数

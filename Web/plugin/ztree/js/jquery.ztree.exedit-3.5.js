@@ -232,7 +232,7 @@
 		}
 		zTreeTools.setEditable = function(editable) {
 			setting.edit.enable = editable;
-			return this.refresh();
+			return this.Refresh();
 		}
 	},
 	//method of operate data

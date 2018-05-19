@@ -120,7 +120,10 @@ namespace WE_Project.Web.Mafull.Handler
                     }
                     if (match[i].MatchState == 3)
                     {
-                        sb.Append("<input type='button' value='去评价' class='btn btn-info btn-sm' onclick=\"callhtml('../Mafull/MatchView.aspx?id=" + match[i].Id + "','去评价');\" />");
+                        if (match[i].OfferPJ == 0)
+                        {
+                            sb.Append("<input type='button' value='去评价' class='btn btn-info btn-sm' onclick=\"callhtml('../Mafull/MatchView.aspx?id=" + match[i].Id + "','去评价');\" />");
+                        }
                     }
                     if (match[i].MatchState == 1 && TModel.MID == match[i].OfferMID)
                     {

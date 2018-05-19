@@ -63,7 +63,7 @@ namespace WE_Project.Web.Mafull.Handler
                 sb.Append(GetHelpState(EPList[i].PPState) + "~");
                 sb.Append((EPList[i].SQMoney +"("+ EPList[i].SQMoney*2000+ ")")+ "~");
                 sb.Append((EPList[i].MatchMoney + "(" + EPList[i].MatchMoney * 2000 + ")") + "~");
-                sb.Append("<input type='button' value='查看明细' class='btn btn-info btn-sm' onclick=\"callhtml('../Mafull/MatchGetList.aspx?id=" + EPList[i].Id + "','获得买入许愿果列表')\" />");
+                sb.Append("<input type='button' value='查看明细' class='btn btn-info btn-sm' onclick=\"callhtml('../Mafull/MatchGetList.aspx?id=" + EPList[i].Id + "','查看明细')\" />");
                 string op = string.Empty;
                 //没交易完成
                 if (EPList[i].PPState == 0)

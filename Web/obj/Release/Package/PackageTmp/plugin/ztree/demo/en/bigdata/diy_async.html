@@ -52,7 +52,7 @@
 			if (!treeNode.isAjaxing) {
 				startTime = new Date();
 				treeNode.times = 1;
-				ajaxGetNodes(treeNode, "refresh");
+				ajaxGetNodes(treeNode, "Refresh");
 				return true;
 			} else {
 				alert("Downloading data, Please wait to expand node...");
@@ -86,7 +86,7 @@
 		}
 		function ajaxGetNodes(treeNode, reloadType) {
 			var zTree = $.fn.zTree.getZTreeObj("treeDemo");
-			if (reloadType == "refresh") {
+			if (reloadType == "Refresh") {
 				treeNode.icon = "../../css/zTreeStyle/img/loading.gif";
 				zTree.updateNode(treeNode);
 			}

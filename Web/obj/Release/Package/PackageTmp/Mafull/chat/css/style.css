@@ -14,10 +14,10 @@ img {
 	display: block;
 	display: none;
 }
-.refresh {
+.Refresh {
 	text-decoration: underline;
 }
-.refresh:hover {
+.Refresh:hover {
 	text-decoration: none;
 }
 .item {

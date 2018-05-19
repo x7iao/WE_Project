@@ -18,7 +18,7 @@ namespace WE_Project.Model
         /// <summary>
         /// 市场业绩
         /// </summary>
-        public int YJMoney { get; set; }
+        public decimal YJMoney { get; set; }
         /// <summary>
         /// 推荐业绩数量总
         /// </summary>
@@ -26,11 +26,11 @@ namespace WE_Project.Model
         /// <summary>
         /// 推荐业绩
         /// </summary>
-        public int TJMoney { get; set; }
+        public decimal TJMoney { get; set; }
         /// <summary>
         /// 有效投资额/累计投资额
         /// </summary>
-        public int SHMoney { get; set; }
+        public decimal SHMoney { get; set; }
         /// <summary>
         /// 双轨对碰
         /// </summary>

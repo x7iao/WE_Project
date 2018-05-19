@@ -48,7 +48,7 @@
                         </td>
                     </tr>
                      <tr style="height: 50px;">
-                        <td align="right">分红金额：
+                        <td align="right">分红颗数：
                         </td>
                         <td align="left">
                            <input type="text" runat="server" id="fhmoney"  class="input-sm form-control mask-date" />
@@ -73,6 +73,9 @@
         }
         function checkChange1() {
             ActionModel("/Mafull/JTAccont.aspx?Action=modify", $('#form1').serialize());
+        }
+        function checkChange2() {
+            ActionModel("/Mafull/JTAccont.aspx?Action=Other", $('#form1').serialize());
         }
     </script>
 </body>

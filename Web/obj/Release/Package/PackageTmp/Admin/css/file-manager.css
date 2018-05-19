@@ -1406,7 +1406,7 @@ embed.elfinder-quicklook-preview-audio {
 }
 
 .elfinder-button-icon-reload {
-	background-image: url(../img/icon/refresh.png);
+	background-image: url(../img/icon/Refresh.png);
 }
 
 .elfinder-button-icon-open {}
@@ -1608,7 +1608,7 @@ only screen and (                min-resolution: 2dppx) {
 	}
 	
 	.elfinder-button-icon-reload {
-		background-image: url(../img/icon/refresh@2x.png);
+		background-image: url(../img/icon/Refresh@2x.png);
 		background-size: 18px 19px;
 	}
 		

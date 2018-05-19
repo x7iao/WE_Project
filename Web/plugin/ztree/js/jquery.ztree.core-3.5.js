@@ -1578,7 +1578,7 @@
 					if (isRoot) {
 						parentNode = data.getRoot(this.setting);
 					}
-					if (reloadType=="refresh") {
+					if (reloadType=="Refresh") {
 						var childKey = this.setting.data.key.children;
 						for (var i = 0, l = parentNode[childKey].length; i < l; i++) {
 							data.removeNodeCache(setting, parentNode[childKey][i]);
@@ -1594,7 +1594,7 @@
 					}
 					view.asyncNode(this.setting, isRoot? null:parentNode, !!isSilent);
 				},
-				refresh : function() {
+				Refresh : function() {
 					this.setting.treeObj.empty();
 					var root = data.getRoot(this.setting),
 					nodes = root[this.setting.data.key.children]

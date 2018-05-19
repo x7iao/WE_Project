@@ -57,7 +57,7 @@
 									<p>404 means the file is not found. If you have already uploaded the file then the name may be misspelled or it is in a different folder.</p>
 									<h4><u>Other Possible Causes</u></h4>
 									<p>You may get a 404 error for images because you have Hot Link Protection turned on and the domain is not on the list of authorized domains.</p>
-									<p>If you go to your temporary url (http://ip/~username/) and get this error, there maybe a problem with the rule set stored in an .htaccess file. You can try renaming that file to .htaccess-backup and refreshing the site to see if that resolves the issue.</p>
+									<p>If you go to your temporary url (http://ip/~username/) and get this error, there maybe a problem with the rule set stored in an .htaccess file. You can try renaming that file to .htaccess-backup and Refreshing the site to see if that resolves the issue.</p>
 									<p>It is also possible that you have inadvertently deleted your document root or the your account may need to be recreated. Either way, please contact HostGator immediately via phone or live chat so we can diagnose the problem.</p>
 									<p>Are you using WordPress? See the Section on 404 errors after clicking a link in WordPress.</p>
 							</div>
