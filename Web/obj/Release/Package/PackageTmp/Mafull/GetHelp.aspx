@@ -34,17 +34,17 @@
                         <%=TModel.MConfig.MGP%>
                     </td>
                 </tr>--%>
-                <tr>
+               <%-- <tr>
                     <td width="35%" align="right">
                         <span>我的<%=WE_Project.BLL.Reward.List["MCW"].RewardName %>：</span>
                     </td>
                     <td>
                         <%=TModel.MConfig.MCW%>
                     </td>
-                </tr>
+                </tr>--%>
                 <tr>
                     <td width="35%" align="right">
-                        <span>申请援助说明：</span>
+                        <span>买入许愿果说明：</span>
                     </td>
                     <td>
                         <div>
@@ -72,8 +72,8 @@
                     </td>
                     <td>
                          
-                        <input  value="MCW" type="radio" name="rdo" checked="checked" /><%=WE_Project.BLL.Reward.List["MCW"].RewardName %>
-                        <input  value="MHB" type="radio" name="rdo" /><%=WE_Project.BLL.Reward.List["MHB"].RewardName %>
+                        <%--<input  value="MCW" type="radio" name="rdo" checked="checked" /><%=WE_Project.BLL.Reward.List["MCW"].RewardName %>--%>
+                        <input  value="MHB" type="radio" name="rdo"  checked="checked"/><%=WE_Project.BLL.Reward.List["MHB"].RewardName %>
                         <input  value="MJB" type="radio" name="rdo" /><%=WE_Project.BLL.Reward.List["MJB"].RewardName %>
                     </td>
                 </tr>
@@ -95,13 +95,13 @@
 
         function checkChange() {
             if ($('#txtSQMoneyGet').val().Trim() == "") {
-                v5.error('获得帮助金额不能为空', '1', 'true');
+                v5.error('卖出许愿果金额不能为空', '1', 'true');
                 return;
             }
             else {
                 var reg1 = /^\d+$/;
                 if (!reg1.test(parseInt($('#txtSQMoneyGet').val()))) {
-                    v5.error('获得帮助金额应该为正数', '1', 'true');
+                    v5.error('卖出许愿果金额应该为正数', '1', 'true');
                     return;
                 }
             }
@@ -116,7 +116,7 @@
                             v5.alert('24小时内匹配成功，请在收到款后6小时内确认', '2', 'true');
                             setTimeout(function () {
                                 v5.clearall();
-                                callhtml('../Mafull/GetHelpList.aspx', '获得帮助列表');
+                                callhtml('../Mafull/GetHelpList.aspx', '卖出许愿果列表');
                             }, 2000);
                         }
                         else {

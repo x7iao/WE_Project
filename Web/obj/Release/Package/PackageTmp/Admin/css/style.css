@@ -1290,7 +1290,7 @@ hr {
 /* Alerts */
 .alert {
     border: 0;
-    background: rgba(255,255,255,0.7);
+    /*background: rgba(255,255,255,0.7);*/
     font-family: open-sans-regular;
     font-size: 14px;
 }

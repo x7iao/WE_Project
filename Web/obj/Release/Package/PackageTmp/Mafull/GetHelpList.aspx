@@ -7,7 +7,7 @@
     <style type="text/css">
         td span
         {
-            color: Red;
+            /*color: Red;*/
         }
     </style>
     <script type="text/javascript">
@@ -92,7 +92,7 @@
                 <em style="vertical-align: middle;">
                     <input type="checkbox" id="chkAll" onclick="SelectChk(this);" /></em>
                 <div class="pn" runat="server" id="matchMui">
-                    <input type="button" value="多人匹配" class="btn btn-success" onclick="MatchOtherPage('/Mafull/OfferHelpList.aspx','获得帮助列表')" />
+                    <input type="button" value="多人匹配" class="btn btn-success" onclick="MatchOtherPage('/Mafull/OfferHelpList.aspx','卖出许愿果列表')" />
                 </div>
                 <div class="pn" runat="server" id="matchSure" visible="false">
                     <input type="button" value="确认匹配" class="btn btn-success" onclick="MatchOtherPageGetSure('<%=matchid %>')" />

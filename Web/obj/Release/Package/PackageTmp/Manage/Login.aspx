@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title><%=WebModel.WebTitle %></title>
-   
+   <link rel = "Shortcut Icon" href=/Admin/img/icon.ico>
     <meta name="viewport" content="width=device-width">
     <link href="/Manage/public/css/base.css" rel="stylesheet" type="text/css">
     <link href="/Manage/public/css/login.css" rel="stylesheet" type="text/css">

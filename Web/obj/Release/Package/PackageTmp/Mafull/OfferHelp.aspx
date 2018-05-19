@@ -12,12 +12,12 @@
             <table cellpadding="0" cellspacing="0">
                 <tr>
                     <td width="35%" align="right">
-                        <span>申请援助说明：</span>
+                        <span>买入许愿果说明：</span>
                     </td>
                     <td>
                         <div>
                             <p>
-                                援助额度：<%= WE_Project.BLL.MMMConfig.Model.OfferHelpMin%>-<%=WE_Project.BLL.MMMConfig.Model.OfferHelpMax%>（<%=WE_Project.BLL.MMMConfig.Model.OfferHelpBase %>的倍数）</p>
+                                目前平台开放额度为：<%= WE_Project.BLL.MMMConfig.Model.OfferHelpMin%>-<%=WE_Project.BLL.MMMConfig.Model.OfferHelpMax%>（<%=WE_Project.BLL.MMMConfig.Model.OfferHelpBase %>的倍数）</p>
                         </div>
                     </td>
                 </tr>
@@ -42,7 +42,7 @@
                 </tr>
                 <tr>
                     <td align="right">
-                        <span>申请援助金额：</span>
+                        <span>买入许愿果金额：</span>
                     </td>
                     <td>
                         <input type="text" runat="server" id="txtSQMoneyOff" style="width: 100px" />
@@ -63,13 +63,13 @@
     <script type="text/javascript">
         function checkChange() {
             if ($('#txtSQMoneyOff').val().Trim() == "") {
-                v5.error('提供帮助金额不能为空', '1', 'true');
+                v5.error('买入许愿果金额不能为空', '1', 'true');
                 return;
             }
             else {
                 var reg1 = /^\d+$/;
                 if (!reg1.test(parseInt($('#txtSQMoneyOff').val()))) {
-                    v5.error('提供帮助金额应该为正数', '1', 'true');
+                    v5.error('买入许愿果金额应该为正数', '1', 'true');
                     return;
                 }
             }
@@ -81,10 +81,10 @@
                     success: function (info) {
                         info = info.split('*')[1];
                         if (info == 0) {
-                            v5.alert('提供帮助成功，请等待匹配', '2', 'true');
+                            v5.alert('买入许愿果成功，请等待匹配', '2', 'true');
                             setTimeout(function () {
                                 v5.clearall();
-                                callhtml('../Mafull/OfferHelpList.aspx', '提供帮助列表 ');
+                                callhtml('../Mafull/OfferHelpList.aspx', '买入许愿果列表 ');
                             }, 2000);
                         }
                         else {

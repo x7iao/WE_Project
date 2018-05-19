@@ -136,14 +136,14 @@
                         <%=TModel.MConfig.MJB.ToString("F2")%>
                     </td>
                 </tr>
-                <tr style="font-size: 16px; color: #55AA66;">
+             <%--   <tr style="font-size: 16px; color: #55AA66;">
                     <td align="right">
                         <%=WE_Project.BLL.Reward.List["MCW"].RewardName%>:
                     </td>
                     <td>
                         <%=TModel.MConfig.MCW.ToString("F2")%>
                     </td>
-                </tr>
+                </tr>--%>
                 <tr style="font-size: 16px; color: #55AA66;">
                     <td align="right">
                         <%=WE_Project.BLL.Reward.List["MGP"].RewardName%>:

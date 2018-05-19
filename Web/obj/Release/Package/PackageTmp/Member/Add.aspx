@@ -90,7 +90,7 @@
                             value="" /><span>*</span>
                     </td>
                 </tr>
-                <tr style="display:none;">
+                <tr>
                     <td align="right">
                         微信帐号:
                     </td>
@@ -99,7 +99,7 @@
                             value="" /><span>*</span>
                     </td>
                 </tr>
-                <tr style="display:none;">
+                <tr>
                     <td align="right">
                         支付宝帐号:
                     </td>
@@ -241,8 +241,20 @@
                 v5.error('交易密码与登录密码不能相同', '1', 'true');
             //} else if (!$('#txtNumID').val().TryIDCard()) {
             //    v5.error('身份证号码格式不正确', '1', 'true');
-            //} else if ($('#txtWeChat').val() == "" && $('#txtAlipay').val() == "" && $('#txtBankNumber').val() == "") {
-            //    v5.error('微信帐号，支付宝帐号和银行卡至少填一个', '1', 'true');
+            } else if ($('#txtAlipay').val() == "") {
+                v5.error('支付宝帐号不能为空', '1', 'true');
+            }else if ($('#txtBank').val() == "") {
+                v5.error('请选择开户银行', '1', 'true');
+
+            } else if ($('#txtBranch').val() == "") {
+                v5.error('请填写开户支行', '1', 'true');
+  
+            } else if (!$('#txtBankCardName').val().TryWENZI()) {
+                v5.error('开户名格式不正确', '1', 'true');
+
+            } else if ($('#txtBankNumber').val() == "") {
+                v5.error('请填写银行卡号', '1', 'true');
+
             } else if (!$('#txtTel').val().TryTel()) {
                 v5.error('手机号码格式不正确', '1', 'true');
             //} else if ($('#txtAnswer').val() == '') {
@@ -250,21 +262,7 @@
 //            } else if ($('#txtTelCode').val() == "") {
 //                v5.error('验证码不能为空', '1', 'true');
             } else {
-                if ($('#txtBankNumber').val() != "") {
-                    if ($('#txtBank').val() == "") {
-                        v5.error('请选择开户银行', '1', 'true');
-                        return;
-                    } else if ($('#txtBranch').val() == "") {
-                        v5.error('请填写开户支行', '1', 'true');
-                        return;
-                    } else if (!$('#txtBankCardName').val().TryWENZI()) {
-                        v5.error('开户名格式不正确', '1', 'true');
-                        return;
-                    } else if ($('#txtBankNumber').val() == "") {
-                        v5.error('请填写银行卡号', '1', 'true');
-                        return;
-                    }
-                }
+               
                 if (checkForm()) {
                     $.ajax({
                         type: 'post',

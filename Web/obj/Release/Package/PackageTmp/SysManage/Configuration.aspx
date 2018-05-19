@@ -60,11 +60,11 @@
                             require-msg="每天排单总数" /><font color="red">*正整数</font>
                     </td>
                     <td align="right">
-                        每天获得帮助总数:
+                        每天卖出许愿果总数:
                     </td>
                     <td>
                         <input id="txtTXBaseMoney" runat="server" class="normal_input" type="text" 
-                            require-msg="每天获得帮助总数" /><font color="red">*正整数</font>
+                            require-msg="每天卖出许愿果总数" /><font color="red">*正整数</font>
                     </td>
                 </tr>
                 <tr>
@@ -76,11 +76,11 @@
                             require-msg="每天排单金额" /><font color="red">*小数</font>
                     </td>
                     <td align="right">
-                        每天获得帮助金额:
+                        每天卖出许愿果金额:
                     </td>
                     <td>
                         <input id="txtDFHFloat" runat="server" class="normal_input" type="text" 
-                            require-msg="每天获得帮助金额" /><font color="red">*小数</font>
+                            require-msg="每天卖出许愿果金额" /><font color="red">*小数</font>
                     </td>
                 </tr>
                 <tr>
@@ -190,7 +190,7 @@
                             require-msg="每天激活人数" /><font color="red">*</font>
                     </td>
                 </tr>
-                <tr>
+                <tr style="display:none;">
                     <td align="right">
                         最少转换金额:
                     </td>
@@ -249,18 +249,18 @@
                             require-msg="显示系统会员总量" /><font color="red">*正整数</font>
                     </td>
                     <td align="right">
-                        显示提供帮助总金额：
+                        显示买入许愿果总金额：
                     </td>
                     <td>
                         <input id="txtShowOfferTotalMoney" runat="server" class="normal_input" type="text"
-                            require-type="decimal" require-msg="显示提供帮助总金额" /><font color="red">*</font>
+                            require-type="decimal" require-msg="显示买入许愿果总金额" /><font color="red">*</font>
                     </td>
                     <td align="right">
-                        显示获得帮助总金额：
+                        显示卖出许愿果总金额：
                     </td>
                     <td>
                         <input id="txtShowGetTotalMoney" runat="server" class="normal_input" type="text"
-                            require-type="decimal" require-msg="显示获得帮助总金额" /><font color="red">*</font>
+                            require-type="decimal" require-msg="显示卖出许愿果总金额" /><font color="red">*</font>
                     </td>
                 </tr>
             </table>
@@ -304,16 +304,16 @@
                                     require-type="require" require-msg="奖金手续费" />
                             </ItemTemplate>
                         </asp:TemplateField>--%>
-                        <%--<asp:TemplateField HeaderText="提供帮助最小金额">
+                        <%--<asp:TemplateField HeaderText="买入许愿果最小金额">
                             <ItemTemplate>
                                 <asp:TextBox Width="80%" ID="txtXFMouthMinHelpMoney" runat="server" Text='<%#Bind("XFMouthMinHelpMoney") %>'
-                                    require-type="decimal" require-msg="提供帮助最小金额" />
+                                    require-type="decimal" require-msg="买入许愿果最小金额" />
                             </ItemTemplate>
                         </asp:TemplateField>
-                        <asp:TemplateField HeaderText="提供帮助最大金额">
+                        <asp:TemplateField HeaderText="买入许愿果最大金额">
                             <ItemTemplate>
                                 <asp:TextBox Width="80%" ID="txtXFMounthMoney" runat="server" Text='<%#Bind("XFMounthMoney") %>'
-                                    require-type="decimal" require-msg="提供帮助最大金额" />
+                                    require-type="decimal" require-msg="买入许愿果最大金额" />
                             </ItemTemplate>
                         </asp:TemplateField>--%>
                         <asp:TemplateField HeaderText="管理奖日封顶">

@@ -95,6 +95,8 @@
     <Content Include="Admin\fonts\opan-sans\OpenSans-Light-webfont.svg" />
     <Content Include="Admin\fonts\opan-sans\OpenSans-Regular-webfont.svg" />
     <Content Include="Admin\fonts\opan-sans\OpenSans-Semibold-webfont.svg" />
+    <Content Include="Admin\img\3c34667941eb9063454e2bd51f88c3a0 %2812%29.png" />
+    <Content Include="Admin\img\3c34667941eb9063454e2bd51f88c3a0.png" />
     <Content Include="Admin\img\body\blue.jpg" />
     <Content Include="Admin\img\body\chrome.jpg" />
     <Content Include="Admin\img\body\city.jpg" />
