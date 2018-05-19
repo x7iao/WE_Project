@@ -59,7 +59,7 @@
                 </tr>
                 <tr>
                     <td align="right">
-                        <span>申请金额：</span>
+                        <span>申请买入颗数：</span>
                     </td>
                     <td>
                         <input type="text" runat="server" id="txtSQMoneyGet"  class="input-sm form-control mask-date" autocomplete="off" />

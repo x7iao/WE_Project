@@ -670,6 +670,10 @@ namespace WE_Project.Web.Ajax
                     if (get.PPState == 0)
                     {
                         get.PPState = 5;
+
+                        //Model.Member mg = BLL.Member.GetModelByMID(get.SQMID);
+                        BLL.Member.UpdateConfigTran(get.SQMID,get.MoneyType,get.SQMoney.ToString(),null,false,SqlDbType.Decimal,hs);
+
                         BLL.MGetHelp.Update(get, hs);
                         if (BLL.CommonBase.RunHashtable(hs))
                         {

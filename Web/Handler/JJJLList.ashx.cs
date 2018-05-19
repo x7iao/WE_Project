@@ -115,7 +115,7 @@ namespace WE_Project.Web.Handler
                 sb.Append(table.Rows[i]["Date"]);
                 if (string.IsNullOrEmpty(countdate))
                 {
-                    sb.Append("&nbsp;<input type='button' class='btn btn-success' value='查看详细' onclick=\"callhtml('ChangeMoney/JJList.aspx?id=" + member.MID + "&date=" + table.Rows[i]["Date"] + "');\"/>");
+                    sb.Append("&nbsp;<input type='button' class='btn btn-success' value='查看详细' onclick=\"callhtml('ChangeMoney/JJList.aspx?id=" + member.MID + "&date=" + table.Rows[i]["Date"] + "','奖金明细');\"/>");
                 }
                 sb.Append("≌");
             }

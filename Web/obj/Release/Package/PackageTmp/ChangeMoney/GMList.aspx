@@ -16,8 +16,8 @@
                 会员扣费</div>--%>
             <div class="pay" onclick="v5.show('ChangeMoney/HBGM.aspx','会员充值','url',360,240)">
                 会员充值</div>
-            <div class="pay" onclick="v5.show('ChangeMoney/HBJL.aspx','奖金发放','url',360,240)">
-                奖励会员</div>
+            <%--<div class="pay" onclick="v5.show('ChangeMoney/HBJL.aspx','奖金发放','url',360,240)">
+                奖励会员</div>--%>
             <div class="search">
                 <input type="button" value="查询" class="ssubmit btn btn-success" onclick="SearchByCondition()" />
                 <input name="txtKey" id="mKey" placeholder="请输入会员账号"   type="text" class="sinput" />

@@ -61,23 +61,23 @@ namespace WE_Project.Web.Mafull.Handler
                 sb.Append(EPList[i].SQCode + "~");
                 sb.Append(EPList[i].SQDate.ToString("yyyy-MM-dd HH:mm") + "~");
                 sb.Append(GetHelpState(EPList[i].PPState) + "~");
-                sb.Append((EPList[i].SQMoney +"("+ EPList[i].SQMoney*2000+ ")")+ "~");
-                sb.Append((EPList[i].MatchMoney + "(" + EPList[i].MatchMoney * 2000 + ")") + "~");
+                sb.Append((EPList[i].SQMoney +"颗("+ EPList[i].SQMoney*2000+ "元)") + "~");
+                sb.Append((EPList[i].MatchMoney + "颗(" + EPList[i].MatchMoney * 2000 + "元)") + "~");
                 sb.Append("<input type='button' value='查看明细' class='btn btn-info btn-sm' onclick=\"callhtml('../Mafull/MatchGetList.aspx?id=" + EPList[i].Id + "','查看明细')\" />");
                 string op = string.Empty;
                 //没交易完成
-                if (EPList[i].PPState == 0)
-                {
-                    op = DateDiffStr(DateDiffType.MI, EPList[i].SQDate, BLL.MMMConfig.Model.FreezeTimesOfOffer, "排队倒计时:", "");
-                }
-                sb.Append(op);
-                //if (TModel.Role.IsAdmin)
+                //if (EPList[i].PPState == 0)
                 //{
-                //    if (EPList[i].PPState == 0)
-                //    {
-                //        sb.Append("<input type='button' value='取消申请' class='btn btn-info btn-sm' onclick=\"CancelHelp('" + EPList[i].Id + "')\" />");
-                //    }
+                //    op = DateDiffStr(DateDiffType.MI, EPList[i].SQDate, BLL.MMMConfig.Model.FreezeTimesOfOffer, "排队倒计时:", "");
                 //}
+                //sb.Append(op);
+                if (TModel.Role.IsAdmin)
+                {
+                    if (EPList[i].PPState == 0)
+                    {
+                        sb.Append("<input type='button' value='取消申请' class='btn btn-info btn-sm' onclick=\"CancelHelp('" + EPList[i].Id + "')\" />");
+                    }
+                }
                 sb.Append("≌");
             }
             var info = new { PageData = Traditionalized(sb), TotalCount = count };

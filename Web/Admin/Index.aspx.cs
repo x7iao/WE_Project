@@ -44,57 +44,57 @@ namespace WE_Project.Web.Admin
             dtxxfloat= BLL.CommonBase.GetTable("select amid,bmbd,(case boutmoney when 0 then 0 else Convert(decimal(18,1),(fhdays/boutmoney)*100) end)  as xxfloat from bmember where bmstate=0 and amid='" + TModel.MID+"' order by BMCreateDate asc;");
 
             //排单总数
-            if (BLL.Configuration.Model.TXMinMoney < 0)
-            {
-                pdtotalcount = BLL.CommonBase.GetSingle("select count(*) from mofferhelp where ppstate<>5;").ToString();
-            }
-            else {
+            //if (BLL.Configuration.Model.TXMinMoney < 0)
+            //{
+            //    pdtotalcount = BLL.CommonBase.GetSingle("select count(*) from mofferhelp where ppstate<>5;").ToString();
+            //}
+            //else {
                 pdtotalcount = BLL.Configuration.Model.TXMinMoney.ToString();
-            }
+            //}
 
             //提现总数
-            if (BLL.Configuration.Model.TXBaseMoney < 0)
-            {
-                txtotalcount = BLL.CommonBase.GetSingle("select count(*) from mgethelp where ppstate<>5;").ToString();
-            }
-            else {
+            //if (BLL.Configuration.Model.TXBaseMoney < 0)
+            //{
+            //    txtotalcount = BLL.CommonBase.GetSingle("select count(*) from mgethelp where ppstate<>5;").ToString();
+            //}
+            //else {
                 txtotalcount = BLL.Configuration.Model.TXBaseMoney.ToString();
-            }
+            //}
 
             //日排单金额
-            if (BLL.Configuration.Model.GPrice < 0)
-            {
-                pddaymoney = BLL.CommonBase.GetSingle("select sum(sqmoney) from mofferhelp where ppstate<>5 and datediff(dd,sqdate,getdate())=0;").ToString();
-            }
-            else {
+            //if (BLL.Configuration.Model.GPrice < 0)
+            //{
+            //    pddaymoney = BLL.CommonBase.GetSingle("select isnull(sum(sqmoney),0) from mofferhelp where ppstate<>5 and datediff(dd,sqdate,getdate())=0;").ToString();
+            //}
+            //else {
                 pddaymoney = BLL.Configuration.Model.GPrice.ToString();
-            }
+            //}
             //日提现金额
-            if (BLL.Configuration.Model.DFHFloat < 0)
-            {
-                txdaymoney = BLL.CommonBase.GetSingle("select sum(sqmoney) from mgethelp where ppstate<>5 and datediff(dd,sqdate,getdate())=0;").ToString();
-            }
-            else {
+            //if (BLL.Configuration.Model.DFHFloat < 0)
+            //{
+            //    txdaymoney = BLL.CommonBase.GetSingle("select  isnull(sum(sqmoney),0) from mgethelp where ppstate<>5 and datediff(dd,sqdate,getdate())=0;").ToString();
+            //}
+            //else {
                 txdaymoney = BLL.Configuration.Model.DFHFloat.ToString();
-            }
+            //}
 
             //平台总人数
-            if (BLL.Configuration.Model.MinBuyGCount < 0)
-            {
-                totalmembercount = BLL.CommonBase.GetSingle("select count(*) from member where mid<>'admin';").ToString();
-            }
-            else {
+            //if (BLL.Configuration.Model.MinBuyGCount < 0)
+            //{
+            //    totalmembercount = BLL.CommonBase.GetSingle("select count(*) from member where mid<>'admin';").ToString();
+            //}
+            //else {
                 totalmembercount = BLL.Configuration.Model.MinBuyGCount.ToString();
-            }
+            //}
 
             //日新增人数
-            if (BLL.Configuration.Model.DFHOutCount < 0)
-            {
-                daymembercount = BLL.CommonBase.GetSingle("select count(*) from member where mid<>'admin' and datediff(dd,mcreatedate,getdate())=0; ").ToString();
-            }
-            else {
+            //if (BLL.Configuration.Model.DFHOutCount < 0)
+            //{
+            //    daymembercount = BLL.CommonBase.GetSingle("select count(*) from member where mid<>'admin' and datediff(dd,mcreatedate,getdate())=0; ").ToString();
+            //}
+            //else {
                 daymembercount = BLL.Configuration.Model.DFHOutCount.ToString();
-            }
+            //}
 
             //txtTuiGuang.Value = HttpContext.Current.Request.Url.AbsoluteUri.Replace(HttpContext.Current.Request.Url.PathAndQuery, "/Regedit/Index.aspx");
             //txtTuiGuang.Value += "?mid=" + TModel.MID;

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -68,6 +69,33 @@ namespace WE_Project.Web.FuTou
                 {
                     MoneyType = "MJB";
                 }
+
+                decimal HelpBase = 0;
+                decimal HelpMax = 0;
+                if (MoneyType == "MJB")//许愿池派单
+                {
+                    HelpBase = BLL.MMMConfig.Model.GetHelpDayTotalMoney;
+                    HelpMax = BLL.MMMConfig.Model.OfferHelpDayTotalMoney * TModel.MConfig.MJB;
+
+                    var lastmodel = BLL.MGetHelp.GetList("  SQMID='" + TModel.MID + "' order by SQDate desc ").FirstOrDefault();
+                    if (lastmodel != null)
+                    {
+                        if (lastmodel.SQMoney > money)
+                        {
+                            return "您的转入额度不能比上一单小";
+                        }
+                    }
+                    if (money % HelpBase != 0)
+                    {
+                        return "转入金额应为" + HelpBase + "的倍数";
+                    }
+                    if (money > HelpMax || money < BLL.MMMConfig.Model.GetHelpMin)
+                    {
+                        return "转入失败，转入范围应在" + BLL.MMMConfig.Model.GetHelpMin + "-" + HelpMax;
+                    }
+                }
+
+                
                 if (BLL.ChangeMoney.EnoughChange(TModel.MID, money, MoneyType))
                 {
                     Model.BMember model = new Model.BMember();
@@ -82,7 +110,10 @@ namespace WE_Project.Web.FuTou
                     model.BOutMoney = cd.StartLevel;
                     model.BMState = false;
                     model.BCount =Convert.ToDecimal( cd.DValue);
-                    if (BLL.BMember.Insert(model))
+                    Hashtable MyHs = new Hashtable();
+                    BLL.ChangeMoney.HBChangeTran(money, TModel.MID, BLL.Member.ManageMember.TModel.MID, "Tran", TModel, MoneyType, BLL.Reward.List[MoneyType].RewardName + "转入许愿台", MyHs);
+                    BLL.BMember.Insert(model, MyHs);
+                    if ( BLL.CommonBase.RunHashtable(MyHs))
                     {
                         return "转入成功";
                     }

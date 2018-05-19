@@ -42,7 +42,7 @@
                 </tr>
                 <tr>
                     <td align="right">
-                        <span>买入许愿果金额：</span>
+                        <span>买入许愿果颗数：</span>
                     </td>
                     <td>
                         <input type="text" runat="server" id="txtSQMoneyOff" style="width: 100px" />

@@ -24,7 +24,7 @@
                         <span>买入许愿果金额：</span>
                     </td>
                     <td width="35%">
-                        <%=offer.SQMoney%>（ <%=offer.SQMoney*2000%>）
+                        <%=offer.SQMoney%>颗（ <%=offer.SQMoney*2000%>元）
                     </td>
                 </tr>
                 <tr>

@@ -27,8 +27,8 @@
         <div class="control">
             <div class="select">
                 <a href="javascript:void(0);" onclick="SearchByState('',this);" class="btn btn-danger">
-                    全部</a><a href="javascript:void(0);" onclick="SearchByState('true',this);" class="btn btn-success">
-                        未出局</a><a href="javascript:void(0)" onclick="SearchByState('false',this);" class="btn btn-success">已出局</a></div>
+                    全部</a><a href="javascript:void(0);" onclick="SearchByState('false',this);" class="btn btn-success">
+                        未出局</a><a href="javascript:void(0)" onclick="SearchByState('true',this);" class="btn btn-success">已出局</a></div>
             <div class="search" id="DivSearch" runat="server">
                 <input type="button" value="查询" class="ssubmit" onclick="SearchByCondition()" />
                 <input name="txtKey" id="mKey" value="请输入会员账号" onfocus="if (value =='请输入会员账号'){value =''}"
@@ -55,7 +55,7 @@
                         购买时间
                     </th>
                     <th>
-                        购买金额
+                        购买数量
                     </th>  <th>
                         投资方式
                     </th>

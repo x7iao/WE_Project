@@ -56,16 +56,16 @@ namespace WE_Project.BLL
         /// <returns></returns>
         public static bool outTimeDHLiXi()
         {
-            List<Model.MOfferHelp> olist= BLL.MOfferHelp.GetList(" PPState=3 and DATEADD(MI,"+BLL.MMMConfig.Model.OutTimes+",CompleteTime)<GETDATE()  ");
+            List<Model.MOfferHelp> olist = BLL.MOfferHelp.GetList(" PPState=3 and DATEADD(MI," + BLL.MMMConfig.Model.OutTimes + ",CompleteTime)<GETDATE()  ");
             foreach (var offer in olist)
             {
                 Hashtable MyHs = new Hashtable();
-               
+
                 //查看是否已转入马夫罗
                 if (offer.PPState == 4)
                 {
                     continue;
-                }  
+                }
                 //if (offer.SQMID == TModel.MID)
                 {
                     //更新该买入许愿果的匹配记录
@@ -73,9 +73,9 @@ namespace WE_Project.BLL
                     //if (offer.InterestState == 1)
                     {
                         changeMoney += offer.TotalInterest;
-                        BLL.ChangeMoney.HBChangeTran(changeMoney, BLL.Member.ManageMember.TModel.MID, offer.SQMID, "TGBZ", BLL.Member.ManageMember.TModel, "MHB", "买入许愿果(" + offer.SQCode + ")本金加利息超时自动进入"+BLL.Reward.List["MJB"].RewardName, MyHs);
+                        BLL.ChangeMoney.HBChangeTran(changeMoney, BLL.Member.ManageMember.TModel.MID, offer.SQMID, "TGBZ", BLL.Member.ManageMember.TModel, "MHB", "买入许愿果(" + offer.SQCode + ")本金加利息超时自动进入" + BLL.Reward.List["MJB"].RewardName, MyHs);
                     }
-                  
+
                     offer.PPState = 4;
                     offer.InterestState = 2;
                     offer.SincerityState = 2;
@@ -176,9 +176,9 @@ namespace WE_Project.BLL
         /// <summary>
         /// 获取最新的一单
         /// </summary>
-        public static Model.MOfferHelp GetLastMofferHelp(string mid,int helptype)
+        public static Model.MOfferHelp GetLastMofferHelp(string mid, int helptype)
         {
-            var list = GetList(" SQMID = '" + mid + "' and PPState <> 5 and helptype="+helptype+" order by [ID] desc ");
+            var list = GetList(" SQMID = '" + mid + "' and PPState <> 5 and helptype=" + helptype + " order by [ID] desc ");
 
             return list.FirstOrDefault();
         }
@@ -216,7 +216,7 @@ namespace WE_Project.BLL
         /// <summary>
         /// 买入许愿果
         /// </summary>
-        public static string GetHelp(Model.Member member, decimal sqMoney, int helptype,Hashtable MyHs)
+        public static string GetHelp(Model.Member member, decimal sqMoney, int helptype, Hashtable MyHs)
         {
             if (!member.MState)
             {
@@ -240,11 +240,7 @@ namespace WE_Project.BLL
                 return "1*您有未完成的订单";
             }
 
-            decimal dayoff= BLL.MOfferHelp.GetSumMoney(" DATEDIFF(DAY,SQDate,GETDATE())=0 and PPState!=5; ");
-            if ((dayoff + sqMoney) >= BLL.MMMConfig.Model.MOfferNeedMCW) 
-            {
-                return "1*超出每天排单排单金额限制，还能排单" + (BLL.MMMConfig.Model.MOfferNeedMCW-dayoff);
-            }
+
             //if (BLL.MOfferHelp.GetSumCountByStr(string.Format(" SQDate >= '{0}' and SQMID = '" + member.MID + "' and PPState <> 5 and HelpType = 0 ", DateTime.Now.AddMinutes(-(int)BLL.MMMConfig.Model.OfferHelpRangeTimes))) > BLL.MMMConfig.Model.OfferHelpRangeCount)
             //{
             //    return "1*您已申请过," + BLL.MMMConfig.Model.OfferHelpRangeTimes + "分钟内只能申请" + BLL.MMMConfig.Model.OfferHelpRangeCount + "次";
@@ -267,15 +263,15 @@ namespace WE_Project.BLL
 
             decimal maxOfferMoney = WE_Project.BLL.MMMConfig.Model.OfferHelpMax;
 
-            
+
             decimal minOfferMoney = WE_Project.BLL.MMMConfig.Model.OfferHelpMin;
             if (helptype == 1)
             {
                 //日抢单额度
-                decimal dayqdmoney= Convert.ToDecimal(BLL.CommonBase.GetSingle("select ISNULL(SUM(sqmoney),0) from MOfferHelp where DATEDIFF(DAY,SQDate,GETDATE())=0 and HelpType=1;"));
+                decimal dayqdmoney = Convert.ToDecimal(BLL.CommonBase.GetSingle("select ISNULL(SUM(sqmoney),0) from MOfferHelp where DATEDIFF(DAY,SQDate,GETDATE())=0 and HelpType=1;"));
                 if (dayqdmoney + sqMoney > BLL.MMMConfig.Model.GetTJKF)
                 {
-                    return "1*超出日抢单额度，还能抢单"+(BLL.MMMConfig.Model.GetTJKF- dayqdmoney);
+                    return "1*超出日抢单额度，还能抢单" + (BLL.MMMConfig.Model.GetTJKF - dayqdmoney);
                 }
 
 
@@ -285,7 +281,7 @@ namespace WE_Project.BLL
                     return "1*新注册会员不能参与抢单";
                 }
 
-                int sqcount= Convert.ToInt32( BLL.CommonBase.GetSingle(" select count(*) from MOfferHelp where HelpType=1 and SQMID='"+member.MID+"' and DATEDIFF(MONTH,SQDate,GETDATE())=0; "));
+                int sqcount = Convert.ToInt32(BLL.CommonBase.GetSingle(" select count(*) from MOfferHelp where HelpType=1 and SQMID='" + member.MID + "' and DATEDIFF(MONTH,SQDate,GETDATE())=0; "));
                 if (sqcount > 0)
                 {
                     return "1*每月只能抢一单";
@@ -293,19 +289,15 @@ namespace WE_Project.BLL
             }
             else
             {
-                Model.MOfferHelp lastmo= BLL.MOfferHelp.GetLastMofferHelp(member.MID,0);
+                Model.MOfferHelp lastmo = BLL.MOfferHelp.GetLastMofferHelp(member.MID, 0);
                 if (lastmo != null)
                 {
                     if (lastmo.SQDate.AddMinutes(BLL.MMMConfig.Model.GLRewardFreezeTimes) > DateTime.Now)
                     {
-                        return "1*正常排单两单间隔时间为"+ BLL.MMMConfig.Model.GLRewardFreezeTimes+"分钟，请等待";
+                        return "1*正常排单两单间隔时间为" + BLL.MMMConfig.Model.GLRewardFreezeTimes + "分钟，请等待";
                     }
                 }
             }
-
-
-
-
             if (sqMoney % BLL.MMMConfig.Model.OfferHelpBase != 0)
             {
                 return "1*买入许愿果金额应为" + BLL.MMMConfig.Model.OfferHelpBase + "的倍数";
@@ -315,13 +307,20 @@ namespace WE_Project.BLL
                 //最大金额，最小金额
                 if (sqMoney >= minOfferMoney && sqMoney <= maxOfferMoney)
                 {
+                    decimal dayoff = BLL.MOfferHelp.GetSumMoney(" DATEDIFF(DAY,SQDate,GETDATE())=0 and PPState!=5; ");
+                    if ((dayoff + sqMoney) >= BLL.MMMConfig.Model.MOfferNeedMCW)
+                    {
+                        return "1*超出每天排单排单金额限制，还能排单" + (BLL.MMMConfig.Model.MOfferNeedMCW - dayoff);
+                    }
+
+
                     //获取上一单金额
                     Model.MOfferHelp lastoffer = BLL.MOfferHelp.GetLastMoffer(member.MID);
                     //有并且金额大于一定比例
-                    if (lastoffer == null || sqMoney >= lastoffer.SQMoney )
+                    if (lastoffer == null || sqMoney >= lastoffer.SQMoney)
                     {
                         //获取所需排单币
-                        decimal mcwdic =sqMoney * BLL.MMMConfig.Model.NoLineTimesMoneyFloat*BLL.MMMConfig.Model.OfferTJKF;
+                        decimal mcwdic = sqMoney * BLL.MMMConfig.Model.OfferTJKF * 2000;
 
                         if (BLL.ChangeMoney.EnoughChange(member.MID, mcwdic, "MGP"))
                         {
@@ -353,9 +352,9 @@ namespace WE_Project.BLL
                             //Hashtable MyHs = new Hashtable();
                             BLL.MOfferHelp.Insert(offer, MyHs);
                             BLL.Member.UpdateConfigTran(member.MID, "SQCount", "1", member, false, System.Data.SqlDbType.Int, MyHs);
-                            if (helptype==0)
-                                BLL.ChangeMoney.HBChangeTran(mcwdic, member.MID, BLL.Member.ManageMember.TModel.MID, "TGBH", member, "MGP", "买入许愿果需" + mcwdic + BLL.Reward.List["MGP"].RewardName, MyHs);
-                            
+
+                            BLL.ChangeMoney.HBChangeTran(mcwdic, member.MID, BLL.Member.ManageMember.TModel.MID, "TGBH", member, "MGP", "买入许愿果需" + mcwdic + BLL.Reward.List["MGP"].RewardName, MyHs);
+
                             //BLL.ChangeMoney.R_GL(offer, TModel, TModel, 1, MyHs);
                             return "1*0";
                         }
@@ -379,10 +378,10 @@ namespace WE_Project.BLL
         /// <summary>
         /// 买入许愿果
         /// </summary>
-        public static string GetHelp(Model.Member member, decimal sqMoney,int helptype)
+        public static string GetHelp(Model.Member member, decimal sqMoney, int helptype)
         {
             Hashtable MyHs = new Hashtable();
-            string result = GetHelp(member, sqMoney,helptype, MyHs);
+            string result = GetHelp(member, sqMoney, helptype, MyHs);
             if (result == "1*0")
             {
                 if (BLL.CommonBase.RunHashtable(MyHs))
@@ -399,6 +398,6 @@ namespace WE_Project.BLL
                 return result;
             }
         }
-        
+
     }
 }

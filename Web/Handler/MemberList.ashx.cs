@@ -107,9 +107,9 @@ namespace WE_Project.Web.Handler
                 }
                 
                 sb.Append(ListMember[i].MConfig.MJB + "~");
-                sb.Append(ListMember[i].MConfig.MCW + "~");
+                //sb.Append(ListMember[i].MConfig.MCW + "~");
                 sb.Append(ListMember[i].MConfig.MGP + "~");
-                sb.Append(ListMember[i].MConfig.MJBF + "~");
+                //sb.Append(ListMember[i].MConfig.MJBF + "~");
                 sb.Append(ListMember[i].MConfig.TotalYFHMoney.ToFixedDecimal(0) + "~");
                 sb.Append(ListMember[i].MConfig.EPXingCount + "~");
                 sb.Append(ListMember[i].MTJ + "~");

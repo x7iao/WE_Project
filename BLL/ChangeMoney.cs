@@ -1932,8 +1932,9 @@ namespace WE_Project.BLL
                 if (tjoff != null)
                 {
                     decimal money = tjoff.SQMoney > off.SQMoney ? off.SQMoney : tjoff.SQMoney;
-
                     HBChangeTran(money * mTJ.MAgencyType.TJFloat, BLL.Member.ManageMember.TModel.MID, mTJ.MID, "R_TJ", member, "MJB", off.SQCode, MyHs);
+
+                    BLL.ChangeMoney.R_GL(off, money * mTJ.MAgencyType.TJFloat, member,MyHs);
                 }
             }
             return MyHs;
@@ -1942,7 +1943,7 @@ namespace WE_Project.BLL
         /// <summary>
         /// 管理奖推荐奖
         /// </summary>
-        public static Hashtable R_GL(Model.MGetHelp match, Model.Member member, Hashtable MyHs)
+        public static Hashtable R_GL(Model.MGetHelp match, decimal fjmoney,Model.Member member, Hashtable MyHs)
         {
             var configs = DAL.ConfigDictionary.GetDicList();
             int max = 0;
@@ -1958,14 +1959,14 @@ namespace WE_Project.BLL
             //int count = BLL.MOfferHelp.GetOfferCount(offer.SQMID);
             int count = 0;
 
-            R_LDReward(match, member, member, count, 1, max, min, MyHs);
+            R_LDReward(match, fjmoney, member, member, count, 1, max, min, MyHs);
             return MyHs;
         }
 
         /// <summary>
         /// 管理奖发放流程
         /// </summary>
-        public static Hashtable R_LDReward(Model.MGetHelp match, Model.Member member, Model.Member shmodel, int count, int level, int maxLevel, int minLevel, Hashtable MyHs)
+        public static Hashtable R_LDReward(Model.MGetHelp match, decimal fjmoney,Model.Member member, Model.Member shmodel, int count, int level, int maxLevel, int minLevel, Hashtable MyHs)
         {
             if (level <= maxLevel)
             {
@@ -1989,7 +1990,7 @@ namespace WE_Project.BLL
                             }
                             if (Convert.ToInt32(diclevel.DValue) >= level && isfj) //如果能拿层数大于等于当前层数就得奖
                             {
-                                decimal money = match.SQMoney;
+                                decimal money = fjmoney;
                                 money = money * Convert.ToDecimal(dic.DValue);
                                 //封顶
                                 decimal lsmoney = Convert.ToDecimal(BLL.CommonBase.GetSingle("select ISNULL(SUM(MONEY),0) from ChangeMoney where ToMID='" + bdmodel.MID + "' and CState=1 and ChangeType='R_GL' AND DATEDIFF(DAY,ChangeDate,GETDATE())=0;"));
@@ -2003,7 +2004,7 @@ namespace WE_Project.BLL
                             }
                         }
                     }
-                    R_LDReward(match, bdmodel, shmodel, count, level + 1, maxLevel, minLevel, MyHs);
+                    R_LDReward(match,fjmoney, bdmodel, shmodel, count, level + 1, maxLevel, minLevel, MyHs);
                 }
             }
             return MyHs;

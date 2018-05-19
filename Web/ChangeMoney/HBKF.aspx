@@ -35,8 +35,8 @@
                          <input id="Radio1" value="MHB" type="radio" name="RioHK" checked="checked" /><%=WE_Project.BLL.Reward.List["MHB"].RewardName %>
                         <input id="Radio2" value="MJB" type="radio" name="RioHK" /><%=WE_Project.BLL.Reward.List["MJB"].RewardName%>
                         <input id="Radio3" value="MGP" type="radio" name="RioHK" /><%=WE_Project.BLL.Reward.List["MGP"].RewardName%>
-                        <input id="Radio4" value="MCW" type="radio" name="RioHK" /><%=WE_Project.BLL.Reward.List["MCW"].RewardName%>
-                        <input id="Radio5" value="MJBF" type="radio" name="RioHK" /><%=WE_Project.BLL.Reward.List["MJBF"].RewardName%>
+                       <%-- <input id="Radio4" value="MCW" type="radio" name="RioHK" /><%=WE_Project.BLL.Reward.List["MCW"].RewardName%>
+                        <input id="Radio5" value="MJBF" type="radio" name="RioHK" /><%=WE_Project.BLL.Reward.List["MJBF"].RewardName%>--%>
                         <input id="Radio6" value="TotalYFHMoney" type="radio" name="RioHK" /><%=WE_Project.BLL.Reward.List["TotalYFHMoney"].RewardName%>
 
                     

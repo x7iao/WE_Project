@@ -26,7 +26,7 @@
                 <input name="txtKey" id="mBDKey" value="请输入接点会员账号" onfocus="if (value =='请输入接点会员账号'){value =''}"
                     onblur="if (value ==''){value='请输入接点会员账号'}" type="text" class="sinput" />
             </div>
-            <div class="cheeckbox" style="float: right;">
+         <%--   <div class="cheeckbox" style="float: right;">
                 <table cellpadding="0" cellspacing="0">
                     <tr>
                         <td>
@@ -38,7 +38,7 @@
                         </td>
                     </tr>
                 </table>
-            </div>
+            </div>--%>
         </div>
         <div class="ui_table">
             <table cellpadding="0" cellspacing="0" id="Result" class="tabcolor">

@@ -58,7 +58,7 @@ namespace WE_Project.Web.Mafull.Handler
                 Model.Member getmodel = BLL.Member.ManageMember.GetModel(match[i].GetMID);
                 sb.Append(match[i].Id + "~");
                 sb.Append(match[i].MatchCode + "~");
-                sb.Append((match[i].MatchMoney + "(" + match[i].MatchMoney * 2000 + ")") + "~");
+                sb.Append((match[i].MatchMoney + "颗(" + match[i].MatchMoney * 2000 + "元)") + "~");
                 sb.Append(match[i].MatchTime.ToString("yyyy-MM-dd HH:mm") + "~");
                 sb.Append(GetMatchState(match[i].MatchState, match[i].PicUrl1) + "~");
                 sb.Append(match[i].OfferMID + "~");
@@ -114,9 +114,9 @@ namespace WE_Project.Web.Mafull.Handler
                 //操作
                 if (TModel.Role.IsAdmin || TModel.MID == match[i].OfferMID)
                 {
-                    if (match[i].MatchState == 1)
+                    //if (match[i].MatchState == 1)
                     {
-                        sb.Append("<input type='button' value='匹配详情' class='btn btn-info btn-sm' onclick=\"callhtml('../Mafull/MatchView.aspx?id=" + match[i].Id + "','匹配详情');\" />");
+                        sb.Append("<input type='button' value='订单详情>>' class='btn btn-info btn-sm' onclick=\"callhtml('../Mafull/MatchView.aspx?id=" + match[i].Id + "','订单详情>>');\" />");
                     }
                     if (match[i].MatchState == 3)
                     {

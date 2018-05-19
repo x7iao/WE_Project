@@ -41,7 +41,7 @@ namespace WE_Project.Web.Mafull
         /// <param name="e"></param>
         protected override string btnAdd_Click()
         {
-            int sqMoney = int.Parse(Request.Form["txtSQMoneyGet"]);
+            decimal sqMoney = decimal.Parse(Request.Form["txtSQMoneyGet"]);
             string MoneyType = "MHB";
             if (Request.Form["rdo"] == "MHB")
             {

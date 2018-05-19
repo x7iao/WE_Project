@@ -92,21 +92,26 @@ namespace WE_Project.Web.Member
                 if (Request.Form["txtBankNumber"].Trim() != null)
                 {
                     List<Model.Member> list1 = BllModel.GetMemberEntityList("BankNumber='" + Request.Form["txtBankNumber"].Trim() + "' and MID <> '" + TModel.MID + "'");
-                    if (list1.Count > BLL.Configuration.Model.MaxBuyGCount)
+                    if (list1.Count >0)
                     {
                         error += "该银行卡已绑定,请更换其它帐号";
                         return error;
                     }
                 }
-                //if (Request.Form["txtAliPay"].Trim() != null)
-                //{
-                //    List<Model.Member> list2 = BllModel.GetMemberEntityList("Alipay='" + Request.Form["txtAliPay"].Trim() + "' and MID <> '" + TModel.MID + "'");
-                //    if (list2.Count > BLL.Configuration.Model.MaxBuyGCount)
-                //    {
-                //        error += "该支付宝已绑定,请更换其它帐号";
-                //        return error;
-                //    }
-                //}
+                if (Request.Form["txtAliPay"].Trim() != null)
+                {
+                    List<Model.Member> list2 = BllModel.GetMemberEntityList("Alipay='" + Request.Form["txtAliPay"].Trim() + "' and MID <> '" + TModel.MID + "'");
+                    if (list2.Count > 0)
+                    {
+                        error += "该支付宝已绑定,请更换其它帐号";
+                        return error;
+                    }
+                }
+                Model.Member m = BLL.Member.GetModelByMID(MemberModel.MID);
+                if (!m.ZDStatus && MemberModel.ZDStatus)
+                    return "防撞单关闭后不可再次开启";
+
+
                 if (!BLL.Member.getCardNameCount(MemberModel))
                 {
                    return "三代内不能有同名开户账号";

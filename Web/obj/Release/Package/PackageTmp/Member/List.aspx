@@ -91,15 +91,15 @@
                     <th>
                         <%=WE_Project.BLL.Reward.List["MJB"].RewardName %>
                     </th>
-                     <th>
+                    <%-- <th>
                         <%=WE_Project.BLL.Reward.List["MCW"].RewardName %>
-                    </th>
+                    </th>--%>
                     <th>
                         <%=WE_Project.BLL.Reward.List["MGP"].RewardName %>
                     </th>
-                    <th>
+                    <%--<th>
                         <%=WE_Project.BLL.Reward.List["MJBF"].RewardName %>
-                    </th>
+                    </th>--%>
                      <th>
                         <%=WE_Project.BLL.Reward.List["TotalYFHMoney"].RewardName %>
                     </th>

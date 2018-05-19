@@ -1339,6 +1339,7 @@
     <Content Include="SysManage\MenuEdit.aspx" />
     <Content Include="SysManage\MMMConfigEdit.aspx" />
     <Content Include="SysManage\MMMConfigScrambleEdit.aspx" />
+    <Content Include="SysManage\MMMData.aspx" />
     <Content Include="SysManage\ModifyRoles.aspx" />
     <Content Include="SysManage\Out.aspx" />
     <Content Include="SysManage\ReCountYJCount.aspx" />
@@ -2849,6 +2850,13 @@
     </Compile>
     <Compile Include="SysManage\MMMConfigScrambleEdit.aspx.designer.cs">
       <DependentUpon>MMMConfigScrambleEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SysManage\MMMData.aspx.cs">
+      <DependentUpon>MMMData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SysManage\MMMData.aspx.designer.cs">
+      <DependentUpon>MMMData.aspx</DependentUpon>
     </Compile>
     <Compile Include="SysManage\ModifyRoles.aspx.cs">
       <DependentUpon>ModifyRoles.aspx</DependentUpon>

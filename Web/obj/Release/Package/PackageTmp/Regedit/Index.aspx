@@ -56,6 +56,8 @@
 
             } else if ($('#txtBranch').val() == "") {
                 v5.error('请填写开户支行', '1', 'true');
+            } else if ($('#txtBankCardName').val() == "") {
+                v5.error('请填写开户名', '1', 'true');
 
             } else if (!$('#txtBankCardName').val().TryWENZI()) {
                 v5.error('开户名格式不正确', '1', 'true');
@@ -150,7 +152,7 @@
               
                 <button class="btn btn-sm m-r-5"  onclick="checkChange()" type="button">注册</button>
 
-                <small><a class="box-switcher" data-switch="box-login" href="/login.aspx">我有账号，登录</a></small>
+                <small><a  href="/login.aspx">我有账号，登录</a></small>
             </form>
             
             

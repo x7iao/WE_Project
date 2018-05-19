@@ -96,7 +96,7 @@
                     </td>
                     <td>
                         <input name="txtWeChat" id="txtWeChat" class="normal_input" type="text" maxlength="20" placeholder="请输入您的微信帐号"
-                            value="" /><span>*</span>
+                            value="" /><span></span>
                     </td>
                 </tr>
                 <tr>
@@ -142,7 +142,7 @@
                     </td>
                     <td>
                         <input name="txtBankCardName" id="txtBankCardName" class="normal_input" type="text"
-                            placeholder="请填写开户名，与会员昵称要求一致" maxlength="20" value="" /><span>*</span>
+                            placeholder="请填写开户名" maxlength="20" value="" /><span>*</span>
                     </td>
                 </tr>
                 <tr>
@@ -248,7 +248,8 @@
 
             } else if ($('#txtBranch').val() == "") {
                 v5.error('请填写开户支行', '1', 'true');
-  
+            } else if ($('#txtBankCardName').val() == "") {
+                v5.error('请填写开户名', '1', 'true');
             } else if (!$('#txtBankCardName').val().TryWENZI()) {
                 v5.error('开户名格式不正确', '1', 'true');
 

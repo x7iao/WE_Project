@@ -59,7 +59,7 @@ namespace WE_Project.Web.FuTou.Handler
                 sb.Append((i + 1) + (pageIndex - 1) * pageSize + "~");
                 sb.Append(ListMember[i].AMID + "~");
                 sb.Append(ListMember[i].BMCreateDate.ToString("yyyy-MM-dd HH:mm") + "~");
-                sb.Append(ListMember[i].YJCount.ToFixedString() + "~");
+                sb.Append(ListMember[i].YJCount.ToFixedString() + "颗~");
                 sb.Append(BLL.Reward.List[ListMember[i].BMBD].RewardName + "~");
                 sb.Append(ListMember[i].FHDays + "~");
                 sb.Append(ListMember[i].BOutMoney.ToString("f0") + "~");

@@ -305,13 +305,13 @@
                                 <td>
                                     <select id="offerrdoindex" name="offerrdoindex">
                                         <option value="0">正常排单</option>
-                                        <option value="1">抢单区排单（不消耗排单币）</option>
+                                        <option value="1">抢单区排单</option>
                                     </select>
                                 </td>
                             </tr>
                             <tr>
                                 <td align="right">
-                                    <span>买入许愿果金额：</span>
+                                    <span>买入许愿果颗数：</span>
                                 </td>
                                 <td>
                                     <input type="text" id="txtSQMoneyOffindex" name="txtSQMoneyOffindex" style="width: 100px; margin-top: 4px;" />
@@ -383,7 +383,7 @@
                                 </tr>
                                 <tr>
                                     <td align="right">
-                                        <span>申请金额：</span>
+                                        <span>申请买入颗数：</span>
                                     </td>
                                     <td>
                                         <input type="text" runat="server" id="txtSQMoneygetindex" class="input-sm form-control mask-date" autocomplete="off" />
@@ -397,7 +397,7 @@
                                     <td>
 
                                        <%-- <input value="MCW" type="radio" name="getrdoindex" checked="checked" /><%=WE_Project.BLL.Reward.List["MCW"].RewardName %>--%>
-                                        <input value="MHB" type="radio" name="getrdoindex" checked="checked"/><%=WE_Project.BLL.Reward.List["MHB"].RewardName %>
+                                        <input value="MHB" type="radio"  name="getrdoindex" checked="checked"/><%=WE_Project.BLL.Reward.List["MHB"].RewardName %>
                                         <input value="MJB" type="radio" name="getrdoindex" /><%=WE_Project.BLL.Reward.List["MJB"].RewardName %>
                                     </td>
                                 </tr>
@@ -436,7 +436,7 @@
                             </div>
                         </div>--%>
 
-                        <div class="col-md-3 col-xs-6">
+                       <%-- <div class="col-md-3 col-xs-6">
                             <div class="tile quick-stats media">
                                 <div id="stats-line12" class="pull-left"></div>
                                 <div class="media-body">
@@ -444,7 +444,7 @@
                                     <small><%=WE_Project.BLL.Reward.List["MJBF"].RewardName %>-颗</small>
                                 </div>
                             </div>
-                        </div>
+                        </div>--%>
 
                         <div class="col-md-3 col-xs-6">
                             <div class="tile quick-stats media">
@@ -472,7 +472,7 @@
                                 <div id="stats-line12" class="pull-left"></div>
                                 <div class="media-body">
                                     <h2 value="<%=TModel.MConfig.MGP %>"><%=TModel.MConfig.MGP.ToFixedDecimal(4) %></h2>
-                                    <small><%=WE_Project.BLL.Reward.List["MGP"].RewardName %>-颗</small>
+                                    <small><%=WE_Project.BLL.Reward.List["MGP"].RewardName %>-元</small>
                                 </div>
                             </div>
                         </div>
@@ -594,11 +594,8 @@
 
                                     </div>
                                 </div>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
 
-                        <div class="col-md-4">
+                                 <div class="col-md-4">
                             <!-- USA Map -->
                             <%--    <div class="tile">
                                 <h2 class="tile-title">Live Visits</h2>
@@ -614,10 +611,7 @@
                             </div>--%>
 
 
-                            <%
-                                if (TModel.Role.IsAdmin)
-                                {
-                                    %>
+                         
                               <!-- Activity -->
                             <div class="tile">
                                 <h2 class="tile-title">平台数据</h2>
@@ -684,11 +678,13 @@
                                     </div>
                                 </div>
                             </div>
-                            <%
-                                }
-                             %>
                           
                         </div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+
+                       
                         <div class="clearfix"></div>
                     </div>
                 </div>
@@ -956,7 +952,7 @@
         }
 
         function checkgetindex() {
-            var rdo = $("#getrdoindex").val();
+            var rdo =  $("input[name='getrdoindex']:checked").val()
             var txtSQMoneyGet = $("#txtSQMoneygetindex").val();
             if (rdo == '') {
                 v5.alert("请选择提现币种", '1', 'true');

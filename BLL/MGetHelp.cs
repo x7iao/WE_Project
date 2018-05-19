@@ -209,7 +209,6 @@ namespace WE_Project.BLL
 
                 if (moneyType == "MHB")
                 {
-                    BLL.ChangeMoney.R_GL(get, member, MyHs);
                     BLL.ChangeMoney.R_TJ(get, member, MyHs);
                 }
                 

@@ -67,17 +67,17 @@ namespace WE_Project.Web.Mafull.Handler
                 sb.Append(GetHelpState(offerList[i].PPState) + "~");
                 sb.Append((offerList[i].HelpType==0?"正常排单":"抢单区排单") + "~");
                 //sb.Append(offerList[i].TotalInterestDays + "~");
-                sb.Append((offerList[i].SQMoney + "(" + offerList[i].SQMoney * 2000 + ")") + "~");
-                sb.Append((offerList[i].MatchMoney + "(" + offerList[i].MatchMoney * 2000 + ")") + "~");
+                sb.Append((offerList[i].SQMoney + "颗(" + offerList[i].SQMoney * 2000 + "元)") + "~");
+                sb.Append((offerList[i].MatchMoney + "颗(" + offerList[i].MatchMoney * 2000 + "元)") + "~");
                 sb.Append(offerList[i].TotalInterest + "~");
                 //sb.Append((offerList[i].InterestState == 1 ? "正常" : "冻结") + "~");
                 //sb.Append(offerList[i].TotalSincerity + "~");
                 string op = string.Empty;
                 //没交易完成
-                if (offerList[i].PPState == 0 || offerList[i].PPState == 1 || offerList[i].PPState == 2)
-                {
-                    op = OfferTimeLeave(offerList[i], MMMOfferTimeType.LineTime, "排队倒计时:", "");
-                }
+                //if (offerList[i].PPState == 0 || offerList[i].PPState == 1 || offerList[i].PPState == 2)
+                //{
+                //    op = OfferTimeLeave(offerList[i], MMMOfferTimeType.LineTime, "排队倒计时:", "");
+                //}
                 if (offerList[i].PPState == 3)
                 {
                     op = OfferTimeLeave(offerList[i], MMMOfferTimeType.FreezeTime, "提款倒计时:", "");

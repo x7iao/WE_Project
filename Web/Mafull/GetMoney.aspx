@@ -24,7 +24,7 @@
                         <span>付款金额：</span>
                     </td>
                     <td width="35%">
-                       <%= match.MatchMoney%>（ <%=match.MatchMoney*2000%>）
+                       <%= match.MatchMoney%>颗（ <%=match.MatchMoney*2000%>元）
                     </td>
                 </tr>
                 <tr>

@@ -116,6 +116,23 @@ namespace WE_Project.Web.AjaxM
             {
                 error += "该手机号码已被绑定";
             }
+
+            
+                List<Model.Member> list1 = BLL.Member.ManageMember.GetMemberEntityList("BankNumber='" + _context.Request.Form["txtBankNumber"].Trim()  + "'");
+                if (list1.Count >= 1)
+                {
+                    error += "该银行卡已绑定,请更换其它帐号";
+                   
+                }
+           
+          
+                List<Model.Member> list2 = BLL.Member.ManageMember.GetMemberEntityList("Alipay='" + _context.Request.Form["txtAliPay"].Trim()   + "'");
+                if (list2.Count >= 1)
+                {
+                    error += "该支付宝已绑定,请更换其它帐号";
+                  
+                }
+            
             //else
             //{
             //    string code = BLL.SMS.GetSKeyBuyTel(_context.Request.Form["txtTel"].Trim(), Model.SMSType.ZCYZ);

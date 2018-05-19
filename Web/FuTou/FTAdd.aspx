@@ -75,11 +75,7 @@
                 v5.error('请输入正确的转入金额(整颗)', '1', 'true');
             }
             else {
-                ActionModelBack("/FuTou/FTAdd.aspx?Action=add", $('#form1').serialize(), "FuTou/FTList.aspx",
-                function () {
-                    $("#btnOK").removeAttr("onclick");
-                    $("#btnOK").val("请等待...");
-                },"许愿台列表");
+                ActionModel("/FuTou/FTAdd.aspx?Action=add", $('#form1').serialize());
             }
         }
     </script>
