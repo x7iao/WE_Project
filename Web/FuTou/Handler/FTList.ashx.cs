@@ -61,12 +61,13 @@ namespace WE_Project.Web.FuTou.Handler
                 sb.Append(ListMember[i].BMCreateDate.ToString("yyyy-MM-dd HH:mm") + "~");
                 sb.Append(ListMember[i].YJCount.ToFixedString() + "颗~");
                 sb.Append(BLL.Reward.List[ListMember[i].BMBD].RewardName + "~");
-                sb.Append(ListMember[i].FHDays + "~");
+                //sb.Append(ListMember[i].FHDays + "~");
                 sb.Append(ListMember[i].BOutMoney.ToString("f0") + "~");
-                sb.Append(ListMember[i].BCount + "~");
-                sb.Append(ListMember[i].YJMoney + "~");
+                //sb.Append(ListMember[i].BCount + "~");
+                sb.Append(ListMember[i].YJMoney*100 + "%~");
+                sb.Append((ListMember[i].YJMoney*ListMember[i].YJCount) + "颗~");
                 sb.Append((ListMember[i].BMState ? "出局" : "未出局")+"~");
-                if (ListMember[i].FHDays == ListMember[i].BOutMoney&& ListMember[i].AMID==TModel.MID&&!ListMember[i].BMState)
+                if (ListMember[i].BMCreateDate.AddDays(Convert.ToInt32(ListMember[i].BOutMoney))<=DateTime.Now&& ListMember[i].AMID==TModel.MID&&!ListMember[i].BMState)
                 {
                     sb.Append("<input type='button' value='我要提款' class='btn btn-danger btn-sm' onclick=\"GetTranMoney(" + ListMember[i].ID + ",this)\" />");
                 }

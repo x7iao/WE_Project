@@ -9,7 +9,7 @@
     <style type="text/css">
         td span
         {
-            color: Red;
+            /*color: Red;*/
         }
     </style>
 </head>
@@ -41,7 +41,7 @@
                         推荐人账号:
                     </td>
                     <td>
-                        <input id="txtMTJ" runat="server" class="normal_input" type="text" maxlength="20"
+                        <input id="txtMTJ" runat="server" class="normal_input" type="text" maxlength="20"  onchange="getName();"
                             placeholder="请输入推荐人帐号" />姓名：<span id="spmtjName" runat="server">*</span>
                     </td>
                 </tr>
@@ -108,7 +108,17 @@
                             value="" /><span>*</span>
                     </td>
                 </tr>
+              
                 <tr>
+                    <td align="right">
+                        开户支行:
+                    </td>
+                    <td>
+                        <input name="txtBranch" id="txtBranch" class="normal_input" type="text" placeholder="请填写开户支行"
+                            maxlength="20" value="" /><span>*</span>
+                    </td>
+                </tr>
+                  <tr>
                     <td align="right">
                         开户银行:
                     </td>
@@ -125,15 +135,6 @@
                             <option value="招商银行">招商银行</option>
                             <option value="民生银行">民生银行</option>
                         </select><span>*</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td align="right">
-                        开户支行:
-                    </td>
-                    <td>
-                        <input name="txtBranch" id="txtBranch" class="normal_input" type="text" placeholder="请填写开户支行"
-                            maxlength="20" value="" /><span>*</span>
                     </td>
                 </tr>
                 <tr>
@@ -211,6 +212,13 @@
         </div>
     </div>
     <script type="text/javascript">
+        function getName() {
+            
+
+            var name = RunAjaxGetKey('getMName', $('#txtMTJ').val());
+            $("#spmtjName").html(name);
+        }
+
         function sendTelCode() {
             var tel = $.trim($("#txtTel").val());
             if (!tel.TryTel()) {

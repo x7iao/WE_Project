@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="WE_Project.Web.Manage.Login" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="WE_Project.Web.d7795ca62df174e2.Login" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,8 +6,8 @@
     <title><%=WebModel.WebTitle %></title>
    <link rel = "Shortcut Icon" href=/Admin/img/icon.ico>
     <meta name="viewport" content="width=device-width">
-    <link href="/Manage/public/css/base.css" rel="stylesheet" type="text/css">
-    <link href="/Manage/public/css/login.css" rel="stylesheet" type="text/css">
+    <link href="/d7795ca62df174e2/public/css/base.css" rel="stylesheet" type="text/css">
+    <link href="/d7795ca62df174e2/public/css/login.css" rel="stylesheet" type="text/css">
 
 
      <script src="/Admin/js/jquery-1.9.1.min.js" type="text/javascript"></script>
@@ -59,7 +59,7 @@
             } else {
                 $.ajax({
                     type: "post",
-                    url: "/Manage/Login.aspx?type=login",
+                    url: "/d7795ca62df174e2/Login.aspx?type=login",
                     data: {
                         txtname: $("#txtname").val(), txtpwd: $("#txtpwd").val(), href: window.location.href
                     },

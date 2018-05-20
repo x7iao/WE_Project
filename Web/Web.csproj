@@ -448,17 +448,17 @@
     <Content Include="Mafull\JTAccont2.aspx" />
     <Content Include="Mafull\MatchGetListJujue.aspx" />
     <Content Include="Mafull\UploadPic.aspx" />
-    <Content Include="Manage\index.html" />
-    <Content Include="Manage\public\css\base.css" />
-    <Content Include="Manage\public\css\login.css" />
-    <Content Include="Manage\public\images\admin_logo.png" />
-    <Content Include="Manage\public\images\login_bg.jpg" />
-    <Content Include="Manage\public\images\login_button.jpg" />
-    <Content Include="Manage\public\images\login_logo.jpg" />
-    <Content Include="Manage\public\images\login_name_bg.jpg" />
-    <Content Include="Manage\public\images\复件 login_logo.jpg" />
-    <Content Include="Manage\public\ui\config.js" />
-    <Content Include="Manage\public\ui\do.js" />
+    <Content Include="d7795ca62df174e2\index.html" />
+    <Content Include="d7795ca62df174e2\public\css\base.css" />
+    <Content Include="d7795ca62df174e2\public\css\login.css" />
+    <Content Include="d7795ca62df174e2\public\images\admin_logo.png" />
+    <Content Include="d7795ca62df174e2\public\images\login_bg.jpg" />
+    <Content Include="d7795ca62df174e2\public\images\login_button.jpg" />
+    <Content Include="d7795ca62df174e2\public\images\login_logo.jpg" />
+    <Content Include="d7795ca62df174e2\public\images\login_name_bg.jpg" />
+    <Content Include="d7795ca62df174e2\public\images\复件 login_logo.jpg" />
+    <Content Include="d7795ca62df174e2\public\ui\config.js" />
+    <Content Include="d7795ca62df174e2\public\ui\do.js" />
     <Content Include="Member\ActiveCodeList.aspx" />
     <Content Include="Member\ApplyUp.aspx" />
     <Content Include="Member\BuyActiveCode.aspx" />
@@ -1106,17 +1106,17 @@
     <Content Include="plugin\jOrgChart\prettify.js" />
     <Content Include="Global.asax" />
     <Content Include="Login.aspx" />
-    <Content Include="Manage\css\base.css" />
-    <Content Include="Manage\css\login.css" />
-    <Content Include="Manage\images\login\btn_ok.gif" />
-    <Content Include="Manage\images\login\btn_ok_hover.gif" />
-    <Content Include="Manage\images\login\checkcode.gif" />
-    <Content Include="Manage\images\login\login_bg.gif" />
-    <Content Include="Manage\images\login\login_img.gif" />
-    <Content Include="Manage\js\jquery-1.8.3.min.js" />
-    <Content Include="Manage\js\layout.js" />
-    <Content Include="Manage\js\PIE.js" />
-    <Content Include="Manage\Login.aspx" />
+    <Content Include="d7795ca62df174e2\css\base.css" />
+    <Content Include="d7795ca62df174e2\css\login.css" />
+    <Content Include="d7795ca62df174e2\images\login\btn_ok.gif" />
+    <Content Include="d7795ca62df174e2\images\login\btn_ok_hover.gif" />
+    <Content Include="d7795ca62df174e2\images\login\checkcode.gif" />
+    <Content Include="d7795ca62df174e2\images\login\login_bg.gif" />
+    <Content Include="d7795ca62df174e2\images\login\login_img.gif" />
+    <Content Include="d7795ca62df174e2\js\jquery-1.8.3.min.js" />
+    <Content Include="d7795ca62df174e2\js\layout.js" />
+    <Content Include="d7795ca62df174e2\js\PIE.js" />
+    <Content Include="d7795ca62df174e2\Login.aspx" />
     <Content Include="Member\Add.aspx" />
     <Content Include="Member\AddB.aspx" />
     <Content Include="Member\BCenterAdd.aspx" />
@@ -2431,11 +2431,11 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Manage\Login.aspx.cs">
+    <Compile Include="d7795ca62df174e2\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Manage\Login.aspx.designer.cs">
+    <Compile Include="d7795ca62df174e2\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Member\Add.aspx.cs">

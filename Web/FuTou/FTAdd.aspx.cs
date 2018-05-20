@@ -105,7 +105,7 @@ namespace WE_Project.Web.FuTou
                     model.BMDate = DateTime.MaxValue;
                     model.BMBD = MoneyType;
                     model.FHDays = 0;
-                    model.YJMoney = 0;
+                    model.YJMoney = Convert.ToDecimal(cd.DKey);
                     model.YJCount = money;
                     model.BOutMoney = cd.StartLevel;
                     model.BMState = false;

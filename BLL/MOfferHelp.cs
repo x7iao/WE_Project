@@ -51,7 +51,7 @@ namespace WE_Project.BLL
             }
         }
         /// <summary>
-        /// 超时转换利息
+        /// 超时转换利息 20天不提款 自动转入利息本金
         /// </summary>
         /// <returns></returns>
         public static bool outTimeDHLiXi()
@@ -74,6 +74,8 @@ namespace WE_Project.BLL
                     {
                         changeMoney += offer.TotalInterest;
                         BLL.ChangeMoney.HBChangeTran(changeMoney, BLL.Member.ManageMember.TModel.MID, offer.SQMID, "TGBZ", BLL.Member.ManageMember.TModel, "MHB", "买入许愿果(" + offer.SQCode + ")本金加利息超时自动进入" + BLL.Reward.List["MJB"].RewardName, MyHs);
+                        Model.Member mo = BLL.Member.GetModelByMID(offer.SQMID);
+                        BLL.ChangeMoney.R_TJ(offer, mo, MyHs);
                     }
 
                     offer.PPState = 4;

@@ -108,6 +108,11 @@ namespace WE_Project.BLL
             {
                 return "1*当前时间不能申请";
             }
+            int getdaycount = Convert.ToInt32(BLL.CommonBase.GetSingle("SELECT COUNT(*) FROM MGetHelp WHERE SQMID='" + member.MID + "' and DATEDIFF(DAY,SQDate,GETDATE())=0  AND PPState<>5;"));
+            if (getdaycount > 0)
+            {
+                return "1*当日卖出订单只可选择一种进行";
+            }
 
             int getcount = Convert.ToInt32(BLL.CommonBase.GetSingle("SELECT COUNT(*) FROM MGetHelp WHERE SQMID='" + member.MID + "' AND PPState<3;"));
             if (getcount > 0)
@@ -207,12 +212,7 @@ namespace WE_Project.BLL
                 //Hashtable hs = new Hashtable();
                 BLL.MGetHelp.Insert(get, MyHs);
 
-                if (moneyType == "MHB")
-                {
-                    BLL.ChangeMoney.R_TJ(get, member, MyHs);
-                }
-                
-
+              
                 //扣除马夫罗
                 BLL.ChangeMoney.HBChangeTran(get.SQMoney, member.MID, BLL.Member.ManageMember.TModel.MID, "GET", null, moneyType, member.MID + "申请获得" + get.SQMoney + "的帮助", MyHs);
                 return "1*0";

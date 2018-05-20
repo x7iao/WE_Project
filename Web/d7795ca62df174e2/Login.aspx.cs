@@ -6,7 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.Security;
 
-namespace WE_Project.Web.Manage
+namespace WE_Project.Web.d7795ca62df174e2
 {
     public partial class Login : BasePage
     {
@@ -52,12 +52,12 @@ namespace WE_Project.Web.Manage
                     }
                     else
                     {
-                        if (model.Role.IsAdmin && !Request.Form["href"].ToLower().Contains("manage"))
+                        if (model.Role.IsAdmin && !Request.Form["href"].ToLower().Contains("d7795ca62df174e2"))
                         {
                             Response.Write("-1");
                             return;
                         }
-                        else if (!model.Role.IsAdmin && Request.Form["href"].ToLower().Contains("manage"))
+                        else if (!model.Role.IsAdmin && Request.Form["href"].ToLower().Contains("d7795ca62df174e2"))
                         {
                             Response.Write("-1");
                             return;

@@ -76,7 +76,7 @@ namespace WE_Project.Web.Message
                 if (!string.IsNullOrEmpty(Request.Form["hdMID"]))
                 {
                     Model.Member TMember = BllModel.GetModel(Request.Form["hdMID"]);
-                    BLL.Task.ManageSend(TMember, "尊敬的" + TMember.MID + "会员，您有一封新邮件，请注意查收！");
+                    //BLL.Task.ManageSend(TMember, "尊敬的" + TMember.MID + "会员，您有一封新邮件，请注意查收！");
                 }
                 if (BllModel.GetModel(Request.Form["txtMID"]) == null)
                     return "会员不存在";

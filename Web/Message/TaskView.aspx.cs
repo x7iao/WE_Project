@@ -40,6 +40,7 @@ namespace WE_Project.Web.Message
                 Model.Task reply = BllModel.GetReplyTask(yask.ID);
                 if (reply != null)
                 {
+                    //BLL.Task.ReadTask(yask.ID.ToString());
                     isReply = true;
                     RespSendMan.InnerHtml = reply.TFromMID;
                     RespContent.InnerHtml = reply.TContent;

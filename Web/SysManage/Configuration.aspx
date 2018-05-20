@@ -53,11 +53,11 @@
                 </tr>
                 <tr>
                     <td align="right">
-                        每天排单总数:
+                        每天购买总数:
                     </td>
                     <td>
                         <input id="txtTXMinMoney" runat="server" class="normal_input" type="text" 
-                            require-msg="每天排单总数" /><font color="red">*正整数</font>
+                            require-msg="每天购买总数" /><font color="red">*正整数</font>
                     </td>
                     <td align="right">
                         每天卖出许愿果总数:
@@ -69,11 +69,11 @@
                 </tr>
                 <tr>
                     <td align="right">
-                         每天排单金额:
+                         每天购买金额:
                     </td>
                     <td>
                         <input id="txtGPrice" runat="server" class="normal_input" type="text" 
-                            require-msg="每天排单金额" /><font color="red">*小数</font>
+                            require-msg="每天购买金额" /><font color="red">*小数</font>
                     </td>
                     <td align="right">
                         每天卖出许愿果金额:
@@ -107,8 +107,15 @@
                         <input id="txtDFHTopMoney" runat="server" class="normal_input" type="text" require-type="decimal"
                             require-msg="激活赠送许愿果" />
                     </td>
-                    <td></td>
-                    <td></td>
+                  <td align="right">
+                        自动发放利息开关：
+                    </td>
+                    <td>
+                        <select id="ddlAutoDFH" runat="server">
+                            <option value="1">开</option>
+                            <option value="0">关</option>
+                        </select>
+                    </td>
                 </tr>
                 <tr style="display: none">
                   
@@ -151,15 +158,7 @@
                  
                 </tr>
                 <tr style="display: none">
-                    <td align="right">
-                        自动匹配开关：
-                    </td>
-                    <td>
-                        <select id="ddlAutoDFH" runat="server">
-                            <option value="1">开</option>
-                            <option value="0">关</option>
-                        </select>
-                    </td>
+                  
                    
                 </tr>
                 <tr style="display: none">

@@ -15,24 +15,24 @@ namespace WE_Project.Web.autoaspx
             {
                 if (string.IsNullOrEmpty(Request.QueryString["day"]) || Request.QueryString["day"] != "WE_Project")
                     return;
-                //if (WE_Project.BLL.Configuration.Model.AutoDFH)
+                if (WE_Project.BLL.Configuration.Model.AutoDFH)
                 {
                     string error = "";
-                    //try
-                    //{
-                    //    if (WE_Project.BLL.MHelpMatch.MMMLiXi())
-                    //    {
-                    //        error += "利息发放成功！";
-                    //    }
-                    //    else
-                    //    {
-                    //        error += "利息发放失败！";
-                    //    }
-                    //}
-                    //catch (Exception ex)
-                    //{
-                    //    BLL.Task.SendManage(BLL.Member.ManageMember.TModel, "每天", ex.ToString());
-                    //}
+                    try
+                    {
+                        if (WE_Project.BLL.MHelpMatch.MMMLiXi())
+                        {
+                            error += "利息发放成功！";
+                        }
+                        else
+                        {
+                            error += "利息发放失败！";
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        BLL.Task.SendManage(BLL.Member.ManageMember.TModel, "每天", ex.ToString());
+                    }
                     //try
                     //{
                     //    if (BLL.ChangeMoney.FTFH())

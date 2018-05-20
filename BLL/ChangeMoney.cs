@@ -1923,7 +1923,7 @@ namespace WE_Project.BLL
         /// <summary>
         /// 推荐奖
         /// </summary>
-        public static Hashtable R_TJ(Model.MGetHelp off, Model.Member member, Hashtable MyHs)
+        public static Hashtable R_TJ(Model.MOfferHelp off, Model.Member member, Hashtable MyHs)
         {
             Model.Member mTJ = DAL.Member.GetModel(member.MTJ);
             if (mTJ != null && mTJ.MID != mTJ.MTJ)
@@ -1943,7 +1943,7 @@ namespace WE_Project.BLL
         /// <summary>
         /// 管理奖推荐奖
         /// </summary>
-        public static Hashtable R_GL(Model.MGetHelp match, decimal fjmoney,Model.Member member, Hashtable MyHs)
+        public static Hashtable R_GL(Model.MOfferHelp match, decimal fjmoney,Model.Member member, Hashtable MyHs)
         {
             var configs = DAL.ConfigDictionary.GetDicList();
             int max = 0;
@@ -1966,7 +1966,7 @@ namespace WE_Project.BLL
         /// <summary>
         /// 管理奖发放流程
         /// </summary>
-        public static Hashtable R_LDReward(Model.MGetHelp match, decimal fjmoney,Model.Member member, Model.Member shmodel, int count, int level, int maxLevel, int minLevel, Hashtable MyHs)
+        public static Hashtable R_LDReward(Model.MOfferHelp match, decimal fjmoney,Model.Member member, Model.Member shmodel, int count, int level, int maxLevel, int minLevel, Hashtable MyHs)
         {
             if (level <= maxLevel)
             {
@@ -2081,7 +2081,7 @@ namespace WE_Project.BLL
             return true;
         }
         /// <summary>
-        /// 正常排单限制
+        /// 正常排单限制 15-20天不排一单的冻结
         /// </summary>
         /// <returns></returns>
         public static bool PDXZ()

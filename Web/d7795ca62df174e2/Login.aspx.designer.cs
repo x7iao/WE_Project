@@ -7,7 +7,7 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace WE_Project.Web.Manage {
+namespace WE_Project.Web.d7795ca62df174e2 {
     
     
     public partial class Login {

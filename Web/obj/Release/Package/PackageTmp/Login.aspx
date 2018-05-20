@@ -80,17 +80,17 @@
 <body id="skin-blur-violate" onkeydown="keyLogin();">
     <section id="login" style="text-align: center;">
             <header>
-                <h1>WE</h1>
-                <p>任何使用本网站系统的用户均应仔细阅读本声明，用户可选择不使用本网站系统，用户使用本网站系统的行为将被视为对本声明全部内容的认可。详情请阅读<a href="JavaScript:xieyi()" style="color:#ffd800;">WE阅读协议</a>！</p>
+                <p style="font-weight:900;"><img src="/admin/img/meitu_2.png" /></p>
+             
 
 
-                 <div class="clearfix"></div>
+                 
             <div style="">
             <!-- Login -->
             <%--<form class="box tile animated active" id="box-login">--%>
-                <h2 class="m-t-0 m-b-15">登陆</h2>
-                <input type="text" class="login-control m-b-10" style="width:300px; " name="txtname" id="txtname" placeholder="Username"><br />
-                <input type="password" class="login-control"  style="width:300px;" name="txtpwd" id="txtpwd" placeholder="Password"><br />
+                <h2 class="m-t-0 m-b-15"></h2>
+                <input type="text" class="login-control m-b-10" style="width:300px; " name="txtname" id="txtname" placeholder="用户"><br />
+                <input type="password" class="login-control"  style="width:300px;" name="txtpwd" id="txtpwd" placeholder="密码"><br />
                 <input type="test" class="login-control"  style="width:228px; margin-top:8px;"  name="checkCode" id="checkCode" placeholder="验证码" >
                  <img src="/CheckCode.aspx" onclick="this.src='../CheckCode.aspx?'+Math.random()" width="66px;" height="28px;">
                 <br />
@@ -108,6 +108,9 @@
                 </small>
            <%-- </form>--%>
             </div>
+                <br />
+                <div class="clearfix"></div>
+                   <p>任何使用本网站系统的用户均应仔细阅读本声明，用户可选择不使用本网站系统，用户使用本网站系统的行为将被视为对本声明全部内容的认可。详情请阅读<a href="JavaScript:xieyi()" style="color:#ffd800;">WE用户协议</a>！</p>
             </header><script src="/plugin/layer/layer.js"></script>
         <script>
             function xieyi() {

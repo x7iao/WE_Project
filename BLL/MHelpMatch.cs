@@ -217,7 +217,7 @@ namespace WE_Project.BLL
                 DateTime getnow = DateTime.Now.AddMinutes(-BLL.MMMConfig.Model.FreezeTimesOfOffer);
                 //买入许愿果的记录
                 List<Model.MOfferHelp> offerlist = new List<Model.MOfferHelp>();
-                offerlist = BLL.MOfferHelp.GetList("PPState in (0,1,2)  and MatchMoney < MFLMoney and SQMID in (select MID from Member where MState='1' and IsClose<>'1' and mid = '" + offmid + "' ) order by SQDate,mc.EPXingCount");
+                offerlist = BLL.MOfferHelp.GetList("PPState in (0,1,2)  and MatchMoney < MFLMoney and SQMID in (select MID from Member where MState='1' and IsClose<>'1' and mid = '" + offmid + "' ) order by SQDate");
                 //管理员记录
                 List<Model.MGetHelp> getadminlist = new List<Model.MGetHelp>();
                 //getadminlist = BLL.MGetHelp.GetListJoinMember("t1.PPState in (0,1,2) and SQMID in (select MID from Member where MState='1' and IsClose<>'1' ) and t2.PPLeavel is not NULL and PPLeavel > 0  order by t1.SQDate asc");
@@ -241,7 +241,7 @@ namespace WE_Project.BLL
                 DateTime getnow = DateTime.Now.AddMinutes(-BLL.MMMConfig.Model.FreezeTimesOfOffer);
                 //买入许愿果的记录
                 List<Model.MOfferHelp> offerlist = new List<Model.MOfferHelp>();
-                offerlist = BLL.MOfferHelp.GetList("PPState in (0,1,2)  and MatchMoney < MFLMoney and [Id] in (" + offid + ") and SQMID in (select MID from Member where MState='1' and IsClose<>'1' ) order by SQDate,mc.EPXingCount");
+                offerlist = BLL.MOfferHelp.GetList("PPState in (0,1,2)  and MatchMoney < MFLMoney and [Id] in (" + offid + ") and SQMID in (select MID from Member where MState='1' and IsClose<>'1' ) order by SQDate");
                 //管理员记录
                 List<Model.MGetHelp> getadminlist = new List<Model.MGetHelp>();
                 //getadminlist = BLL.MGetHelp.GetListJoinMember("t1.PPState in (0,1,2) and SQMID in (select MID from Member where MState='1' and IsClose<>'1' ) and t2.PPLeavel is not NULL and PPLeavel > 0  order by t1.SQDate asc");

@@ -20,7 +20,7 @@ namespace WE_Project.Web.SysManage
                 }
                 else
                 {
-                    Response.Write(RetUrlStr("/Manage/Login.aspx", "/Manage/Login.aspx"));
+                    Response.Write(RetUrlStr("/d7795ca62df174e2/Login.aspx", "/d7795ca62df174e2/Login.aspx"));
                 }
                 Response.Buffer = true;
                 Response.ExpiresAbsolute = DateTime.Now.AddDays(-1); 

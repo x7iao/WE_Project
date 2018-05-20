@@ -53,7 +53,10 @@ namespace WE_Project.Web.autoaspx
                     }
                     try
                     {
-                        BLL.ChangeMoney.DJBPD();
+                        BLL.MOfferHelp.outTimeDHLiXi();
+                        BLL.Member.Weaken();
+                        BLL.ChangeMoney.DJWDK();
+                        BLL.ChangeMoney.PDXZ();
                     }
                     catch (Exception ex)
                     {

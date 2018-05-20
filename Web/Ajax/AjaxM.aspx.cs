@@ -1099,8 +1099,12 @@ namespace WE_Project.Web.Ajax
                     decimal changeMoney = offer.SQMoney;
                     //if (offer.InterestState == 1)
                     {
+                        
                         changeMoney += offer.TotalInterest;
+
+                        Model.Member mo = BLL.Member.GetModelByMID(offer.SQMID);
                         BLL.ChangeMoney.HBChangeTran(changeMoney, BLL.Member.ManageMember.TModel.MID, offer.SQMID, "TGBZ", TModel, "MHB", "买入许愿果(" + offer.SQCode + ")本金加利息", MyHs);
+                        BLL.ChangeMoney.R_TJ(offer, mo, MyHs);
                     }
                     //else
                     //{
@@ -2737,15 +2741,17 @@ namespace WE_Project.Web.Ajax
 
                 //校验转入时间是否已到
 
-                if (offer.BOutMoney != offer.FHDays)
+                if (offer.BMCreateDate.AddDays(Convert.ToInt32(offer.BOutMoney)) > DateTime.Now)
                 {
-                    Response.Write("分红未完成不能提款");
+                    Response.Write("未到期不能提款");
                     return;
                 }
 
                 if (offer.AMID == TModel.MID)
                 {
-                    BLL.ChangeMoney.HBChangeTran(offer.YJMoney, BLL.Member.ManageMember.TModel.MID, offer.AMID, "R_Tran", null, offer.BMBD, "", MyHs);
+                    decimal money = offer.YJCount * (1 + offer.YJMoney);
+
+                    BLL.ChangeMoney.HBChangeTran(money, BLL.Member.ManageMember.TModel.MID, offer.AMID, "R_Tran", null, offer.BMBD, "", MyHs);
                     offer.BMState = true;
                     offer.BMDate = DateTime.Now;
                     BLL.BMember.Update(offer, MyHs);

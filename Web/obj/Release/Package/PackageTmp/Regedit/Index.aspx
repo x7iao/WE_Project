@@ -123,7 +123,10 @@
                 <input type="text" class="login-control m-b-10"  id="txtWeChat" runat="server" placeholder="微信帐号">    
                 <input type="text" class="login-control m-b-10"  id="txtAlipay" runat="server" placeholder="支付宝帐号">    
 
-                 <select name="txtBank" id="txtBank"  class="login-control m-b-20" >
+               
+
+                <input type="text" class="login-control m-b-10" name="txtBranch" id="txtBranch"    placeholder="开户支行">
+                  <select name="txtBank" id="txtBank"  class="login-control m-b-20" >
                             <option selected="selected" value="">请选择</option>
                             <option value="中国银行">中国银行</option>
                             <option value="工商银行">工商银行</option>
@@ -135,8 +138,6 @@
                             <option value="招商银行">招商银行</option>
                             <option value="民生银行">民生银行</option>
                         </select>
-
-                <input type="text" class="login-control m-b-10" name="txtBranch" id="txtBranch"    placeholder="开户支行">
                 <input type="text" class="login-control m-b-10"  name="txtBankCardName" id="txtBankCardName" placeholder="开户名">    
                 <input type="text" class="login-control m-b-10" name="txtBankNumber" id="txtBankNumber"  placeholder="银行卡号">
 

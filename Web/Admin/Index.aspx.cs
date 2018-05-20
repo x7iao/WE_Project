@@ -37,8 +37,14 @@ namespace WE_Project.Web.Admin
 
         protected Dictionary<string, List<string>> FDlist = new Dictionary<string, List<string>>();
 
+        protected int smscount = 0;
+        protected int caozuocount = 0;
+
         protected override void SetPowerZone()
         {
+            smscount = Convert.ToInt32(BLL.CommonBase.GetSingle("select COUNT(*) from Task where TToMID='"+TModel.MID+ "' and IfRead=0  and (replyid=0 or replyid IS null)"));
+            caozuocount = Convert.ToInt32(BLL.CommonBase.GetSingle("select((select COUNT(*) from MHelpMatch where OfferMID='"+TModel.MID+"' and MatchState=1)+(select COUNT(*) from MHelpMatch where GetMID='"+TModel.MID+"' and MatchState=2))"));
+
             listPowers = TModel.Role.PowersList.Where(emp => emp.Content.VState).ToList();
 
             dtxxfloat= BLL.CommonBase.GetTable("select amid,bmbd,(case boutmoney when 0 then 0 else Convert(decimal(18,1),(fhdays/boutmoney)*100) end)  as xxfloat from bmember where bmstate=0 and amid='" + TModel.MID+"' order by BMCreateDate asc;");

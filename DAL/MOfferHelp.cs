@@ -494,7 +494,7 @@ namespace WE_Project.DAL
         public static Model.MOfferHelp GetLastQDOfferMoney(string mid)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.AppendFormat(" select top 1 * from MOfferHelp where SQMID = '{0}' and HelpType = 0 and PPState < 3 ", mid);
+            strSql.AppendFormat(" select top 1 * from MOfferHelp where SQMID = '{0}' and PPState < 3 ", mid);
 
             DataSet ds = DbHelperSQL.Query(strSql.ToString());
             if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)

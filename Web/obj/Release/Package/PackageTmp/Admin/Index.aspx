@@ -43,14 +43,14 @@
                 <div class="pull-left tm-icon">
                     <a data-drawer="messages" class="drawer-toggle" href="">
                         <i class="sa-top-message"></i>
-                        <i class="n-count animated">5</i>
-                        <span>新消息</span>
+                        <i class="n-count animated"><%=smscount %></i>
+                        <span onclick="javascript:callhtml('../Message/TaskList.aspx','留言记录');">新消息</span>
                     </a>
                 </div>
                 <div class="pull-left tm-icon">
                     <a data-drawer="notifications" class="drawer-toggle" href="">
                         <i class="sa-top-updates"></i>
-                        <i class="n-count animated">9</i>
+                        <i class="n-count animated"><%=caozuocount %></i>
                         <span>打款或收款</span>
                     </a>
                 </div>
@@ -184,10 +184,16 @@
                 <li class="dropdown"><a href="javascript:void(0)" class="<%=item.Content.CImage %>"><span class="menu-item"><%=item.Content.CTitle %></span> </a>
                     <ul class="list-unstyled menu-item">
                         <%foreach (WE_Project.Model.RolePowers item2 in GetPowers(item.CID))
-                            { %>
+                            {
+                                if (item2.CID == "009017" && !TModel.Role.IsAdmin)
+                                {
+
+                                }
+                                else { 
+                                %>
                         <li><a href="javascript:void(0)" onclick="callhtml('<%=item2.Content.CAddress %>','<%=item2.Content.CTitle %>');">
                             <%=item2.Content.CTitle%></a></li>
-                        <%} %>
+                        <%}} %>
                     </ul>
                 </li>
                 <%} %>
@@ -383,7 +389,7 @@
                                 </tr>
                                 <tr>
                                     <td align="right">
-                                        <span>申请买入颗数：</span>
+                                        <span>申请卖出颗数：</span>
                                     </td>
                                     <td>
                                         <input type="text" runat="server" id="txtSQMoneygetindex" class="input-sm form-control mask-date" autocomplete="off" />
@@ -545,7 +551,7 @@
                                             %>
                                             <div class="media p-l-5">
                                                 <div class="pull-left">
-                                                    <img width="40" src="img/profile-pics/2.jpg" alt="">
+                                                    <img width="40" src="/Admin/img/profile-pics/2.jpg" alt="">
                                                 </div>
                                                 <div class="media-body">
                                                     <small class="text-muted">On <%=item.NCreateTime.ToString("dd/MM/yyyy") %></small><br />
@@ -630,7 +636,7 @@
                                             <div class="counts"><%=pdtotalcount %></div>
                                         </div>
                                         <div class="media-body">
-                                            <h6>排单总数</h6>
+                                            <h6>购买总数</h6>
                                         </div>
                                     </div>
 
@@ -639,7 +645,7 @@
                                             <div class="counts"><%=txtotalcount %></div>
                                         </div>
                                         <div class="media-body">
-                                            <h6>提现总数</h6>
+                                            <h6>卖出总数</h6>
                                         </div>
                                     </div>
 
@@ -648,7 +654,7 @@
                                             <div class="counts"><%=pddaymoney %></div>
                                         </div>
                                         <div class="media-body">
-                                            <h6>日排单金额</h6>
+                                            <h6>日购买金额</h6>
                                         </div>
                                     </div>
 
@@ -657,7 +663,7 @@
                                             <div class="counts"><%=txdaymoney %></div>
                                         </div>
                                         <div class="media-body">
-                                            <h6>日提现金额</h6>
+                                            <h6>日卖出金额</h6>
                                         </div>
                                     </div>
                                     <div class="media">

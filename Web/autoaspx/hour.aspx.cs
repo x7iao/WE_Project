@@ -15,7 +15,7 @@ namespace WE_Project.Web.autoaspx
             {
                 if (string.IsNullOrEmpty(Request.QueryString["hour"]) || Request.QueryString["hour"] != "WE_Project")
                     return;
-                if (WE_Project.BLL.Configuration.Model.AutoDFH)
+                if (WE_Project.BLL.MMMConfig.Model.MacthSwitch)
                 {
                     try
                     {

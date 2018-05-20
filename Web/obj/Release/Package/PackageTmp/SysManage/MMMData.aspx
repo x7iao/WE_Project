@@ -11,7 +11,7 @@
             <table cellpadding="0" cellspacing="0">
                 <tr>
                     <td width="15%" align="right">
-                        排单总数:
+                        购买总数:
                     </td>
                     <td width="35%">
                         <%=pdtotalcount %>
@@ -19,7 +19,7 @@
                 </tr>
                 <tr>
                     <td width="15%" align="right">
-                        提现总数:
+                        卖出总数:
                     </td>
                     <td width="35%">
                         <%=txtotalcount %>
@@ -27,7 +27,7 @@
                 </tr>
                 <tr>
                     <td align="right">
-                        日排单金额:
+                        日购买金额:
                     </td>
                     <td>
                       <%=pddaymoney %>
@@ -35,7 +35,7 @@
                 </tr>
                 <tr>
                     <td align="right">
-                        日提现金额:
+                        日卖出金额:
                     </td>
                     <td>
                         <%=txdaymoney %>
