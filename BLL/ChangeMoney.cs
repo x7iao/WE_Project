@@ -476,7 +476,7 @@ namespace WE_Project.BLL
                 changemoney.CState = true;
                 TakeOffMoneyTran(changemoney, DAL.Member.tempMemberList[frommid], DAL.Member.tempMemberList[tomid], shmodel, MyHs);
             }
-            if (changemoney.Money >= 0.01m)
+            if (changemoney.Money >= 0)
             {
                 TranChangeTran(changemoney, MyHs);
                 //if (changemoney.ChangeType == "CX" || changemoney.ChangeType == "QD")
@@ -1934,7 +1934,7 @@ namespace WE_Project.BLL
                     decimal money = tjoff.SQMoney > off.SQMoney ? off.SQMoney : tjoff.SQMoney;
                     HBChangeTran(money * mTJ.MAgencyType.TJFloat, BLL.Member.ManageMember.TModel.MID, mTJ.MID, "R_TJ", member, "MJB", off.SQCode, MyHs);
 
-                    BLL.ChangeMoney.R_GL(off, money * mTJ.MAgencyType.TJFloat, member,MyHs);
+                    BLL.ChangeMoney.R_GL(off, money * mTJ.MAgencyType.TJFloat, mTJ, MyHs);
                 }
             }
             return MyHs;
@@ -2000,7 +2000,11 @@ namespace WE_Project.BLL
                                     if (money < 0)
                                         money = 0;
                                 }
-                                HBChangeTran(money, BLL.Member.ManageMember.TModel.MID, bdmodel.MID, "R_GL", shmodel, "MJB", match.SQCode, MyHs);
+                                if (money > 0)
+                                {
+                                    HBChangeTran(money, BLL.Member.ManageMember.TModel.MID, bdmodel.MID, "R_GL", shmodel, "MJB", match.SQCode, MyHs);
+                                }
+                                
                             }
                         }
                     }

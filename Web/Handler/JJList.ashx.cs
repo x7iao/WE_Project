@@ -109,7 +109,7 @@ namespace WE_Project.Web.Handler
                         sb.Append(member.MID + "~");
                         sb.Append(member.MAgencyType.MAgencyName + "~");
                     }
-                    sb.Append(Math.Round(ListChangeMoney[i].Money, 2) + "~");
+                    sb.Append(Math.Round(ListChangeMoney[i].Money, 6) + "~");
                 }
                 //sb.Append(Math.Round(ListChangeMoney[i].TakeOffMoney, 2) + "~");
                 //sb.Append(ListChangeMoney[i].TakeOffMoney+ "~");

@@ -66,11 +66,11 @@ namespace WE_Project.Web.Mafull.Handler
                 sb.Append("<input type='button' value='查看明细' class='btn btn-info btn-sm' onclick=\"callhtml('../Mafull/MatchGetList.aspx?id=" + EPList[i].Id + "','查看明细')\" />");
                 string op = string.Empty;
                 //没交易完成
-                //if (EPList[i].PPState == 0)
-                //{
-                //    op = DateDiffStr(DateDiffType.MI, EPList[i].SQDate, BLL.MMMConfig.Model.FreezeTimesOfOffer, "排队倒计时:", "");
-                //}
-                //sb.Append(op);
+                if (EPList[i].PPState == 0&&TModel.Role.IsAdmin)
+                {
+                    op = DateDiffStr(DateDiffType.MI, EPList[i].SQDate, BLL.MMMConfig.Model.FreezeTimesOfOffer, "排队倒计时:", "");
+                }
+                sb.Append(op);
                 if (TModel.Role.IsAdmin)
                 {
                     if (EPList[i].PPState == 0)

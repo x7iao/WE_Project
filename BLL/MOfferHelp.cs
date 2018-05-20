@@ -125,14 +125,14 @@ namespace WE_Project.BLL
 
         public static string GetSumCount(string type)
         {
-            string sql = "select COUNT(1),ISNULL(SUM(SQMoney),0) from MOfferHelp ";
+            string sql = "select COUNT(1),ISNULL(SUM(SQMoney-matchmoney),0) from MOfferHelp ";
             switch (type)
             {
-                case "": sql = "select COUNT(1),ISNULL(SUM(SQMoney),0) from MOfferHelp "; break;
-                case "1": sql = "select COUNT(1),ISNULL(SUM(SQMoney),0) from MOfferHelp  where PPState in (0,2)"; break;
-                case "2": sql = "select COUNT(1),ISNULL(SUM(SQMoney),0) from MOfferHelp where PPState=1"; break;
-                case "3": sql = "select COUNT(1),ISNULL(SUM(SQMoney),0) from MOfferHelp  where PPState=1"; break;
-                case "4": sql = "select COUNT(1),ISNULL(SUM(SQMoney),0) from MOfferHelp  where  SQMID in (select MID from Member where IsClose<>'1') and PPState in (0,2) and DATEDIFF(mi,SQDate,getdate())> " + BLL.MMMConfig.Model.LineTimes; break;
+                case "": sql = "select COUNT(1),ISNULL(SUM(SQMoney-matchmoney),0) from MOfferHelp "; break;
+                case "1": sql = "select COUNT(1),ISNULL(SUM(SQMoney-matchmoney),0) from MOfferHelp  where PPState in (0,2)"; break;
+                case "2": sql = "select COUNT(1),ISNULL(SUM(SQMoney-matchmoney),0) from MOfferHelp where PPState=1"; break;
+                case "3": sql = "select COUNT(1),ISNULL(SUM(SQMoney-matchmoney),0) from MOfferHelp  where PPState=1"; break;
+                case "4": sql = "select COUNT(1),ISNULL(SUM(SQMoney-matchmoney),0) from MOfferHelp  where  SQMID in (select MID from Member where IsClose<>'1') and PPState in (0,2) and DATEDIFF(mi,SQDate,getdate())> " + BLL.MMMConfig.Model.LineTimes; break;
             }
             DataTable list = BLL.CommonBase.GetTable(sql);
             return list.Rows[0][0] + "*" + list.Rows[0][1];
@@ -296,7 +296,8 @@ namespace WE_Project.BLL
                 {
                     if (lastmo.SQDate.AddMinutes(BLL.MMMConfig.Model.GLRewardFreezeTimes) > DateTime.Now)
                     {
-                        return "1*正常排单两单间隔时间为" + BLL.MMMConfig.Model.GLRewardFreezeTimes + "分钟，请等待";
+                        TimeSpan ts = new TimeSpan(0, BLL.MMMConfig.Model.GLRewardFreezeTimes, 0);
+                        return "1*正常排单两单之间时间间隔需大于" + (int)ts.TotalDays + "天" + ts.Hours+ "时"+ts.Minutes+ "分钟";
                     }
                 }
             }

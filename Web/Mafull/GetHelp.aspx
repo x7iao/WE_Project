@@ -44,7 +44,7 @@
                 </tr>--%>
                 <tr>
                     <td width="35%" align="right">
-                        <span>买入许愿果说明：</span>
+                        <span>卖出许愿果说明：</span>
                     </td>
                     <td>
                         <div>
@@ -59,7 +59,7 @@
                 </tr>
                 <tr>
                     <td align="right">
-                        <span>申请买入颗数：</span>
+                        <span>申请卖出颗数：</span>
                     </td>
                     <td>
                         <input type="text" runat="server" id="txtSQMoneyGet"  class="input-sm form-control mask-date" autocomplete="off" />

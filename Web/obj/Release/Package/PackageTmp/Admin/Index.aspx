@@ -112,7 +112,7 @@
                 </div>--%>
 
                 <!-- Projects -->
-                <div class="s-widget m-b-25">
+              <%--  <div class="s-widget m-b-25">
                     <h2 class="tile-title">许愿台
                     </h2>
 
@@ -136,28 +136,13 @@
                             }
                         %>
 
-
-
-                        <%-- <div class="side-border">
-                            <small>Chrome Extension</small>
-                            <div class="progress progress-small">
-                                <a href="#" data-toggle="tooltip" title="" class="tooltips progress-bar progress-bar-success" style="width: 95%;" data-original-title="95%">
-                                    <span class="sr-only">95% Complete</span>
-                                </a>
-                            </div>
-                        </div>--%>
                     </div>
-                </div>
+                </div>--%>
 
-                 <div class="s-widget m-b-25">
+               <%--  <div class="s-widget m-b-25">
                     <h2 class="tile-title">忠诚度<%=TModel.MConfig.EPXingCount %>
                     </h2>
-
                     <div class="s-widget-body">
-
-                      
-
-
                          <div class="side-border">
                             <small></small>
                             <div class="progress progress-small">
@@ -167,7 +152,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>--%>
             </div>
 
             <!-- Side Menu -->
@@ -477,7 +462,7 @@
                             <div class="tile quick-stats media">
                                 <div id="stats-line12" class="pull-left"></div>
                                 <div class="media-body">
-                                    <h2 value="<%=TModel.MConfig.MGP %>"><%=TModel.MConfig.MGP.ToFixedDecimal(4) %></h2>
+                                    <h2 value="<%=TModel.MConfig.MGP %>"><%=TModel.MConfig.MGP.ToFixedDecimal(0) %></h2>
                                     <small><%=WE_Project.BLL.Reward.List["MGP"].RewardName %>-元</small>
                                 </div>
                             </div>
@@ -575,7 +560,7 @@
                                 <!-- Tasks to do -->
                                 <div class="col-md-6">
                                     <div class="tile">
-                                        <h2 class="tile-title">待定</h2>
+                                        <h2 class="tile-title">忠诚度<%=TModel.MConfig.EPXingCount %></h2>
                                         <div class="tile-config dropdown">
                                             <a data-toggle="dropdown" href="" class="tile-menu"></a>
                                             <ul class="dropdown-menu pull-right text-right">
@@ -586,15 +571,30 @@
                                         </div>
 
                                         <div class="listview todo-list sortable">
-                                            <div class="media">
+                                              <div class="s-widget m-b-25">
+                 <%--   <h2 class="tile-title">忠诚度<%=TModel.MConfig.EPXingCount %>
+                    </h2>--%>
+                    <div class="s-widget-body">
+                         <div class="side-border">
+                            <small></small>
+                            <div class="progress progress-small">
+                                <a href="#" data-toggle="tooltip" title="" class="tooltips progress-bar progress-bar-success" style="width: <%=TModel.MConfig.EPXingCount %>%;" data-original-title="<%=TModel.MConfig.EPXingCount %>">
+                                    <span class="sr-only"><%=TModel.MConfig.EPXingCount %></span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                                         <%--
+                                              <div class="media">
                                                 <div class="checkbox m-0">
                                                     <label class="t-overflow">
-                                                        <%--<input type="checkbox">--%>
+                                                        
                                                        待定信息
                                                     </label>
                                                 </div>
-                                            </div>
-
+                                            </div>--%>
                                         </div>
 
 
@@ -616,15 +616,13 @@
                                 <div id="usa-map"></div>
                             </div>--%>
 
-
-                         
                               <!-- Activity -->
                             <div class="tile">
                                 <h2 class="tile-title">平台数据</h2>
                                 <div class="tile-config dropdown">
                                     <a data-toggle="dropdown" href="" class="tile-menu"></a>
                                     <ul class="dropdown-menu pull-right text-right">
-                                        <li><a href="">Refresh</a></li>
+                                        <li><a href="">刷新</a></li>
 
                                     </ul>
                                 </div>

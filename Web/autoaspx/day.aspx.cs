@@ -15,6 +15,15 @@ namespace WE_Project.Web.autoaspx
             {
                 if (string.IsNullOrEmpty(Request.QueryString["day"]) || Request.QueryString["day"] != "WE_Project")
                     return;
+
+                try
+                {
+                    BLL.Member.Weaken();
+                }
+                catch (Exception ex)
+                {
+                    BLL.Task.SendManage(BLL.Member.ManageMember.TModel, "每天", ex.ToString());
+                }
                 if (WE_Project.BLL.Configuration.Model.AutoDFH)
                 {
                     string error = "";
@@ -28,26 +37,13 @@ namespace WE_Project.Web.autoaspx
                         {
                             error += "利息发放失败！";
                         }
+                        
                     }
                     catch (Exception ex)
                     {
                         BLL.Task.SendManage(BLL.Member.ManageMember.TModel, "每天", ex.ToString());
                     }
-                    //try
-                    //{
-                    //    if (BLL.ChangeMoney.FTFH())
-                    //    {
-                    //        error += "奖金解冻成功！";
-                    //    }
-                    //    else
-                    //    {
-                    //        error += "奖金解冻失败！";
-                    //    }
-                    //}
-                    //catch (Exception ex)
-                    //{
-                    //    BLL.Task.SendManage(BLL.Member.ManageMember.TModel, "每天", ex.ToString());
-                    //}
+                   
 
                     //Response.Write(error);
                 }

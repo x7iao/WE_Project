@@ -65,7 +65,7 @@ namespace WE_Project.Web.Mafull.Handler
                 sb.Append(offerList[i].SQCode + "~");
                 sb.Append(offerList[i].SQDate.ToString("yyyy-MM-dd HH:mm") + "~");
                 sb.Append(GetHelpState(offerList[i].PPState) + "~");
-                sb.Append((offerList[i].HelpType==0?"正常排单":"抢单区排单") + "~");
+                sb.Append((offerList[i].HelpType == 0 ? "正常排单" : "抢单区排单") + "~");
                 //sb.Append(offerList[i].TotalInterestDays + "~");
                 sb.Append((offerList[i].SQMoney + "颗(" + offerList[i].SQMoney * 2000 + "元)") + "~");
                 sb.Append((offerList[i].MatchMoney + "颗(" + offerList[i].MatchMoney * 2000 + "元)") + "~");
@@ -74,16 +74,24 @@ namespace WE_Project.Web.Mafull.Handler
                 //sb.Append(offerList[i].TotalSincerity + "~");
                 string op = string.Empty;
                 //没交易完成
-                //if (offerList[i].PPState == 0 || offerList[i].PPState == 1 || offerList[i].PPState == 2)
-                //{
-                //    op = OfferTimeLeave(offerList[i], MMMOfferTimeType.LineTime, "排队倒计时:", "");
-                //}
+                if (offerList[i].PPState == 0 && TModel.Role.IsAdmin)
+                {
+                    op = OfferTimeLeave(offerList[i], MMMOfferTimeType.LineTime, "排队倒计时:", "");
+                }
                 if (offerList[i].PPState == 3)
                 {
-                    op = OfferTimeLeave(offerList[i], MMMOfferTimeType.FreezeTime, "提款倒计时:", "");
-                    if (string.IsNullOrEmpty(op))
+
+
+                    int outtime = BLL.MMMConfig.Model.FreezeTimes / 1440;
+                    if (offerList[i].TotalInterestDays >= outtime)
                     {
-                        op = "<input type='button' value='圆梦' class='btn btn-danger btn-sm' onclick=\"MatchGetMoney(" + offerList[i].Id + ",this)\" />";
+                        sb.Append("<input type='button' value='圆梦' class='btn btn-danger btn-sm' onclick=\"MatchGetMoney(" + offerList[i].Id + ",this)\" />");
+                    }
+
+                    op = OfferTimeLeave(offerList[i], MMMOfferTimeType.FreezeTime, "提款倒计时:", "");
+                    if (TModel.Role.IsAdmin)
+                    {
+                        sb.Append(op);
                     }
                 }
                 if (offerList[i].PPState != 0)
@@ -101,7 +109,7 @@ namespace WE_Project.Web.Mafull.Handler
                     //    op = "<input type='button' value='解冻利息' class='btn btn-danger btn-sm' onclick=\"MatchGetLixiMoney(" + offerList[i].Id + ",this)\" />";
                     //}
                 }
-                sb.Append(op);
+                sb.Append("");
                 sb.Append("≌");
             }
             var info = new { PageData = Traditionalized(sb), TotalCount = count };

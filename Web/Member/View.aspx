@@ -125,7 +125,7 @@
                         <%=WE_Project.BLL.Reward.List["MHB"].RewardName%>:
                     </td>
                     <td>
-                        <%=TModel.MConfig.MHB.ToString("F2") %>
+                        <%=TModel.MConfig.MHB.ToString("F4") %>
                     </td>
                 </tr>
                 <tr style="font-size: 16px; color: #55AA66;">
@@ -133,7 +133,7 @@
                         <%=WE_Project.BLL.Reward.List["MJB"].RewardName%>:
                     </td>
                     <td>
-                        <%=TModel.MConfig.MJB.ToString("F2")%>
+                        <%=TModel.MConfig.MJB.ToString("F4")%>
                     </td>
                 </tr>
              <%--   <tr style="font-size: 16px; color: #55AA66;">
@@ -149,7 +149,7 @@
                         <%=WE_Project.BLL.Reward.List["MGP"].RewardName%>:
                     </td>
                     <td>
-                        <%=TModel.MConfig.MGP.ToString("F2")%>
+                        <%=TModel.MConfig.MGP.ToString("F0")%>
                     </td>
                 </tr>
                 <%-- <tr style="font-size: 16px; color: #55AA66;">
@@ -164,7 +164,7 @@
                         <%=WE_Project.BLL.Reward.List["TotalYFHMoney"].RewardName%>:
                     </td>
                     <td>
-                        <%=TModel.MConfig.TotalYFHMoney.ToString("F2")%>
+                        <%=TModel.MConfig.TotalYFHMoney.ToString("F0")%>
                     </td>
                 </tr>
                 <%} %>

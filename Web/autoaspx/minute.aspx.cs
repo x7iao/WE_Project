@@ -54,7 +54,7 @@ namespace WE_Project.Web.autoaspx
                     try
                     {
                         BLL.MOfferHelp.outTimeDHLiXi();
-                        BLL.Member.Weaken();
+                       
                         BLL.ChangeMoney.DJWDK();
                         BLL.ChangeMoney.PDXZ();
                     }

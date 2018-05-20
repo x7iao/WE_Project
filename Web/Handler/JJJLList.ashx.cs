@@ -99,19 +99,19 @@ namespace WE_Project.Web.Handler
                 //}
                 for (; j < cTypeList.Count; j++)
                 {
-                    sb.Append(Math.Round(Convert.ToDecimal(table.Rows[i][cTypeList[j]]), 2) + "~");
+                    sb.Append(Math.Round(Convert.ToDecimal(table.Rows[i][cTypeList[j]]), 6) + "~");
                     heji[j] += Convert.ToDecimal(table.Rows[i][cTypeList[j]]);
                 }
                 //sb.Append(table.Rows[i]["MCW"] + "~");
-                sb.Append(Math.Round(Convert.ToDecimal(table.Rows[i]["HeJi"]), 2) + "~");
-                heji[j++] += Math.Round(Convert.ToDecimal(table.Rows[i]["HeJi"]), 2);
+                sb.Append(Math.Round(Convert.ToDecimal(table.Rows[i]["HeJi"]), 6) + "~");
+                heji[j++] += Math.Round(Convert.ToDecimal(table.Rows[i]["HeJi"]), 6);
                 //sb.Append(table.Rows[i]["ReBuy"] + "~");
                 //heji[j++] += Convert.ToDecimal("-" + table.Rows[i]["ReBuy"]);
                 //sb.Append(table.Rows[i]["Take"] + "~");
-                heji[j++] += Math.Round(Convert.ToDecimal("-" + table.Rows[i]["Take"]), 2);
+                heji[j++] += Math.Round(Convert.ToDecimal("-" + table.Rows[i]["Take"]), 6);
                 //sb.Append(Math.Round(Convert.ToDecimal(table.Rows[i]["Take"]), 2) + "~");
                 //sb.Append(Math.Round(Convert.ToDecimal(table.Rows[i]["JJ"]), 2) + "~");
-                heji[j++] += Math.Round(Convert.ToDecimal(table.Rows[i]["JJ"]), 2);
+                heji[j++] += Math.Round(Convert.ToDecimal(table.Rows[i]["JJ"]), 6);
                 sb.Append(table.Rows[i]["Date"]);
                 if (string.IsNullOrEmpty(countdate))
                 {

@@ -960,13 +960,12 @@ namespace WE_Project.BLL
                 //", null);
 
                 MyHs.Add(@"
-                       --出局时间
                         declare @outTime int;
                         --时间基数
                         declare @lixiTimeBase int;
                         --一分钟
                         set @lixiTimeBase=1440;
-                        
+                       
                         --出局时间
                         set @outTime=(select OutTimes/@lixiTimeBase from MMMConfig);
 
@@ -974,11 +973,11 @@ namespace WE_Project.BLL
                         update MOfferHelp set TotalInterest=TotalInterest+SQMoney*dayInterest,
                         TotalInterestDays=TotalInterestDays+1
                         --正常订单
-                        where HelpType = 0 
+                        where 
                         --没有提现
-                        and PPState = 3
+                        PPState = 3
                         --已发次数小于该发次数
-                        and TotalInterestDays < @lixiTimeBase;
+                        and TotalInterestDays < @outTime;
                 ", null);
 
                 return BLL.CommonBase.RunHashtable(MyHs);
@@ -998,7 +997,7 @@ namespace WE_Project.BLL
                                                         declare @PLT2 int;
                                                         
                                                         set @PLT1 = (select PayLimitTimes from MMMConfig)
-                                                        set @PLT2 = (select PayLimitTimesPre from MMMConfig)
+                                                        set @PLT2 = (select PayLimitTimes from MMMConfig)
                                                    
 
                                                         select distinct OfferMID,OfferId 
@@ -1075,7 +1074,7 @@ namespace WE_Project.BLL
             {
                 off.PPState = 0;
                 off.DKState = 0;
-                off.HelpType = 99;
+                //off.HelpType = 99;
                 //MyHs.Add(" delete from MOfferHelp where SQCode = '" + off.SQCode + "' ", null);
             }
             else if (off.Money > 0)
@@ -1158,7 +1157,7 @@ namespace WE_Project.BLL
                                                         declare @CLT2 int;
                                                         
                                                         set @CLT1 = (select ConfirmLimitTimes from MMMConfig)
-                                                        set @CLT2 = (select ConfirmLimitTimesPre from MMMConfig)
+                                                        set @CLT2 = (select ConfirmLimitTimes from MMMConfig)
                                                         
                                                         select * from MHelpMatch
                                                         where MatchState=2  and (
