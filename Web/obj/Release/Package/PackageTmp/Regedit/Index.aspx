@@ -23,7 +23,8 @@
         
         <link href="../Admin/pop/css/pop.css" rel="stylesheet" type="text/css" />
     <link href="../Admin/pop/css/V5-UI.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="../Admin/js/jquery-1.8.3.min.js"></script>
+    
+        <script src="/Admin/js/jquery-1.9.1.min.js"></script>
     <script type="text/javascript" src="../Admin/pop/js/MyValide.js"></script>
     <script src="../Admin/pop/js/ajax.js" type="text/javascript"></script>
     <script src="../Admin/pop/js/V5-UI.js" type="text/javascript"></script>
@@ -67,7 +68,7 @@
 
             } else {
               
-                if (checkForm()) {
+                //if (checkForm()) {
                     $.ajax({
                         type: 'post',
                         url: '/Ajax/Regedit.ashx?Action=add',
@@ -79,7 +80,7 @@
                             }, 1000);
                         }
                     });
-                }
+                //}
             }
         }
         function sendTelCode() {
@@ -110,18 +111,18 @@
           
             
             <!-- Register -->
-            <form class="box animated tile active" id="box-register">
+            <form class="box animated tile active" id="form1">
                 <h2 class="m-t-0 m-b-15">注册</h2>
-                <input type="text" class="login-control m-b-10"  id="txtMID" runat="server" placeholder="会员账号">
+                <input type="text" class="login-control m-b-10"  id="txtMID" name="txtMID" runat="server" placeholder="会员账号">
                 <input type="text" class="login-control m-b-10" id="txtMName" name="txtMName" runat="server"  placeholder="会员昵称">
-                <input type="text" class="login-control m-b-10"  id="txtMTJ" runat="server" placeholder="推荐人账号">    
+                <input type="text" class="login-control m-b-10"  id="txtMTJ" name="txtMTJ" runat="server" placeholder="推荐人账号">    
                 <input type="password" class="login-control m-b-10" id="txtPassword" name="txtPassword" placeholder="登录密码">
                 <input type="password" class="login-control m-b-20" id="txtPassword2" name="txtPassword2" placeholder="确认登录密码">
 
                 <input type="password" class="login-control m-b-10"  id="txtSecPsd" name="txtSecPsd" placeholder="交易密码">
                 <input type="password" class="login-control m-b-20" id="txtSecPsd2" name="txtSecPsd2" placeholder="确认交易密码">
-                <input type="text" class="login-control m-b-10"  id="txtWeChat" runat="server" placeholder="微信帐号">    
-                <input type="text" class="login-control m-b-10"  id="txtAlipay" runat="server" placeholder="支付宝帐号">    
+                <input type="text" class="login-control m-b-10"  id="txtWeChat" name="txtWeChat" runat="server" placeholder="微信帐号">    
+                <input type="text" class="login-control m-b-10"  id="txtAlipay" name="txtAlipay" runat="server" placeholder="支付宝帐号">    
 
                
 
@@ -141,7 +142,7 @@
                 <input type="text" class="login-control m-b-10"  name="txtBankCardName" id="txtBankCardName" placeholder="开户名">    
                 <input type="text" class="login-control m-b-10" name="txtBankNumber" id="txtBankNumber"  placeholder="银行卡号">
 
-                <input type="text" class="login-control m-b-10"  id="txtTel" runat="server" maxlength="11"  placeholder="手机号码">
+                <input type="text" class="login-control m-b-10"  id="txtTel" name="txtTel" runat="server" maxlength="11"  placeholder="手机号码">
                   <%
                     if (WE_Project.BLL.Configuration.Model.DFHXFCount == 1) 
                     {
