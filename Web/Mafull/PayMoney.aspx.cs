@@ -85,12 +85,12 @@ namespace WE_Project.Web.Mafull
 
                 if (BLL.CommonBase.RunHashtable(BLL.MHelpMatch.Update(match, MyHs)))
                 {
-                    Model.Member getMember = BLL.Member.GetModelByMID(match.GetMID);
-                    Model.MGetHelp get = BLL.MGetHelp.GetModel(match.GetId);
-                    string Msg = "尊敬的会员您好！您订单号" + get.SQCode + "得到帮助的订单对方已汇款(匹配编号[" + match.MatchCode + "])，核实无误后请确认，感谢您的参与！祝您生活愉快！";
-                    Model.SMS model = new Model.SMS { SType = Model.SMSType.ZCYZ, Tel = getMember.Tel, SContent = Msg };
-                    string error = "";
-                    BLL.SMS.Insert(model, ref error);
+                    //Model.Member getMember = BLL.Member.GetModelByMID(match.GetMID);
+                    //Model.MGetHelp get = BLL.MGetHelp.GetModel(match.GetId);
+                    //string Msg = "尊敬的会员您好！您订单号" + get.SQCode + "得到帮助的订单对方已汇款(匹配编号[" + match.MatchCode + "])，核实无误后请确认，感谢您的参与！祝您生活愉快！";
+                    //Model.SMS model = new Model.SMS { SType = Model.SMSType.ZCYZ, Tel = getMember.Tel, SContent = Msg };
+                    //string error = "";
+                    //BLL.SMS.Insert(model, ref error);
                     return "1";
                 }
             }

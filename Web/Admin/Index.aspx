@@ -536,7 +536,7 @@
                                             %>
                                             <div class="media p-l-5">
                                                 <div class="pull-left">
-                                                    <img width="40" src="/Admin/img/profile-pics/2.jpg" alt="">
+                                                    <%--<img width="40" src="/Admin/img/profile-pics/2.jpg" alt="">--%>
                                                 </div>
                                                 <div class="media-body">
                                                     <small class="text-muted">On <%=item.NCreateTime.ToString("dd/MM/yyyy") %></small><br />

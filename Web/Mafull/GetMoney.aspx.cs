@@ -69,10 +69,10 @@ namespace WE_Project.Web.Mafull
                             //member1.AgencyCode = "003";
                             //member1.MAgencyType = shmoney;
                             //BLL.ChangeMoney.R_SJ(member1.MID);
-                            string Msg = "尊敬的会员您好！您订单号" + offer.SQCode + "买入许愿果的订单已经确认收款(匹配编号[" + match.MatchCode + "])，请注意查看，感谢您的参与！祝您生活愉快！";
-                            Model.SMS model = new Model.SMS { SType = Model.SMSType.QT, Tel = member1.Tel, SContent = Msg };
-                            string error = "";
-                            BLL.SMS.Insert(model, ref error);
+                            //string Msg = "尊敬的会员您好！您订单号" + offer.SQCode + "买入许愿果的订单已经确认收款(匹配编号[" + match.MatchCode + "])，请注意查看，感谢您的参与！祝您生活愉快！";
+                            //Model.SMS model = new Model.SMS { SType = Model.SMSType.QT, Tel = member1.Tel, SContent = Msg };
+                            //string error = "";
+                            //BLL.SMS.Insert(model, ref error);
                             return "1";
                         }
                         else

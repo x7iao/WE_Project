@@ -603,12 +603,12 @@ namespace WE_Project.BLL
                 Model.Member getMember = DAL.Member.GetModel(mh.GetMID);
                 Model.MGetHelp get = DAL.MGetHelp.GetModel(mh.GetId);
                 //买入许愿果
-                string Msg = "尊敬的会员您好！您订单号" + offer.SQCode + "买入许愿果的订单已经匹配成功，请在规定时间内完成，感谢您的参与！祝您生活愉快！";
+                string Msg = "尊敬的用户：您的买入订单已匹配，请您及时登录后台查看与操作，如有疑问请及时联系客服进行处理。WE圆梦社区祝您：生活愉快 早日圆梦！";
                 Model.SMS model = new Model.SMS { SType = Model.SMSType.ZCYZ, Tel = offMember.Tel, SContent = Msg };
                 string error = "";
                 BLL.SMS.Insert(model, ref error);
                 //卖出许愿果
-                model.SContent = "尊敬的会员您好！您订单号" + get.SQCode + "得到帮助的订单已经匹配成功，请注意查看，感谢您的参与！祝您生活愉快！";
+                model.SContent = "尊敬的用户：您的卖出订单已匹配，请您及时登录后台查看与操作，如有疑问请及时联系客服进行处理。WE圆梦社区祝您：生活愉快 早日圆梦！";
                 model.Tel = getMember.Tel;
                 BLL.SMS.Insert(model, ref error);
                 BLL.MHelpMatch.Insert(mh, MyHs);
@@ -627,12 +627,12 @@ namespace WE_Project.BLL
                 Model.MOfferHelp offer = DAL.MOfferHelp.GetModel(mh.OfferId);
                 Model.Member getMember = DAL.Member.GetModel(mh.GetMID);
                 Model.MGetHelp get = DAL.MGetHelp.GetModel(mh.GetId);
-                string Msg = "尊敬的会员您好！您订单号" + offer.SQCode + "买入许愿果的订单已经匹配成功，请在规定时间内完成，感谢您的参与！祝您生活愉快！";
+                string Msg = "尊敬的用户：您的买入订单已匹配，请您及时登录后台查看与操作，如有疑问请及时联系客服进行处理。WE圆梦社区祝您：生活愉快 早日圆梦！";
                 Model.SMS model = new Model.SMS { SType = Model.SMSType.ZCYZ, Tel = offMember.Tel, SContent = Msg };
                 string error = "";
                 BLL.SMS.Insert(model, ref error);
                 //卖出许愿果
-                model.SContent = "尊敬的会员您好！您订单号" + get.SQCode + "得到帮助的订单已经匹配成功，请注意查看，感谢您的参与！祝您生活愉快！";
+                model.SContent = "尊敬的用户：您的卖出订单已匹配，请您及时登录后台查看与操作，如有疑问请及时联系客服进行处理。WE圆梦社区祝您：生活愉快 早日圆梦！";
                 model.Tel = getMember.Tel;
                 BLL.SMS.Insert(model, ref error);
                 BLL.MHelpMatch.Insert(mh, MyHs);
@@ -1039,51 +1039,58 @@ namespace WE_Project.BLL
         /// </summary>
         public static Hashtable freezeMember(Model.MOfferHelp off, Hashtable MyHs, string remark = "超时打款")
         {
-            //MyHs.Add("update member set IsClock='1',IsClose='1',Province='" + remark + "' where mid='" + off.SQMID + "'; select '" + Guid.NewGuid().ToString() + "';", null);
+            MyHs.Add("update member set IsClock='1',IsClose='1',Province='" + remark + "' where mid='" + off.SQMID + "'; select '" + Guid.NewGuid().ToString() + "';", null);
             //Model.Member member = BLL.Member.GetModelByMID(off.SQMID);
             //if (member.MTJ != BLL.Member.ManageMember.TModel.MID)
             //{
             //    MyHs.Add("update mofferhelp set sqmid='"+ member.MTJ+"' where id=" + off.Id + "'; select '" + Guid.NewGuid().ToString() + "';", null);
-            //    MyHs.Add("update MHelpMatch set OfferMID='"+ member.MTJ+ "',MatchTime=getdate() ,PicUrl3=PicUrl3+'["+DateTime.Now.ToString()+member.MID+"超时付款转给推荐人>"+member.MTJ+"付款]' where OfferId=" + off.Id+"'; select '" + Guid.NewGuid().ToString() + "';", null);
+                MyHs.Add("update MHelpMatch set MatchTime=getdate() ,matchstate=1,PicUrl3='["+DateTime.Now.ToString()+ off.SQMID+"超时付款请转给推荐人付款]' where OfferId='" + off.Id+"'; select '" + Guid.NewGuid().ToString() + "';", null);
+            Model.Member sqmodel = BLL.Member.GetModelByMID(off.SQMID);
+            int addzc = 30;
+            if ((sqmodel.MConfig.EPXingCount -30) < 0)
+            {
+                addzc = sqmodel.MConfig.EPXingCount;
+            }
+            MyHs.Add("update MemberConfig set EPXingCount=EPXingCount-" + addzc + " where mid='" + sqmodel.MID + "'; select '" + Guid.NewGuid().ToString() + "';", null);
             //}
             //return MyHs;
-            List<Model.MHelpMatch> listOfferMatch = BLL.MHelpMatch.GetList("OfferId=" + off.Id);
-            foreach (Model.MHelpMatch match in listOfferMatch)
-            {
-                if (match != null && match.MatchState < 3)
-                {
-                    BLL.MHelpMatch.Delete(match.Id, MyHs);
-                    off.MatchMoney = off.MatchMoney - match.MatchMoney;
+            //List<Model.MHelpMatch> listOfferMatch = BLL.MHelpMatch.GetList("OfferId=" + off.Id);
+            //foreach (Model.MHelpMatch match in listOfferMatch)
+            //{
+            //    if (match != null && match.MatchState < 3)
+            //    {
+            //        BLL.MHelpMatch.Delete(match.Id, MyHs);
+            //        off.MatchMoney = off.MatchMoney - match.MatchMoney;
 
-                    Model.MGetHelp get = BLL.MGetHelp.GetModel(match.GetId);
-                    get.MatchMoney = get.MatchMoney - match.MatchMoney;
-                    if (get.MatchMoney == 0)
-                    {
-                        get.PPState = 0;
-                    }
-                    else if (get.Money > 0)
-                    {
-                        get.PPState = 2;
-                    }
-                    BLL.MGetHelp.Update(get, MyHs);
+            //        Model.MGetHelp get = BLL.MGetHelp.GetModel(match.GetId);
+            //        get.MatchMoney = get.MatchMoney - match.MatchMoney;
+            //        if (get.MatchMoney == 0)
+            //        {
+            //            get.PPState = 0;
+            //        }
+            //        else if (get.Money > 0)
+            //        {
+            //            get.PPState = 2;
+            //        }
+            //        BLL.MGetHelp.Update(get, MyHs);
 
-                    MyHs.Add("update member set IsClock='1',IsClose='1',Province='" + remark + "' where mid='" + off.SQMID + "'; select '" + Guid.NewGuid().ToString() + "';", null);
-                }
-            }
-            if (off.MatchMoney == 0)
-            {
-                off.PPState = 0;
-                off.DKState = 0;
-                //off.HelpType = 99;
-                //MyHs.Add(" delete from MOfferHelp where SQCode = '" + off.SQCode + "' ", null);
-            }
-            else if (off.Money > 0)
-            {
-                off.PPState = 2;
-            }
-            BLL.MOfferHelp.Update(off, MyHs);
-            //MyHs.Add("delete from MOfferHelp where PPState=0 and SQMID='" + off.SQMID + "'; select '" + Guid.NewGuid().ToString() + "';", null);
-            MyHs.Add("delete from  ChangeMoney  where CFileds2='" + off.SQCode + "'; select '" + Guid.NewGuid().ToString() + "';", null);
+            //        MyHs.Add("update member set IsClock='1',IsClose='1',Province='" + remark + "' where mid='" + off.SQMID + "'; select '" + Guid.NewGuid().ToString() + "';", null);
+            //    }
+            //}
+            //if (off.MatchMoney == 0)
+            //{
+            //    off.PPState = 0;
+            //    off.DKState = 0;
+            //    //off.HelpType = 99;
+            //    //MyHs.Add(" delete from MOfferHelp where SQCode = '" + off.SQCode + "' ", null);
+            //}
+            //else if (off.Money > 0)
+            //{
+            //    off.PPState = 2;
+            //}
+            //BLL.MOfferHelp.Update(off, MyHs);
+            ////MyHs.Add("delete from MOfferHelp where PPState=0 and SQMID='" + off.SQMID + "'; select '" + Guid.NewGuid().ToString() + "';", null);
+            //MyHs.Add("delete from  ChangeMoney  where CFileds2='" + off.SQCode + "'; select '" + Guid.NewGuid().ToString() + "';", null);
             return MyHs;
         }
 

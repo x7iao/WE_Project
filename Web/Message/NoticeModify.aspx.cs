@@ -20,8 +20,8 @@ namespace WE_Project.Web.Message
             get
             {
                 Model.Notice model = new Model.Notice();
-                model.NTitle = Request.Form["txtNTitle"];
-                model.NContent = HttpUtility.UrlDecode(Request.Form["hdContent"]);
+                model.NTitle = Request.Form["title"];
+                model.NContent = HttpUtility.UrlDecode(Request.Form["content"]);
                 model.ID = int.Parse(Request.Form["lbID"]);
                 model.NState = true;
                 //if (!string.IsNullOrEmpty(Request.Form["hdchkFixed"]))

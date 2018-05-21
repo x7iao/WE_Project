@@ -35,3 +35,9 @@ D:\yang\资料\项目\yny\WE_Project\WE_Project\MMMChangeMinute\bin\Debug\MMMCha
 D:\yang\资料\项目\yny\WE_Project\WE_Project\MMMChangeMinute\obj\x86\Debug\MMMChangeMinute.csprojResolveAssemblyReference.cache
 D:\yang\资料\项目\yny\WE_Project\WE_Project\MMMChangeMinute\obj\x86\Debug\MMMChangeMinute.exe
 D:\yang\资料\项目\yny\WE_Project\WE_Project\MMMChangeMinute\obj\x86\Debug\MMMChangeMinute.pdb
+D:\工作目录\WE_Project\MMMChangeMinute\bin\Debug\MMMChangeMinute.exe.config
+D:\工作目录\WE_Project\MMMChangeMinute\bin\Debug\MMMChangeMinute.exe
+D:\工作目录\WE_Project\MMMChangeMinute\bin\Debug\MMMChangeMinute.pdb
+D:\工作目录\WE_Project\MMMChangeMinute\obj\x86\Debug\MMMChangeMinute.csprojResolveAssemblyReference.cache
+D:\工作目录\WE_Project\MMMChangeMinute\obj\x86\Debug\MMMChangeMinute.exe
+D:\工作目录\WE_Project\MMMChangeMinute\obj\x86\Debug\MMMChangeMinute.pdb
