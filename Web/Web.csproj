@@ -471,6 +471,10 @@
     <Content Include="Message\IndexShowMsg.aspx" />
     <Content Include="Message\IndexShowMsgList.aspx" />
     <Content Include="Message\TaskReply.aspx" />
+    <Content Include="Payment\KaiLT\OrderReturn.aspx" />
+    <Content Include="Payment\KaiLT\post.aspx" />
+    <Content Include="Payment\KaiLT\ServerReturn.aspx" />
+    <Content Include="Payment\KaiLT\WebForm1.aspx" />
     <Content Include="Payment\MoBao\Payment.aspx" />
     <Content Include="Payment\MoBao\PayResult.aspx" />
     <Content Include="Payment\MoBao\ShowResult.aspx" />
@@ -1726,6 +1730,28 @@
     </Compile>
     <Compile Include="Member\SHListByActiveCode.aspx.designer.cs">
       <DependentUpon>SHListByActiveCode.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Payment\KaiLT\OrderReturn.aspx.cs">
+      <DependentUpon>OrderReturn.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Payment\KaiLT\post.aspx.cs">
+      <DependentUpon>post.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Payment\KaiLT\ServerReturn.aspx.cs">
+      <DependentUpon>ServerReturn.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Payment\KaiLT\ServerReturn.aspx.designer.cs">
+      <DependentUpon>ServerReturn.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Payment\KaiLT\WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Payment\KaiLT\WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
     <Compile Include="plugin\date\CommonControl\CheckSecurityQuestion.ascx.cs">
       <DependentUpon>CheckSecurityQuestion.ascx</DependentUpon>

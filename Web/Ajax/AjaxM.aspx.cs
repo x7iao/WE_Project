@@ -1069,18 +1069,25 @@ namespace WE_Project.Web.Ajax
                     Response.Write("您已提款");
                     return;
                 }
-                //if (Convert.ToInt32(BLL.CommonBase.GetSingle("select count(1) from mhelpmatch where offerid=" + offer.Id + " and datalength(isnull(picurl2,''))=0")) > 0)
-                //{
-                //    Response.Write("您还有交易未完成评价，请先对收款方进行评价");
-                //    return;
-                //}
-                //校验转入时间是否已到
-                string op = OfferTimeLeave(offer, MMMOfferTimeType.FreezeTime, "解冻倒计时", "");
-                if (!string.IsNullOrEmpty(op))
+                int outtime = BLL.MMMConfig.Model.FreezeTimes / 1440;
+                if (offer.TotalInterestDays < outtime)
                 {
-                    Response.Write(op);
+                    Response.Write("还未出局，请等待");
                     return;
                 }
+
+                    //if (Convert.ToInt32(BLL.CommonBase.GetSingle("select count(1) from mhelpmatch where offerid=" + offer.Id + " and datalength(isnull(picurl2,''))=0")) > 0)
+                    //{
+                    //    Response.Write("您还有交易未完成评价，请先对收款方进行评价");
+                    //    return;
+                    //}
+                    //校验转入时间是否已到
+                //    string op = OfferTimeLeave(offer, MMMOfferTimeType.FreezeTime, "解冻倒计时", "");
+                //if (!string.IsNullOrEmpty(op))
+                //{
+                //    Response.Write(op);
+                //    return;
+                //}
                 //if (offer.HelpType == 0 && (DateTime.Now - (DateTime)offer.SQDate).TotalMinutes < BLL.MMMConfig.Model.FreezeTimes)
                 //{
                 //    string op = "解冻倒计时：" + LeaveTime((DateTime)offer.SQDate, BLL.MMMConfig.Model.FreezeTimes);

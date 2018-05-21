@@ -56,7 +56,7 @@ namespace WE_Project.BLL
         /// <returns></returns>
         public static bool outTimeDHLiXi()
         {
-            List<Model.MOfferHelp> olist = BLL.MOfferHelp.GetList(" PPState=3 and DATEADD(MI," + BLL.MMMConfig.Model.OutTimes + ",CompleteTime)<GETDATE()  ");
+            List<Model.MOfferHelp> olist = BLL.MOfferHelp.GetList(" PPState=3 and TotalInterestDays >= "+(BLL.MMMConfig.Model.OutTimes/1440)+ ";");
             foreach (var offer in olist)
             {
                 Hashtable MyHs = new Hashtable();

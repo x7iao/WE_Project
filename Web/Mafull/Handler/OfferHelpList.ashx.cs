@@ -24,9 +24,9 @@ namespace WE_Project.Web.Mafull.Handler
                 else if (tState == "2")//匹配成功
                     strWhere += " and PPState =1 ";
                 else if (tState == "3")//交易完成，没有解冻的
-                    strWhere += " and PPState =3 and DATEDIFF(mi,CompleteTime,getdate())< " + BLL.MMMConfig.Model.FreezeTimes;
-                else if (tState == "4")//已经提取的，可以提取的
-                    strWhere += " and PPState in (3,4) and DATEDIFF(mi,CompleteTime,getdate())> " + BLL.MMMConfig.Model.FreezeTimes;
+                    strWhere += " and PPState =3 ";
+                else if (tState == "4")//已经提取的，可以提取的(可圆梦)
+                    strWhere += " and PPState in (3,4) and TotalInterestDays >= " + (BLL.MMMConfig.Model.OutTimes / 1440);
                 else if (tState == "5")//
                     strWhere += " and SQMID in (select MID from Member where IsClose<>'1') and PPState in (0,2) and DATEDIFF(mi,SQDate,getdate())> " + BLL.MMMConfig.Model.LineTimes;
             }
