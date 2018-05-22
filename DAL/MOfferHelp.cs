@@ -347,6 +347,22 @@ namespace WE_Project.DAL
         /// <summary>
         /// 获得实体列表
         /// </summary>
+        public static List<Model.MOfferHelp> GetListJoinMoMcMo(string join)
+        {
+            List<Model.MOfferHelp> list = new List<Model.MOfferHelp>();
+
+            DataTable table = DAL.CommonBase.GetTable("select * from MOfferHelp mo inner join MemberConfig mc on mc.MID=mo.SQMID join Member m on m.MID=mo.SQMID where  " + join);
+            for (int i = 0; i < table.Rows.Count; i++)
+            {
+                list.Add(TranEntity(table.Rows[i]));
+            }
+
+            return list;
+        }
+
+        /// <summary>
+        /// 获得实体列表
+        /// </summary>
         public static List<Model.MOfferHelp> GetList(int top, string strWhere)
         {
             List<Model.MOfferHelp> list = new List<Model.MOfferHelp>();

@@ -80,8 +80,6 @@ namespace WE_Project.Web.Mafull.Handler
                 }
                 if (offerList[i].PPState == 3)
                 {
-
-
                     int outtime = BLL.MMMConfig.Model.FreezeTimes / 1440;
                     if (offerList[i].TotalInterestDays >= outtime)
                     {
@@ -109,7 +107,7 @@ namespace WE_Project.Web.Mafull.Handler
                     //    op = "<input type='button' value='解冻利息' class='btn btn-danger btn-sm' onclick=\"MatchGetLixiMoney(" + offerList[i].Id + ",this)\" />";
                     //}
                 }
-                sb.Append("");
+                sb.Append(op);
                 sb.Append("≌");
             }
             var info = new { PageData = Traditionalized(sb), TotalCount = count };

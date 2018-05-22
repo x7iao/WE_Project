@@ -67,15 +67,6 @@ namespace WE_Project.Web.Member {
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtMTJ;
         
         /// <summary>
-        /// txtAliPay 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtAliPay;
-        
-        /// <summary>
         /// txtPPLeavel 控件。
         /// </summary>
         /// <remarks>
@@ -146,6 +137,33 @@ namespace WE_Project.Web.Member {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtSHMoney;
+        
+        /// <summary>
+        /// txtEPXingCount 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtEPXingCount;
+        
+        /// <summary>
+        /// txtAliPay 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtAliPay;
+        
+        /// <summary>
+        /// txtWeChat 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtWeChat;
         
         /// <summary>
         /// chkIsClose 控件。

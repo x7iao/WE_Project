@@ -59,12 +59,7 @@
                     </td>
                 </tr>
                 <tr style="display:none;">
-                     <td align="right">
-                        支付宝:
-                    </td>
-                    <td>
-                        <input id="txtAliPay" runat="server" class="normal_input" type="text" maxlength="50" />
-                    </td>
+                    
                     
                     <td align="right">
                         优先匹配:
@@ -115,12 +110,32 @@
                         <input id="chkIsClock" runat="server" type="checkbox" />冻结账号|<input id="chkClockAll"
                             runat="server" type="checkbox" style="display:none;" /><%--伞下同步--%>
                     </td>
-                    <td align="right">
+                    <td align="right" style="display:none;">
                         累计投资:
                     </td>
-                    <td>
+                    <td style="display:none;">
                         <input id="txtSHMoney" runat="server" class="normal_input" type="text" maxlength="8"
                             readonly="readonly" />
+                    </td>
+                    <td align="right">
+                        忠诚度:
+                    </td>
+                    <td>
+                        <input id="txtEPXingCount" runat="server" class="normal_input" type="text" maxlength="50" />
+                    </td>
+                </tr>
+                <tr>
+                     <td align="right">
+                        支付宝:
+                    </td>
+                    <td>
+                        <input id="txtAliPay" runat="server" class="normal_input" type="text" maxlength="50" />
+                    </td>
+                     <td align="right">
+                        微信:
+                    </td>
+                    <td>
+                        <input id="txtWeChat" runat="server" class="normal_input" type="text" maxlength="50" />
                     </td>
                 </tr>
                 <tr>

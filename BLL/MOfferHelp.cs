@@ -116,6 +116,16 @@ namespace WE_Project.BLL
             return WE_Project.DAL.MOfferHelp.GetListJoin(strWhere);
         }
 
+        /// <summary>
+        /// 三连表查询
+        /// </summary>
+        /// <param name="strWhere"></param>
+        /// <returns></returns>
+        public static List<Model.MOfferHelp> GetListJoinMoMcMo(string strWhere)
+        {
+            return WE_Project.DAL.MOfferHelp.GetListJoinMoMcMo(strWhere);
+        }
+
         public static List<Model.MOfferHelp> GetList(int top, string strWhere)
         {
             return WE_Project.DAL.MOfferHelp.GetList(top, strWhere);

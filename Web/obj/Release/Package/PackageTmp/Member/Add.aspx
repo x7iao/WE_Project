@@ -105,7 +105,7 @@
                     </td>
                     <td>
                         <input name="txtAlipay" id="txtAlipay" class="normal_input" type="text" maxlength="20" placeholder="请输入您的支付宝帐号"
-                            value="" /><span>*</span>
+                            value="" /><span></span>
                     </td>
                 </tr>
               

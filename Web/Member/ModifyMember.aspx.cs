@@ -45,6 +45,9 @@ namespace WE_Project.Web.Member
                     model.SecPsd = Request.Form["txtSecPsd"].Trim();
                 }
                 model.AliPay = Request.Form["txtAliPay"];
+                model.WeChat = Request.Form["txtWeChat"];
+                
+
                 model.Province = Request.Form["txtProvince"];
                 //model.City = Request.Form["ddlCity"].Trim();
                 //model.Zone = Request.Form["ddlZone"].Trim();
@@ -87,6 +90,7 @@ namespace WE_Project.Web.Member
                     model.MConfig.ZZStatus = Request.Form["chkIsZZ"] == "1";
                     //model.MConfig.SHMoney = int.Parse(Request.Form["txtSHMoney"]);
                     model.MConfig.PPLeavel = int.Parse(Request.Form["txtPPLeavel"]);
+                    model.MConfig.EPXingCount = int.Parse(Request.Form["txtEPXingCount"]);
                     //if (model.AgencyCode == "002")
                     //{
                     //    model.MConfig.NomalTotalThaw = decimal.Parse(Request.Form["txtTotalThaw"]);
@@ -103,7 +107,8 @@ namespace WE_Project.Web.Member
                 if (value != null)
                 {
                     Model.Member mtjmodel = BLL.Member.ManageMember.GetModel(value.MTJ);
-                    txtAliPay.Value = value.AliPay;
+                    //txtAliPay.Value = value.AliPay;
+                    txtWeChat.Value = value.WeChat;
                     txtMID.Value = value.MID;
                     txtMName.Value = value.MName;
                     txtTel.Value = value.Tel;
@@ -126,6 +131,7 @@ namespace WE_Project.Web.Member
                         //txtMCW.Value = value.MConfig.MCW.ToString();
                         txtSHMoney.Value = value.MConfig.SHMoney.ToString();
                         txtPPLeavel.Value = value.MConfig.PPLeavel.ToString();
+                        txtEPXingCount.Value = value.MConfig.EPXingCount.ToString();
                     }
                 }
             }
@@ -179,6 +185,7 @@ namespace WE_Project.Web.Member
             }
 
             BllModel.Update(MemberModel, MyHs);
+            BLL.Member.UpdateConfigTran(MemberModel.MID, "EPXingCount", MemberModel.MConfig.EPXingCount.ToString(), null, true, System.Data.SqlDbType.Int, MyHs);
             //更新会员的密保问题
             UpdateQuestion(MemberModel.ID.ToString(), MyHs);
 
