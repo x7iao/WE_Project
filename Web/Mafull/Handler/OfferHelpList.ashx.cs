@@ -74,10 +74,11 @@ namespace WE_Project.Web.Mafull.Handler
                 //sb.Append(offerList[i].TotalSincerity + "~");
                 string op = string.Empty;
                 //没交易完成
-                if (offerList[i].PPState == 0 && TModel.Role.IsAdmin)
+                if ((offerList[i].PPState == 0|| offerList[i].PPState == 1|| offerList[i].PPState == 2) && TModel.Role.IsAdmin)
                 {
                     op = OfferTimeLeave(offerList[i], MMMOfferTimeType.LineTime, "排队倒计时:", "");
                 }
+                sb.Append(op);
                 if (offerList[i].PPState == 3)
                 {
                     int outtime = BLL.MMMConfig.Model.FreezeTimes / 1440;
@@ -85,12 +86,11 @@ namespace WE_Project.Web.Mafull.Handler
                     {
                         sb.Append("<input type='button' value='圆梦' class='btn btn-danger btn-sm' onclick=\"MatchGetMoney(" + offerList[i].Id + ",this)\" />");
                     }
-
-                    op = OfferTimeLeave(offerList[i], MMMOfferTimeType.FreezeTime, "提款倒计时:", "");
-                    if (TModel.Role.IsAdmin)
-                    {
-                        sb.Append(op);
-                    }
+                    //op = OfferTimeLeave(offerList[i], MMMOfferTimeType.FreezeTime, "提款倒计时:", "");
+                    //if (TModel.Role.IsAdmin)
+                    //{
+                    //    sb.Append(op);
+                    //}
                 }
                 if (offerList[i].PPState != 0)
                 {
@@ -107,7 +107,7 @@ namespace WE_Project.Web.Mafull.Handler
                     //    op = "<input type='button' value='解冻利息' class='btn btn-danger btn-sm' onclick=\"MatchGetLixiMoney(" + offerList[i].Id + ",this)\" />";
                     //}
                 }
-                sb.Append(op);
+                
                 sb.Append("≌");
             }
             var info = new { PageData = Traditionalized(sb), TotalCount = count };

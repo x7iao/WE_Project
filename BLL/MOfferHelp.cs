@@ -249,11 +249,11 @@ namespace WE_Project.BLL
                 return "1*当前时间不能申请";
             }
 
-            Model.MOfferHelp off = BLL.MOfferHelp.GetLastQDOfferMoney(member.MID);
-            if (off != null)
-            {
-                return "1*您有未完成的订单";
-            }
+            //Model.MOfferHelp off = BLL.MOfferHelp.GetLastQDOfferMoney(member.MID);
+            //if (off != null)
+            //{
+            //    return "1*您有未完成的订单";
+            //}
 
 
             //if (BLL.MOfferHelp.GetSumCountByStr(string.Format(" SQDate >= '{0}' and SQMID = '" + member.MID + "' and PPState <> 5 and HelpType = 0 ", DateTime.Now.AddMinutes(-(int)BLL.MMMConfig.Model.OfferHelpRangeTimes))) > BLL.MMMConfig.Model.OfferHelpRangeCount)
