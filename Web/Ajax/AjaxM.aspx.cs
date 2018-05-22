@@ -570,7 +570,7 @@ namespace WE_Project.Web.Ajax
                     //BLL.MHelpMatch.Delete(match.Id, MyHs);
                     Model.MOfferHelp offer = BLL.MOfferHelp.GetModel(match.OfferId);
 
-                    BLL.MHelpMatch.freezeMember(offer, MyHs, "违规打款");
+                    BLL.MHelpMatch.freezeMember(offer, match, MyHs, "违规打款");
                     //offer.MatchMoney = offer.MatchMoney - match.MatchMoney;
                     //if (offer.MatchMoney == 0)
                     //{
@@ -1073,6 +1073,14 @@ namespace WE_Project.Web.Ajax
                 if (offer.TotalInterestDays < outtime)
                 {
                     Response.Write("还未出局，请等待");
+                    return;
+                }
+
+                int count= Convert.ToInt32( BLL.CommonBase.GetSingle("SELECT COUNT(*) FROM dbo.MOfferHelp mo WHERE SQMID='"+offer.SQMID+"' AND PPState in(0,1,2) AND MFLMoney>=(SELECT SUM(MatchMoney) FROM dbo.MHelpMatch WHERE OfferId=mo.Id AND MatchState=3);"));
+
+                if (count <= 0)
+                {
+                    Response.Write("必须排一单并且打过预付款才能圆梦");
                     return;
                 }
 

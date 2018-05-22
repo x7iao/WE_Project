@@ -249,8 +249,8 @@
                 v5.error('交易密码与登录密码不能相同', '1', 'true');
             //} else if (!$('#txtNumID').val().TryIDCard()) {
             //    v5.error('身份证号码格式不正确', '1', 'true');
-            } else if ($('#txtAlipay').val() == "") {
-                v5.error('支付宝帐号不能为空', '1', 'true');
+            //} else if ($('#txtAlipay').val() == "") {
+            //    v5.error('支付宝帐号不能为空', '1', 'true');
             }else if ($('#txtBank').val() == "") {
                 v5.error('请选择开户银行', '1', 'true');
 

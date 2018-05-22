@@ -98,15 +98,15 @@ namespace WE_Project.Web.Member
                         return error;
                     }
                 }
-                if (Request.Form["txtAliPay"].Trim() != null)
-                {
-                    List<Model.Member> list2 = BllModel.GetMemberEntityList("Alipay='" + Request.Form["txtAliPay"].Trim() + "' and MID <> '" + TModel.MID + "'");
-                    if (list2.Count > 0)
-                    {
-                        error += "该支付宝已绑定,请更换其它帐号";
-                        return error;
-                    }
-                }
+                //if (Request.Form["txtAliPay"].Trim() != null)
+                //{
+                //    List<Model.Member> list2 = BllModel.GetMemberEntityList("Alipay='" + Request.Form["txtAliPay"].Trim() + "' and MID <> '" + TModel.MID + "'");
+                //    if (list2.Count > 0)
+                //    {
+                //        error += "该支付宝已绑定,请更换其它帐号";
+                //        return error;
+                //    }
+                //}
                 Model.Member m = BLL.Member.GetModelByMID(MemberModel.MID);
                 if (!m.ZDStatus && MemberModel.ZDStatus)
                     return "防撞单关闭后不可再次开启";

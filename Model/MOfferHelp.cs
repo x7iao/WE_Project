@@ -209,5 +209,6 @@ namespace WE_Project.Model
         /// 钱包类型
         /// </summary>
         public string MoneyType { get; set; }
+        
     }
 }

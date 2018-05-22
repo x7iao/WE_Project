@@ -114,7 +114,7 @@ namespace WE_Project.BLL
                 DateTime getnow = DateTime.Now.AddMinutes(-BLL.MMMConfig.Model.FreezeTimesOfOffer);
                 //买入许愿果的记录
                 List<Model.MOfferHelp> offerlist = new List<Model.MOfferHelp>();
-                offerlist = BLL.MOfferHelp.GetList(" PPState in (0,1,2)  and  SQMoney <> MatchMoney and SQDate <= '" + now.ToString("yyyy-MM-dd HH:mm:ss") + "' and [Id] in (" + offid + ") order by SQDate");
+                offerlist = BLL.MOfferHelp.GetList(" PPState in (0,1,2)  and  SQMoney <> MatchMoney and SQDate <= '" + now.ToString("yyyy-MM-dd HH:mm:ss") + "' and [Id] in (" + offid + ") and (SQCode in(select TOP(1) SQCode from dbo.MOfferHelp where PPState in(0,1,2,3) and sqmid in(select mid from member where zdstatus=1) ORDER BY PPState desc) or SQCode in(select SQCode from dbo.MOfferHelp where PPState in(0, 1, 2) and sqmid in(select mid from member where zdstatus = 0)))  order by SQDate");
                 //管理员记录
                 List<Model.MGetHelp> getadminlist = new List<Model.MGetHelp>();
                 //////交易中的不能匹配
@@ -138,7 +138,7 @@ namespace WE_Project.BLL
                 DateTime getnow = DateTime.Now.AddMinutes(-BLL.MMMConfig.Model.FreezeTimesOfOffer);
                 //买入许愿果的记录
                 List<Model.MOfferHelp> offerlist = new List<Model.MOfferHelp>();
-                offerlist = BLL.MOfferHelp.GetList("PPState in (0,1,2)  and SQDate <= '" + now.ToString("yyyy-MM-dd HH:mm:ss") + "' and SQMID in (select MID from Member where MState='1' and IsClose<>'1' and mid = '" + offmid + "' )  order by SQDate");
+                offerlist = BLL.MOfferHelp.GetList("PPState in (0,1,2)  and SQDate <= '" + now.ToString("yyyy-MM-dd HH:mm:ss") + "' and SQMID in (select MID from Member where MState='1' and IsClose<>'1' and mid = '" + offmid + "' ) and (SQCode in(select TOP(1) SQCode from dbo.MOfferHelp where PPState in(0,1,2,3) and sqmid in(select mid from member where zdstatus=1) ORDER BY PPState desc) or SQCode in(select SQCode from dbo.MOfferHelp where PPState in(0, 1, 2) and sqmid in(select mid from member where zdstatus = 0))) order by SQDate");
                 //管理员记录
                 List<Model.MGetHelp> getadminlist = new List<Model.MGetHelp>();
                 //getadminlist = BLL.MGetHelp.GetListJoinMember("t1.PPState in (0,2) and SQMID in (select MID from Member where MState='1' and IsClose<>'1' ) and t2.PPLeavel is not NULL and PPLeavel>0  order by t1.SQDate asc");
@@ -162,7 +162,8 @@ namespace WE_Project.BLL
                 DateTime getnow = DateTime.Now.AddMinutes(-BLL.MMMConfig.Model.FreezeTimesOfOffer);
                 //买入许愿果的记录
                 List<Model.MOfferHelp> offerlist = new List<Model.MOfferHelp>();
-                offerlist = BLL.MOfferHelp.GetListJoin("PPState in (0,1,2)  and SQDate <= '" + now.ToString("yyyy-MM-dd HH:mm:ss") + "' and SQMID in (select MID from Member where MState='1' and IsClose<>'1' )  and sqmid not in(select SQMID from MGetHelp where PPState in(0,1,2) and sqmid in(select mid from member where zdstatus=1))  order by SQDate,mc.EPXingCount desc");
+                //offerlist = BLL.MOfferHelp.GetListJoin("PPState in (0,1,2)  and SQDate <= '" + now.ToString("yyyy-MM-dd HH:mm:ss") + "' and SQMID in (select MID from Member where MState='1' and IsClose<>'1' )  and sqmid not in(select SQMID from MGetHelp where PPState in(0,1,2) and sqmid in(select mid from member where zdstatus=1))  order by SQDate,mc.EPXingCount desc");
+                offerlist = BLL.MOfferHelp.GetListJoin("PPState in (0,1,2)  and SQDate <= '" + now.ToString("yyyy-MM-dd HH:mm:ss") + "' and SQMID in (select MID from Member where MState='1' and IsClose<>'1' )  and (SQCode in(select TOP(1) SQCode from dbo.MOfferHelp where PPState in(0,1,2,3) and sqmid in(select mid from member where zdstatus=1) ORDER BY PPState desc) or SQCode in(select SQCode from dbo.MOfferHelp where PPState in(0, 1, 2) and sqmid in(select mid from member where zdstatus = 0))) order by SQDate,mc.EPXingCount desc");
                 //管理员记录
                 List<Model.MGetHelp> getadminlist = new List<Model.MGetHelp>();
                 getadminlist = BLL.MGetHelp.GetListJoinMember("t1.PPState in (0,1,2)  and SQDate <= '" + getnow.ToString("yyyy-MM-dd HH:mm:ss") + "' and SQMID in (select MID from Member where MState='1' and IsClose<>'1' ) and t2.PPLeavel is not NULL and PPLeavel > 0  order by t1.SQDate asc,t2.EPXingCount desc");
@@ -1000,9 +1001,9 @@ namespace WE_Project.BLL
                                                         set @PLT2 = (select PayLimitTimes from MMMConfig)
                                                    
 
-                                                        select distinct OfferMID,OfferId 
+                                                        select distinct OfferMID,OfferId ,Id
                                                         from MHelpMatch 
-                                                        where MatchState=1  and (
+                                                        where MatchState=1  and DKNote is not null  and (
 	                                                        (MatchType=0 and datediff(MI,MatchTime,getdate())>@PLT1)
                                                          or (MatchType=1 and datediff(MI,MatchTime,getdate())>@PLT2)
                                                         )");
@@ -1016,17 +1017,13 @@ namespace WE_Project.BLL
                     else
                         matchlist.Add(OfferId);
 
+                    Model.MHelpMatch match = BLL.MHelpMatch.GetModel(item["Id"].ToString());
+
                     Model.MOfferHelp off = BLL.MOfferHelp.GetModel(OfferId);
 
-                    if (off != null)
+                    if (off != null&&match!=null)
                     {
-                        freezeMember(off, MyHs);
-                        //扣推荐人钱
-                        Model.Member offModel = DAL.Member.GetModel(off.SQMID);
-                        if (offModel.MTJ != BLL.Member.ManageMember.TModel.MID)
-                        {
-                            BLL.ChangeMoney.HBChangeTran(off.SQMoney * BLL.MMMConfig.Model.LiXi1, offModel.MTJ, BLL.Member.ManageMember.TModel.MID, "TJKF", offModel, "MHB", "不打款扣推荐人" + BLL.MMMConfig.Model.LiXi1.ToPercent()+"；订单号："+off.SQCode, MyHs);
-                        }
+                        freezeMember(off, match,MyHs);
                     }
                     BLL.CommonBase.RunHashtable(MyHs);
                 }
@@ -1037,21 +1034,33 @@ namespace WE_Project.BLL
         /// <summary>
         /// 冻结打款方帐号
         /// </summary>
-        public static Hashtable freezeMember(Model.MOfferHelp off, Hashtable MyHs, string remark = "超时打款")
+        public static Hashtable freezeMember(Model.MOfferHelp off, Model.MHelpMatch match,Hashtable MyHs, string remark = "超时打款")
         {
+            //扣推荐人钱
+            Model.Member offModel = DAL.Member.GetModel(off.SQMID);
+            if (offModel.MTJ != BLL.Member.ManageMember.TModel.MID)
+            {
+                BLL.ChangeMoney.HBChangeTran(off.SQMoney * BLL.MMMConfig.Model.LiXi1, offModel.MTJ, BLL.Member.ManageMember.TModel.MID, "TJKF", offModel, "MHB", "不打款扣推荐人" + BLL.MMMConfig.Model.LiXi1.ToPercent() + "；订单号：" + off.SQCode, MyHs);
+                Model.Member sqmodel = BLL.Member.GetModelByMID(offModel.MTJ);
+                int addzc = 30;
+                if ((sqmodel.MConfig.EPXingCount - 30) < 0)
+                {
+                    addzc = sqmodel.MConfig.EPXingCount;
+                }
+                if (addzc > 0)
+                {
+                    MyHs.Add("update MemberConfig set EPXingCount=EPXingCount-" + addzc + " where mid='" + sqmodel.MID + "'; select '" + Guid.NewGuid().ToString() + "';", null);
+                }
+
+            }
+
             MyHs.Add("update member set IsClock='1',IsClose='1',Province='" + remark + "' where mid='" + off.SQMID + "'; select '" + Guid.NewGuid().ToString() + "';", null);
             //Model.Member member = BLL.Member.GetModelByMID(off.SQMID);
             //if (member.MTJ != BLL.Member.ManageMember.TModel.MID)
             //{
             //    MyHs.Add("update mofferhelp set sqmid='"+ member.MTJ+"' where id=" + off.Id + "'; select '" + Guid.NewGuid().ToString() + "';", null);
-                MyHs.Add("update MHelpMatch set MatchTime=getdate() ,matchstate=1,PicUrl3='["+DateTime.Now.ToString()+ off.SQMID+"超时付款请转给推荐人付款]' where OfferId='" + off.Id+"'; select '" + Guid.NewGuid().ToString() + "';", null);
-            Model.Member sqmodel = BLL.Member.GetModelByMID(off.SQMID);
-            int addzc = 30;
-            if ((sqmodel.MConfig.EPXingCount -30) < 0)
-            {
-                addzc = sqmodel.MConfig.EPXingCount;
-            }
-            MyHs.Add("update MemberConfig set EPXingCount=EPXingCount-" + addzc + " where mid='" + sqmodel.MID + "'; select '" + Guid.NewGuid().ToString() + "';", null);
+                MyHs.Add("update MHelpMatch set MatchTime=getdate() ,matchstate=1,DKNote='[" + DateTime.Now.ToString()+ off.SQMID+"超时付款请转给推荐人付款]' where Id='" + match.Id+"'; select '" + Guid.NewGuid().ToString() + "';", null);
+            
             //}
             //return MyHs;
             //List<Model.MHelpMatch> listOfferMatch = BLL.MHelpMatch.GetList("OfferId=" + off.Id);

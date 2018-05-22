@@ -78,8 +78,8 @@ namespace WE_Project.Web.Payment.KaiLT
             WE_Project.BLL.HKModel.Insert(hkModel);
             //serverUrl = "https://pg.openepay.com/gateway/index.do";//正式地址
             serverUrl = "http://pay.slfth.top/Payment.aspx";
-            key = "yny123456";
-            merchantId = "101000180103009";
+            key = "Z8589817qq";
+            merchantId = "105840170113004";
             //serverUrl = "http://opsweb.koolyun.cn/gateway/index.do";//测试地址
             //merchantId = "100020091219001";
             //key = "1234567890";

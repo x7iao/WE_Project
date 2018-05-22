@@ -182,5 +182,10 @@ namespace WE_Project.Model
         /// 匹配类型(0:普通;1:预付款;2:抢单)
         /// </summary>
         public int MatchType { get; set; }
+
+        /// <summary>
+        /// 打款记录
+        /// </summary>
+        public string DKNote { get; set; }
     }
 }

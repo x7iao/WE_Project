@@ -58,7 +58,7 @@ namespace WE_Project.Web.Payment.KaiLT
                 appendSignPara(bufSignSrc, "payDatetime", payDatetime);
                 appendSignPara(bufSignSrc, "payResult", payResult);
                 //appendSignPara(bufSignSrc, "signMsg", signMsg);
-                appendLastSignPara(bufSignSrc, "key", "yny123456");
+                appendLastSignPara(bufSignSrc, "key", "Z8589817qq");
 
                 //appendLastSignPara(bufSignSrc, "key", key);
 

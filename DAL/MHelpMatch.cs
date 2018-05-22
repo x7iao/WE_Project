@@ -67,9 +67,9 @@ namespace WE_Project.DAL
             string guid = Guid.NewGuid().ToString();
             StringBuilder strSql = new StringBuilder();
             strSql.Append("insert into MHelpMatch(");
-            strSql.Append("Remark,OfferMID,GetMID,MatchCode,OfferId,GetId,MatchTime,PayTime,ConfirmTime,MatchState,PicUrl,MatchMoney,PicUrl1,PicUrl2,ChangeCount,ChangeMTJTime,ChangeVIPTime,PicUrl3,MatchType,OfferPJ,GetPJ");
+            strSql.Append("Remark,OfferMID,GetMID,MatchCode,OfferId,GetId,MatchTime,PayTime,ConfirmTime,MatchState,PicUrl,MatchMoney,PicUrl1,PicUrl2,ChangeCount,ChangeMTJTime,ChangeVIPTime,PicUrl3,MatchType,OfferPJ,GetPJ,DKNote");
             strSql.Append(") values (");
-            strSql.Append("@Remark,@OfferMID,@GetMID,@MatchCode,@OfferId,@GetId,@MatchTime,@PayTime,@ConfirmTime,@MatchState,@PicUrl,@MatchMoney,@PicUrl1,@PicUrl2,@ChangeCount,@ChangeMTJTime,@ChangeVIPTime,@PicUrl3,@MatchType,@OfferPJ,@GetPJ");
+            strSql.Append("@Remark,@OfferMID,@GetMID,@MatchCode,@OfferId,@GetId,@MatchTime,@PayTime,@ConfirmTime,@MatchState,@PicUrl,@MatchMoney,@PicUrl1,@PicUrl2,@ChangeCount,@ChangeMTJTime,@ChangeVIPTime,@PicUrl3,@MatchType,@OfferPJ,@GetPJ,@DKNote");
             strSql.Append(") ");
             strSql.AppendFormat(";select '{0}'", guid);
             SqlParameter[] parameters = {
@@ -93,7 +93,8 @@ namespace WE_Project.DAL
                         new SqlParameter("@PicUrl3", SqlDbType.VarChar,500) ,
                         new SqlParameter("@MatchType", SqlDbType.Int,4),
                         new SqlParameter("@OfferPJ", SqlDbType.Int,4),
-                        new SqlParameter("@GetPJ", SqlDbType.Int,4)
+                        new SqlParameter("@GetPJ", SqlDbType.Int,4),
+                        new SqlParameter("@DKNote", SqlDbType.VarChar,500)
             };
 
             parameters[0].Value = model.Remark;
@@ -118,6 +119,7 @@ namespace WE_Project.DAL
 
             parameters[19].Value = model.OfferPJ;
             parameters[20].Value = model.GetPJ;
+            parameters[21].Value = model.DKNote;
             MyHs.Add(strSql.ToString(), parameters);
             return MyHs;
         }
@@ -160,7 +162,8 @@ namespace WE_Project.DAL
             strSql.Append(" MatchType = @MatchType,  ");
             strSql.Append(" ChangeVIPTime = @ChangeVIPTime,  ");
             strSql.Append(" OfferPJ = @OfferPJ,  ");
-            strSql.Append(" GetPJ = @GetPJ  ");
+            strSql.Append(" GetPJ = @GetPJ,  ");
+            strSql.Append(" DKNote = @DKNote  ");
             strSql.Append(" where Id=@Id ");
             strSql.AppendFormat(" ;select '{0}'", guid);
 
@@ -186,7 +189,8 @@ namespace WE_Project.DAL
                         new SqlParameter("@PicUrl3", SqlDbType.VarChar,500) ,
                         new SqlParameter("@MatchType", SqlDbType.Int,4) ,
                          new SqlParameter("@OfferPJ", SqlDbType.Int,4),
-                        new SqlParameter("@GetPJ", SqlDbType.Int,4)
+                        new SqlParameter("@GetPJ", SqlDbType.Int,4),
+                        new SqlParameter("@DKNote", SqlDbType.VarChar,500) 
             };
 
             parameters[0].Value = model.Id;
@@ -211,6 +215,7 @@ namespace WE_Project.DAL
             parameters[19].Value = model.MatchType;
             parameters[20].Value = model.OfferPJ;
             parameters[21].Value = model.GetPJ;
+            parameters[22].Value = model.DKNote;
             MyHs.Add(strSql.ToString(), parameters);
             return MyHs;
         }
@@ -348,6 +353,7 @@ namespace WE_Project.DAL
                     model.Id = int.Parse(dr["Id"].ToString());
                 }
                 model.Remark = dr["Remark"].ToString();
+                model.DKNote = dr["DKNote"].ToString();
                 model.OfferMID = dr["OfferMID"].ToString();
                 model.GetMID = dr["GetMID"].ToString();
                 model.MatchCode = dr["MatchCode"].ToString();

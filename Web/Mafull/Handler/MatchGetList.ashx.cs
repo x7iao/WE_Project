@@ -65,7 +65,7 @@ namespace WE_Project.Web.Mafull.Handler
                 sb.Append(GetMatchState(match[i].MatchState, match[i].PicUrl1) + "~");
                 sb.Append(match[i].OfferMID + "~");
                 sb.Append(offermodel.MName + "~");
-                sb.Append(match[i].PicUrl3 + "~");
+                sb.Append(match[i].DKNote + "~");
                 if (match[i].MatchState == 1)
                 {
                     sb.Append(MatchTimeLeave(match[i], MMMMatchTimeType.PayLimitTime, "打款倒计时", ""));

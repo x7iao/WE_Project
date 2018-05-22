@@ -126,12 +126,12 @@ namespace WE_Project.Web.AjaxM
                 }
            
           
-                List<Model.Member> list2 = BLL.Member.ManageMember.GetMemberEntityList("Alipay='" + _context.Request.Form["txtAliPay"].Trim()   + "'");
-                if (list2.Count >= 1)
-                {
-                    error += "该支付宝已绑定,请更换其它帐号";
+                //List<Model.Member> list2 = BLL.Member.ManageMember.GetMemberEntityList("Alipay='" + _context.Request.Form["txtAliPay"].Trim()   + "'");
+                //if (list2.Count >= 1)
+                //{
+                //    error += "该支付宝已绑定,请更换其它帐号";
                   
-                }
+                //}
             
             //else
             //{

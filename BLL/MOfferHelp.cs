@@ -56,11 +56,12 @@ namespace WE_Project.BLL
         /// <returns></returns>
         public static bool outTimeDHLiXi()
         {
-            List<Model.MOfferHelp> olist = BLL.MOfferHelp.GetList(" PPState=3 and TotalInterestDays >= "+(BLL.MMMConfig.Model.OutTimes/1440)+ ";");
-            foreach (var offer in olist)
+            //List<Model.MOfferHelp> olist = BLL.MOfferHelp.GetList(" PPState=3 and TotalInterestDays >= "+(BLL.MMMConfig.Model.OutTimes/1440)+ ";");
+            DataTable dt= BLL.CommonBase.GetTable("SELECT mo.Id,mo.SQMID FROM dbo.MOfferHelp mo WHERE mo.PPState=3 and mo.TotalInterestDays >= " + (BLL.MMMConfig.Model.OutTimes / 1440) + " AND mo.SQCode IN (SELECT mo2.SQCode FROM dbo.MOfferHelp mo2 WHERE  mo2.PPState in(0,1,2) AND mo2.MFLMoney>=(SELECT SUM(mm.MatchMoney) FROM dbo.MHelpMatch mm WHERE mm.OfferId=mo2.Id AND mm.MatchState=3));");
+            for (int i = 0; i < dt.Rows.Count; i++)
             {
+                Model.MOfferHelp offer = BLL.MOfferHelp.GetModel(dt.Rows[i]["Id"]);
                 Hashtable MyHs = new Hashtable();
-
                 //查看是否已转入马夫罗
                 if (offer.PPState == 4)
                 {
@@ -102,6 +103,8 @@ namespace WE_Project.BLL
         {
             return WE_Project.DAL.MOfferHelp.GetList(strWhere);
         }
+
+      
 
         /// <summary>
         /// 连表查询时使用
