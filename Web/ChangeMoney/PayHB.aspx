@@ -62,7 +62,7 @@
             } else {
                 var ss = $("input:radio:checked").val();
 
-                document.forms[0].action = "Payment/KaiLT/post.aspx";
+                document.forms[0].action = "Payment/cai1pay/redirect.aspx";
 
                 document.forms[0].submit();
             }
@@ -108,7 +108,7 @@
                             <img src="../Payment/banks/nongye.gif">
                         </td>
                         <td>
-                            <input name="yh" type="radio" value="icbc" checked="checked">
+                            <input name="yh" type="radio" value="01100" checked="checked">
                             <img src="../Payment/banks/gongshang.gif">
                         </td>
                         <td>

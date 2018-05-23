@@ -471,6 +471,10 @@
     <Content Include="Message\IndexShowMsg.aspx" />
     <Content Include="Message\IndexShowMsgList.aspx" />
     <Content Include="Message\TaskReply.aspx" />
+    <Content Include="Payment\cai1pay\OrderPay.aspx" />
+    <Content Include="Payment\cai1pay\OrderReturn.aspx" />
+    <Content Include="Payment\cai1pay\redirect.aspx" />
+    <Content Include="Payment\cai1pay\S2SReturn.aspx" />
     <Content Include="Payment\KaiLT\OrderReturn.aspx" />
     <Content Include="Payment\KaiLT\post.aspx" />
     <Content Include="Payment\KaiLT\ServerReturn.aspx" />
@@ -1730,6 +1734,34 @@
     </Compile>
     <Compile Include="Member\SHListByActiveCode.aspx.designer.cs">
       <DependentUpon>SHListByActiveCode.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Payment\cai1pay\OrderPay.aspx.cs">
+      <DependentUpon>OrderPay.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Payment\cai1pay\OrderPay.aspx.designer.cs">
+      <DependentUpon>OrderPay.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Payment\cai1pay\OrderReturn.aspx.cs">
+      <DependentUpon>OrderReturn.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Payment\cai1pay\OrderReturn.aspx.designer.cs">
+      <DependentUpon>OrderReturn.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Payment\cai1pay\redirect.aspx.cs">
+      <DependentUpon>redirect.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Payment\cai1pay\redirect.aspx.designer.cs">
+      <DependentUpon>redirect.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Payment\cai1pay\S2SReturn.aspx.cs">
+      <DependentUpon>S2SReturn.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Payment\cai1pay\S2SReturn.aspx.designer.cs">
+      <DependentUpon>S2SReturn.aspx</DependentUpon>
     </Compile>
     <Compile Include="Payment\KaiLT\OrderReturn.aspx.cs">
       <DependentUpon>OrderReturn.aspx</DependentUpon>
