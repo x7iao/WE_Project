@@ -124,23 +124,24 @@ namespace WE_Project.Web.AjaxM
                     error += "该银行卡已绑定,请更换其它帐号";
                    
                 }
-           
-          
-                //List<Model.Member> list2 = BLL.Member.ManageMember.GetMemberEntityList("Alipay='" + _context.Request.Form["txtAliPay"].Trim()   + "'");
-                //if (list2.Count >= 1)
-                //{
-                //    error += "该支付宝已绑定,请更换其它帐号";
-                  
-                //}
-            
-            //else
+
+
+            //List<Model.Member> list2 = BLL.Member.ManageMember.GetMemberEntityList("Alipay='" + _context.Request.Form["txtAliPay"].Trim()   + "'");
+            //if (list2.Count >= 1)
             //{
-            //    string code = BLL.SMS.GetSKeyBuyTel(_context.Request.Form["txtTel"].Trim(), Model.SMSType.ZCYZ);
-            //    if ((string.IsNullOrEmpty(code) || code != _context.Request.Form["txtTelCode"].Trim()))
-            //    {
-            //        error += "手机验证码错误！";
-            //    }
+            //    error += "该支付宝已绑定,请更换其它帐号";
+
             //}
+
+            //else
+            if(BLL.Configuration.Model.DFHXFCount==1)
+            {
+                string code = BLL.SMS.GetSKeyBuyTel(_context.Request.Form["txtTel"].Trim(), Model.SMSType.ZCYZ);
+                if ((string.IsNullOrEmpty(code) || code != _context.Request.Form["txtTelCode"].Trim()))
+                {
+                    error += "手机验证码错误！";
+                }
+            }
             if (!string.IsNullOrEmpty(error))
             {
                 context.Response.Write(error);

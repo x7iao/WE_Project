@@ -157,6 +157,15 @@ namespace WE_Project.Web.SysManage {
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtJMGPPart;
         
         /// <summary>
+        /// txtDFHXFCount 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlSelect txtDFHXFCount;
+        
+        /// <summary>
         /// txtCanRegedit 控件。
         /// </summary>
         /// <remarks>
@@ -218,15 +227,6 @@ namespace WE_Project.Web.SysManage {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtMaxBuyGCount;
-        
-        /// <summary>
-        /// txtDFHXFCount 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect txtDFHXFCount;
         
         /// <summary>
         /// txtShowTotalNumber 控件。
