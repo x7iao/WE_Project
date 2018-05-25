@@ -46,3 +46,5 @@ D:\yang\资料\项目\yny\WE_Project\WE_Project\Web\bin\CommonDAL.pdb
 D:\yang\资料\项目\yny\WE_Project\WE_Project\Web\obj\Release\Web.csprojResolveAssemblyReference.cache
 D:\yang\资料\项目\yny\WE_Project\WE_Project\Web\obj\Release\WE_Project.Web.dll
 D:\yang\资料\项目\yny\WE_Project\WE_Project\Web\obj\Release\WE_Project.Web.pdb
+D:\yang\资料\项目\yny\WE_Project\WE_Project\Web\bin\AopSdk.dll
+D:\yang\资料\项目\yny\WE_Project\WE_Project\Web\bin\AopSdk.pdb

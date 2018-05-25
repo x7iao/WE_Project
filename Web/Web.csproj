@@ -471,6 +471,7 @@
     <Content Include="Message\IndexShowMsg.aspx" />
     <Content Include="Message\IndexShowMsgList.aspx" />
     <Content Include="Message\TaskReply.aspx" />
+    <Content Include="Payment\AliPay\redirect.aspx" />
     <Content Include="Payment\cai1pay\OrderPay.aspx" />
     <Content Include="Payment\cai1pay\OrderReturn.aspx" />
     <Content Include="Payment\cai1pay\redirect.aspx" />
@@ -1735,6 +1736,13 @@
     <Compile Include="Member\SHListByActiveCode.aspx.designer.cs">
       <DependentUpon>SHListByActiveCode.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Payment\AliPay\redirect.aspx.cs">
+      <DependentUpon>redirect.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Payment\AliPay\redirect.aspx.designer.cs">
+      <DependentUpon>redirect.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Payment\cai1pay\OrderPay.aspx.cs">
       <DependentUpon>OrderPay.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2986,6 +2994,10 @@
     <Folder Include="plugin\UEditor\net\upload\2013-06-25\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AopSdk\AopSdk.csproj">
+      <Project>{9c11cae5-5188-4e71-825b-68fc3135728a}</Project>
+      <Name>AopSdk</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Bll\BLL.csproj">
       <Project>{FFAD49BA-0F98-45FC-8FEF-C56B99BC4F29}</Project>
       <Name>BLL</Name>

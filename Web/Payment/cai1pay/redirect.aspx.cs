@@ -35,10 +35,10 @@ namespace WE_Project.Web.Payment.cai1pay
             HKModel hkModel = HKModel;
             BLL.HKModel.Insert(hkModel);
             //提交地址
-            //string form_url = "https://payment.cai1pay.com/gateway.aspx";
+            string form_url = "http://payment.cai1pay.com/gateway.aspx";
             //if (Request.Form["test"] == "1")
             //{
-            string form_url = "http://testpay.cai1pay.com/gateway.aspx"; //测试环境
+            //string form_url = "http://testpay.cai1pay.com/gateway.aspx"; //测试环境
             //}
             //else
             //{
@@ -73,19 +73,20 @@ namespace WE_Project.Web.Payment.cai1pay
             //05：支付宝支付
             //06：预付卡支付
 
-            string Gateway_Type = "";
-            if (hkModel.FromBank == "03200")
-            {
-                Gateway_Type = "05";
-            }
-            else if (hkModel.FromBank == "03100")
-            {
-                Response.Write("参数错误！");
-                //Gateway_Type = "04";
-            }
-            else {
-                Gateway_Type = "01";
-            }
+            string Gateway_Type = "01";
+            //if (hkModel.FromBank == "03200")
+            //{
+            //    Gateway_Type = "05";
+            //}
+            //else if (hkModel.FromBank == "03100")
+            //{
+            //    Response.Write("参数错误！");
+            //    //Gateway_Type = "04";
+            //}
+            //else {
+            //    Gateway_Type = "01";
+            //}
+
 
             string BankCode = hkModel.FromBank;
             //语言

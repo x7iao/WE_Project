@@ -1730,7 +1730,7 @@ namespace WE_Project.Web.Ajax
                     //else
                     {
                         string TelCode = new Random().Next(421339, 999999).ToString();
-                        string Msg = "您的注册验证码是[" + TelCode + "]，欢迎携手皇家国际，祝您生活愉快！";
+                        string Msg = "您的注册验证码是[" + TelCode + "]，请尽快注册，祝您生活愉快！";
                         Model.SMS model = new Model.SMS { SType = Model.SMSType.ZCYZ, Tel = Request["pram"], SContent = Msg, SMSKey = TelCode };
                         string error = "";
                         if (BLL.SMS.Insert(model, ref error))
@@ -1786,7 +1786,7 @@ namespace WE_Project.Web.Ajax
                         }
 
                         string TelCode = new Random().Next(421339, 999999).ToString();
-                        string Msg = "您的注册验证码是[" + TelCode + "]，欢迎携手新浪社区，祝您生活愉快！";
+                        string Msg = "您的验证码是[" + TelCode + "]，请尽快重置密码，祝您生活愉快！";
                         Model.SMS model = new Model.SMS { SType = Model.SMSType.CZMM, Tel = Request["pram"], SContent = Msg, SMSKey = TelCode };
                         string error = "";
                         if (BLL.SMS.Insert(model, ref error))

@@ -42,11 +42,11 @@ namespace WE_Project.Web.Handler
             List<Model.ChangeMoney> ListChangeMoney;
             if (!TModel.Role.IsAdmin)
             {
-                ListChangeMoney = BllModel.GetChangeMoneyEntityList("", TModel.MID, "", "true", new List<string> { "CZ", "KZ" }, new List<string> { "MHB", "MJB", "MGP", "MCW","MJBF" }, pageIndex, pageSize, strWhere, out count);
+                ListChangeMoney = BllModel.GetChangeMoneyEntityList("", TModel.MID, "", "true", new List<string> { "CZ"}, new List<string> { "MHB", "MJB", "MGP", "MCW","MJBF", "TotalYFHMoney" }, pageIndex, pageSize, strWhere, out count);
             }
             else
             {
-                ListChangeMoney = BllModel.GetChangeMoneyEntityList("", mKey, "", "true", new List<string> { "CZ", "KZ" }, new List<string> { "MHB", "MJB", "MGP", "MCW","MJBF" }, pageIndex, pageSize, strWhere, out count);
+                ListChangeMoney = BllModel.GetChangeMoneyEntityList("", mKey, "", "true", new List<string> { "CZ" }, new List<string> { "MHB", "MJB", "MGP", "MCW","MJBF", "TotalYFHMoney" }, pageIndex, pageSize, strWhere, out count);
 
                 //List<Model.ChangeMoney> ListChangeMoney2 = BllModel.GetChangeMoneyEntityList(mKey, "", "", "true", new List<string> { "CZ", "KZ" }, new List<string> { "MHB", "MJB", "MGP", "CTD" }, pageIndex, pageSize, strWhere, out count);
 

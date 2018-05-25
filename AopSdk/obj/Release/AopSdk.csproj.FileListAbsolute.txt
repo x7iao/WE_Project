@@ -1,0 +1,5 @@
+E:\WorkProject\zx461\AopSdk\bin\Release\AopSdk.dll
+E:\WorkProject\zx461\AopSdk\bin\Release\AopSdk.pdb
+E:\WorkProject\zx461\AopSdk\obj\Release\AopSdk.csprojResolveAssemblyReference.cache
+E:\WorkProject\zx461\AopSdk\obj\Release\AopSdk.dll
+E:\WorkProject\zx461\AopSdk\obj\Release\AopSdk.pdb

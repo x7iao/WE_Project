@@ -22,15 +22,15 @@ namespace WE_Project.Web.ChangeMoney
                 if (!string.IsNullOrEmpty(Request.Form["txtMHB"]))
                 {
                     string moneyType = "MHB";
-                    if (Request.Form["rdo"] == "MJB")
+                    if (Request.Form["RioHK"] == "MJB")
                         moneyType = "MJB";
-                    if (Request.Form["rdo"] == "MGP")
+                    if (Request.Form["RioHK"] == "MGP")
                         moneyType = "MGP";
                     //if (Request.Form["rdo"] == "MCW")
                     //    moneyType = "MCW";
                     //if (Request.Form["rdo"] == "MJBF")
                     //    moneyType = "MJBF";
-                    if (Request.Form["rdo"] == "TotalYFHMoney")
+                    if (Request.Form["RioHK"] == "TotalYFHMoney")
                         moneyType = "TotalYFHMoney";
                     if (BLL.ChangeMoney.EnoughChange(Request.Form["txtMID"], int.Parse(Request.Form["txtMHB"]), moneyType))
                     {

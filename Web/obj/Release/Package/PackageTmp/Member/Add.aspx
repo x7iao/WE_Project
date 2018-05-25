@@ -33,7 +33,7 @@
                     </td>
                     <td>
                         <input id="txtMName" name="txtMName" class="normal_input" type="text" maxlength="10"
-                            placeholder="请输入会员昵称" value="速度" /><span>*</span>
+                            placeholder="请输入会员昵称" value="" /><span>*</span>
                     </td>
                 </tr>
                 <tr>

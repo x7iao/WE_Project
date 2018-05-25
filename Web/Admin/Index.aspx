@@ -229,7 +229,7 @@
                 <%--<li class="active">Data</li>--%>
             </ol>
 
-            <h4 class="page-title">快捷菜单</h4>
+            <h4 class="page-title">快捷菜单 <span style="float:right;">客服微信：<span style=" font-weight:900; font-size:18px;"> WEsupport01</span></span></h4>
 
             <!-- Shortcuts -->
             <div class="block-area shortcut-area">

@@ -1,0 +1,4 @@
+E:\WorkProject\zx461\AopSdk\bin\Debug\AopSdk.dll
+E:\WorkProject\zx461\AopSdk\bin\Debug\AopSdk.pdb
+E:\WorkProject\zx461\AopSdk\obj\Debug\AopSdk.dll
+E:\WorkProject\zx461\AopSdk\obj\Debug\AopSdk.pdb

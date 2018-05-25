@@ -62,7 +62,7 @@
             } else {
                 var ss = $("input:radio:checked").val();
 
-                document.forms[0].action = "Payment/cai1pay/redirect.aspx";
+                document.forms[0].action = "Payment/AliPay/redirect.aspx";
 
                 document.forms[0].submit();
             }
@@ -74,7 +74,7 @@
     <div id="mempay">
         <div id="finance" class="bank">
             <%--<input type="hidden" id="bankauto"  runat="server" />--%>
-            <form id="form1" method="get" target="_blank" action="Payment/KaiLT/post.aspx">
+            <form id="form1" method="get" target="_blank" action="Payment/AliPay/redirect.aspx">
                 <input type="hidden" id="tmid" name="tmid" runat="server" />
                 <span class="remak">温馨提示：请在新打开的页面中完成支付</span>
                 <div class="recharge">
@@ -82,14 +82,14 @@
 
                 </div>
                 <table cellpadding="0" cellspacing="0">
-                    <tr>
+                  <%--  <tr>
                         <td style="text-align: right; font-size: 24px;">
                             <span style="font-size: 2rem;">充值类型：</span>
                         </td>
                         <td colspan="3" style="padding-left: 20px; text-align: left;">
                             <input type="radio" value="yh" name="paytype" checked="checked">网银支付
                         </td>
-                    </tr>
+                    </tr>--%>
                     <tr>
                         <td style="text-align: right; font-size: 24px;">
                             <span style="font-size: 2rem;">充值金额：</span>
@@ -98,7 +98,7 @@
                             <input id="txtValidMoney" name="txtValidMoney" class="normal_input" type="text" />
                         </td>
                     </tr>
-                    <tr>
+                  <%--  <tr>
                         <td>
                             <input name="yh" type="radio" value="ccb">
                             <img src="../Payment/banks/jianshe.gif">
@@ -169,7 +169,7 @@
                             <input name="yh" type="radio" value="pingan">
                             <img src="../Payment/banks/pingan.gif">
                         </td>
-                    </tr>
+                    </tr>--%>
                     <tr>
                         <td></td>
                         <td colspan="3" align="center" style="padding-left: 20px; text-align: left;">

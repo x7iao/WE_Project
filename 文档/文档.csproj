@@ -61,6 +61,8 @@
     <Content Include="dll\IBatisNet.DataMapper.dll" />
     <Content Include="dll\MySql.Data.dll" />
     <Content Include="dll\Newtonsoft.Json.dll" />
+    <Content Include="需求文档\应用公钥2048.txt" />
+    <Content Include="需求文档\应用私钥2048.txt" />
     <Content Include="静态页面\202_金源社区互助_20160823\css\bootstrap-ie6.css" />
     <Content Include="静态页面\202_金源社区互助_20160823\css\bootstrap.min.css" />
     <Content Include="静态页面\202_金源社区互助_20160823\css\common.css" />

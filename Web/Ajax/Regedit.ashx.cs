@@ -134,7 +134,7 @@ namespace WE_Project.Web.AjaxM
             //}
 
             //else
-            if(BLL.Configuration.Model.DFHXFCount==1)
+            if (BLL.Configuration.Model.DFHXFCount == 1)
             {
                 string code = BLL.SMS.GetSKeyBuyTel(_context.Request.Form["txtTel"].Trim(), Model.SMSType.ZCYZ);
                 if ((string.IsNullOrEmpty(code) || code != _context.Request.Form["txtTelCode"].Trim()))

@@ -21,10 +21,14 @@
             <div class="search">
                 <input type="button" value="查询" class="ssubmit btn btn-success" onclick="SearchByCondition()" />
                 <input name="txtKey" id="mKey" placeholder="请输入会员账号"   type="text" class="sinput" />
+                <input type="text" name="txtKey" id="startDate" placeholder="开始日期" onfocus="if (value =='开始日期'){value =''}"
+                    class="daycash_input" style="width: 120px;" onclick="WdatePicker({maxDate:'#F{$dp.$D(\'endDate\')}'})" />
                 <input type="text" name="txtKey" id="endDate" placeholder="截止日期" onfocus="if (value =='截止日期'){value =''}"
                     class="daycash_input" style="width: 120px;" onclick="WdatePicker({minDate:'#F{$dp.$D(\'startDate\')}'})" />
-                <input type="text" name="txtKey" id="startDate" placeholder="开始日期" onfocus="if (value =='开始日期'){value =''}"
-                    class="daycash_input" style="width: 120px;" onclick="WdatePicker({maxDate:'#F{$dp.$D(\'endDate\')}'})" /></div>
+
+            </div>
+                
+                
         </div>
         <div class="ui_table">
             <table cellpadding="0" cellspacing="0" id="Result" class="tabcolor">

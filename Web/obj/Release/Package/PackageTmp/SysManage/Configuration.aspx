@@ -172,10 +172,20 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>
-                        是否开启注册：
+                     <td align="right">
+                        开启短信注册：
                     </td>
                     <td>
+                        <select id="txtDFHXFCount" runat="server">
+                            <option value="1">是</option>
+                            <option value="0">否</option>
+                        </select>
+                    </td>
+
+                    <td style="display:none;">
+                        是否开启注册：
+                    </td>
+                    <td style="display:none;">
                         <select id="txtCanRegedit" runat="server">
                             <option value="1">开启</option>
                             <option value="0">关闭</option>
@@ -229,15 +239,7 @@
                         <input id="txtMaxBuyGCount" runat="server" class="normal_input" type="text" require-type="int"
                             require-msg="身份证注册帐号数量" /><font color="red">*</font>
                     </td>
-                    <td align="right">
-                        开启短信注册：
-                    </td>
-                    <td>
-                        <select id="txtDFHXFCount" runat="server">
-                            <option value="1">是</option>
-                            <option value="0">否</option>
-                        </select>
-                    </td>
+                   
                 </tr>
                 <tr style="display: none">
                     <td align="right">
