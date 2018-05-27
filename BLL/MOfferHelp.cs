@@ -323,10 +323,10 @@ namespace WE_Project.BLL
                 //最大金额，最小金额
                 if (sqMoney >= minOfferMoney && sqMoney <= maxOfferMoney)
                 {
-                    decimal dayoff = BLL.MOfferHelp.GetSumMoney(" DATEDIFF(DAY,SQDate,GETDATE())=0 and PPState!=5; ");
-                    if ((dayoff + sqMoney) >= BLL.MMMConfig.Model.MOfferNeedMCW)
+                    decimal dayoff = BLL.MOfferHelp.GetSumMoney(" DATEDIFF(DAY,SQDate,GETDATE())=0 and helptype=0 and PPState!=5; ");
+                    if ((dayoff + sqMoney) > BLL.MMMConfig.Model.MOfferNeedMCW)
                     {
-                        return "1*超出每天排单排单金额限制，还能排单" + (BLL.MMMConfig.Model.MOfferNeedMCW - dayoff);
+                        return "1*超出每天排单金额限制，还能排单" + (BLL.MMMConfig.Model.MOfferNeedMCW - dayoff);
                     }
 
 

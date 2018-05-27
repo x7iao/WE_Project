@@ -18,14 +18,14 @@ namespace WE_Project.Web.Regedit
             //ddlQuestion.DataValueField = "Id";
             //ddlQuestion.DataTextField = "Question";
             //ddlQuestion.DataBind();
-            //if (!IsPostBack)
-            //{
-            //    if (!string.IsNullOrEmpty(Request.QueryString["mid"]))
-            //    {
-            //        txtMTJ.Value = Request.QueryString["mid"];
-            //        txtMTJ.Style.Add("readonly", "readonly");
-            //    }
-            //}
+            if (!IsPostBack)
+            {
+                if (!string.IsNullOrEmpty(Request.QueryString["mid"]))
+                {
+                    txtMTJ.Value = Request.QueryString["mid"];
+                    txtMTJ.Style.Add("readonly", "readonly");
+                }
+            }
         }
 
         public Model.Member MemberMode

@@ -257,6 +257,16 @@
                     <img src="/Admin/img/shortcuts/reports.png" alt="">
                     <small class="t-overflow">Reports</small>
                 </a>--%>
+
+                
+                              <%--  <input type="button" value="推广链接" class="normal_btnok btn" />
+                           --%>
+                                <input type="text" class="normal_input" id="txtTuiGuang"  style="width:80%;" runat="server" readonly="readonly" />
+                          
+                                <input class="normal_btnok btn btn-success" type="button" value="复制" data-clipboard-target="txtTuiGuang"
+                                    id="fenxian" />
+                          
+                    </div>
             </div>
 
             <!--买入许愿果-->
@@ -652,7 +662,7 @@
                                             <div class="counts"><%=pddaymoney %></div>
                                         </div>
                                         <div class="media-body">
-                                            <h6>日购买金额</h6>
+                                            <h6>日购买颗数</h6>
                                         </div>
                                     </div>
 
@@ -661,7 +671,7 @@
                                             <div class="counts"><%=txdaymoney %></div>
                                         </div>
                                         <div class="media-body">
-                                            <h6>日卖出金额</h6>
+                                            <h6>日卖出颗数</h6>
                                         </div>
                                     </div>
                                     <div class="media">
@@ -992,10 +1002,13 @@
             });
             // 复制内容到剪贴板成功后的操作 
             clip.on('complete', function (client, args) {
-                layer.alert('复制成功！', {
-                    skin: 'layer-ext-moon',
-                    btn: '确定'
-                });
+                //layer.alert('复制成功！', {
+                //    skin: 'layer-ext-moon',
+                //    btn: '确定'
+                //});
+                layer.closeAll();
+                v5.alert("复制成功", '2', 'true');
+                
             });
             //GetHelpList("1", ".jycontent #getMatch > tbody");
             //GetHelpList("2", ".jycontent #offMatch > tbody");

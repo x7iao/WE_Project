@@ -18,19 +18,16 @@ namespace WE_Project.Web.Payment.AliPay
         {
             get
             {
-                int type = 1;
-
-
                 HKModel model = new HKModel();
                 model.HKCreateDate = DateTime.Now;
                 model.BankName = "";
-                model.FromBank ="1";
+                model.FromBank ="AliPay";
                 model.MID = TModel.MID;
                 model.RealMoney = decimal.Parse(Request.QueryString["txtValidMoney"]);
-                model.ValidMoney = decimal.Parse(Request.QueryString["txtValidMoney"]);
+                //model.ValidMoney = decimal.Parse(Request.QueryString["txtValidMoney"]);
                 model.HKDate = DateTime.Now;
                 model.HKState = false;
-                model.HKType = type;
+                model.HKType = int.Parse(Request.QueryString["CZType"]);
                 model.ToBank = "";
                 model.IsAuto = true;
                 model.Sign = false;
@@ -53,16 +50,42 @@ namespace WE_Project.Web.Payment.AliPay
 
 
             HKModel hkModel = HKModel;
+
+            decimal basemoney = 0;
+            decimal minmoney = 0;
+
+            if (hkModel.HKType == 1)//
+            {
+                basemoney = 100;
+                minmoney = 100;
+            }
+            else if (hkModel.HKType == 2)
+            {
+                basemoney = 200;
+                minmoney = 200;
+            }
+            else {
+                Response.Write("支付类型不存在");
+                Response.End();
+            }
+
+            if (hkModel.RealMoney % basemoney != 0)
+            {
+                Response.Write("汇款倍数有误");
+                Response.End();
+            }
+            if(hkModel.RealMoney<minmoney)
+            {
+                Response.Write("汇款金额不能低于"+minmoney);
+                Response.End();
+            }
+
+            hkModel.ValidMoney = hkModel.RealMoney / basemoney;
+
             BLL.HKModel.Insert(hkModel);
             try
             {
-                string _app_id = "2018040502507600";  //app_id
-                string _private_key = "MIIEpAIBAAKCAQEAqmJXV7QNugFnk8PDj3RMM9m4YhIeCUf3mSn3g4qGjsIkjQ/fh8fV4Jqj5CnUsHOf99YRXpTJnkST3g8OffWqjtQ/uWn5uX22PW2ZhPuI99dvlsUyNDtX6KLoqRiDbtWIORgNL/M5DXbct0hqkvWQ89VBTTvtKDh0YELrVVUz2wstrcJc4jsFhbvC3QFrnbfIyM3pLOfAPW8HHOr1SNra628skBAZ7dpPAP6pCTZKHpiFA15edXI2VVuWgKwh1C32tNT8uqRI6VeLa3nqiCkt9tmQcd4ACF7bHi5etUTewl42IZmjdFKMp0kBRjuvrmU5zC2m0brNOv5CTd8ucLqnUwIDAQABAoIBADcVEc2NrP5cI+MWX6uJ2nTMxxoVZ1ZyyK3gbl89MmEGjJB5+DbKOO+irqc9ir/8sVOLBhSAn2mmG/OnBHVeLWR9Y5iKlSwNYxQa0Y23T8FoCXBBkghmwvW3bOX1wc/cAm0KxICi7efXbGVoaOPXtaPOZo0UeYgOMDlKiRAOOnRucmaPp+ixifyPk7l1cBg/TUFlNx9FT6DofrGkjNdHwLnHfXxX9tJVwb2lmsBb96SS82qlVj6DvliPtMrwjAZiRiuAYvGcp4fmyzseX0GWWJ49gritiJPsvT4+Dn5lYxLpb3ySnPfQKIV+zu2aIorXIpr7Dt4AiaUuoSTc/1pXtYECgYEA3qhnbkCrv6jNqJn+Yp3RG4s3uYdAvFpmNQTODjv2iv927GXz+Po1E+sCmxX89X4TSCycG7B6Ja5WvoJDLr4XFIGpRDrApNMIQqcaMvU534pmp8qY6v+MtsqZIpgqnXoczbw2gFmyjxcyQqa9Mwn8meLLshEjQweTrEd2EB+fXEECgYEAw+YGC1Le2siHAgwX2/6jwXJiFy96AfaI5FZyDo0k+s2zEqyo8+QcqDatO6j6YPUFXVjC82xEywPc90fYeZgAO8wSquHWgVFnNO2U0RsHcglwr56zM9QDzO5ltDZI46X9A41eSQ0aShNp5+3vdceJmwRFZ/MkT0apO1lhzkBlLpMCgYAkh3xwmiuTRh53iswxYbLs0epShd4ZCLu79w3XR/8qzr60CgX80w/iNKw4xWK64/RF4wu5fzqK9A9HMhfTk1w2AQ/EId95KyYvyTqDIbhc9FfjL1nnNAXh91soUc6sB1yyZC6M4CprT2LvjGt99CV9GbhRfn5KgPO5UAAOpSGAAQKBgQC0ydoWJTqp6po+F28FhnEWHDvObfBJU35uTCEisLvKAoAa4eFig8i2rQ8emgnH5Rg4V6xC/k5WlZAdXd64CMFebi1kKtvNqJR40jGe8TTj1zZ5vRpg4G9Jd1HBCMAn544i8xpqjH8Qke4RLxLpPWcO+tga4NdHmkygCxMqR1+ZpQKBgQDZsqTYiAL64uv63xqD4vioWx7jZfm96Nsz9jMv0UHNvmH2benE/OWBYdjlyIDTxwiIqV6xekm7lWxnMPSyB2TlM0xFYWQYHHpLNm+WlVwSVGSoqGeow033vsf4Sve5yhIhY5JNDkvps1VxqvEcuLc9r7wyjUCajwJ6tw/Gm/hN1A==";  //私钥
-                string _alipay_public_key = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqmJXV7QNugFnk8PDj3RMM9m4YhIeCUf3mSn3g4qGjsIkjQ/fh8fV4Jqj5CnUsHOf99YRXpTJnkST3g8OffWqjtQ/uWn5uX22PW2ZhPuI99dvlsUyNDtX6KLoqRiDbtWIORgNL/M5DXbct0hqkvWQ89VBTTvtKDh0YELrVVUz2wstrcJc4jsFhbvC3QFrnbfIyM3pLOfAPW8HHOr1SNra628skBAZ7dpPAP6pCTZKHpiFA15edXI2VVuWgKwh1C32tNT8uqRI6VeLa3nqiCkt9tmQcd4ACF7bHi5etUTewl42IZmjdFKMp0kBRjuvrmU5zC2m0brNOv5CTd8ucLqnUwIDAQAB";  //公钥
-
-
-                DefaultAopClient client = new DefaultAopClient("https://openapi.alipay.com/gateway.do", _app_id, _private_key, "json", "1.0", "RSA2", _AliPayNotifyHostPoint, "UTF-8", false);
-
+                DefaultAopClient client = new DefaultAopClient("https://openapi.alipay.com/gateway.do", config.app_id, config.private_key, "json", "1.0", "RSA2", _AliPayNotifyHostPoint, "UTF-8", false);
                 // 外部订单号，商户网站订单系统中唯一的订单号
                 string out_trade_no = hkModel.HKCode;
 

@@ -46,7 +46,7 @@ String.prototype.TryEmailOrEmpty = function () {
 //手机号码验证
 String.prototype.TryTel = function () {
     //return true;
-    var patrn = /^(13+\d{9})|(15+\d{9})|(18+\d{9})|(17+\d{9})$/;
+	var patrn = /^(13+\d{9})|(15+\d{9})|(18+\d{9})|(17+\d{9})|(19+\d{9})|(14+\d{9})$/;
     return patrn.test(this);
 }
 

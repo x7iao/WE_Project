@@ -25,8 +25,8 @@
                 <a href="javascript:void(0)" onclick="SearchByState('false',this);" class="btn btn-danger"
                     id="showDelete">未生效</a> <a href="javascript:void(0);" onclick="SearchByState('true',this);"
                         class="btn btn-success" id="hideDelete">已生效</a></div>
-            <div class="pay" onclick="v5.show('../Member/BuyActiveCode.aspx','线下汇款单','url',680,330)">
-                线下汇款单</div>
+           <%-- <div class="pay" onclick="v5.show('../Member/BuyActiveCode.aspx','线下汇款单','url',680,330)">
+                线下汇款单</div>--%>
             <%--<div class="pay" onclick="callhtml('ChangeMoney/PayHB.aspx','在线充值','url',720,280)">
                 在线充值</div>--%>
             <div class="search" id="DivSearch" runat="server">
@@ -56,7 +56,7 @@
                         购买类型
                     </th>
                     <th>
-                        数量
+                        到账数量
                     </th>
                     <th>
                         汇款日期
@@ -73,9 +73,9 @@
                 <em style="vertical-align: middle;">
                     <input type="checkbox" id="chkAll" onclick="SelectChk(this);" /></em>
                 <div class="pn">
-                    <span id="DivOperation" runat="server"><a href="javascript:void(0);" title="" onclick="RunAjaxByList('false','shHKModel',',');">
+                    <span id="DivOperation" runat="server"><%--<a href="javascript:void(0);" title="" onclick="RunAjaxByList('false','shHKModel',',');">
                         审核</a> <a href="javascript:void(0);" title="" onclick="RunAjaxByList('false','deleteHKModel',',');">
-                            删除</a></span>
+                            删除</a>--%></span>
                 </div>
                 <div class="pagebar">
                     <div id="Pagination">

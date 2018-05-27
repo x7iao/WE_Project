@@ -924,6 +924,55 @@ namespace WE_Project.BLL
 
         public bool SHPayHB(string code)
         {
+            //Model.HKModel model = BLL.HKModel.GetModel(code);
+            //if (model == null)
+            //    return false;
+            //if (!model.HKState)
+            //{
+            //    guidlist.Clear();
+            //    Hashtable MyHs = new Hashtable();
+            //    Model.Member member = DAL.Member.GetModel(model.MID);
+            //    model.HKState = true;
+            //    model.HKDate = DateTime.Now;
+            //    if (model.HKType == 1)//如果是激活且未激活
+            //    {
+            //        for (int i = 0; i < model.ValidMoney; i++)
+            //        {
+            //            Model.ActiveCode Acode = new Model.ActiveCode();
+            //            Acode.Code = GetGUID();
+            //            Acode.CreateTime = DateTime.Now;
+            //            Acode.UseState = 0;
+            //            Acode.MID = model.MID;
+            //            if (BLL.CommonBase.GetSingle("select id from ActiveCode where Code='" + Acode.Code + "'") != null)
+            //            {
+            //                Acode.Code = Guid.NewGuid().ToString().Replace("-", "").Replace(" ", "").ToUpper().Substring(0, 10);
+            //            }
+            //            BLL.ActiveCode.Insert(Acode, MyHs);
+            //            BLL.ChangeMoney.InsertTran(new Model.ChangeMoney { FromMID = TModel.MID, ToMID = model.MID, CompleteTime = DateTime.Now, ChangeType = "Active", MoneyType = "Active", CRemarks = Acode.Code, ChangeDate = DateTime.Now, CState = true }, MyHs);
+            //        }
+            //    }
+            //    BLL.HKModel.Update(model, MyHs);
+
+            //    if (BLL.CommonBase.RunHashtable(MyHs))
+            //    {
+            //        MyHs.Clear();
+            //        if (!member.MState)
+            //        {
+            //            List<Model.ActiveCode> codeList = BLL.ActiveCode.GetTopList("UseState=0 and MID='" + member.MID + "'", 1);
+            //            if (codeList.Count > 0)
+            //            {
+            //                codeList[0].UseMID = member.MID;
+            //                codeList[0].UseState = 2;
+            //                codeList[0].UseTime = DateTime.Now;
+            //                BLL.ActiveCode.Update(codeList[0], MyHs);
+            //                BLL.Member.ManageMember.UpMAgencyType(BLL.Configuration.Model.SHMoneyList["002"], member.MID, BLL.Member.ManageMember.TModel, 0, MyHs);
+            //                //BLL.CommonBase.RunHashtable(MyHs);
+            //            }
+            //        }
+            //        return true;
+            //    }
+            //}
+            //return false;
             Model.HKModel model = BLL.HKModel.GetModel(code);
             if (model == null)
                 return false;
@@ -934,44 +983,27 @@ namespace WE_Project.BLL
                 Model.Member member = DAL.Member.GetModel(model.MID);
                 model.HKState = true;
                 model.HKDate = DateTime.Now;
-                if (model.HKType == 1)//如果是激活且未激活
-                {
-                    for (int i = 0; i < model.ValidMoney; i++)
-                    {
-                        Model.ActiveCode Acode = new Model.ActiveCode();
-                        Acode.Code = GetGUID();
-                        Acode.CreateTime = DateTime.Now;
-                        Acode.UseState = 0;
-                        Acode.MID = model.MID;
-                        if (BLL.CommonBase.GetSingle("select id from ActiveCode where Code='" + Acode.Code + "'") != null)
-                        {
-                            Acode.Code = Guid.NewGuid().ToString().Replace("-", "").Replace(" ", "").ToUpper().Substring(0, 10);
-                        }
-                        BLL.ActiveCode.Insert(Acode, MyHs);
-                        BLL.ChangeMoney.InsertTran(new Model.ChangeMoney { FromMID = TModel.MID, ToMID = model.MID, CompleteTime = DateTime.Now, ChangeType = "Active", MoneyType = "Active", CRemarks = Acode.Code, ChangeDate = DateTime.Now, CState = true }, MyHs);
-                    }
-                }
                 BLL.HKModel.Update(model, MyHs);
+                //充值MJB
+                if (model.HKType == 1)
+                {
+                    BLL.ChangeMoney.HBChangeTran(model.RealMoney, BLL.Member.ManageMember.TModel.MID, model.MID, "CZ", member, "MGP", "在线充值", MyHs);
+                }
+                else if(model.HKType==2){
+                    BLL.ChangeMoney.HBChangeTran(model.RealMoney, BLL.Member.ManageMember.TModel.MID, model.MID, "CZ", member, "TotalYFHMoney", "在线充值", MyHs);
+                }
+                
 
                 if (BLL.CommonBase.RunHashtable(MyHs))
                 {
-                    MyHs.Clear();
-                    if (!member.MState)
-                    {
-                        List<Model.ActiveCode> codeList = BLL.ActiveCode.GetTopList("UseState=0 and MID='" + member.MID + "'", 1);
-                        if (codeList.Count > 0)
-                        {
-                            codeList[0].UseMID = member.MID;
-                            codeList[0].UseState = 2;
-                            codeList[0].UseTime = DateTime.Now;
-                            BLL.ActiveCode.Update(codeList[0], MyHs);
-                            BLL.Member.ManageMember.UpMAgencyType(BLL.Configuration.Model.SHMoneyList["002"], member.MID, BLL.Member.ManageMember.TModel, 0, MyHs);
-                            //BLL.CommonBase.RunHashtable(MyHs);
-                        }
-                    }
+                    BLL.Task.SendManage(BLL.Member.ManageMember.TModel, "支付宝充值", "code:" + code + ";进入币种充值，成功！");
                     return true;
                 }
             }
+            else {
+                BLL.Task.SendManage(BLL.Member.ManageMember.TModel, "支付宝充值", "code:" + code + ";进入币种充值，订单已充值！");
+            }
+            
             return false;
         }
 

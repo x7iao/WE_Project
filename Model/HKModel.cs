@@ -41,7 +41,7 @@ namespace WE_Project.Model
         /// </summary>
         public string MID { get; set; }
         /// <summary>
-        /// 汇款类型：1排单币，2激活码
+        /// 汇款类型：1（许愿金）排单币，2（200一个）激活码
         /// </summary>
         public int HKType { get; set; }
         public string HKTypeStr { get; set; }

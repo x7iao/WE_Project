@@ -472,6 +472,8 @@
     <Content Include="Message\IndexShowMsgList.aspx" />
     <Content Include="Message\TaskReply.aspx" />
     <Content Include="Payment\AliPay\redirect.aspx" />
+    <Content Include="Payment\AliPay\TBReturn.aspx" />
+    <Content Include="Payment\AliPay\YBReturn.aspx" />
     <Content Include="Payment\cai1pay\OrderPay.aspx" />
     <Content Include="Payment\cai1pay\OrderReturn.aspx" />
     <Content Include="Payment\cai1pay\redirect.aspx" />
@@ -1473,6 +1475,7 @@
     <Compile Include="BasePage\BasePage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="BasePage\config.cs" />
     <Compile Include="BasePage\MailMessageExtensions.cs" />
     <Compile Include="ChangeMoney\BathCostMemberMHB.aspx.cs">
       <DependentUpon>BathCostMemberMHB.aspx</DependentUpon>
@@ -1742,6 +1745,20 @@
     </Compile>
     <Compile Include="Payment\AliPay\redirect.aspx.designer.cs">
       <DependentUpon>redirect.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Payment\AliPay\TBReturn.aspx.cs">
+      <DependentUpon>TBReturn.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Payment\AliPay\TBReturn.aspx.designer.cs">
+      <DependentUpon>TBReturn.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Payment\AliPay\YBReturn.aspx.cs">
+      <DependentUpon>YBReturn.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Payment\AliPay\YBReturn.aspx.designer.cs">
+      <DependentUpon>YBReturn.aspx</DependentUpon>
     </Compile>
     <Compile Include="Payment\cai1pay\OrderPay.aspx.cs">
       <DependentUpon>OrderPay.aspx</DependentUpon>

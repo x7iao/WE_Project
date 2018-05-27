@@ -10,19 +10,16 @@ namespace WE_Project.Web.Payment.cai1pay
         {
             get
             {
-                int type = 1;
-
-
                 HKModel model = new HKModel();
                 model.HKCreateDate = DateTime.Now;
                 model.BankName = "";
-                model.FromBank = Request.QueryString["yh"];
+                model.FromBank = "AliPay";
                 model.MID = TModel.MID;
                 model.RealMoney = decimal.Parse(Request.QueryString["txtValidMoney"]);
                 model.ValidMoney = decimal.Parse(Request.QueryString["txtValidMoney"]);
                 model.HKDate = DateTime.Now;
                 model.HKState = false;
-                model.HKType = type;
+                model.HKType = int.Parse(Request.QueryString["CZType"]) ;
                 model.ToBank = "";
                 model.IsAuto = true;
                 model.Sign = false;

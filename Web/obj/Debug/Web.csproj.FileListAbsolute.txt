@@ -195,3 +195,5 @@ D:\工作目录\WE_Project\Web\obj\Debug\WE_Project.Web.dll
 D:\工作目录\WE_Project\Web\obj\Debug\WE_Project.Web.pdb
 D:\yang\资料\项目\yny\WE_Project\WE_Project\Web\bin\AopSdk.dll
 D:\yang\资料\项目\yny\WE_Project\WE_Project\Web\bin\AopSdk.pdb
+D:\工作目录\WE_Project\Web\bin\AopSdk.dll
+D:\工作目录\WE_Project\Web\bin\AopSdk.pdb

@@ -27,7 +27,7 @@
                 </tr>
                 <tr>
                     <td align="right">
-                        日购买金额:
+                        日购买颗数:
                     </td>
                     <td>
                       <%=pddaymoney %>
@@ -35,7 +35,7 @@
                 </tr>
                 <tr>
                     <td align="right">
-                        日卖出金额:
+                        日卖出颗数:
                     </td>
                     <td>
                         <%=txdaymoney %>

@@ -39,28 +39,22 @@
         }
     </style>
     <script type="text/javascript">
-        $(function () {
-            $(":radio").click(function () {
-                if ($(this).val() == '4') {
-                    callhtml('ChangeMoney/HKChangeFlow.aspx', '银行汇款');
-                }
-            });
-        });
+      
 
-        function checkJe() {
-            if ($('#txtValidMoney').val().Trim() == "") {
-                v5.error('充值金额不能为空', '1', 'true');
-                return false;
-            } else {
-                return true;
-            }
-        }
+        //function checkJe() {
+        //    if ($('#txtValidMoney').val().Trim() == "") {
+        //        v5.error('充值金额不能为空', '1', 'true');
+        //        return false;
+        //    } else {
+        //        return true;
+        //    }
+        //}
 
         function Redirect() {
             if ($('#txtValidMoney').val().Trim() == "") {
                 v5.error('充值金额不能为空', '1', 'true');
             } else {
-                var ss = $("input:radio:checked").val();
+                //var ss = $("input:radio:checked").val();
 
                 document.forms[0].action = "Payment/AliPay/redirect.aspx";
 
@@ -78,18 +72,21 @@
                 <input type="hidden" id="tmid" name="tmid" runat="server" />
                 <span class="remak">温馨提示：请在新打开的页面中完成支付</span>
                 <div class="recharge">
-                    <b>请选择支付方式</b>
-
+                    <b>请选择支付方式</b><br />
+                     <span style="color:#ffd800; font-size:18px; font-weight:bold;"><%=WE_Project.BLL.Reward.List["MGP"].RewardName %>最低支付100元且是100元的倍数</span><br />
+                            <span style="color:#ffd800; font-size:18px; font-weight:bold;"><%=WE_Project.BLL.Reward.List["TotalYFHMoney"].RewardName %>最低支付200元且是200的倍数</span>
                 </div>
                 <table cellpadding="0" cellspacing="0">
-                  <%--  <tr>
+                    <tr>
                         <td style="text-align: right; font-size: 24px;">
                             <span style="font-size: 2rem;">充值类型：</span>
+                           
                         </td>
                         <td colspan="3" style="padding-left: 20px; text-align: left;">
-                            <input type="radio" value="yh" name="paytype" checked="checked">网银支付
+                            <input type="radio" value="1" name="CZType" checked="checked"><%=WE_Project.BLL.Reward.List["MGP"].RewardName %>
+                            <input type="radio" value="2" name="CZType"><%=WE_Project.BLL.Reward.List["TotalYFHMoney"].RewardName %>
                         </td>
-                    </tr>--%>
+                    </tr>
                     <tr>
                         <td style="text-align: right; font-size: 24px;">
                             <span style="font-size: 2rem;">充值金额：</span>

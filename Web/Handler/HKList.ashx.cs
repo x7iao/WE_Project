@@ -60,7 +60,7 @@ namespace WE_Project.Web.Handler
                 //sb.Append(List[i].HKCode + "~");
                 sb.Append(List[i].MID + "~");
                 sb.Append(Math.Round(List[i].RealMoney, 2) + "~");
-                sb.Append((List[i].HKType == 1 ? "排单币" : "激活码") + "~");
+                sb.Append((List[i].HKType == 1 ? BLL.Reward.List["MGP"].RewardName : BLL.Reward.List["TotalYFHMoney"].RewardName) + "~");
                 //if (member != null)
                 //    sb.Append(member.MName + "~");
                 //else

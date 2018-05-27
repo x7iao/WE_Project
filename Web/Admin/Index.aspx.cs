@@ -102,8 +102,8 @@ namespace WE_Project.Web.Admin
                 daymembercount = BLL.Configuration.Model.DFHOutCount.ToString();
             //}
 
-            //txtTuiGuang.Value = HttpContext.Current.Request.Url.AbsoluteUri.Replace(HttpContext.Current.Request.Url.PathAndQuery, "/Regedit/Index.aspx");
-            //txtTuiGuang.Value += "?mid=" + TModel.MID;
+            txtTuiGuang.Value = HttpContext.Current.Request.Url.AbsoluteUri.Replace(HttpContext.Current.Request.Url.PathAndQuery, "/Regedit/Index.aspx");
+            txtTuiGuang.Value += "?mid=" + TModel.MID;
 
             SetDefaultVal();
 
