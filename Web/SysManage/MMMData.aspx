@@ -11,7 +11,7 @@
             <table cellpadding="0" cellspacing="0">
                 <tr>
                     <td width="15%" align="right">
-                        购买总数:
+                        购买总颗数:
                     </td>
                     <td width="35%">
                         <%=pdtotalcount %>
@@ -19,7 +19,7 @@
                 </tr>
                 <tr>
                     <td width="15%" align="right">
-                        卖出总数:
+                        卖出总颗数:
                     </td>
                     <td width="35%">
                         <%=txtotalcount %>

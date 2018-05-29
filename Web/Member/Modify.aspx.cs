@@ -18,6 +18,7 @@ namespace WE_Project.Web.Member
                 //if (!string.IsNullOrEmpty(txtTel.Value))
                 {
                     txtTel.Attributes.Add("readonly", "readonly");
+                    txtBankCardName.Attributes.Add("readonly", "readonly");
                 }
                 //if (TModel.MState)
                 //{
@@ -47,7 +48,7 @@ namespace WE_Project.Web.Member
                 model.Bank = Request.Form["txtBank"];
                 model.Branch = Request.Form["txtBranch"];
                 model.BankNumber = Request.Form["txtBankNumber"];
-                model.BankCardName = Request.Form["txtBankCardName"];
+                //model.BankCardName = Request.Form["txtBankCardName"];
                 model.AliPay = Request.Form["txtAliPay"];
                 model.MConfig.HLMoneyState =Request.Form["txtHLMoneyState"] == "1" ;
                 model.QQ = Request.Form["hduploadPic1"];

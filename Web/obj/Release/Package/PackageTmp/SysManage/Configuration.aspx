@@ -53,34 +53,34 @@
                 </tr>
                 <tr>
                     <td align="right">
-                        每天购买总数:
+                        购买总颗数:
                     </td>
                     <td>
                         <input id="txtTXMinMoney" runat="server" class="normal_input" type="text" 
-                            require-msg="每天购买总数" /><font color="red">*正整数</font>
+                            require-msg="购买总颗数" /><font color="red">*正整数</font>
                     </td>
                     <td align="right">
-                        每天卖出许愿果总数:
+                        卖出总颗数:
                     </td>
                     <td>
                         <input id="txtTXBaseMoney" runat="server" class="normal_input" type="text" 
-                            require-msg="每天卖出许愿果总数" /><font color="red">*正整数</font>
+                            require-msg="卖出总颗数" /><font color="red">*正整数</font>
                     </td>
                 </tr>
                 <tr>
                     <td align="right">
-                         每天购买金额:
+                         日购买颗数:
                     </td>
                     <td>
                         <input id="txtGPrice" runat="server" class="normal_input" type="text" 
-                            require-msg="每天购买金额" /><font color="red">*小数</font>
+                            require-msg="日购买颗数" /><font color="red">*小数</font>
                     </td>
                     <td align="right">
-                        每天卖出许愿果金额:
+                        日卖出颗数:
                     </td>
                     <td>
                         <input id="txtDFHFloat" runat="server" class="normal_input" type="text" 
-                            require-msg="每天卖出许愿果金额" /><font color="red">*小数</font>
+                            require-msg="日卖出颗数" /><font color="red">*小数</font>
                     </td>
                 </tr>
                 <tr>
@@ -92,11 +92,11 @@
                             require-msg="平台总会员人数" /><font color="red">*整数</font>
                     </td>
                     <td>
-                        每天新会员人数：
+                        日新会员人数：
                     </td>
                     <td>
                         <input id="txtDFHOutCount" runat="server" class="normal_input" type="text" 
-                            require-msg="每天新会员人数" /><font color="red">*整数</font>
+                            require-msg="日新会员人数" /><font color="red">*整数</font>
                     </td>
                 </tr>
                 <tr>

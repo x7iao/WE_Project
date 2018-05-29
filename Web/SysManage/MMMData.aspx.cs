@@ -18,11 +18,11 @@ namespace WE_Project.Web.SysManage
         protected override void SetPowerZone()
         {
             
-                pdtotalcount = BLL.CommonBase.GetSingle("select count(*) from mofferhelp where ppstate<>5;").ToString();
+                pdtotalcount = BLL.CommonBase.GetSingle("select isnull(sum(sqmoney),0) from mofferhelp where ppstate<>5;").ToString();
            
 
          
-                txtotalcount = BLL.CommonBase.GetSingle("select count(*) from mgethelp where ppstate<>5;").ToString();
+                txtotalcount = BLL.CommonBase.GetSingle("select isnull(sum(sqmoney),0) from mgethelp where ppstate<>5;").ToString();
           
                 pddaymoney = BLL.CommonBase.GetSingle("select  isnull(sum(sqmoney),0) from mofferhelp where ppstate<>5 and datediff(dd,sqdate,getdate())=0;").ToString();
           

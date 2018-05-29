@@ -987,10 +987,10 @@ namespace WE_Project.BLL
                 //充值MJB
                 if (model.HKType == 1)
                 {
-                    BLL.ChangeMoney.HBChangeTran(model.RealMoney, BLL.Member.ManageMember.TModel.MID, model.MID, "CZ", member, "MGP", "在线充值", MyHs);
+                    BLL.ChangeMoney.HBChangeTran(model.ValidMoney, BLL.Member.ManageMember.TModel.MID, model.MID, "CZ", member, "MGP", "在线充值", MyHs);
                 }
                 else if(model.HKType==2){
-                    BLL.ChangeMoney.HBChangeTran(model.RealMoney, BLL.Member.ManageMember.TModel.MID, model.MID, "CZ", member, "TotalYFHMoney", "在线充值", MyHs);
+                    BLL.ChangeMoney.HBChangeTran(model.ValidMoney, BLL.Member.ManageMember.TModel.MID, model.MID, "CZ", member, "TotalYFHMoney", "在线充值", MyHs);
                 }
                 
 

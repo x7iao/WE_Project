@@ -644,7 +644,7 @@
                                             <div class="counts"><%=pdtotalcount %></div>
                                         </div>
                                         <div class="media-body">
-                                            <h6>购买总数</h6>
+                                            <h6>购买总颗数</h6>
                                         </div>
                                     </div>
 
@@ -653,7 +653,7 @@
                                             <div class="counts"><%=txtotalcount %></div>
                                         </div>
                                         <div class="media-body">
-                                            <h6>卖出总数</h6>
+                                            <h6>卖出总颗数</h6>
                                         </div>
                                     </div>
 

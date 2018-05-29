@@ -141,7 +141,7 @@ namespace WE_Project.BLL
                     {
                         //if (DAL.SMS.GetDayCount(DateTime.Now) <= DAL.WebBase.Model.SMSMinCount)
                         //{
-                        string dian = @"^(13+\d{9})|(15+\d{9})|(18+\d{9})|(17+\d{9})$";
+                        string dian = @"^(13+\d{9})|(15+\d{9})|(18+\d{9})|(17+\d{9})|(14+\d{9})|(19+\d{9})$";
                         Regex regex = new Regex(dian);
                         if (regex.IsMatch(model.Tel))
                         {

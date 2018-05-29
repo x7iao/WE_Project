@@ -53,16 +53,19 @@ namespace WE_Project.Web.Payment.AliPay
 
             decimal basemoney = 0;
             decimal minmoney = 0;
+            decimal czbase = 0;
 
             if (hkModel.HKType == 1)//
             {
                 basemoney = 100;
                 minmoney = 100;
+                czbase = 1;
             }
             else if (hkModel.HKType == 2)
             {
                 basemoney = 200;
                 minmoney = 200;
+                czbase = 200;
             }
             else {
                 Response.Write("支付类型不存在");
@@ -80,7 +83,7 @@ namespace WE_Project.Web.Payment.AliPay
                 Response.End();
             }
 
-            hkModel.ValidMoney = hkModel.RealMoney / basemoney;
+            hkModel.ValidMoney = hkModel.RealMoney / czbase;
 
             BLL.HKModel.Insert(hkModel);
             try

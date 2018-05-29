@@ -23,7 +23,7 @@ namespace WE_Project.Web.Regedit
                 if (!string.IsNullOrEmpty(Request.QueryString["mid"]))
                 {
                     txtMTJ.Value = Request.QueryString["mid"];
-                    txtMTJ.Style.Add("readonly", "readonly");
+                    txtMTJ.Attributes.Add("readonly", "readonly");
                 }
             }
         }
