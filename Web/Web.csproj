@@ -380,6 +380,7 @@
     <Content Include="Admin\pop\js\layer\skin\default\icon.png" />
     <Content Include="Admin\pop\js\layer\skin\layer.css" />
     <Content Include="Admin\pop\js\layer\skin\layer.ext.css" />
+    <Content Include="ChangeMoney\PayHB2.aspx" />
     <Content Include="lay\modules\carousel.js" />
     <Content Include="lay\modules\code.js" />
     <Content Include="lay\modules\element.js" />
@@ -1511,6 +1512,13 @@
     </Compile>
     <Compile Include="ChangeMoney\HBKF.aspx.designer.cs">
       <DependentUpon>HBKF.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ChangeMoney\PayHB2.aspx.cs">
+      <DependentUpon>PayHB2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ChangeMoney\PayHB2.aspx.designer.cs">
+      <DependentUpon>PayHB2.aspx</DependentUpon>
     </Compile>
     <Compile Include="FuTou\FTAdd.aspx.cs">
       <DependentUpon>FTAdd.aspx</DependentUpon>

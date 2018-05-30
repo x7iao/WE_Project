@@ -13,13 +13,13 @@ namespace WE_Project.Web.Payment.cai1pay
                 HKModel model = new HKModel();
                 model.HKCreateDate = DateTime.Now;
                 model.BankName = "";
-                model.FromBank = "AliPay";
+                model.FromBank = "DSHPay";
                 model.MID = TModel.MID;
                 model.RealMoney = decimal.Parse(Request.QueryString["txtValidMoney"]);
-                model.ValidMoney = decimal.Parse(Request.QueryString["txtValidMoney"]);
+                //model.ValidMoney = decimal.Parse(Request.QueryString["txtValidMoney"]);
                 model.HKDate = DateTime.Now;
                 model.HKState = false;
-                model.HKType = int.Parse(Request.QueryString["CZType"]) ;
+                model.HKType = int.Parse(Request.QueryString["CZType"]);
                 model.ToBank = "";
                 model.IsAuto = true;
                 model.Sign = false;
@@ -30,117 +30,88 @@ namespace WE_Project.Web.Payment.cai1pay
         protected new void Page_Load(object sender, EventArgs e)
         {
             HKModel hkModel = HKModel;
+
+            decimal basemoney = 0;
+            decimal minmoney = 0;
+            decimal czbase = 0;
+
+            if (hkModel.HKType == 1)//
+            {
+                basemoney = 100;
+                minmoney = 100;
+                czbase = 1;
+            }
+            else if (hkModel.HKType == 2)
+            {
+                basemoney = 200;
+                minmoney = 200;
+                czbase = 200;
+            }
+            else {
+                Response.Write("支付类型不存在");
+                Response.End();
+            }
+
+            if (hkModel.RealMoney % basemoney != 0)
+            {
+                Response.Write("汇款倍数有误");
+                Response.End();
+            }
+            if (hkModel.RealMoney < minmoney)
+            {
+                Response.Write("汇款金额不能低于" + minmoney);
+                Response.End();
+            }
+
+            hkModel.ValidMoney = hkModel.RealMoney / czbase;
+
+
             BLL.HKModel.Insert(hkModel);
             //提交地址
-            string form_url = "http://payment.cai1pay.com/gateway.aspx";
-            //if (Request.Form["test"] == "1")
-            //{
-            //string form_url = "http://testpay.cai1pay.com/gateway.aspx"; //测试环境
-            //}
-            //else
-            //{
-            //    form_url = "https://payment.cai1pay.com/gateway.aspx"; //正式环境
-            //}
+            string form_url = "http://pay.danbaoshop.cn:9876/netrecv/merchant/bMerUnionPay";
+           
+            //版本号
+            string version = "01";
 
             //交易账户号
-            string Mer_code = "10085001";
-            //string Mer_code = "10084901";
-
-            //商户证书：登陆商户后台下载的商户证书内容
-            string Mer_key = "DoptoupEp2Vbz3nuRuYHk7NqLLfBHDPJTnL7hxqUHPhJ6JLmB62Izsjf1Z73pDWCDmhmIGm3eeauzeJcZTallhtBdFfiQMEdT5fuB94UtZEvsOGxp54vDL16S6icAdCr";
-            //string Mer_key = "MK3LaSgnNnb2qfZ6sDfP5wOZ3f6VsXm068Ieo3LNUps3qRfdMS2AMGLzW3rUwkUPaBVHwVrOSsUqeuJCa2j04BDQNsiLlQ1Ku23FWxGRBDI4L4vBKFUTb4vyXeUdM5Dc";
+            string cust_id = "4001243573";
 
             //商户订单编号
-            string Billno = hkModel.HKCode;
+            string ord_id = hkModel.HKCode;
+
+            //商品名称
+            string subject = "we";
+            //支付渠道
+            string gate_id = "1008";
 
             //订单金额(保留2位小数)
-            string Amount = hkModel.RealMoney.ToString("F2");
-
-            //订单日期
-            string BillDate = hkModel.HKCreateDate.ToString("yyyyMMdd");
-
-            //币种
-            string Currency_Type = "RMB";
-
-            //支付卡种
-            //01：网银支付
-            //02：国际卡支付
-            //03：快捷支付
-            //04：微信支付
-            //05：支付宝支付
-            //06：预付卡支付
-
-            string Gateway_Type = "01";
-            //if (hkModel.FromBank == "03200")
-            //{
-            //    Gateway_Type = "05";
-            //}
-            //else if (hkModel.FromBank == "03100")
-            //{
-            //    Response.Write("参数错误！");
-            //    //Gateway_Type = "04";
-            //}
-            //else {
-            //    Gateway_Type = "01";
-            //}
-
-
-            string BankCode = hkModel.FromBank;
-            //语言
-            string Lang = "GB";
+            string trans_amt = hkModel.RealMoney.ToString("F2");
 
             //支付结果成功返回的商户URL
             string url = "http://" + HttpContext.Current.Request.Url.Authority.ToString();
-            string Merchanturl = url + "/Payment/cai1pay/OrderReturn.aspx";
-
-            ////支付结果失败返回的商户URL
-            //string FailUrl = Request.Form["FailUrl"];
-
-            ////支付结果错误返回的商户URL
-            //string ErrorUrl = Request.Form["ErrorUrl"];
-
-            //商户数据包
-            string Attach = hkModel.HKCode;
-
-            //显示金额
-            //string DispAmount = Request.Form["DispAmount"];
-
-            //订单支付接口加密方式
-            string OrderEncodeType = "2";
-
-            //交易返回接口加密方式
-            string RetEncodeType = "12";
-
-            //返回方式
-            string Rettype = "1";
-
-            //Server to Server 返回页面URL
-            string ServerUrl = url + "/Payment/cai1pay/S2SReturn.aspx";
+            //Server to Server 同步地址
+            string ret_url = url + "/Payment/cai1pay/S2SReturn.aspx";
+            //异步地址
+            string bg_ret_url = url + "/Payment/cai1pay/OrderReturn.aspx";
+            //商户证书
+            string mac_key = "";
+            //签名()
+            string check_value = "";
 
             //订单支付接口的Md5摘要，原文=订单号+金额+日期+支付币种+商户证书 
-            string SignMD5 = System.Web.Security.FormsAuthentication.HashPasswordForStoringInConfigFile(Billno + Amount + BillDate + Currency_Type + Mer_key, "MD5").ToLower();
-
-            string DoCredit = "1";
-
+            string SignMD5 = System.Web.Security.FormsAuthentication.HashPasswordForStoringInConfigFile(version + cust_id + ord_id + subject+ gate_id+ trans_amt+ ret_url+ bg_ret_url + mac_key, "MD5").ToLower();
+            check_value = SignMD5;
 
             string postForm = "<form name=\"frm1\" id=\"frm1\" method=\"post\" action=\"" + form_url + "\">";
-
-            postForm += "<input type=\"hidden\" name=\"MerCode\" value=\"" + Mer_code + "\" />";
-            postForm += "<input type=\"hidden\" name=\"MerOrderNo\" value=\"" + Billno + "\" />";
-            postForm += "<input type=\"hidden\" name=\"Amount\" value=\"" + Amount + "\" />";
-            postForm += "<input type=\"hidden\" name=\"OrderDate\" value=\"" + BillDate + "\" />";
-            postForm += "<input type=\"hidden\" name=\"Currency\" value=\"" + Currency_Type + "\" />";
-            postForm += "<input type=\"hidden\" name=\"GatewayType\" value=\"" + Gateway_Type + "\" />";
-            postForm += "<input type=\"hidden\" name=\"Language\" value=\"" + Lang + "\" />";
-            postForm += "<input type=\"hidden\" name=\"ReturnUrl\" value=\"" + Merchanturl + "\" />";
-            postForm += "<input type=\"hidden\" name=\"GoodsInfo\" value=\"" + Attach + "\" />";
-            postForm += "<input type=\"hidden\" name=\"OrderEncodeType\" value=\"" + OrderEncodeType + "\" />";
-            postForm += "<input type=\"hidden\" name=\"RetEncodeType\" value=\"" + RetEncodeType + "\" />";
-            postForm += "<input type=\"hidden\" name=\"Rettype\" value=\"" + Rettype + "\" />";
-            postForm += "<input type=\"hidden\" name=\"ServerUrl\" value=\"" + ServerUrl + "\" />";
-            postForm += "<input type=\"hidden\" name=\"SignMD5\" value=\"" + SignMD5 + "\" />";
-            postForm += "<input type=\"hidden\" name=\"DoCredit\" value=\"" + DoCredit + "\" />";
-            postForm += "<input type=\"hidden\" name=\"BankCode\" value=\"" + BankCode + "\" />";
+            postForm += "<input type=\"hidden\" name=\"version\" value=\"" + version + "\" />";
+            postForm += "<input type=\"hidden\" name=\"cust_id\" value=\"" + cust_id + "\" />";
+            postForm += "<input type=\"hidden\" name=\"ord_id\" value=\"" + ord_id + "\" />";
+            postForm += "<input type=\"hidden\" name=\"subject\" value=\"" + subject + "\" />";
+            postForm += "<input type=\"hidden\" name=\"gate_id\" value=\"" + gate_id + "\" />";
+            postForm += "<input type=\"hidden\" name=\"trans_amt\" value=\"" + trans_amt + "\" />";
+            postForm += "<input type=\"hidden\" name=\"ret_url\" value=\"" + ret_url + "\" />";
+            postForm += "<input type=\"hidden\" name=\"bg_ret_url\" value=\"" + bg_ret_url + "\" />";
+            postForm += "<input type=\"hidden\" name=\"check_value\" value=\"" + check_value + "\" />";
             postForm += "</form>";
 
             //自动提交该表单到测试网关

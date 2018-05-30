@@ -15,15 +15,24 @@ namespace WE_Project.Web.autoaspx
             {
                 if (string.IsNullOrEmpty(Request.QueryString["hour"]) || Request.QueryString["hour"] != "WE_Project")
                     return;
-                if (WE_Project.BLL.MMMConfig.Model.MacthSwitch)
+
+                string strdate = BLL.MMMConfig.Model.MacthTimesRange;
+                string[] strlist = strdate.Split('-');
+                DateTime statedt = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd ") + strlist[0]);
+                DateTime enddt = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd ") + strlist[1]);
+                DateTime dqdate = DateTime.Now;
+                if (dqdate >= statedt && dqdate <= enddt)
                 {
-                    try
+                    if (WE_Project.BLL.MMMConfig.Model.MacthSwitch)
                     {
-                        Response.Write(WE_Project.BLL.MHelpMatch.MatchingHelp2());
-                    }
-                    catch (Exception ex)
-                    {
-                        BLL.Task.SendManage(BLL.Member.ManageMember.TModel, "小时", ex.ToString());
+                        try
+                        {
+                            Response.Write(WE_Project.BLL.MHelpMatch.MatchingHelp2());
+                        }
+                        catch (Exception ex)
+                        {
+                            BLL.Task.SendManage(BLL.Member.ManageMember.TModel, "小时", ex.ToString());
+                        }
                     }
                 }
             }
