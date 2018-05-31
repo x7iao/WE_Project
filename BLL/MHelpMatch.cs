@@ -1046,7 +1046,7 @@ namespace WE_Project.BLL
             Model.Member offModel = DAL.Member.GetModel(off.SQMID);
             if (offModel.MTJ != BLL.Member.ManageMember.TModel.MID)
             {
-                BLL.ChangeMoney.HBChangeTran(off.SQMoney * BLL.MMMConfig.Model.LiXi1, offModel.MTJ, BLL.Member.ManageMember.TModel.MID, "TJKF", offModel, "MHB", "不打款扣推荐人" + BLL.MMMConfig.Model.LiXi1.ToPercent() + "；订单号：" + off.SQCode, MyHs);
+                BLL.ChangeMoney.HBChangeTran(off.SQMoney * BLL.MMMConfig.Model.LiXi1, offModel.MTJ, BLL.Member.ManageMember.TModel.MID, "TJKF", offModel, "MJB", "不打款扣推荐人" + BLL.MMMConfig.Model.LiXi1.ToPercent() + "；订单号：" + off.SQCode, MyHs);
                 Model.Member sqmodel = BLL.Member.GetModelByMID(offModel.MTJ);
                 int addzc = 30;
                 if ((sqmodel.MConfig.EPXingCount - 30) < 0)

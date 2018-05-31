@@ -32,10 +32,10 @@ namespace WE_Project.Web.ChangeMoney
                     //    moneyType = "MJBF";
                     if (Request.Form["RioHK"] == "TotalYFHMoney")
                         moneyType = "TotalYFHMoney";
-                    if (BLL.ChangeMoney.EnoughChange(Request.Form["txtMID"], int.Parse(Request.Form["txtMHB"]), moneyType))
+                    if (BLL.ChangeMoney.EnoughChange(Request.Form["txtMID"], decimal.Parse(Request.Form["txtMHB"]), moneyType))
                     {
                         Hashtable MyHs = new Hashtable();
-                        BLL.ChangeMoney.KFMoneyChange(Request.Form["txtMID"], BLL.Member.ManageMember.TModel.MID, int.Parse(Request.Form["txtMHB"]), moneyType, MyHs);
+                        BLL.ChangeMoney.KFMoneyChange(Request.Form["txtMID"], BLL.Member.ManageMember.TModel.MID, decimal.Parse(Request.Form["txtMHB"]), moneyType, MyHs);
                         if (BLL.CommonBase.RunHashtable(MyHs))
                             return "成功";
                         return "失败";
