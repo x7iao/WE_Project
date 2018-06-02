@@ -115,7 +115,7 @@ namespace WE_Project.Web.Payment.AliPay
 
                 AlipayTradeWapPayRequest request = new AlipayTradeWapPayRequest();
                 // 设置支付完成同步回调地址
-                string url = "http://" + HttpContext.Current.Request.Url.Authority.ToString();
+                string url = "https://" + HttpContext.Current.Request.Url.Authority.ToString();
                 string Merchanturl = url + "/Payment/AliPay/TBReturn.aspx";
                 request.SetReturnUrl(Merchanturl);
                 // 设置支付完成异步通知接收地址
