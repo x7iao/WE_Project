@@ -60,6 +60,9 @@ namespace WE_Project.Web.Payment.AliPay
                 basemoney = 100;
                 minmoney = 100;
                 czbase = 1;
+                //basemoney =Convert.ToDecimal( 0.1);
+                //minmoney = Convert.ToDecimal(0.1);
+                //czbase = Convert.ToDecimal(0.1);
             }
             else if (hkModel.HKType == 2)
             {
